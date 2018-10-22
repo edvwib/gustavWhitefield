@@ -1,0 +1,15 @@
+
+@font-face {
+  font-family: 'niramit regular';
+  src: url('/resources/fonts/niramit/Niramit-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'niramit bold';
+  src: url('/resources/fonts/niramit/Niramit-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'niramit medium';
+  src: url('/resources/fonts/niramit/Niramit-Medium.ttf');
+}

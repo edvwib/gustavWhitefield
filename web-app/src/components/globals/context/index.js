@@ -5,7 +5,7 @@ export const Glob = React.createContext();
 class ContextProvider extends Component{
 
   state={
-    language: 'en'
+    eng: false
   }
 
   render() {
