@@ -3,16 +3,20 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   justify-content: center;
-
-a{
-  text-decoration: none;
-  color: black;
-  font-family: 'niramit medium';
-}
 `;
 
 export const LinkWrap = styled.div`
   text-align: center;
-  margin: 5px;
+  margin: 10px;
+  a{
+    text-decoration: none;
+    color: #314D30;
+    font-family: 'niramit medium';
+    img{
+      height: 50px;
+      object-fit: contain;
+    }
+  }
 `;
