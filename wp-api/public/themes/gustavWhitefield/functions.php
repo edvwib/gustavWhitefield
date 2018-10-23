@@ -8,7 +8,7 @@ require template_path('includes/plugins/plate.php');
 // Set theme defaults.
 add_action('after_setup_theme', function () {
     // Disable the admin toolbar.
-    show_admin_bar(false);
+    show_admin_bar(true);
 
     // Add post thumbnails support.
     add_theme_support('post-thumbnails');
@@ -37,6 +37,12 @@ add_filter('jpeg_quality', function () {
     return 100;
 }, 10, 2);
 
+
+// Load custom post types, fields and blocks
+add_action('init', function () {
+    require_once template_path('custom-post-types/index.php');
+    require_once template_path('custom-fields/index.php');
+});
 
 // Load custom API endpoints
 require_once template_path('custom-endpoints/index.php');
