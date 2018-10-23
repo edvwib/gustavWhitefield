@@ -5,7 +5,7 @@ export const Glob = React.createContext();
 
 class ContextProvider extends Component{
 
-  API_URL = `http://localhost:${process.env.PHP_PORT}/wp-json/api/v1/`;
+  API_URL = `http://localhost:8888/wp-json/api/v1/`;
 
   state={
     eng: false,
