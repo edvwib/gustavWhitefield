@@ -10,8 +10,18 @@ add_action('rest_api_init', function () {
 });
 
 function getAllNews(){
-    return get_posts([
+    $posts = get_posts([
         'post_type' => 'news',
     ]);
+    $postsWithFields = [];
+
+    foreach ($posts as $post) {
+        array_push($postsWithFields, [
+            'post' => $post,
+            'fields' => get_fields($post->ID),
+        ]);
+    }
+
+    return $postsWithFields;
 }
 
