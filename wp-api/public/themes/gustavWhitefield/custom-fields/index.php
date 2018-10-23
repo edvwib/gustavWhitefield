@@ -2,4 +2,5 @@
 
 declare(strict_types=1);
 
+require_once __DIR__ . '/page-fields.php';
 require_once __DIR__ . '/news-fields.php';

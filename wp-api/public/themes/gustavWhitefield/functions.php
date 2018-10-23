@@ -42,14 +42,15 @@ add_filter('jpeg_quality', function () {
 add_action('init', function () {
     require_once template_path('custom-post-types/index.php');
     require_once template_path('custom-fields/index.php');
+    require_once template_path('custom-admin-cols/index.php');
 });
 
 // Load custom API endpoints
 require_once template_path('custom-endpoints/index.php');
 
 
-add_action('admin_init', 'wpse_110427_hide_title');
-function wpse_110427_hide_title()
+add_action('admin_init', 'hide_page_titel_for_editors');
+function hide_page_titel_for_editors()
 {
     if (current_user_can('editor'))
         remove_post_type_support('page', 'title');
