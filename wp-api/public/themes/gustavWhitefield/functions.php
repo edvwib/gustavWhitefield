@@ -46,3 +46,11 @@ add_action('init', function () {
 
 // Load custom API endpoints
 require_once template_path('custom-endpoints/index.php');
+
+
+add_action('admin_init', 'wpse_110427_hide_title');
+function wpse_110427_hide_title()
+{
+    if (current_user_can('editor'))
+        remove_post_type_support('page', 'title');
+}
