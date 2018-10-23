@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import { Glob } from '../context';
 import { Container } from './style';
-import MainNav from './mainNav';
+import NavItem from './navItem';
 
 class Nav extends Component {
 
   state={
     items: {
       en: [
-        {name: 'About Gustav', path: '/about'},
-        {name: 'About The Foundation', path: '/about'},
-        {name: 'Apply For Contribution', path: '/about'},
-        {name: 'We Thank', path: '/we-thank'},
-        {name: 'Support Us', path: '/support-us'},
-        {name: 'Contact Us', path: '/about'}
+        {name: 'About Gustav', path: '/about-gustav'},
+        {name: 'The Foundation', path: '/the-foundation'},
+        {name: 'Apply', path: '/apply'},
+        {name: 'Support Us', path: '/support-us'}
       ],
       sv: [
-        {name: 'Om Gustav', path: '/about'},
-        {name: 'Om Stiftelsen', path: '/about'},
-        {name: 'Sök Bidrag', path: '/about'},
-        {name: 'Vi Tackar', path: '/we-thank'},
-        {name: 'Stöd Oss', path: '/support-us'},
-        {name: 'Kontakta Oss', path: '/about'}
+        {name: 'Om Gustav', path: '/om-gustav'},
+        {name: 'Om Stiftelsen', path: '/om-stiftelsen'},
+        {name: 'Sök Bidrag', path: '/sok-bidrag'},
+        {name: 'Stöd Oss', path: '/stod-oss'}
       ]
     }
   }
@@ -34,8 +30,8 @@ class Nav extends Component {
             <Container>
               {
                 context.state.eng ?
-                <MainNav items={this.state.items.en}/> :
-                <MainNav items={this.state.items.sv}/>
+                <NavItem eng={context.state.eng} items={this.state.items.en}/> :
+                <NavItem eng={context.state.eng} items={this.state.items.sv}/>
               }
             </Container>
           )

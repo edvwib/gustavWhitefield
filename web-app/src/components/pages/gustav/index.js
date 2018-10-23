@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import { Container } from './style';
 
 
-class Start extends Component {
+class Gustav extends Component {
 
   render() {
     return (
       <Container>
-        <h1>About</h1>
+        <h1>Gustav</h1>
       </Container>
     );
   }
 }
 
-export default Start;
+export default Gustav;
