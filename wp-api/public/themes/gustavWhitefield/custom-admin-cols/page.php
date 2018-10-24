@@ -13,8 +13,7 @@ function add_page_columns($columns)
     unset($columns['comments']);
 
     return array_merge($columns, [
-        'titleSV' => __('Titel (svensk)'),
-        'titleENG' => __('Titel (engelsk)'),
+        'term_title' => __('Titel'),
     ]);
 }
 add_filter('manage_page_posts_columns', 'add_page_columns');
@@ -26,11 +25,9 @@ add_filter('manage_page_posts_columns', 'add_page_columns');
 function page_custom_column($column, $post_id)
 {
     switch ($column) {
-        case 'titleSV':
-            the_field('contentSV_titleSV', $post_id);
-            break;
-        case 'titleENG':
-            the_field('contentENG_titleENG', $post_id);
+        case 'term_title':
+            $term = get_the_terms($post_id, 'page-category');
+            echo $term[0] ? '<b>'.$term[0]->name.'</b>' : '';
             break;
     }
 }

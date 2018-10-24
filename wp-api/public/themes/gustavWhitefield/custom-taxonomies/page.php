@@ -3,7 +3,7 @@
 declare (strict_types=1);
 
 if (function_exists('register_taxonomy')) {
-    register_taxonomy('categories', 'page', [
+    register_taxonomy('page-category', 'page', [
         'labels' => [
             'name' => 'Kategori',
             'singular_name' => 'Kategori',
