@@ -7,10 +7,6 @@ add_action('rest_api_init', function () {
         'methods' => 'GET',
         'callback' => 'getAllPages'
     ]);
-    register_rest_route('api/v1', '/page/(?P<slug>.+)', [
-        'methods' => 'GET',
-        'callback' => 'getPage'
-    ]);
 });
 
 function getAllPages(){
@@ -18,23 +14,11 @@ function getAllPages(){
         'post_type' => 'page',
         'numberposts' => -1,
     ]);
-    $pagesWithFields = [];
+    $fields = [];
 
     foreach ($pages as $page) {
-        array_push($pagesWithFields, [
-            'page' => $page,
-            'fields' => get_fields($page->ID),
-        ]);
+        array_push($fields, get_fields($page->ID));
     }
 
-    return $pagesWithFields;
+    return $fields;
 }
-
-function getPage($data)
-{
-    $page = get_page_by_path($data['slug']);
-    $fields = get_fields($page->ID);
-    $page->fields = $fields;
-    return $page;
-}
-
