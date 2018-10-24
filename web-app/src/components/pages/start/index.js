@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
+import { Glob } from '../../globals/context';
 import { Container } from './style';
 
+import Header from './header';
+import News from './news';
 
 class Start extends Component {
 
   render() {
     return (
-      <Container>
-        <h1>Start Page</h1>
-      </Container>
+      <Glob.Consumer>
+        {
+          (context) => (
+            <Container>
+              <Header
+                eng={context.state.eng}
+                page={context.state.pages.startpage ? context.state.pages.startpage : false}
+              />
+              <News
+                eng={context.state.eng}
+                news={context.state.news}
+              />
+            </Container>
+          )
+        }
+      </Glob.Consumer>
     );
   }
 }

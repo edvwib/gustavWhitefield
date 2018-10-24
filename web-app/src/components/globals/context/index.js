@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router'
 
 export const Glob = React.createContext();
-
 
 class ContextProvider extends Component{
 
@@ -37,9 +35,18 @@ class ContextProvider extends Component{
     });
   }
 
+  getPageByName = (name) => {
+
+  }
+
   render() {
+
     return (
-      <Glob.Provider value={{state: this.state, update: this.updateLang}}>
+      <Glob.Provider value={{
+        state: this.state,
+        update: this.updateLang,
+        getPage: this.getPageByName
+      }}>
         {this.props.children}
       </Glob.Provider>
     );
