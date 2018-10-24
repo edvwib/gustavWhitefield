@@ -34,7 +34,7 @@ add_theme_support('plate-disable-editor', [
     'slugdiv',
     'sqpt-meta-tags',
     'trackbacksdiv',
-    //'categorydiv',
+    // 'categorydiv',
     //'tagsdiv-post_tag',
 ]);
 

@@ -56,3 +56,8 @@ function hide_page_title_for_editors()
     if (current_user_can('editor'))
         remove_post_type_support('page', 'title');
 }
+
+function hide_permalink() {
+    return '';
+}
+add_filter( 'get_sample_permalink_html', 'hide_permalink' );

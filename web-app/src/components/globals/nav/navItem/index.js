@@ -14,9 +14,9 @@ class MainNav extends Component{
               item.name === '' &&
               <NavLink to={item.path}>
                 { this.props.eng ?
-                  <img src='resources/icons/bigIconEng.png' alt='img'/>
+                  <img src='resources/icons/bigIconEng.png' alt='Icon English'/>
                   :
-                  <img src='resources/icons/bigIcon.png' alt='img'/>
+                  <img src='resources/icons/bigIcon.png' alt='Icon Swedish'/>
                 }
               </NavLink>
             }
