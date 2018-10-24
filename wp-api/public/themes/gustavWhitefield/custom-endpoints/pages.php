@@ -17,7 +17,8 @@ function getAllPages(){
     $fields = [];
 
     foreach ($pages as $page) {
-        array_push($fields, get_fields($page->ID));
+        $pageFields = get_fields($page->ID);
+        $fields[key($pageFields)] = get_fields($page->ID)[key($pageFields)];
     }
 
     return $fields;
