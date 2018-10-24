@@ -8,3 +8,4 @@ require_once __DIR__ . '/news-fields.php';
 // Pages
 require_once __DIR__ . '/page-startpage.php';
 // require_once __DIR__ . '/page-about-gustav.php';
+require_once __DIR__ . '/page-we-thank.php';
