@@ -43,14 +43,15 @@ add_action('init', function () {
     require_once template_path('custom-post-types/index.php');
     require_once template_path('custom-fields/index.php');
     require_once template_path('custom-admin-cols/index.php');
+    require_once template_path('custom-taxonomies/index.php');
 });
 
 // Load custom API endpoints
 require_once template_path('custom-endpoints/index.php');
 
 
-add_action('admin_init', 'hide_page_titel_for_editors');
-function hide_page_titel_for_editors()
+add_action('admin_init', 'hide_page_title_for_editors');
+function hide_page_title_for_editors()
 {
     if (current_user_can('editor'))
         remove_post_type_support('page', 'title');
