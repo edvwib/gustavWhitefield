@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { Container } from './style';
 
-import FollowUs from './followUs';
+import WeThank from './weThank';
 
 class Footer extends Component{
 
   render() {
     return (
       <Container>
-        {/* <FollowUs/> */}
+        <WeThank/>
       </Container>
     );
   }
