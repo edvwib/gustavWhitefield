@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 500px;
+  a{
+    text-decoration: none;
+    color: var(--dark-green);
+  }
 `;

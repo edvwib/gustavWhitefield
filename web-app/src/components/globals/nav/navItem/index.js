@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Container, LinkWrap } from './style';
 
 class MainNav extends Component{
@@ -12,11 +12,15 @@ class MainNav extends Component{
           <LinkWrap key={index}>
             {
               item.name === '' &&
-              <Link to={item.path}>
-                <img src='resources/icons/bigIcon.png' alt='img'/>
-              </Link>
+              <NavLink to={item.path}>
+                { this.props.eng ?
+                  <img src='resources/icons/bigIconEng.png' alt='img'/>
+                  :
+                  <img src='resources/icons/bigIcon.png' alt='img'/>
+                }
+              </NavLink>
             }
-            <Link to={item.path} >{item.name}</Link>
+            <NavLink to={item.path} >{item.name}</NavLink>
           </LinkWrap>
         )}
       </Container>
