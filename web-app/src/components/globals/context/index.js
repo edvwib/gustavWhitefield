@@ -10,21 +10,23 @@ class ContextProvider extends Component{
 
   state = {
     eng: false,
-    news: []
+    news: [],
+    pages: [],
   }
 
   componentDidMount = () => {
-    this.getNews();
+    this.getData('news');
+    this.getData('pages');
   }
 
-  getNews = () => {
-    fetch(this.API_URL + 'news')
+  getData = (endpoint) => {
+    fetch(this.API_URL + endpoint)
     .then((data) => {
       return data.json();
     })
     .then((data) => {
       this.setState({
-        news: data,
+        [endpoint]: data,
       })
     })
   }
