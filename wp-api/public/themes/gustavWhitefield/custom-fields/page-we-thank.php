@@ -5,7 +5,7 @@ declare (strict_types=1);
 
 $fields = [
     acf_group([
-        'name' => 'we-thank',
+        'name' => 'weThank',
         'label' => 'Vi tackar',
         'sub_fields' => [
             acf_tab([
@@ -63,7 +63,7 @@ $location = [
 ];
 
 acf_field_group([
-    'title' => 'we-thank',
+    'title' => 'weThank',
     'fields' => $fields,
     'style' => 'seamless',
     'location' => $location,
