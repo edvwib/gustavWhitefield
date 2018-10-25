@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from './style';
 
-import Art from './art';
+import Articles from './articles';
 
 class News extends Component {
 
@@ -11,7 +11,7 @@ class News extends Component {
         {
           this.props.news &&
           this.props.news.map((item, index) =>
-            <Art eng={this.props.eng} first={index === 0} key={index} news={item}/>
+            <Articles eng={this.props.eng} first={index === 0} key={index} news={item}/>
         )
         }
       </Container>

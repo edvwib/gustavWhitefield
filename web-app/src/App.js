@@ -11,6 +11,7 @@ import Gustav from './components/pages/gustav';
 import Foundation from './components/pages/foundation';
 import SupportUs from './components/pages/supportUs';
 import Apply from './components/pages/apply';
+import Article from './components/pages/article';
 import NotFound from './components/pages/notFound';
 
 class App extends Component {
@@ -34,6 +35,9 @@ class App extends Component {
 
           <Route exact path='/apply' component={Apply}/>
           <Route exact path='/sok-bidrag' component={Apply}/>
+
+          <Route exact path='/article' component={Article}/>
+          <Route exact path='/artikel' component={Article}/>
 
           <Route path="*" component={NotFound}/>
         </Switch>
