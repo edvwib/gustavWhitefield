@@ -10,6 +10,11 @@ padding: 20px;
 box-sizing: border-box;
 width: 100%;
 height: 100%;
+@media (max-width: 700px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 &::after{
   content: '';
@@ -27,10 +32,14 @@ height: 100%;
 }
 h1{
   margin: 0;
-  width: 40%;
+  text-align: center;
   font-size: 2em;
   color: var(--dark-green);
   font-family: 'niramit bold';
   text-shadow: 0px 0px 2px white;
+  @media (min-width: 700px) {
+    width: 40%;
+    text-align: left;
+  }
 }
 `;
