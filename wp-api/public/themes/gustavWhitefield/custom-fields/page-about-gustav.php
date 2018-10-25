@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 $fields = [
     acf_group([
         'name' => 'aboutGustav',
@@ -18,8 +17,8 @@ $fields = [
                 'required' => true,
             ]),
             acf_wysiwyg([
-                'name' => 'textSV',
-                'label' => 'Text (svenska)',
+                'name' => 'contentSV',
+                'label' => 'Innehåll (svenska)',
                 'required' => true,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -34,8 +33,8 @@ $fields = [
                 'required' => true,
             ]),
             acf_wysiwyg([
-                'name' => 'textENG',
-                'label' => 'Text (engelska)',
+                'name' => 'contentENG',
+                'label' => 'Innehåll (engelska)',
                 'required' => true,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',

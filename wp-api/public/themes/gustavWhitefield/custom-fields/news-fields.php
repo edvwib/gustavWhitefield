@@ -19,7 +19,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll (svenska)',
-                'required' => false,
+                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -31,22 +31,21 @@ $fields = [
             acf_text([
                 'name' => 'titleENG',
                 'label' => 'Titel (engelska)',
-                'required' => false,
+                'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll (engelska)',
-                'required' => false,
+                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
-        ],
-    ]),
-    acf_group([
-        'name' => 'gallery',
-        'label' => 'Galleri',
-        'sub_fields' => [
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
             acf_repeater([
                 'name' => 'images',
                 'label' => 'Bilder',
