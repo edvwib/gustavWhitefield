@@ -24,7 +24,7 @@ class MainNav extends Component{
         <MenuBtn open={this.state.open} updateOpen={this.updateOpen}/>
         {
           this.props.items.map((item, index) =>
-          <LinkWrap open={this.state.open} key={index}>
+          <LinkWrap onClick={this.updateOpen} open={this.state.open} key={index}>
             {
               item.name === '' &&
               <NavLink to={item.path}>
