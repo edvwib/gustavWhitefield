@@ -10,3 +10,5 @@ require_once __DIR__ . '/page-startpage.php';
 require_once __DIR__ . '/page-about-gustav.php';
 require_once __DIR__ . '/page-we-thank.php';
 require_once __DIR__ . '/page-support-us.php';
+require_once __DIR__ . '/page-contact-us.php';
+
