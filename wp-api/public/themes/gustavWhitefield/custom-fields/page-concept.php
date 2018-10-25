@@ -1,12 +1,12 @@
 <?php
 
-declare (strict_types=1);
+declare (strict_types = 1);
 
 
 $fields = [
     acf_group([
-        'name' => 'weThank',
-        'label' => 'Vi tackar',
+        'name' => 'concept',
+        'label' => 'Grundtankar & syfte',
         'sub_fields' => [
             acf_tab([
                 'name' => 'SV',
@@ -15,14 +15,14 @@ $fields = [
             acf_text([
                 'name' => 'titleSV',
                 'label' => 'Titel',
-                'instructions' => 'Titel för sidan.',
                 'required' => true,
             ]),
-            acf_text([
+            acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
-                'instructions' => 'Text som visas över företagens logotyper.',
-                'required' => false,
+                'required' => true,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
             ]),
             acf_tab([
                 'name' => 'ENG',
@@ -31,26 +31,14 @@ $fields = [
             acf_text([
                 'name' => 'titleENG',
                 'label' => 'Titel',
-                'instructions' => 'Titel för sidan.',
                 'required' => true,
             ]),
-            acf_text([
+            acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
-                'instructions' => 'Text som visas över företagens logotyper.',
-                'required' => false,
-            ]),
-            acf_tab([
-                'name' => 'endpoint',
-                'label' => '',
-                'endpoint' => true,
-            ]),
-            acf_gallery([
-                'name' => 'images',
-                'label' => 'Logotyper',
-                'instructions' => 'Företagens logotyper.',
-                'required' => false,
-                'mime_types' => 'jpeg, jpg, png',
+                'required' => true,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
             ]),
         ],
     ]),
@@ -58,12 +46,12 @@ $fields = [
 
 $location = [
     [
-        acf_location('post_taxonomy', 'page-category:vi-tackar')
+        acf_location('post_taxonomy', 'page-category:grundtankar-syfte')
     ]
 ];
 
 acf_field_group([
-    'title' => 'weThank',
+    'title' => 'concept',
     'fields' => $fields,
     'style' => 'seamless',
     'location' => $location,

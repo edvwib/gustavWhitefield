@@ -18,8 +18,11 @@ function getAllPages(){
 
     foreach ($pages as $page) {
         $pageFields = get_fields($page->ID);
-        if (!$pageFields) continue; //if post has no content
+        if (!$pageFields && !get_children($page->ID)) continue;
+        if (!$pageFields) continue;
+        // simplify return data structure
         $fields[key($pageFields)] = get_fields($page->ID)[key($pageFields)];
+        $fields[key($pageFields)]['page'] = $page;
     }
 
     return $fields;
