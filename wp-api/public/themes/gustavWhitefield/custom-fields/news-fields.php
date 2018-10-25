@@ -4,27 +4,39 @@ declare (strict_types=1);
 
 $fields = [
     acf_group([
-        'name' => 'contentSE',
-        'label' => 'Innehåll (svenska)',
+        'name' => 'news',
+        'label' => 'Nyhet',
         'sub_fields' => [
-            acf_wysiwyg([
-                'name' => 'content',
-                'label' => 'Innehåll',
+            acf_tab([
+                'name' => 'SV',
+                'label' => 'Svenska',
+            ]),
+            acf_text([
+                'name' => 'titleSV',
+                'label' => 'Titel (svenska)',
                 'required' => true,
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentSV',
+                'label' => 'Innehåll (svenska)',
+                'required' => false,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
-        ],
-    ]),
-    acf_group([
-        'name' => 'contentENG',
-        'label' => 'Innehåll (engelska)',
-        'sub_fields' => [
+            acf_tab([
+                'name' => 'ENG',
+                'label' => 'Engelska',
+            ]),
+            acf_text([
+                'name' => 'titleENG',
+                'label' => 'Titel (engelska)',
+                'required' => false,
+            ]),
             acf_wysiwyg([
-                'name' => 'content',
-                'label' => 'Innehåll',
-                'required' => true,
+                'name' => 'contentENG',
+                'label' => 'Innehåll (engelska)',
+                'required' => false,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -69,7 +81,7 @@ acf_field_group([
     'style' => 'seamless',
     'location' => $location,
     'hide_on_screen' => [
-        0 => 'the_content',
-        1 => 'featured_image',
+        'the_content',
+        'featured_image',
     ],
 ]);
