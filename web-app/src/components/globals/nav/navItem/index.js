@@ -38,7 +38,7 @@ class MainNav extends Component{
             <NavLink to={item.path} >{item.name}</NavLink>
           </LinkWrap>
         )}
-        <LangSettings showInMob={this.state.open}/>
+        <LangSettings open={this.state.open} showInMob={true}/>
       </Container>
     );
   }

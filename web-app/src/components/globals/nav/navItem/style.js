@@ -62,8 +62,7 @@ a.active{
 
 @media (max-width: 750px) {
   ${
-    props => !props.open &&
-    `
+    props => !props.open &&`
       display: none;
     `
   }
