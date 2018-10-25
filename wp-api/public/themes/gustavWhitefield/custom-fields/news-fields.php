@@ -13,12 +13,18 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'titleSV',
-                'label' => 'Titel (svenska)',
+                'label' => 'Titel',
                 'required' => true,
+            ]),
+            acf_textarea([
+                'name' => 'introSV',
+                'label' => 'Inledning',
+                'instructions' => 'Eventuella radbrytningar kommer att tas bort.',
+                'rows' => 3,
             ]),
             acf_wysiwyg([
                 'name' => 'contentSV',
-                'label' => 'Innehåll (svenska)',
+                'label' => 'Innehåll',
                 'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
@@ -30,12 +36,18 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'titleENG',
-                'label' => 'Titel (engelska)',
+                'label' => 'Titel',
                 'required' => true,
+            ]),
+            acf_textarea([
+                'name' => 'introENG',
+                'label' => 'Inledning',
+                'instructions' => 'Eventuella radbrytningar kommer att tas bort.',
+                'rows' => 3,
             ]),
             acf_wysiwyg([
                 'name' => 'contentENG',
-                'label' => 'Innehåll (engelska)',
+                'label' => 'Innehåll',
                 'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',

@@ -14,13 +14,13 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'titleSV',
-                'label' => 'Titel (svenska)',
+                'label' => 'Titel',
                 'instructions' => 'Titel för sidan.',
                 'required' => false,
             ]),
             acf_text([
                 'name' => 'contentSV',
-                'label' => 'Innehåll (svenska)',
+                'label' => 'Innehåll',
                 'instructions' => 'Text som visas över företagens logotyper.',
                 'required' => false,
             ]),
@@ -30,13 +30,13 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'titleENG',
-                'label' => 'Titel (engelska)',
+                'label' => 'Titel',
                 'instructions' => 'Titel för sidan.',
                 'required' => false,
             ]),
             acf_text([
                 'name' => 'contentENG',
-                'label' => 'Innehåll (engelska)',
+                'label' => 'Innehåll',
                 'instructions' => 'Text som visas över företagens logotyper.',
                 'required' => false,
             ]),

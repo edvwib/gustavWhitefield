@@ -21,7 +21,7 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'textSV',
-                'label' => 'Bildtext (svenska)',
+                'label' => 'Bildtext',
                 'instructions' => 'Text som visas över bilden.',
                 'required' => false,
             ]),
@@ -31,7 +31,7 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'textENG',
-                'label' => 'Bildtext (engelska)',
+                'label' => 'Bildtext',
                 'instructions' => 'Text som visas över bilden.',
                 'required' => false,
             ]),

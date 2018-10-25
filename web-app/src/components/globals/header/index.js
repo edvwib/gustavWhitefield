@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
 import { Glob } from '../../globals/context';
 import { Container, Image } from './style';
 

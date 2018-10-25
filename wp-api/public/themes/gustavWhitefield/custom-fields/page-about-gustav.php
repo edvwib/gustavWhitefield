@@ -13,12 +13,12 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'titleSV',
-                'label' => 'Titel (svenska)',
+                'label' => 'Titel',
                 'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentSV',
-                'label' => 'Innehåll (svenska)',
+                'label' => 'Innehåll',
                 'required' => true,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -29,12 +29,12 @@ $fields = [
             ]),
             acf_text([
                 'name' => 'titleENG',
-                'label' => 'Titel (engelska)',
+                'label' => 'Titel',
                 'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentENG',
-                'label' => 'Innehåll (engelska)',
+                'label' => 'Innehåll',
                 'required' => true,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',

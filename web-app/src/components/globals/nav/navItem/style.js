@@ -4,19 +4,24 @@ export const Container = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-${
-  props => props.open &&
-  `
-  background-color: rgba(246,254,246, .95);
-  height: 100vh;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  flex-wrap:nowrap;
-  flex-direction: column;
-  `
+
+@media (max-width: 750px) {
+  ${
+    props => props.open &&
+    `
+    background-color: rgba(246,254,246, .95);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    flex-wrap:nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 20%;
+    `
+  }
 }
 
 @media (min-width: 750px) {
@@ -63,7 +68,7 @@ a.active{
 @media (max-width: 750px) {
   ${
     props => !props.open &&`
-      display: none;
+    display: none;
     `
   }
 }

@@ -40,6 +40,7 @@ a{
   ${
     props => props.showInMob && props.open &&`
     display: block;
+    margin-top: 20px;
     `
   }
 }
