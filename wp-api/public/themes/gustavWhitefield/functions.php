@@ -50,11 +50,14 @@ add_action('init', function () {
 require_once template_path('custom-endpoints/index.php');
 
 
-add_action('admin_init', 'hide_page_title_for_editors');
-function hide_page_title_for_editors()
+add_action('admin_init', 'hide_titles_for_editors');
+function hide_titles_for_editors()
 {
-    if (current_user_can('editor'))
+    if (current_user_can('editor')){
         remove_post_type_support('page', 'title');
+        remove_post_type_support('news', 'title');
+    }
+
 }
 
 function hide_permalink() {

@@ -19,8 +19,8 @@ $fields = [
                 'required' => false,
             ]),
             acf_text([
-                'name' => 'textSV',
-                'label' => 'Text (svenska)',
+                'name' => 'contentSV',
+                'label' => 'Innehåll (svenska)',
                 'instructions' => 'Text som visas över företagens logotyper.',
                 'required' => false,
             ]),
@@ -35,8 +35,8 @@ $fields = [
                 'required' => false,
             ]),
             acf_text([
-                'name' => 'textENG',
-                'label' => 'Text (engelska)',
+                'name' => 'contentENG',
+                'label' => 'Innehåll (engelska)',
                 'instructions' => 'Text som visas över företagens logotyper.',
                 'required' => false,
             ]),

@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 $fields = [
     acf_group([
-        'name' => 'aboutGustav',
-        'label' => 'Om Gustav',
+        'name' => 'supportUs',
+        'label' => 'Stöd oss',
         'sub_fields' => [
             acf_tab([
                 'name' => 'SV',
@@ -14,12 +14,13 @@ $fields = [
             acf_text([
                 'name' => 'titleSV',
                 'label' => 'Titel (svenska)',
+                'instructions' => 'Titel för sidan.',
                 'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll (svenska)',
-                'required' => true,
+                'required' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
@@ -30,12 +31,13 @@ $fields = [
             acf_text([
                 'name' => 'titleENG',
                 'label' => 'Titel (engelska)',
+                'instructions' => 'Titel för sidan.',
                 'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll (engelska)',
-                'required' => true,
+                'required' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
@@ -45,12 +47,12 @@ $fields = [
 
 $location = [
     [
-        acf_location('post_taxonomy', 'page-category:om-gustav')
+        acf_location('post_taxonomy', 'page-category:stod-oss')
     ]
 ];
 
 acf_field_group([
-    'title' => 'aboutGustav',
+    'title' => 'supportUs',
     'fields' => $fields,
     'style' => 'seamless',
     'location' => $location,

@@ -20,7 +20,7 @@ add_filter('manage_page_posts_columns', 'add_page_columns');
 
 
 /*
- * Add columns to exhibition post list
+ * Add columns to page list
  */
 function page_custom_column($column, $post_id)
 {
