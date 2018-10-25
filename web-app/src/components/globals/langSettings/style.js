@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-margin: 10px;
+position: relative;
+padding: 20px;
 span{
   height: 100%;
   padding: 1px;
@@ -26,4 +27,14 @@ a{
     }
   }
 }
+`;
+
+export const Image = styled.img`
+position: absolute;
+left: 50%;
+top: 10px;
+margin: 0;
+height: 20.5px;
+width: 94px;
+transform: translate(-50%);
 `;

@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 30px;
-  margin: 50px;
+@media (min-width: 700px) {
+  margin: 20px 0 30px 0;
+}
 `;

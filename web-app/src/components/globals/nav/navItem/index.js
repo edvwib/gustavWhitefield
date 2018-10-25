@@ -2,11 +2,24 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, LinkWrap } from './style';
 
+import MenuBtn from './MenuBtn';
+
 class MainNav extends Component{
+
+  state={
+    open: false
+  }
+
+  updateOpen = () => {
+    this.setState({
+      open: !this.state.open
+    })
+  }
 
   render() {
     return (
-      <Container>
+      <Container open={this.state.open}>
+        <MenuBtn open={this.state.open} updateOpen={this.updateOpen}/>
         {
           this.props.items.map((item, index) =>
           <LinkWrap key={index}>

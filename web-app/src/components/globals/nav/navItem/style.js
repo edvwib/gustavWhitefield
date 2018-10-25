@@ -1,15 +1,31 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
-flex-wrap: wrap;
-align-items: center;
-justify-content: center;
+${
+  props => props.open &&
+  `
+  background-color: rgba(149,162,149, .9);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  `
+}
+
+@media (min-width: 700px) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
 `;
 
 export const LinkWrap = styled.div`
 text-align: center;
 margin: 10px;
+
 a{
   position: relative;
   padding-bottom: 3px;
@@ -32,7 +48,7 @@ a.active{
     left: 0;
   }
 }
-&:not(:first-child){
+&:not(:nth-child(2)){
   a::after{
     content: '';
     position: absolute;
@@ -41,4 +57,9 @@ a.active{
     transition: 1s ease;
   }
 }
+
+@media (max-width: 700px) {
+  display: none;
+}
+
 `;
