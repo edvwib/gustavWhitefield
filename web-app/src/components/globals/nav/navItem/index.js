@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { Container, LinkWrap } from './style';
 
 import MenuBtn from './MenuBtn';
-// import LangSettings from '../../langSettings';
+import LangSettings from '../../header/langSettings';
 
 class MainNav extends Component{
 
@@ -24,7 +24,7 @@ class MainNav extends Component{
         <MenuBtn open={this.state.open} updateOpen={this.updateOpen}/>
         {
           this.props.items.map((item, index) =>
-          <LinkWrap key={index}>
+          <LinkWrap open={this.state.open} key={index}>
             {
               item.name === '' &&
               <NavLink to={item.path}>
@@ -38,6 +38,7 @@ class MainNav extends Component{
             <NavLink to={item.path} >{item.name}</NavLink>
           </LinkWrap>
         )}
+        <LangSettings showInMob={this.state.open}/>
       </Container>
     );
   }

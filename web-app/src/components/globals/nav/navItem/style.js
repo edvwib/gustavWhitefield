@@ -1,24 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 ${
   props => props.open &&
   `
-  background-color: rgba(149,162,149, .9);
+  background-color: rgba(246,254,246, .95);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
+  flex-wrap:nowrap;
+  flex-direction: column;
   `
 }
 
-@media (min-width: 700px) {
-  display: flex;
+@media (min-width: 750px) {
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
 }
 `;
 
@@ -59,7 +61,12 @@ a.active{
 }
 
 @media (max-width: 750px) {
-  display: none;
+  ${
+    props => !props.open &&
+    `
+      display: none;
+    `
+  }
 }
 
 `;

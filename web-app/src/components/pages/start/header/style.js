@@ -38,7 +38,7 @@ h1{
   color: var(--dark-green);
   font-family: 'niramit bold';
   text-shadow: 0px 0px 2px white;
-  @media (min-width: 700px) {
+  @media (min-width: 750px) {
     width: 40%;
     text-align: left;
   }

@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
-
 span{
   height: 100%;
   padding: 1px;
@@ -32,6 +30,14 @@ a{
 @media (max-width: 750px) {
   ${
     props => !props.showInMob &&`
+    display: none;
+    `
+  }
+}
+
+@media (min-width: 750px) {
+  ${
+    props => props.showInMob &&`
     display: none;
     `
   }
