@@ -58,7 +58,7 @@ a.active{
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
   display: none;
 }
 

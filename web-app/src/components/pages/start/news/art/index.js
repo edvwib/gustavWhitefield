@@ -5,7 +5,6 @@ import { Container } from './style';
 class Art extends Component {
 
   render() {
-    console.log(this.props);
     return (
       <Container first={this.props.first}>
         {

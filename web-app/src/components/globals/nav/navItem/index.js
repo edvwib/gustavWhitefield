@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { NavLink } from 'react-router-dom';
 import { Container, LinkWrap } from './style';
 
 import MenuBtn from './MenuBtn';
+// import LangSettings from '../../langSettings';
 
 class MainNav extends Component{
 
@@ -11,9 +13,9 @@ class MainNav extends Component{
   }
 
   updateOpen = () => {
-    this.setState({
-      open: !this.state.open
-    })
+    this.setState({open: !this.state.open})
+    this.state.open ? enableBodyScroll(null) : disableBodyScroll(null);
+    !this.state.open && window.scrollTo(0, 0);
   }
 
   render() {

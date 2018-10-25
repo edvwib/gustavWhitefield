@@ -3,7 +3,7 @@ import {Switch, Route } from 'react-router-dom'
 import ContextProvider from './components/globals/context';
 import './App.css';
 
-import LangSettings from './components/globals/langSettings';
+import Header from './components/globals/header';
 import Nav from './components/globals/nav';
 import Footer from './components/globals/footer'
 import Start from './components/pages/start';
@@ -18,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <ContextProvider className="App">
-        <LangSettings/>
+        <Header/>
         <Nav/>
         <Switch>
           <Route exact path='/' component={Start}/>

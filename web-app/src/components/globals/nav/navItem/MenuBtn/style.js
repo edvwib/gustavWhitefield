@@ -2,7 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 display: none;
-@media (max-width: 700px) {
+z-index: 10;
+@media (max-width: 750px) {
   display: block;
   position: absolute;
   top: 10px;

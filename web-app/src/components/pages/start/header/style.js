@@ -10,7 +10,8 @@ padding: 20px;
 box-sizing: border-box;
 width: 100%;
 height: 100%;
-@media (max-width: 700px) {
+box-shadow: inset 0 1px .5px .5px white;
+@media (max-width: 750px) {
   display: flex;
   justify-content: center;
   align-items: center;
