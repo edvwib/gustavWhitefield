@@ -13,7 +13,7 @@ class MainNav extends Component{
   }
 
   updateOpen = () => {
-    this.setState({open: !this.state.open})
+    this.setState({open: !this.state.open});
     this.state.open ? enableBodyScroll(null) : disableBodyScroll(null);
     !this.state.open && window.scrollTo(0, 0);
   }
@@ -22,13 +22,18 @@ class MainNav extends Component{
     clearAllBodyScrollLocks();
   }
 
+  closeMenu = () => {
+    this.state.open && this.setState({open: false});
+    enableBodyScroll(null);
+  }
+
   render() {
     return (
       <Container open={this.state.open}>
         <MenuBtn open={this.state.open} updateOpen={this.updateOpen}/>
         {
           this.props.items.map((item, index) =>
-          <LinkWrap onClick={this.updateOpen} open={this.state.open} key={index}>
+          <LinkWrap onClick={this.closeMenu} open={this.state.open} key={index}>
             {
               item.name === '' &&
               <NavLink to={item.path}>
@@ -40,12 +45,12 @@ class MainNav extends Component{
               </NavLink>
             }
             <NavLink to={item.path} >{item.name}</NavLink>
-          </LinkWrap>
-        )}
-        <LangSettings open={this.state.open} showInMob={true}/>
-      </Container>
-    );
+            </LinkWrap>
+          )}
+          <LangSettings open={this.state.open} showInMob={true}/>
+        </Container>
+      );
+    }
   }
-}
 
-export default MainNav;
+  export default MainNav;
