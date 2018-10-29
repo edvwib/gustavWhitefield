@@ -6,7 +6,6 @@ import LangSettings from './langSettings';
 
 class Header extends Component{
 
-
   render() {
     return (
       <Glob.Consumer>

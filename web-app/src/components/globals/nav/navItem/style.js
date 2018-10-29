@@ -4,12 +4,11 @@ export const Container = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-
 @media (max-width: 750px) {
   ${
     props => props.open &&
     `
-    background-color: rgba(246,254,246, .95);
+    background-color: rgba(173, 215, 205, .95);
     height: 100vh;
     width: 100%;
     position: absolute;

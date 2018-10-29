@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
-import { Container, LinkWrap } from './style';
+import { Container } from './style';
 
 class FollowUs extends Component{
 
   render() {
     return (
       <Container>
-        <p>Följ oss</p>
-        <LinkWrap>
+        <a
+          href="https://www.facebook.com/gustavwhitefieldmemorialfund"
+          target="_blank"
+          rel="noopener noreferrer">
           <img src="resources/icons/facebook.svg" alt='Facebook'/>
+        </a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          rel="noopener noreferrer">
           <img src="resources/icons/instagram.svg" alt='Instagram'/>
-        </LinkWrap>
+        </a>
       </Container>
     );
   }

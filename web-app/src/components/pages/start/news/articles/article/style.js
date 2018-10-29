@@ -4,6 +4,9 @@ export const Container = styled.div`
 display: flex;
 justify-content: center;
 margin: 5% 0;
+@media (max-width: 750px) {
+  margin: 50px 0;
+}
 `;
 
 export const Wrapper = styled.div`
@@ -28,16 +31,16 @@ a{
   }
   @media (max-width: 750px) {
     &:first-child, &:last-child{
-      height: 300px;
       width: 90%;
     }
     &:first-child{
+      height: 300px;
       margin: 0 0 0 0;
     }
     &:last-child{
+      height: 200px;
       margin: 0;
     }
-
   }
 }
 @media (max-width: 750px) {
@@ -70,31 +73,53 @@ export const Text = styled.div`
 width: 100%;
 height: 100%;
 box-sizing: border-box;
+font-family: 'niramit regular';
+position: relative;
 
 h3{
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  font-family: 'niramit bold';
   height: 30%;
   margin: 0;
 }
 p{
   position: relative;
   margin: 0;
-  height: 70%;
-  font-family: 'niramit regular';
+  max-height: 60%;
   overflow: hidden;
 }
-p::after{
-  content: '';
+small{
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 5px;
-  width: 100%;
+  font-family: 'niramit bold';
+  padding: 0 3px 2px 3px;
+  border-radius: 3px;
+  border: 1px solid var(--light-green);
+  background-color: rgba(149,162,149, .1);
+  background-size: cover;
+  z-index: 1;
+}
+
+@media (max-width: 750px) {
+  small{
+
+  }
+  h3{
+    height: auto;
+    margin: 20px 0;
+  }
+}
+&::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 2.5%;
+  height: 10%;
+  width: 95%;
   background-color: white;
-  box-shadow: 10px 10px 30px 30px white;
+  box-shadow: 0px -10px 30px 20px white;
   opacity: .99;
 }
 `;

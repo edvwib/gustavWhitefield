@@ -1,7 +1,7 @@
 
 :root {
   --dark-green: #314D30;
-  --light-green: #95A295;
+  --light-green: #ADD7CD;
 }
 
 @font-face {
@@ -17,4 +17,9 @@
 @font-face {
   font-family: 'niramit medium';
   src: url('/resources/fonts/niramit/Niramit-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'niramit italic';
+  src: url('/resources/fonts/niramit/Niramit-Italic.ttf');
 }
