@@ -60,7 +60,7 @@ $fields = [
                         'label' => 'Svenska',
                     ]),
                     acf_textarea([
-                        'name' => 'textSV',
+                        'name' => 'contentSV',
                         'label' => 'Kort textinnehåll',
                         'required' => true,
                         'rows' => 2,
@@ -70,7 +70,7 @@ $fields = [
                         'label' => 'Engelska',
                     ]),
                     acf_textarea([
-                        'name' => 'textENG',
+                        'name' => 'contentENG',
                         'label' => 'Kort textinnehåll',
                         'required' => true,
                         'rows' => 2,
