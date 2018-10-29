@@ -8,7 +8,6 @@ import Slide from './slide';
 class Slider extends Component {
 
   render() {
-    console.log(this.props);
     return (
       <Container>
         <Carousel
@@ -16,11 +15,14 @@ class Slider extends Component {
           showThumbs={false}
           swipeable={true}
           useKeyboardArrows={true}
+          autoPlay={true}
+          interval={8000}
           >
-            <Slide/>
-            <Slide/>
-            <Slide/>
-            <Slide/>
+            {
+              this.props.page &&
+              this.props.page.slide.map((slide, index) =>
+                <Slide eng={this.props.eng} key={index} slide={slide}/>
+            )}
           </Carousel>
         </Container>
       );

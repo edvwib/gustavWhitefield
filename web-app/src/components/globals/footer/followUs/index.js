@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { Container } from './style';
 
+import ContactBtn from './contactBtn';
+
 class FollowUs extends Component{
 
   render() {
     return (
       <Container>
+        {/* <ContactBtn eng={this.props.eng}/> */}
         <a
           href="https://www.facebook.com/gustavwhitefieldmemorialfund"
           target="_blank"

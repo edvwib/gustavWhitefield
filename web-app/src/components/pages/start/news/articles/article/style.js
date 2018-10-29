@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const Container = styled.div`
 display: flex;
 justify-content: center;
-margin: 5% 0;
+margin: 7% 0;
 @media (max-width: 750px) {
-  margin: 50px 0;
+  margin: 50px 0 100px 0;
 }
 `;
 
@@ -40,7 +40,7 @@ a{
       margin: 0 0 0 0;
     }
     &:last-child{
-      height: 200px;
+      height: auto;
       margin: 0;
     }
   }

@@ -3,7 +3,6 @@ import { Glob } from '../context';
 import { Container } from './style';
 
 import FollowUs from './followUs';
-import ContactBtn from './contactBtn';
 import WeThank from './weThank';
 
 
@@ -15,8 +14,7 @@ class Footer extends Component{
         {
           (context) =>
           <Container>
-            <FollowUs/>
-            <ContactBtn eng={context.state.eng}/>
+            <FollowUs eng={context.state.eng}/>
             <WeThank eng={context.state.eng} page={context.state.pages.weThank}/>
           </Container>
         }

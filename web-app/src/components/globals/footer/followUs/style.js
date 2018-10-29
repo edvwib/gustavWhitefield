@@ -5,7 +5,9 @@ export const Container = styled.div`
   flex-direction: row;
   padding: 10px 10px 0 10px;
   width: 50%;
-  
+  a{
+    text-decoration: none;
+  }
   img{
     margin-right: 5px;
     height: 40px;
