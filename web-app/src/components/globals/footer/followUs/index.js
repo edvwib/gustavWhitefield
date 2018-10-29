@@ -13,13 +13,13 @@ class FollowUs extends Component{
           href="https://www.facebook.com/gustavwhitefieldmemorialfund"
           target="_blank"
           rel="noopener noreferrer">
-          <img src="resources/icons/facebook.svg" alt='Facebook'/>
+          <img src="/resources/icons/facebook.svg" alt='Facebook'/>
         </a>
         <a
           href="https://www.instagram.com/"
           target="_blank"
           rel="noopener noreferrer">
-          <img src="resources/icons/instagram.svg" alt='Instagram'/>
+          <img src="/resources/icons/instagram.svg" alt='Instagram'/>
         </a>
       </Container>
     );

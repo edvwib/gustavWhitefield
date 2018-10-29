@@ -17,6 +17,7 @@ import NotFound from './components/pages/notFound';
 class App extends Component {
 
   render() {
+    console.log(this.props.location);
     return (
       <ContextProvider className="App">
         <Header/>
@@ -24,20 +25,20 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={Start}/>
 
-          <Route exact path='/about-gustav' component={Gustav}/>
-          <Route exact path='/om-gustav' component={Gustav}/>
+          <Route path='/about-gustav' component={Gustav}/>
+          <Route path='/om-gustav' component={Gustav}/>
 
-          <Route exact path='/the-foundation' component={Foundation}/>
-          <Route exact path='/om-stiftelsen' component={Foundation}/>
+          <Route path='/the-foundation' component={Foundation}/>
+          <Route path='/om-stiftelsen' component={Foundation}/>
 
-          <Route exact path='/support-us' component={SupportUs}/>
-          <Route exact path='/stod-oss' component={SupportUs}/>
+          <Route path='/support-us' component={SupportUs}/>
+          <Route path='/stod-oss' component={SupportUs}/>
 
-          <Route exact path='/apply' component={Apply}/>
-          <Route exact path='/sok-bidrag' component={Apply}/>
+          <Route path='/apply' component={Apply}/>
+          <Route path='/sok-bidrag' component={Apply}/>
 
-          <Route exact path='/article' component={Article}/>
-          <Route exact path='/artikel' component={Article}/>
+          <Route path='/article' component={Article}/>
+          <Route path='/artikel' component={Article}/>
 
           <Route path="*" component={NotFound}/>
         </Switch>

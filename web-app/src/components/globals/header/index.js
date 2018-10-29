@@ -17,7 +17,7 @@ class Header extends Component{
                 showImg={this.props.showImg}
                 src={context.state.eng ?
                   'resources/icons/bigIconEng.png' :
-                  'resources/icons/bigIcon.png'
+                  '/resources/icons/bigIcon.png'
                 }/>
               </Container>
             )

@@ -4,6 +4,8 @@ import { Container } from './style';
 
 import FollowUs from './followUs';
 import WeThank from './weThank';
+import Contact from './contact';
+
 
 
 class Footer extends Component{
@@ -16,6 +18,7 @@ class Footer extends Component{
           <Container>
             <FollowUs eng={context.state.eng}/>
             <WeThank eng={context.state.eng} page={context.state.pages.weThank}/>
+            <Contact eng={context.state.eng}/>
           </Container>
         }
       </Glob.Consumer>
