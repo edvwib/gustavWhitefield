@@ -16,6 +16,7 @@ flex-direction: row;
 width: 80%;
 height: 200px;
 ${props => props.first &&`flex-flow: row-reverse;width: 90%;`}
+
 a{
   height: 100%;
   color: var(--dark-green);
@@ -29,6 +30,7 @@ a{
     margin: 0 0 0 30px;
     ${props => props.first &&`margin: 0 30px 0 0; width: 50%;`}
   }
+
   @media (max-width: 750px) {
     &:first-child, &:last-child{
       width: 90%;
@@ -83,12 +85,14 @@ h3{
   height: 30%;
   margin: 0;
 }
+
 p{
   position: relative;
   margin: 0;
   max-height: 60%;
   overflow: hidden;
 }
+
 small{
   position: absolute;
   bottom: 0;
@@ -103,9 +107,6 @@ small{
 }
 
 @media (max-width: 750px) {
-  small{
-
-  }
   h3{
     height: auto;
     margin: 20px 0;
