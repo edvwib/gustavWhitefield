@@ -9,9 +9,9 @@ const Companies = (props) => {
         props.companies &&
         props.companies.images.map( i =>
           <Company
-            href="https://www.thesaurus.com/"
-            key={i.ID}
-            img={i.url}
+            href={i.url}
+            key={i.image.ID}
+            img={i.image.url}
           />
         )}
       </Container>

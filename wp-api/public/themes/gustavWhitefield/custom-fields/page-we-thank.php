@@ -45,12 +45,27 @@ $fields = [
                 'label' => '',
                 'endpoint' => true,
             ]),
-            acf_gallery([
+            acf_repeater([
                 'name' => 'images',
                 'label' => 'Logotyper',
                 'instructions' => 'Företagens logotyper.',
-                'required' => false,
-                'mime_types' => 'jpeg, jpg, png',
+                'layout' => 'block',
+                'sub_fields' => [
+                    acf_image([
+                        'name' => 'image',
+                        'label' => 'Bild',
+                        'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
+                        'library' => 'all',
+                        'mime_types' => 'jpeg, jpg, png',
+                        'preview_size' => 'thumbnail',
+                        'return_format' => 'array',
+                    ]),
+                    acf_url([
+                        'name' => 'url',
+                        'label' => 'Företagets hemsida',
+                        'required' => false,
+                    ]),
+                ],
             ]),
         ],
     ]),

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Glob } from '../../context';
 import { Container } from './style';
 
 import Text from './text';
