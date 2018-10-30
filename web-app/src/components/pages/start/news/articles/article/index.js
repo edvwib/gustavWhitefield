@@ -35,7 +35,7 @@ class Article extends Component {
         <Text first={this.props.first}>
           <h3>{this.props.content.title}</h3>
           <p>{this.props.content.intro}</p>
-          <small>Läs mer</small>
+          <small>{this.props.eng ? 'Read more' : 'Läs mer'}</small>
         </Text>
       </NavLink>
     </Wrapper>

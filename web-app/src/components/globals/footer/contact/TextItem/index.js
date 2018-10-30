@@ -1,17 +1,14 @@
 import React from 'react';
 import { Container } from './style';
 
-const Contact = (props) => {
+const TextItem = (props) => {
 
   return(
     <Container>
-      <div>
-        <small>Elisabeth Whitefield</small>
-        <small>Tel: +46 703 517 761</small>
-        <small>Copyright © www.gustavwhitefield.com</small>
-      </div>
+      <small>{props.text1}</small>
+      <small>{props.text2}</small>
     </Container>
   )
 }
 
-export default Contact;
+export default TextItem;
