@@ -6,7 +6,7 @@ import { Container, LinkWrap } from './style';
 import MenuBtn from './MenuBtn';
 import LangSettings from '../../header/langSettings';
 
-class MainNav extends Component{
+class NavItem extends Component{
 
   state={
     open: false
@@ -53,4 +53,4 @@ class MainNav extends Component{
     }
   }
 
-  export default MainNav;
+  export default NavItem;

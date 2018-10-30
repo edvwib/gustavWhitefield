@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
-import { Glob } from '../context';
+import { Glob } from '../../../../components/globals/context';
 import { Container } from './style';
 
 import NavItem from './navItem';
 
-class Nav extends Component {
+class SubNav extends Component {
 
   state={
     items: {
       en: [
-        {name: '', path: '/'},
-        {name: 'About Gustav', path: '/about-gustav'},
-        {name: 'The Foundation', path: '/the-foundation'},
-        {name: 'Apply', path: '/apply'},
-        {name: 'Support Us', path: '/support-us'}
+        {name: 'Purpose', path: '/the-foundation/purpose'},
+        {name: 'We Support', path: '/the-foundation/we-support'},
+        {name: 'The Board', path: '/the-foundation/the-board'},
+        {name: 'Statues', path: '/the-foundation/statutes'}
       ],
       sv: [
-        {name: '', path: '/'},
-        {name: 'Om Gustav', path: '/om-gustav'},
-        {name: 'Om Stiftelsen', path: '/om-stiftelsen'},
-        {name: 'Sök Bidrag', path: '/sok-bidrag'},
-        {name: 'Stöd Oss', path: '/stod-oss'}
+        {name: 'Syfte', path: '/om-stiftelsen'},
+        {name: 'Vi Stödjer', path: '/om-stiftelsen/vi-stodjer'},
+        {name: 'Styrelsen', path: '/om-stiftelsen/styrelsen'},
+        {name: 'Stadgar', path: '/om-stiftelsen/stadgar'}
       ]
     }
   }
@@ -44,4 +42,4 @@ class Nav extends Component {
   }
 }
 
-export default Nav;
+export default SubNav;

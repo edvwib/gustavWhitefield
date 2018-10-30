@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 height: 450px;
+@media (min-width: 750px) {
+  margin-top: 20px;
+}
 `;
 
 export const ImgCont = styled.div`
