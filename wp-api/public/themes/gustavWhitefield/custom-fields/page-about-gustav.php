@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 $fields = [
     acf_group([
-        'name' => 'aboutGustav',
-        'label' => 'Om Gustav',
+        'name' => 'title',
+        'label' => '',
         'sub_fields' => [
             acf_tab([
                 'name' => 'SV',
@@ -16,13 +16,6 @@ $fields = [
                 'label' => 'Titel',
                 'required' => true,
             ]),
-            acf_wysiwyg([
-                'name' => 'contentSV',
-                'label' => 'Innehåll',
-                'required' => true,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
             acf_tab([
                 'name' => 'ENG',
                 'label' => 'Engelska',
@@ -32,12 +25,134 @@ $fields = [
                 'label' => 'Titel',
                 'required' => true,
             ]),
+        ],
+    ]),
+    acf_group([
+        'name' => 'part1',
+        'label' => 'Första stycket',
+        'sub_fields' => [
+            acf_tab([
+                'name' => 'SV',
+                'label' => 'Svenska',
+            ]),
             acf_wysiwyg([
-                'name' => 'contentENG',
-                'label' => 'Innehåll',
+                'name' => 'contentSV',
+                'label' => 'Text',
                 'required' => true,
+                'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'ENG',
+                'label' => 'Engelska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentENG',
+                'label' => 'Text',
+                'required' => true,
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
+            ]),
+        ],
+    ]),
+    acf_group([
+        'name' => 'part2',
+        'label' => 'Andra stycket',
+        'sub_fields' => [
+            acf_tab([
+                'name' => 'SV',
+                'label' => 'Svenska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentSV',
+                'label' => 'Text',
+                'required' => true,
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'ENG',
+                'label' => 'Engelska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentENG',
+                'label' => 'Text',
+                'required' => true,
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
+            ]),
+        ],
+    ]),
+    acf_group([
+        'name' => 'part3',
+        'label' => 'Tredje stycket',
+        'sub_fields' => [
+            acf_tab([
+                'name' => 'SV',
+                'label' => 'Svenska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentSV',
+                'label' => 'Text',
+                'required' => true,
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'ENG',
+                'label' => 'Engelska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentENG',
+                'label' => 'Text',
+                'required' => true,
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
             ]),
         ],
     ]),
