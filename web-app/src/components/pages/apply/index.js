@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
+import { Glob } from '../../globals/context';
 import { Container } from './style';
-
+import Form from './form';
 
 class Apply extends Component {
 
   render() {
     return (
-      <Container>
-        <h1>Apply</h1>
-      </Container>
+      <Glob.Consumer>
+        {
+          (context) =>
+            <Container>
+              <h1>{context.state.eng ? 'Apply' : 'Sök bidrag'}</h1>
+              <Form eng={context.state.eng}/>
+            </Container>
+        }
+      </Glob.Consumer>
     );
   }
 }
