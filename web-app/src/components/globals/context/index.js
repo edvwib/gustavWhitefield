@@ -40,6 +40,7 @@ class ContextProvider extends Component{
   }
 
   render() {
+    // console.log(this.state.pages.aboutGustav);
     return (
       <Glob.Provider value={{
         state: this.state,

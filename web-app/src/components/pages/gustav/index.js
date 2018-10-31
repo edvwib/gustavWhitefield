@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Glob } from '../../globals/context';
 import { Container } from './style';
 
-import Text from './text';
+import Content from './content';
 
 class Gustav extends Component {
 
@@ -15,7 +15,7 @@ class Gustav extends Component {
             <Container>
               {
                 context.state.pages &&
-                  <Text
+                  <Content
                     eng={context.state.eng}
                     page={context.state.pages.aboutGustav}/>
               }
