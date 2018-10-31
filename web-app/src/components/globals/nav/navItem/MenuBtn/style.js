@@ -6,8 +6,8 @@ z-index: 10;
 @media (max-width: 750px) {
   display: block;
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   height: 30px;
   width: 40px;
 }
