@@ -8,6 +8,14 @@ $fields = [
         'name' => 'concept',
         'label' => 'Grundtankar & syfte',
         'sub_fields' => [
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
+            ]),
             acf_tab([
                 'name' => 'SV',
                 'label' => 'Svenska',
@@ -21,6 +29,7 @@ $fields = [
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
                 'required' => true,
+                'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
@@ -37,6 +46,7 @@ $fields = [
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
                 'required' => true,
+                'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
