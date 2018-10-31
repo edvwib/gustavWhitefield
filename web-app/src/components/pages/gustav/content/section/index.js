@@ -8,8 +8,6 @@ const Section = (props) => {
     <Container>
       <Image src={props.img.sizes.large}/>
       <span dangerouslySetInnerHTML={{__html: props.content}}/>
-
-
     </Container>
   );
 }
