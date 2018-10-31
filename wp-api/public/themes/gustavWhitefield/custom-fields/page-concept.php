@@ -5,7 +5,7 @@ declare (strict_types = 1);
 
 $fields = [
     acf_group([
-        'name' => 'concept',
+        'name' => 'purpose',
         'label' => 'Grundtankar & syfte',
         'sub_fields' => [
             acf_image([
@@ -56,12 +56,12 @@ $fields = [
 
 $location = [
     [
-        acf_location('post_taxonomy', 'page-category:grundtankar-syfte')
+        acf_location('post_taxonomy', 'page-category:syfte')
     ]
 ];
 
 acf_field_group([
-    'title' => 'concept',
+    'title' => 'purpose',
     'fields' => $fields,
     'style' => 'seamless',
     'location' => $location,
