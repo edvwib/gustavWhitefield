@@ -35,8 +35,8 @@ class ContextProvider extends Component{
     });
   }
 
-  getPageByName = (name) => {
-
+  getNewsById = (id) => {
+    return this.state.news.filter((item) => item.post.ID === Number(id))[0];
   }
 
   render() {
@@ -44,7 +44,8 @@ class ContextProvider extends Component{
       <Glob.Provider value={{
         state: this.state,
         update: this.updateLang,
-        getPage: this.getPageByName
+        getPage: this.getPageByName,
+        getNewsById: this.getNewsById
       }}>
         {this.props.children}
       </Glob.Provider>

@@ -13,7 +13,6 @@ add_action('rest_api_init', function () {
     ]);
 });
 
-
 function getNewsById($data){
     $news = get_posts(['post_type' => 'news', 'attachment_id' => $data['id']]);
     $newsWithFields = [];
