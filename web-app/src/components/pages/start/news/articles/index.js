@@ -7,6 +7,7 @@ class Articles extends Component {
 
   state={
     eng: {
+      id: this.props.news.post.ID,
       date: this.props.news.post.post_date,
       images: this.props.news.fields.news.images,
       intro: this.props.news.fields.news.introENG,
@@ -14,6 +15,7 @@ class Articles extends Component {
       content: this.props.news.fields.news.contentENG
     },
     sv:{
+      id: this.props.news.post.ID,
       date: this.props.news.post.post_date,
       images: this.props.news.fields.news.images,
       intro: this.props.news.fields.news.introSV,
@@ -23,6 +25,7 @@ class Articles extends Component {
   }
 
   render() {
+    console.log(this.state.sv.id);
     return (
       <Container>
         {

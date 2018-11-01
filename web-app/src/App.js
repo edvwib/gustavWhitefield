@@ -12,12 +12,12 @@ import Foundation from './components/pages/foundation';
 import SupportUs from './components/pages/supportUs';
 import Apply from './components/pages/apply';
 import Article from './components/pages/article';
+import Articles from './components/pages/articles';
 import NotFound from './components/pages/notFound';
 
 class App extends Component {
 
   render() {
-    console.log(this.props.location);
     return (
       <ContextProvider className="App">
         <Header/>
@@ -37,8 +37,11 @@ class App extends Component {
           <Route path='/apply' component={Apply}/>
           <Route path='/sok-bidrag' component={Apply}/>
 
-          <Route path='/article' component={Article}/>
-          <Route path='/artikel' component={Article}/>
+          <Route path='/article/:id' component={Article}/>
+          <Route path='/artikel/:id' component={Article}/>
+
+          <Route path='/articles' component={Articles}/>
+          <Route path='/artiklar' component={Articles}/>
 
           <Route path="*" component={NotFound}/>
         </Switch>

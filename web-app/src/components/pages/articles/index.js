@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import { Container } from './style';
 
 
-class Article extends Component {
+class Articles extends Component {
 
   render() {
-    console.log(this.props);
     return (
       <Container>
-        <h1>Article</h1>
+        <h1>articles</h1>
       </Container>
     );
   }
 }
 
-export default Article;
+export default Articles;

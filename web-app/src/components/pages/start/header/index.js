@@ -10,7 +10,7 @@ class Header extends Component {
         {
           this.props.page &&
           <ImgCont
-            img={this.props.page.image.sizes.large ? this.props.page.image.sizes.large :
+            img={this.props.page.image ? this.props.page.image.sizes.large :
               '/resources/icons/placeholder.jpg'
             }>
             <h1>{this.props.eng ? this.props.page.textENG : this.props.page.textSV}</h1>

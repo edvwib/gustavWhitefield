@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import { Container } from './style';
+import Content from './content';
 
+const Page = (props) => {
 
-class Page extends Component {
-
-  render() {
-    console.log(this.props.pages);
-    return (
-      <Container>
-
-      </Container>
-    );
-  }
+  return (
+    <React.Fragment>
+      {
+        props.page &&
+        <Content
+          content={props.page}
+          eng={props.eng}
+        />
+      }
+    </React.Fragment>
+  );
 }
 
 export default Page;

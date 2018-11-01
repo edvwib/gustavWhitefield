@@ -25,13 +25,15 @@ class Article extends Component {
   }
 
   render() {
+    const id = this.props.content.id;
+
     return (
       <Container>
         <Wrapper first={this.props.first}>
-          <NavLink to={this.props.eng ? '/article' : '/artikel'}>
+          <NavLink to={this.props.eng ? `/article/${id}` : `/artikel/${id}`}>
           <Image src={this.getImage()}/>
         </NavLink>
-        <NavLink to={this.props.eng ? '/article' : '/artikel'}>
+        <NavLink to={this.props.eng ? `/article/${id}` : `/artikel/${id}`}>
         <Text first={this.props.first}>
           <h3>{this.props.content.title}</h3>
           <p>{this.props.content.intro}</p>

@@ -1,16 +1,22 @@
-import React, { Component } from 'react';
-import { Container } from './style';
+import React from 'react';
+import { Glob } from '../../../../components/globals/context';
 
+import Page from './page';
 
-class purpose extends Component {
+const Purpose = (props) => {
 
-  render() {
     return (
-      <Container>
-        <h1>About purpose</h1>
-      </Container>
+      <Glob.Consumer>
+        {
+          (context) => (
+            <React.Fragment>
+              <Page eng={context.state.eng} page={context.state.pages.purpose}/>
+            </React.Fragment>
+          )
+        }
+      </Glob.Consumer>
     );
-  }
+
 }
 
-export default purpose;
+export default Purpose;
