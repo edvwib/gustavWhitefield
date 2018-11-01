@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
-
 `;
 
 export const ArtBtn = styled.div`
@@ -20,12 +19,12 @@ a{
 a:after{
   content: '';
   position: absolute;
-  top: calc(50% - 6px);
+  top: calc(50% - 6.5px);
   right: -20px;
   width: 0;
   height: 0;
   border-top: 8px solid transparent;
-  border-left: 16px solid var(--another-green);
+  border-left: 16px solid var(--dark-green);
   border-bottom: 8px solid transparent;
 }
 

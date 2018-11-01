@@ -44,7 +44,6 @@ class ContextProvider extends Component{
       <Glob.Provider value={{
         state: this.state,
         update: this.updateLang,
-        getPage: this.getPageByName,
         getNewsById: this.getNewsById
       }}>
         {this.props.children}
