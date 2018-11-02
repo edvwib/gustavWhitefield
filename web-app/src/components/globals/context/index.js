@@ -7,7 +7,7 @@ class ContextProvider extends Component{
   API_URL = `http://localhost:8888/wp-json/api/v1/`;
 
   state = {
-    eng: false,
+    eng: window.localStorage.getItem('eng') || false,
     news: [],
     pages: [],
   }
@@ -30,6 +30,7 @@ class ContextProvider extends Component{
   }
 
   updateLang = () => {
+    window.localStorage.setItem('eng', !this.state.eng ? 'true' : '');
     this.setState({
       eng: !this.state.eng
     });
