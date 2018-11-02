@@ -5,17 +5,9 @@ declare (strict_types = 1);
 
 $fields = [
     acf_group([
-        'name' => 'purpose',
-        'label' => 'Grundtankar & syfte',
+        'name' => 'annualReports',
+        'label' => 'Årsredovisningar',
         'sub_fields' => [
-            acf_image([
-                'name' => 'image',
-                'label' => 'Bild',
-                'library' => 'all',
-                'mime_types' => 'jpeg, jpg, png',
-                'preview_size' => 'medium',
-                'return_format' => 'array',
-            ]),
             acf_tab([
                 'name' => 'SV',
                 'label' => 'Svenska',
@@ -23,7 +15,6 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
-                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -35,10 +26,30 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
-                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
+            acf_repeater([
+                'name' => 'files',
+                'label' => 'Filer',
+                'layout' => 'block',
+                'sub_fields' => [
+                    acf_file([
+                        'name' => 'report',
+                        'label' => 'Fil',
+                        'instructions' => 'Lägg till filer som <strong>pdf</strong>.',
+                        'required' => true,
+                        'library' => 'all',
+                        'mime_types' => 'pdf',
+                        'return_format' => 'array',
+                    ]),
+                ],
             ]),
         ],
     ]),
@@ -46,12 +57,12 @@ $fields = [
 
 $location = [
     [
-        acf_location('post_taxonomy', 'page-category:syfte')
+        acf_location('post_taxonomy', 'page-category:arsredovisningar')
     ]
 ];
 
 acf_field_group([
-    'title' => 'purpose',
+    'title' => 'annualReports',
     'fields' => $fields,
     'style' => 'seamless',
     'location' => $location,
