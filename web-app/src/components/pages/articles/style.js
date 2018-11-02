@@ -2,14 +2,13 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 display: grid;
-grid-template-columns:  repeat(auto-fill, minmax(300px, 1fr));
+grid-column-gap: 10px;
 grid-row-gap: 10px;
 padding: 5%;
+grid-template-columns: repeat( auto-fill, minmax(250px, 1fr));
 
-div{
-  background-color: red;
-  border: 2px solid black;
-  width: 300px;
-  height: 300px;
+@media (min-width: 1400px) {
+  grid-template-columns: auto auto auto auto;
 }
+
 `;

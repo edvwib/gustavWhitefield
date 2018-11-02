@@ -8,9 +8,8 @@ class Article extends Component {
     console.log(this.props);
     return (
       <Container>
-        <p>
-          {this.props.intro}
-        </p>
+        <h2>{this.props.title}</h2>
+        <p>{this.props.intro}</p>
       </Container>
 
     );

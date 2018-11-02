@@ -22,12 +22,6 @@ class Articles extends Component {
                   eng={context.state.eng}
                 />)
               }
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
             </Container>
           )
         }
