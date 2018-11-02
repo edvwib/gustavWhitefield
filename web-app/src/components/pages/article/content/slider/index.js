@@ -19,7 +19,6 @@ class Slider extends Component {
   }
 
   render() {
-    console.log(this.state.images);
     return (
       <Container numImg={this.state.images.length}>
         <Carousel

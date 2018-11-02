@@ -6,6 +6,7 @@ import Purpose from './purpose';
 import Statues from './statues';
 import WeSupport from './weSupport';
 import TheBoard from './theBoard';
+import Economy from './economy';
 import NotFound from '../../../components/pages/notFound';
 
 class Foundation extends Component {
@@ -26,6 +27,9 @@ class Foundation extends Component {
 
           <Route path='/the-foundation/the-board' component={TheBoard}/>
           <Route path='/om-stiftelsen/styrelsen' component={TheBoard}/>
+
+          <Route path='/the-foundation/economy' component={Economy}/>
+          <Route path='/om-stiftelsen/ekonomi' component={Economy}/>
 
           <Route path="*" component={NotFound}/>
         </Switch>

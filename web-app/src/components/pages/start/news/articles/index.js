@@ -25,7 +25,6 @@ class Articles extends Component {
   }
 
   render() {
-    console.log(this.state.sv.id);
     return (
       <Container>
         {
