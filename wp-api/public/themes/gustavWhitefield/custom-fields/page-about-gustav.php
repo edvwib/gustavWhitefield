@@ -8,30 +8,6 @@ $fields = [
         'label' => '',
         'sub_fields' => [
             acf_group([
-                'name' => 'title',
-                'label' => '',
-                'sub_fields' => [
-                    acf_tab([
-                        'name' => 'SV',
-                        'label' => 'Svenska',
-                    ]),
-                    acf_text([
-                        'name' => 'titleSV',
-                        'label' => 'Titel',
-                        'required' => true,
-                    ]),
-                    acf_tab([
-                        'name' => 'ENG',
-                        'label' => 'Engelska',
-                    ]),
-                    acf_text([
-                        'name' => 'titleENG',
-                        'label' => 'Titel',
-                        'required' => true,
-                    ]),
-                ],
-            ]),
-            acf_group([
                 'name' => 'part1',
                 'label' => 'Första stycket',
                 'sub_fields' => [

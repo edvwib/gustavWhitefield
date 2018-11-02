@@ -13,14 +13,14 @@ const Content = (props) => {
           {
             props.eng ?
             <Wrapper>
-              <h1>{props.page.title.titleENG}</h1>
+              <h1>About Gustav</h1>
               <Section content={props.page.part1.contentSV} img={props.page.part1.image}/>
               <Section content={props.page.part2.contentSV} img={props.page.part2.image}/>
               <Section content={props.page.part3.contentSV} img={props.page.part3.image}/>
             </Wrapper>
             :
             <Wrapper>
-              <h1>{props.page.title.titleSV}</h1>
+              <h1>Om Gustav</h1>
               <Section content={props.page.part1.contentSV} img={props.page.part1.image}/>
               <Section content={props.page.part2.contentSV} img={props.page.part2.image}/>
               <Section content={props.page.part3.contentSV} img={props.page.part3.image}/>

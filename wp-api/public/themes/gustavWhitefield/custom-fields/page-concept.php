@@ -20,11 +20,6 @@ $fields = [
                 'name' => 'SV',
                 'label' => 'Svenska',
             ]),
-            acf_text([
-                'name' => 'titleSV',
-                'label' => 'Titel',
-                'required' => true,
-            ]),
             acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
@@ -36,11 +31,6 @@ $fields = [
             acf_tab([
                 'name' => 'ENG',
                 'label' => 'Engelska',
-            ]),
-            acf_text([
-                'name' => 'titleENG',
-                'label' => 'Titel',
-                'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentENG',

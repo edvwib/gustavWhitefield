@@ -13,12 +13,6 @@ $fields = [
                 'label' => 'Svenska',
             ]),
             acf_text([
-                'name' => 'titleSV',
-                'label' => 'Titel',
-                'instructions' => 'Titel för sidan.',
-                'required' => true,
-            ]),
-            acf_text([
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
                 'instructions' => 'Text som visas över företagens logotyper.',
@@ -27,12 +21,6 @@ $fields = [
             acf_tab([
                 'name' => 'ENG',
                 'label' => 'Engelska',
-            ]),
-            acf_text([
-                'name' => 'titleENG',
-                'label' => 'Titel',
-                'instructions' => 'Titel för sidan.',
-                'required' => true,
             ]),
             acf_text([
                 'name' => 'contentENG',
