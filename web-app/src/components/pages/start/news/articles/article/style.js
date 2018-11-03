@@ -102,7 +102,6 @@ small{
   border-radius: 3px;
   border: 1px solid var(--light-green);
   background-color: rgba(149,162,149, .1);
-  background-size: cover;
   z-index: 1;
 }
 

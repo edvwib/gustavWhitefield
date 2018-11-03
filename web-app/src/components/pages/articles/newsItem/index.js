@@ -17,6 +17,7 @@ class NewsItem extends Component {
         {
           this.props.eng ?
           <Article
+            eng={this.props.eng}
             images={this.props.news.fields.news.images}
             title={this.props.news.fields.news.titleENG}
             intro={this.props.news.fields.news.introENG}
@@ -24,6 +25,7 @@ class NewsItem extends Component {
           />
           :
           <Article
+            eng={this.props.eng}
             images={this.props.news.fields.news.images}
             title={this.props.news.fields.news.titleSV}
             intro={this.props.news.fields.news.introSV}
