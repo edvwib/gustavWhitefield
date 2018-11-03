@@ -40,8 +40,8 @@ class App extends Component {
           <Route path='/article/:id' component={Article}/>
           <Route path='/artikel/:id' component={Article}/>
 
-          <Route path='/articles' component={Articles}/>
-          <Route path='/artiklar' component={Articles}/>
+          <Route path='/news' component={Articles}/>
+          <Route path='/nyheter' component={Articles}/>
 
           <Route path="*" component={NotFound}/>
         </Switch>

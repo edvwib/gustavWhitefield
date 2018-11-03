@@ -13,6 +13,7 @@ class Articles extends Component {
         {
           (context) => (
             <Container>
+              <h1>{context.state.eng ? 'News' : 'Nyheter'}</h1>
               {
                 context.state.news &&
                 context.state.news.map((article)=>

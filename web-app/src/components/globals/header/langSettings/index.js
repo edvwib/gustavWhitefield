@@ -25,8 +25,8 @@ class LangSettings extends Component{
           return '/sok-bidrag'
         case '/article/':
           return '/artikel/'
-        case '/articles':
-          return '/artiklar'
+        case '/news':
+          return '/nyheter'
         default:
           return '/'
       }
@@ -50,8 +50,8 @@ class LangSettings extends Component{
           return '/apply'
         case '/artikel/':
           return '/article/'
-        case '/artiklar':
-          return '/articles'
+        case '/nyheter':
+          return '/news'
         default:
           return '/'
       }

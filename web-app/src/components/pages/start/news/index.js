@@ -13,21 +13,24 @@ class News extends Component {
           this.props.news &&
           this.props.news.map((item, index) =>
           index < 3 &&
-          <Articles eng={this.props.eng} first={index === 0} key={index} news={item}/>)
+          <Articles
+            eng={this.props.eng}
+            first={index === 0}
+            key={index}
+            news={item}
+          />)
         }
-        {
-          this.props.eng ?
-          <ArtBtn>
-            <NavLink to={'/articles'}>All Articles</NavLink>
+        <ArtBtn>
+          <NavLink
+            to={this.props.eng ? '/news' : '/nyheter' }
+            >
+              {this.props.eng ? 'All News' : 'Alla Nyheter'}
+            </NavLink>
           </ArtBtn>
-          :
-          <ArtBtn>
-            <NavLink to={'/articles'}>Alla Artiklar</NavLink>
-          </ArtBtn>
-        }
-      </Container>
-    );
-  }
-}
 
-export default News;
+        </Container>
+      );
+    }
+  }
+
+  export default News;
