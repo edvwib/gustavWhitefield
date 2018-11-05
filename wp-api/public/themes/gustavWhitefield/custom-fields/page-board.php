@@ -60,7 +60,7 @@ $fields = [
                         'required' => true,
                     ]),
                     acf_textarea([
-                        'name' => 'aboutEN',
+                        'name' => 'aboutENG',
                         'label' => 'Om',
                         'instructions' => 'En kort text om personen.',
                         'rows' => 3,
