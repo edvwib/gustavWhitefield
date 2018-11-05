@@ -4,24 +4,25 @@ export const Container = styled.div`
   display: flex;
   width: 90%;
   margin: 5% 5%;
+  img{
+    @media (max-width: 650px) {
+      align-self: center;
+      height: auto;
+      width: 70%;
+    }
+    @media (max-width: 450px) {
+      align-self: center;
+      height: auto;
+      width: 100%;
+    }
+  }
   @media (min-width: 1200px) {
     width: 80%;
     margin: 5% 10%;
   }
   @media (max-width: 650px) {
-  flex-direction: column; 
+  flex-direction: column;
   }
-`;
-
-export const Image = styled.div`
-height: 200px;
-min-width: 200px;
-background-image: url(${props => props.src});
-background-size: cover;
-background-position: center;
-@media (max-width: 650px) {
-
-}
 `;
 
 export const Text = styled.div`
@@ -32,7 +33,16 @@ h2{
 small{
 
 }
-p{
-  ${'' /* margin: 0; */}
+
+@media (max-width: 650px) {
+  margin-top: 10px;
+  margin-left: 0;
+}
+@media (max-width: 450px) {
+  width: 100%;
+  margin-left: 0;
+  p{
+    margin-top: 10px;
+  }
 }
 `;

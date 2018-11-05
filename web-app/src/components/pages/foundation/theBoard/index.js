@@ -12,7 +12,6 @@ class TheBoard extends Component {
         {
           (context) => (
             <React.Fragment>
-              {/* {console.log(context.state.pages.board)} */}
               <Page eng={context.state.eng} page={context.state.pages.board}/>
             </React.Fragment>
           )
