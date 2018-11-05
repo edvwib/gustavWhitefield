@@ -8,14 +8,14 @@ $fields = [
         'name' => 'board',
         'label' => 'Styrelsen',
         'sub_fields' => [
-          acf_image([
-              'name' => 'image',
-              'label' => 'Bild',
-              'library' => 'all',
-              'mime_types' => 'jpeg, jpg, png',
-              'preview_size' => 'medium',
-              'return_format' => 'array',
-          ]),
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
+            ]),
             acf_repeater([
                 'name' => 'members',
                 'label' => 'Styrelsemedlemmar',
@@ -24,7 +24,7 @@ $fields = [
                     acf_image([
                         'name' => 'image',
                         'label' => 'Bild',
-                        'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
+                        'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.  Se till att personens ansikte är centrerat i bilden, och att bilden <strong>inte</strong> är tagen i landskapsläge.',
                         'library' => 'all',
                         'mime_types' => 'jpeg, jpg, png',
                         'preview_size' => 'thumbnail',
@@ -67,7 +67,6 @@ $fields = [
                     ]),
                 ],
             ]),
-
         ],
     ]),
 ];

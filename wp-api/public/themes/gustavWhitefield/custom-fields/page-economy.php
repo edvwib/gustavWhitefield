@@ -5,8 +5,8 @@ declare (strict_types = 1);
 
 $fields = [
     acf_group([
-        'name' => 'annualReports',
-        'label' => 'Årsredovisningar',
+        'name' => 'economy',
+        'label' => 'Ekonomi',
         'sub_fields' => [
             acf_tab([
                 'name' => 'SV',
@@ -57,12 +57,12 @@ $fields = [
 
 $location = [
     [
-        acf_location('post_taxonomy', 'page-category:arsredovisningar')
+        acf_location('post_taxonomy', 'page-category:ekonomi')
     ]
 ];
 
 acf_field_group([
-    'title' => 'annualReports',
+    'title' => 'economy',
     'fields' => $fields,
     'style' => 'seamless',
     'location' => $location,

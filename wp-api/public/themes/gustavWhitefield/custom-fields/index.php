@@ -15,4 +15,4 @@ require_once __DIR__ . '/page-apply.php';
 require_once __DIR__ . '/page-concept.php';
 require_once __DIR__ . '/page-bylaws.php';
 require_once __DIR__ . '/page-board.php';
-require_once __DIR__ . '/page-annual-reports.php';
+require_once __DIR__ . '/page-economy.php';
