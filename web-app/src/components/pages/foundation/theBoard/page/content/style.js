@@ -4,18 +4,6 @@ export const Container = styled.div`
   width: 90%;
   margin: 0 5%;
   color: var(--dark-green);
-  div{
-    @media (max-width: 750px) {
-      margin: 25px 0;
-    }
-    margin: 50px 0;
-    p{
-      @media (min-width: 750px) {
-        width: 80%;
-        margin: 0 10%;
-      }
-    }
-  }
 `;
 
 export const Image = styled.div`
