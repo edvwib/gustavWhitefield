@@ -12,7 +12,7 @@ class SubNav extends Component {
         {name: 'Purpose', path: '/the-foundation'},
         {name: 'We Support', path: '/the-foundation/we-support'},
         {name: 'The Board', path: '/the-foundation/the-board'},
-        {name: 'Statues', path: '/the-foundation/statutes'},
+        {name: 'Statutes', path: '/the-foundation/statutes'},
         {name: 'Economy', path: '/the-foundation/economy'}
       ],
       sv: [

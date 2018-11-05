@@ -6,8 +6,16 @@ declare (strict_types = 1);
 $fields = [
     acf_group([
         'name' => 'bylaws',
-        'label' => 'Grundtankar & syfte',
+        'label' => 'Stadgar',
         'sub_fields' => [
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
+            ]),
             acf_tab([
                 'name' => 'SV',
                 'label' => 'Svenska',

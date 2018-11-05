@@ -3,7 +3,7 @@ import {Switch, Route } from 'react-router-dom'
 
 import SubNav from './subNav';
 import Purpose from './purpose';
-import Statues from './statues';
+import Statutes from './statutes';
 import WeSupport from './weSupport';
 import TheBoard from './theBoard';
 import Economy from './economy';
@@ -22,8 +22,8 @@ class Foundation extends Component {
           <Route path='/the-foundation/we-support' component={WeSupport}/>
           <Route path='/om-stiftelsen/vi-stodjer' component={WeSupport}/>
 
-          <Route path='/the-foundation/statutes' component={Statues}/>
-          <Route path='/om-stiftelsen/stadgar' component={Statues}/>
+          <Route path='/the-foundation/statutes' component={Statutes}/>
+          <Route path='/om-stiftelsen/stadgar' component={Statutes}/>
 
           <Route path='/the-foundation/the-board' component={TheBoard}/>
           <Route path='/om-stiftelsen/styrelsen' component={TheBoard}/>
