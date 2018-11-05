@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Glob } from '../../../globals/context';
-import { Container } from './style';
 
-import Content from './content';
-
+import Page from './page';
 
 class Economy extends Component {
 
@@ -12,9 +10,7 @@ class Economy extends Component {
       <Glob.Consumer>
         {
           (context) => (
-            <Container>
-              <Content/>
-            </Container>
+            <Page eng={context.state.eng} page={context.state.pages.economy} />
           )
         }
       </Glob.Consumer>
