@@ -7,6 +7,33 @@ $fields = [
         'name' => 'weSupport',
         'label' => 'Vi stödjer',
         'sub_fields' => [
+            acf_tab([
+                'name' => 'SV',
+                'label' => 'Svenska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentSV',
+                'label' => 'Innehåll',
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'ENG',
+                'label' => 'Engelska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentENG',
+                'label' => 'Innehåll',
+                'media_upload' => false,
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
             acf_repeater([
                 'name' => 'item',
                 'label' => 'Här kan ni lägga till exempel på tidigare aktiviteter som ni har bidragit till.',
