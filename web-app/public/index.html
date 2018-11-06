@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#1d3d1e">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#1d3d1e">
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-    <!--
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+  <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
       Only files inside the `public` folder can be referenced from the HTML.
@@ -19,14 +21,15 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>Gustav Whitefield</title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="root"></div>
-    <!--
+  <title>Gustav Whitefield</title>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
@@ -36,5 +39,36 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-  </body>
+</body>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener('load', () => {
+    const eng = navigator.language === 'sv-SE' ? false : true;
+    window.cookieconsent && window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#314d30",
+          "text": "#ffffff"
+        },
+        "button": {
+          "background": "#e0f0ec",
+          "text": "#000000"
+        }
+      },
+      "position": "bottom-right",
+      "content": {
+        "message": eng ? "We use cookies to ensure you get the best experience on our website." : "Vi använder cookies för att ge dig den bästa upplevelsen på vår webbsida.",
+        "allow": (eng ? "Allow" : "Tillåt") + " cookies",
+        "deny": (eng ? "Decline" : "Neka"),
+        "link": (eng ? "Read more about" : "Läs mer om") + " cookies",
+      },
+      "type": "opt-in",
+      "onStatusChange": function () {
+        window.location.reload(); //need to reload in order to update the value in the global context
+      },
+    });
+  });
+</script>
+
 </html>

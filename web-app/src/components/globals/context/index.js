@@ -7,6 +7,7 @@ class ContextProvider extends Component{
   API_URL = `http://localhost:8888/wp-json/api/v1/`;
 
   state = {
+    cookieConsent: document.cookie.split(';').filter((item) => item.includes('cookieconsent_status=allow')).length ? true : false,
     eng: window.localStorage.getItem('eng') || false,
     news: [],
     pages: false,
@@ -30,7 +31,8 @@ class ContextProvider extends Component{
   }
 
   updateLang = () => {
-    window.localStorage.setItem('eng', !this.state.eng ? 'true' : '');
+    if(this.state.cookieConsent)
+      window.localStorage.setItem('eng', !this.state.eng ? 'true' : '');
     this.setState({
       eng: !this.state.eng
     });
