@@ -14,6 +14,7 @@ import Article from './components/pages/article';
 import Articles from './components/pages/articles';
 import Loading from './components/pages/loading';
 import NotFound from './components/pages/notFound';
+import CookiePopup from './components/globals/cookiePopup';
 
 class App extends Component {
 
@@ -24,6 +25,7 @@ class App extends Component {
           (context) => (
             context.state.pages ?
             <React.Fragment>
+              <CookiePopup eng={context.state.eng}/>
               <Header content={context}/>
               <Nav content={context.state}/>
               <Switch>

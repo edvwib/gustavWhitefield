@@ -40,35 +40,4 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 </body>
-<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-<script>
-  window.addEventListener('load', () => {
-    const eng = navigator.language === 'sv-SE' ? false : true;
-    window.cookieconsent && window.cookieconsent.initialise({
-      "palette": {
-        "popup": {
-          "background": "#314d30",
-          "text": "#ffffff"
-        },
-        "button": {
-          "background": "#e0f0ec",
-          "text": "#000000"
-        }
-      },
-      "position": "bottom-right",
-      "content": {
-        "message": eng ? "We use cookies to ensure you get the best experience on our website." : "Vi använder cookies för att ge dig den bästa upplevelsen på vår webbsida.",
-        "allow": (eng ? "Allow" : "Tillåt") + " cookies",
-        "deny": (eng ? "Decline" : "Neka"),
-        "link": (eng ? "Read more about" : "Läs mer om") + " cookies",
-      },
-      "type": "opt-in",
-      "onStatusChange": function () {
-        window.location.reload(); //need to reload in order to update the value in the global context
-      },
-    });
-  });
-</script>
-
 </html>
