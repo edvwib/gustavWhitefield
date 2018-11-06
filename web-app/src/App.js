@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Switch, Route } from 'react-router-dom'
-import ContextProvider from './components/globals/context';
-import './App.css';
+import { Glob } from './components/globals/context';
 
 import Header from './components/globals/header';
 import Nav from './components/globals/nav';
@@ -13,40 +12,58 @@ import SupportUs from './components/pages/supportUs';
 import Apply from './components/pages/apply';
 import Article from './components/pages/article';
 import Articles from './components/pages/articles';
+import Loading from './components/pages/loading';
 import NotFound from './components/pages/notFound';
 
 class App extends Component {
 
   render() {
     return (
-      <ContextProvider className="App">
-        <Header/>
-        <Nav/>
-        <Switch>
-          <Route exact path='/' component={Start}/>
+      <Glob.Consumer>
+        {
+          (context) => (
+            context.state.pages ?
+            <React.Fragment>
+              <Header content={context}/>
+              <Nav content={context.state}/>
+              <Switch>
 
-          <Route path='/about-gustav' component={Gustav}/>
-          <Route path='/om-gustav' component={Gustav}/>
+                <Route exact path='/' render={() => <Start content={context.state}/>}/>
+                <Route
+                  path={context.state.eng ? '/about-gustav' : '/om-gustav'}
+                  render={() => <Gustav content={context.state}/>}
+                />
+                <Route
+                  path={context.state.eng ? '/the-foundation' : '/om-stiftelsen'}
+                  render={() => <Foundation content={context.state}/>}
+                />
+                <Route
+                  path={context.state.eng ? '/support-us' : '/stod-oss'}
+                  render={() => <SupportUs content={context.state}/>}
+                />
+                <Route
+                  path={context.state.eng ? '/apply' : '/sok-bidrag'}
+                  render={() => <Apply content={context.state}/>}
+                />
+                <Route
+                  path={context.state.eng ? '/article/:id' : '/artikel/:id'}
+                  render={(props) => <Article {...props} content={context}/>}
+                />
+                <Route
+                  path={context.state.eng ? '/news' : '/nyheter'}
+                  render={() => <Articles content={context.state}/>}
+                />
+                <Route path="*" component={NotFound}/>
 
-          <Route path='/the-foundation' component={Foundation}/>
-          <Route path='/om-stiftelsen' component={Foundation}/>
+              </Switch>
+              <Footer content={context.state}/>
+            </React.Fragment>
+            :
+            <Loading/>
 
-          <Route path='/support-us' component={SupportUs}/>
-          <Route path='/stod-oss' component={SupportUs}/>
-
-          <Route path='/apply' component={Apply}/>
-          <Route path='/sok-bidrag' component={Apply}/>
-
-          <Route path='/article/:id' component={Article}/>
-          <Route path='/artikel/:id' component={Article}/>
-
-          <Route path='/news' component={Articles}/>
-          <Route path='/nyheter' component={Articles}/>
-
-          <Route path="*" component={NotFound}/>
-        </Switch>
-        <Footer/>
-      </ContextProvider>
+          )
+        }
+      </Glob.Consumer>
     );
   }
 }

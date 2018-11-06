@@ -1,22 +1,12 @@
 import React from 'react';
-import { Glob } from '../../../../components/globals/context';
 
 import Page from './page';
 
 const statutes = (props) => {
 
   return (
-    <Glob.Consumer>
-      {
-        (context) => (
-          <React.Fragment>
-            <Page eng={context.state.eng} page={context.state.pages.bylaws} />
-          </React.Fragment>
-        )
-      }
-    </Glob.Consumer>
+    <Page eng={props.content.eng} page={props.content.pages.bylaws} />
   );
-
 }
 
 export default statutes;

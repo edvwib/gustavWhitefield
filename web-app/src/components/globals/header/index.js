@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Glob } from '../../globals/context';
 import { Container, Image } from './style';
 
 import LangSettings from './langSettings';
@@ -8,21 +7,14 @@ class Header extends Component{
 
   render() {
     return (
-      <Glob.Consumer>
-        {
-          (context) => (
-            <Container active={context.state.eng}>
-              <LangSettings showInMob={false}/>
-              <Image
-                showImg={this.props.showImg}
-                src={context.state.eng ?
-                  'resources/icons/bigIconEng.png' :
-                  '/resources/icons/bigIcon.png'
-                }/>
-              </Container>
-            )
-          }
-        </Glob.Consumer>
+      <Container active={this.props.content.state.eng}>
+        <LangSettings showInMob={false}/>
+        <Image
+          src={this.props.content.state.eng ?
+            'resources/icons/bigIconEng.png' :
+            '/resources/icons/bigIcon.png'
+          }/>
+        </Container>
       );
     }
   }

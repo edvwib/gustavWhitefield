@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Glob } from '../context';
 import { Container } from './style';
 
 import NavItem from './navItem';
@@ -27,19 +26,13 @@ class Nav extends Component {
 
   render() {
     return (
-      <Glob.Consumer>
+      <Container>
         {
-          (context) => (
-            <Container>
-              {
-                context.state.eng ?
-                <NavItem eng={context.state.eng} items={this.state.items.en}/> :
-                <NavItem eng={context.state.eng} items={this.state.items.sv}/>
-              }
-            </Container>
-          )
+          this.props.content.eng ?
+          <NavItem eng={this.props.content.eng} items={this.state.items.en}/> :
+          <NavItem eng={this.props.content.eng} items={this.state.items.sv}/>
         }
-      </Glob.Consumer>
+      </Container>
     );
   }
 }

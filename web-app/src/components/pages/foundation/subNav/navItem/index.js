@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, LinkWrap } from './style';
 
-
 class NavItem extends Component{
 
   render() {

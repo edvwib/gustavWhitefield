@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Glob } from '../../globals/context';
 import { Container } from './style';
 
 import Content from './content';
@@ -7,19 +6,14 @@ import Content from './content';
 class Article extends Component {
 
   render() {
+    console.log(this.props);
     return (
-      <Glob.Consumer>
-        {
-          (context) => (
-            <Container>
-              <Content
-                eng={context.state.eng}
-                article={context.getNewsById(this.props.match.params.id)}
-              />
-            </Container>
-          )
-        }
-      </Glob.Consumer>
+      <Container>
+        <Content
+          eng={this.props.content.state.eng}
+          article={this.props.content.getNewsById(this.props.match.params.id)}
+        />
+      </Container>
     );
   }
 }

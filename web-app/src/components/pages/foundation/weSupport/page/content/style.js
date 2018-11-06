@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 90%;
   margin: 0 5%;
   color: var(--dark-green);
-  div:first-child{
+  >div:first-child{
     @media (max-width: 750px) {
       margin: 25px 0;
     }

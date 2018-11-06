@@ -9,7 +9,7 @@ class ContextProvider extends Component{
   state = {
     eng: window.localStorage.getItem('eng') || false,
     news: [],
-    pages: [],
+    pages: false,
   }
 
   componentDidMount = () => {

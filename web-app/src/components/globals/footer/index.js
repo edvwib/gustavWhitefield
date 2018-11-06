@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
-import { Glob } from '../context';
 import { Container } from './style';
 
 import FollowUs from './followUs';
 import WeThank from './weThank';
 import Contact from './contact';
 
-
-
 class Footer extends Component{
 
   render() {
     return (
-      <Glob.Consumer>
-        {
-          (context) =>
-          <Container>
-            <FollowUs eng={context.state.eng}/>
-            <WeThank eng={context.state.eng} page={context.state.pages.weThank}/>
-            <Contact eng={context.state.eng}/>
-          </Container>
-        }
-      </Glob.Consumer>
+      <Container>
+        <FollowUs eng={this.props.content.eng}/>
+        <WeThank eng={this.props.content.eng} page={this.props.content.pages.weThank}/>
+        <Contact eng={this.props.content.eng}/>
+      </Container>
+
     );
   }
 }

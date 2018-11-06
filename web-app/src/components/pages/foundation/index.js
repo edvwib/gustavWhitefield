@@ -16,27 +16,32 @@ class Foundation extends Component {
       <React.Fragment>
         <SubNav/>
         <Switch>
-          <Route exact path='/the-foundation' component={Purpose}/>
-          <Route exact path='/om-stiftelsen' component={Purpose}/>
 
-          <Route path='/the-foundation/we-support' component={WeSupport}/>
-          <Route path='/om-stiftelsen/vi-stodjer' component={WeSupport}/>
+          <Route
+            exact path={this.props.content.eng ? '/the-foundation' : '/om-stiftelsen'}
+            render={() => <Purpose content={this.props.content}/> }
+          />
+          <Route
+            path={this.props.content.eng ? '/the-foundation/we-support' : '/om-stiftelsen/vi-stodjer'}
+            render={() => <WeSupport content={this.props.content}/>}
+          />
+          <Route
+            path={this.props.content.eng ? '/the-foundation/statutes' : '/om-stiftelsen/stadgar'}
+            render={() => <Statutes content={this.props.content}/>}
+          />
+          <Route
+            path={this.props.content.eng ? '/the-foundation/the-board' : '/om-stiftelsen/styrelsen'}
+            render={() => <TheBoard content={this.props.content}/>}
+          />
+          <Route path={this.props.content.eng ? '/the-foundation/economy' : '/om-stiftelsen/ekonomi'}
+          render={() => <Economy content={this.props.content}/>}
+        />
+        <Route path="*" component={NotFound}/>
 
-          <Route path='/the-foundation/statutes' component={Statutes}/>
-          <Route path='/om-stiftelsen/stadgar' component={Statutes}/>
-
-          <Route path='/the-foundation/the-board' component={TheBoard}/>
-          <Route path='/om-stiftelsen/styrelsen' component={TheBoard}/>
-
-          <Route path='/the-foundation/economy' component={Economy}/>
-          <Route path='/om-stiftelsen/ekonomi' component={Economy}/>
-
-          <Route path="*" component={NotFound}/>
-        </Switch>
-      </React.Fragment>
-
-    );
-  }
+      </Switch>
+    </React.Fragment>
+  );
+}
 }
 
 export default Foundation;
