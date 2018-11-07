@@ -23,7 +23,7 @@ class Foundation extends Component {
           />
           <Route
             path={this.props.content.eng ? '/the-foundation/we-support' : '/om-stiftelsen/vi-stodjer'}
-            render={() => <WeSupport content={this.props.content}/>}
+            render={() => <WeSupport content={this.props.content.pages.weSupport} eng={this.props.content.eng}/>}
           />
           <Route
             path={this.props.content.eng ? '/the-foundation/statutes' : '/om-stiftelsen/stadgar'}
