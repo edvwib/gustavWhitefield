@@ -3,13 +3,15 @@ import { Container } from './style';
 import ContactDetails from './contactDetails';
 import Application from './application';
 import Budget from './budget';
-
+import Recaptcha from 'react-recaptcha';
+import { Helmet } from "react-helmet";
 
 class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOrganization: true,
+      verified: false,
     };
   }
 
@@ -48,12 +50,23 @@ class Form extends Component {
       })
   }
 
+  recaptchaVerify = (response) => {
+    console.log(response);
+    this.setState({
+      verified: true,
+    });
+  }
+
   render() {
-    const {eng} = this.props;
+    const { eng } = this.props;
     return (
       <Container>
+        <Helmet>
+          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        </Helmet>
+
         <form onSubmit={this.handleSubmit}>
-          <legend>Sök bidrag</legend>
+          <legend>{eng ? 'Apply' : 'Sök bidrag'}</legend>
 
           <input
             type="radio" name="isOrganization" id="organization"
@@ -75,11 +88,23 @@ class Form extends Component {
           </label>
 
           <ContactDetails eng={eng} isOrganization={this.state.isOrganization}
-            ref={(contact) => { this.contact = contact;}}/>
+            ref={(contact) => { this.contact = contact; }} />
           <Application eng={eng} isOrganization={this.state.isOrganization}
-            ref={(application) => { this.application = application; }}/>
+            ref={(application) => { this.application = application; }} />
           <Budget eng={eng} isOrganization={this.state.isOrganization}
-            ref={(budget) => { this.budget = budget; }}/>
+            ref={(budget) => { this.budget = budget; }} />
+
+          <Recaptcha
+            ref={e => this.recaptchaInstance = e}
+            sitekey={
+              process.env.NODE_ENV === 'production' ?
+                '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
+                '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+            }
+            verifyCallback={this.recaptchaVerify}
+            render='onload'
+            hl={this.props.eng ? 'en' : 'sv'}
+          />
 
           <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}/>
         </form>
