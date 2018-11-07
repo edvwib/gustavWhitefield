@@ -2,23 +2,11 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 height: 450px;
-@media (min-width: 750px) {
-  margin-top: 20px;
-}
-`;
-
-export const ImgCont = styled.div`
 position: relative;
 padding: 20px;
 box-sizing: border-box;
 width: 100%;
-height: 100%;
 box-shadow: inset 0 1px .5px .5px white;
-@media (max-width: 750px) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 &::after{
   content: '';
@@ -34,6 +22,7 @@ box-shadow: inset 0 1px .5px .5px white;
   z-index: -1;
   filter: opacity(.6);
 }
+
 h1{
   margin: 0;
   text-align: center;
@@ -45,5 +34,14 @@ h1{
     width: 40%;
     text-align: left;
   }
+}
+
+@media (max-width: 750px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 750px) {
+  margin-top: 20px;
 }
 `;

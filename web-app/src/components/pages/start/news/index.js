@@ -10,7 +10,6 @@ class News extends Component {
     return (
       <Container>
         {
-          this.props.news &&
           this.props.news.map((item, index) =>
           index < 3 &&
           <Articles
@@ -21,16 +20,13 @@ class News extends Component {
           />)
         }
         <ArtBtn>
-          <NavLink
-            to={this.props.eng ? '/news' : '/nyheter' }
-            >
-              {this.props.eng ? 'All News' : 'Alla Nyheter'}
-            </NavLink>
-          </ArtBtn>
+          <NavLink to={this.props.eng ? '/news' : '/nyheter' }>
+          {this.props.eng ? 'All News' : 'Alla Nyheter'}
+        </NavLink>
+      </ArtBtn>
+    </Container>
+  );
+}
+}
 
-        </Container>
-      );
-    }
-  }
-
-  export default News;
+export default News;

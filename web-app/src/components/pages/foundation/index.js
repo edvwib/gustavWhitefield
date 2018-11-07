@@ -19,7 +19,7 @@ class Foundation extends Component {
 
           <Route
             exact path={this.props.content.eng ? '/the-foundation' : '/om-stiftelsen'}
-            render={() => <Purpose content={this.props.content}/> }
+            render={() => <Purpose content={this.props.content.pages.purpose} eng={this.props.content.eng}/> }
           />
           <Route
             path={this.props.content.eng ? '/the-foundation/we-support' : '/om-stiftelsen/vi-stodjer'}
@@ -27,14 +27,14 @@ class Foundation extends Component {
           />
           <Route
             path={this.props.content.eng ? '/the-foundation/statutes' : '/om-stiftelsen/stadgar'}
-            render={() => <Statutes content={this.props.content}/>}
+            render={() => <Statutes content={this.props.content.pages.bylaws} eng={this.props.content.eng}/>}
           />
           <Route
             path={this.props.content.eng ? '/the-foundation/the-board' : '/om-stiftelsen/styrelsen'}
-            render={() => <TheBoard content={this.props.content}/>}
+            render={() => <TheBoard content={this.props.content.pages.board} eng={this.props.content.eng}/>}
           />
           <Route path={this.props.content.eng ? '/the-foundation/economy' : '/om-stiftelsen/ekonomi'}
-          render={() => <Economy content={this.props.content}/>}
+          render={() => <Economy content={this.props.content.pages.economy} eng={this.props.content.eng}/>}
         />
         <Route path="*" component={NotFound}/>
 

@@ -7,4 +7,5 @@ justify-content: center;
 position: absolute;
 height: 100vh;
 width: 100vh;
+z-index: 100;
 `;

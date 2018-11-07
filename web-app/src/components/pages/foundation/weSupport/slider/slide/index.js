@@ -8,7 +8,6 @@ class Slide extends Component {
     return (
       <Container img={this.props.slide.image ? true : false}>
         <Image img={this.props.slide.image ? this.props.slide.image.sizes.large : false}/>
-        {console.log(this.props)}
         {
           this.props.eng ?
           <p>{this.props.slide.contentENG}</p> :

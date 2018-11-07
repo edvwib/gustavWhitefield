@@ -19,7 +19,6 @@ class Slider extends Component {
           interval={8000}
           >
             {
-              this.props.page &&
               this.props.page.slide.map((slide, index) =>
                 <Slide eng={this.props.eng} key={index} slide={slide}/>
             )}

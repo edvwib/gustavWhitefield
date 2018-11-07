@@ -35,7 +35,6 @@ class Slider extends Component {
               <img key={index} src={item.image.sizes.large} alt=""/>
             )
           }
-
         </Carousel>
       </Container>
     );

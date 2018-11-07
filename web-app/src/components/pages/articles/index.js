@@ -15,7 +15,7 @@ class Articles extends Component {
           <NewsItem
             key={article.post.ID}
             news={article}
-            eng={this.props.content.state.eng}
+            eng={this.props.content.eng}
           />)
         }
       </Container>

@@ -1,15 +1,33 @@
 import React, { Component } from 'react';
-import { Container } from './style';
+import { Container, Image } from './style';
 
-import Page from './page';
+import Slider from './slider';
 
 class WeSupport extends Component {
 
   render() {
+    const content = this.props.content.pages.weSupport;
     return (
-      <Page eng={this.props.content.eng} page={this.props.content.pages.weSupport}/>
-    );
+      <Container>
+        <Image
+          src={content.image ?
+            content.image.sizes.large :
+            '/resources/icons/placeholder.jpg'
+          }>
+          <h1>{this.props.content.eng ? 'We Support' : 'Vi Stödjer'}</h1>
+        </Image>
+        <div dangerouslySetInnerHTML={
+          {__html: this.props.content.eng ?
+            content.contentENG :
+            content.contentSV}}
+          />
+          <Slider
+            eng={this.props.content.eng}
+            page={content}
+          />
+        </Container>
+      );
+    }
   }
-}
 
-export default WeSupport;
+  export default WeSupport;

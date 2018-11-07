@@ -27,7 +27,6 @@ class App extends Component {
               <Header content={context}/>
               <Nav content={context.state}/>
               <Switch>
-
                 <Route exact path='/' render={() => <Start content={context.state}/>}/>
                 <Route
                   path={context.state.eng ? '/about-gustav' : '/om-gustav'}
@@ -54,13 +53,11 @@ class App extends Component {
                   render={() => <Articles content={context.state}/>}
                 />
                 <Route path="*" component={NotFound}/>
-
               </Switch>
               <Footer content={context.state}/>
             </React.Fragment>
             :
             <Loading/>
-
           )
         }
       </Glob.Consumer>
