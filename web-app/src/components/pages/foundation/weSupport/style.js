@@ -6,9 +6,17 @@ export const Container = styled.div`
   color: var(--dark-green);
   >div:first-child{
     @media (max-width: 750px) {
-      margin: 25px 0;
+      margin: 25px 0 0 0;
     }
-    margin: 50px 0;
+    margin: 50px 0 0 0;
+  }
+  >div:last-child{
+    width: 80%;
+    margin: 0 10% 50px 10%;
+    @media (max-width: 500px) {
+      width: 100%;
+      margin: 0 0 50px 0;
+    }
   }
 `;
 

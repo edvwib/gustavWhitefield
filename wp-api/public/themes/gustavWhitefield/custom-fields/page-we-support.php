@@ -39,15 +39,6 @@ $fields = [
                 'label' => 'Här kan ni lägga till exempel på tidigare aktiviteter som ni har bidragit till.',
                 'layout' => 'block',
                 'sub_fields' => [
-                    acf_image([
-                        'name' => 'image',
-                        'label' => 'Bild',
-                        'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
-                        'library' => 'all',
-                        'mime_types' => 'jpeg, jpg, png',
-                        'preview_size' => 'thumbnail',
-                        'return_format' => 'array',
-                    ]),
                     acf_tab([
                         'name' => 'SV',
                         'label' => 'Svenska',
