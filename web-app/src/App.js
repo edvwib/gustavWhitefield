@@ -13,6 +13,7 @@ import Apply from './components/pages/apply';
 import Article from './components/pages/article';
 import Articles from './components/pages/articles';
 import Loading from './components/pages/loading';
+import Cookies from './components/pages/cookies';
 import NotFound from './components/pages/notFound';
 import CookiePopup from './components/globals/cookiePopup';
 
@@ -53,6 +54,10 @@ class App extends Component {
                 <Route
                   path={context.state.eng ? '/news' : '/nyheter'}
                   render={() => <Articles content={context.state}/>}
+                />
+                <Route
+                  path='/cookies'
+                  render={() => <Cookies eng={context.state.eng} />}
                 />
                 <Route path="*" component={NotFound}/>
               </Switch>
