@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {Switch, Route } from 'react-router-dom'
 
-import SubNav from './subNav';
-import Purpose from './purpose';
-import Statutes from './statutes';
-import WeSupport from './weSupport';
-import TheBoard from './theBoard';
-import Economy from './economy';
+import SubNav from './globals/subNav';
+import Purpose from './pages/purpose';
+import Statutes from './pages/statutes';
+import WeSupport from './pages/weSupport';
+import TheBoard from './pages/theBoard';
+import Economy from './pages/economy';
 import NotFound from '../../../components/pages/notFound';
 
 class Foundation extends Component {
@@ -14,7 +14,7 @@ class Foundation extends Component {
   render() {
     return (
       <React.Fragment>
-        <SubNav/>
+        <SubNav eng={this.props.content.eng}/>
         <Switch>
 
           <Route

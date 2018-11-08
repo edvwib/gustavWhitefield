@@ -9,8 +9,9 @@ export const Container = styled.div`
     text-decoration: none;
   }
   img{
+    border-radius: 5px;
     margin-right: 5px;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
   }
 `;

@@ -1,33 +1,29 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-width: 90%;
-margin: 10px 5% 10% 5%;
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
 color: var(--dark-green);
 
 h1{
   text-align: center;
+  margin-bottom: 50px;
 }
-div:nth-child(2){
-  margin-top: 50px;
-}
+
 div:nth-child(2), div:nth-child(4){
   img{
-    margin-left: 20px;
+    margin: 0 0 20px 20px;
     float: right;
   }
 }
 
 div:nth-child(3){
   img{
-    margin-right: 20px;
+    margin: 0 20px 20px 0;
     float: left;
   }
-}
-
-@media (min-width: 1000px) {
-  margin: 10px 15% 10% 15%;
-  width: 70%;
 }
 
 @media (max-width: 600px) {

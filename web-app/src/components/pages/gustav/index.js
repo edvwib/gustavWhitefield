@@ -12,15 +12,15 @@ const Gustav = (props) => {
         <React.Fragment>
           <h1>About Gustav</h1>
           <Section
-            content={props.content.pages.aboutGustav.part1.contentSV}
+            content={props.content.pages.aboutGustav.part1.contentENG}
             img={props.content.pages.aboutGustav.part1.image}
           />
           <Section
-            content={props.content.pages.aboutGustav.part2.contentSV}
+            content={props.content.pages.aboutGustav.part2.contentENG}
             img={props.content.pages.aboutGustav.part2.image}
           />
           <Section
-            content={props.content.pages.aboutGustav.part3.contentSV}
+            content={props.content.pages.aboutGustav.part3.contentENG}
             img={props.content.pages.aboutGustav.part3.image}
           />
         </React.Fragment>

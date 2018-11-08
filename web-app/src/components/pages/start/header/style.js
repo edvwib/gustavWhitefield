@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
 height: 450px;
 position: relative;
 padding: 20px;
@@ -20,27 +23,21 @@ box-shadow: inset 0 1px .5px .5px white;
   width: 100%;
   height: 100%;
   z-index: -1;
-  filter: opacity(.6);
+  filter: opacity(25%);
 }
 
 h1{
   margin: 0;
   text-align: center;
-  font-size: 2em;
   color: var(--dark-green);
-  font-family: 'niramit bold';
-  text-shadow: 0px 0px 2px white;
   @media (min-width: 750px) {
-    width: 40%;
-    text-align: left;
+    width: 50%;
+  }
+  @media (max-width: 750px) {
+    font-size: 30px;
   }
 }
 
-@media (max-width: 750px) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 @media (min-width: 750px) {
   margin-top: 20px;
 }

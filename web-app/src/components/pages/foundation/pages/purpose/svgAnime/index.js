@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import anime from 'animejs';
-import { Container, Image } from './style';
+import { Container } from './style';
 
 class SvgAnime extends Component {
 
@@ -9,7 +9,7 @@ class SvgAnime extends Component {
   }
 
   animeSvg = () => {
-    var lineDrawing = anime({
+    anime({
       targets: '.svg path',
       strokeDashoffset: [anime.setDashoffset, 0],
       easing: 'easeInOutSine',

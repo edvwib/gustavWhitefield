@@ -25,6 +25,31 @@
   src: url('/resources/fonts/niramit/Niramit-Italic.ttf');
 }
 
+h1{
+  font-family: 'niramit bold';
+  font-size: 36px;
+}
+
+h2{
+  font-family: 'niramit bold';
+  font-size: 30px;
+}
+
+h3{
+  font-family: 'niramit bold';
+  font-size: 24px;
+}
+
+p{
+  font-family: 'niramit regular';
+  line-height: 1.5;
+  font-size: 18px;
+}
+
+small{
+  font-family: 'niramit regular';
+}
+
 /*Hide popup button when user has answered cookie form*/
 .cc-revoke{
   display: none!important;

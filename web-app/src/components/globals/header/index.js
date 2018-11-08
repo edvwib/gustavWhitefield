@@ -11,7 +11,7 @@ class Header extends Component{
         <LangSettings showInMob={false}/>
         <Image
           src={this.props.content.state.eng ?
-            'resources/icons/bigIconEng.png' :
+            '/resources/icons/bigIconEng.png' :
             '/resources/icons/bigIcon.png'
           }/>
         </Container>

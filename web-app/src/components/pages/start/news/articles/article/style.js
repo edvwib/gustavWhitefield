@@ -82,8 +82,7 @@ h3{
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  height: 30%;
-  margin: 0;
+  margin: 0 0 10px 0;
 }
 
 p{
@@ -100,9 +99,19 @@ small{
   font-family: 'niramit bold';
   padding: 0 3px 2px 3px;
   border-radius: 3px;
-  border: 1px solid var(--light-green);
-  background-color: rgba(149,162,149, .1);
   z-index: 1;
+
+  &:after{
+    content: '';
+    position: absolute;
+    top: calc(50% - 5px);
+    right: -20px;
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-left: 12px solid var(--dark-green);
+    border-bottom: 6px solid transparent;
+  }
 }
 
 @media (max-width: 750px) {

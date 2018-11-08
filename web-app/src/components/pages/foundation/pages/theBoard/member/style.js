@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  width: 90%;
-  margin: 5% 5%;
+  width: 80%;
+  margin: 20px 10%;
   img{
     @media (max-width: 650px) {
       align-self: center;
@@ -18,7 +18,7 @@ export const Container = styled.div`
   }
   @media (min-width: 1200px) {
     width: 80%;
-    margin: 5% 10%;
+    margin: 20px 10%;
   }
   @media (max-width: 650px) {
   flex-direction: column;
@@ -31,7 +31,8 @@ h2{
   margin: 0;
 }
 small{
-
+  font-style: italic;
+  font-size: 16px;
 }
 
 @media (max-width: 650px) {

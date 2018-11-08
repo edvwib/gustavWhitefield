@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Glob } from '../../../../components/globals/context';
+// import { Glob } from '../../../../components/globals/context';
 import { Container } from './style';
 
 import NavItem from './navItem';
@@ -27,19 +27,13 @@ class SubNav extends Component {
 
   render() {
     return (
-      <Glob.Consumer>
+      <Container>
         {
-          (context) => (
-            <Container>
-              {
-                context.state.eng ?
-                <NavItem eng={context.state.eng} items={this.state.items.en}/> :
-                <NavItem eng={context.state.eng} items={this.state.items.sv}/>
-              }
-            </Container>
-          )
+          this.props.eng ?
+          <NavItem eng={this.props.eng} items={this.state.items.en}/> :
+          <NavItem eng={this.props.eng} items={this.state.items.sv}/>
         }
-      </Glob.Consumer>
+      </Container>
     );
   }
 }

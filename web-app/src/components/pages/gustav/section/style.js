@@ -2,16 +2,14 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 margin-bottom: 100px;
+width: 90%;
+max-width: 712px;
 clear: both;
 span{
   width: 50%;
   >*{
     width: 100%;
   }
-}
-
-@media (max-width: 600px) {
-margin-bottom: 50px;
 }
 
 `;

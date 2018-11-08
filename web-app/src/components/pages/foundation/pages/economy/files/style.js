@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
-flex-direction: column;
+
 padding-bottom: 50px;
 
 div{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 10px;
   a{
     font-family: 'niramit medium';
@@ -22,10 +24,5 @@ div{
       }
     }
   }
-}
-
-@media (min-width: 750px) {
-  width: 80%;
-  margin: 0 10%;
 }
 `;
