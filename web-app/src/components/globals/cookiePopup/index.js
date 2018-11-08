@@ -1,5 +1,4 @@
 import { Component } from 'react'
-import { NavLink } from 'react-router-dom';
 import 'cookieconsent';
 import 'cookieconsent/build/cookieconsent.min.css';
 

@@ -11,8 +11,13 @@ position: relative;
 div:last-child{
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
   padding: 10px 0 10px 0;
-}
 
+  a{
+    color: var(--dark-green);
+    font-size: 10px;
+  }
+}
 `;
