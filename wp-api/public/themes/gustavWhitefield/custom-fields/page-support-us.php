@@ -57,10 +57,12 @@ $fields = [
                         'name' => 'titleSV',
                         'label' => 'Titel',
                     ]),
-                    acf_textarea([
+                    acf_wysiwyg([
                         'name' => 'contentSV',
                         'label' => 'Innehåll',
-                        'rows' => 3,
+                        'media_upload' => false,
+                        'tabs' => 'visual',
+                        'toolbar' => 'simple',
                     ]),
                     acf_textarea([
                         'name' => 'detailsSV',
@@ -75,10 +77,12 @@ $fields = [
                         'name' => 'titleENG',
                         'label' => 'Titel',
                     ]),
-                    acf_textarea([
+                    acf_wysiwyg([
                         'name' => 'contentENG',
                         'label' => 'Innehåll',
-                        'rows' => 3,
+                        'media_upload' => false,
+                        'tabs' => 'visual',
+                        'toolbar' => 'simple',
                     ]),
                     acf_textarea([
                         'name' => 'detailsENG',

@@ -13,6 +13,7 @@ export const Body = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin-top: -50px;
   width: 100%;
   color: var(--dark-green);
   max-width: 612px;

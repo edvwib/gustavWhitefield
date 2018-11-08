@@ -15,7 +15,6 @@ class WeSupport extends Component {
         />
         <Body>
           <Animation items={this.props.content.item} eng={this.props.eng}/>
-
           <div dangerouslySetInnerHTML={
             {__html: this.props.eng ?
               this.props.content.contentENG :

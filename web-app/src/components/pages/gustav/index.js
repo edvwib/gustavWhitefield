@@ -8,36 +8,36 @@ const Gustav = (props) => {
   return (
     <Container>
       {
-        props.content.eng ?
+        props.eng ?
         <React.Fragment>
           <h1>About Gustav</h1>
           <Section
-            content={props.content.pages.aboutGustav.part1.contentENG}
-            img={props.content.pages.aboutGustav.part1.image}
+            content={props.content.part1.contentENG}
+            img={props.content.part1.image}
           />
           <Section
-            content={props.content.pages.aboutGustav.part2.contentENG}
-            img={props.content.pages.aboutGustav.part2.image}
+            content={props.content.part2.contentENG}
+            img={props.content.part2.image}
           />
           <Section
-            content={props.content.pages.aboutGustav.part3.contentENG}
-            img={props.content.pages.aboutGustav.part3.image}
+            content={props.content.part3.contentENG}
+            img={props.content.part3.image}
           />
         </React.Fragment>
         :
         <React.Fragment>
           <h1>Om Gustav</h1>
           <Section
-            content={props.content.pages.aboutGustav.part1.contentSV}
-            img={props.content.pages.aboutGustav.part1.image}
+            content={props.content.part1.contentSV}
+            img={props.content.part1.image}
           />
           <Section
-            content={props.content.pages.aboutGustav.part2.contentSV}
-            img={props.content.pages.aboutGustav.part2.image}
+            content={props.content.part2.contentSV}
+            img={props.content.part2.image}
           />
           <Section
-            content={props.content.pages.aboutGustav.part3.contentSV}
-            img={props.content.pages.aboutGustav.part3.image}
+            content={props.content.part3.contentSV}
+            img={props.content.part3.image}
           />
         </React.Fragment>
       }

@@ -5,13 +5,6 @@ display: flex;
 align-items: center;
 flex-direction: column;
 color: var(--dark-green);
-
->div:first-child{
-  @media (max-width: 750px) {
-    margin: 25px 0;
-  }
-  margin: 50px 0;
-}
 `;
 
 export const Body = styled.div`

@@ -33,7 +33,7 @@ class App extends Component {
                 <Route exact path='/' render={() => <Start content={context.state}/>}/>
                 <Route
                   path={context.state.eng ? '/about-gustav' : '/om-gustav'}
-                  render={() => <Gustav content={context.state}/>}
+                  render={() => <Gustav content={context.state.pages.aboutGustav} eng={context.state.eng}/>}
                 />
                 <Route
                   path={context.state.eng ? '/the-foundation' : '/om-stiftelsen'}
@@ -41,7 +41,7 @@ class App extends Component {
                 />
                 <Route
                   path={context.state.eng ? '/support-us' : '/stod-oss'}
-                  render={() => <SupportUs content={context.state}/>}
+                  render={() => <SupportUs content={context.state.pages.supportUs} eng={context.state.eng}/>}
                 />
                 <Route
                   path={context.state.eng ? '/apply' : '/sok-bidrag'}
