@@ -19,9 +19,9 @@ function getAllPages(){
     foreach ($pages as $page) {
         $pageFields = get_fields($page->ID);
         if (!$pageFields) continue;
+        $key = key($pageFields);
         // simplify return data structure
-        $fields[key($pageFields)] = get_fields($page->ID)[key($pageFields)];
-        $fields[key($pageFields)]['page'] = $page;
+        $fields[$key] = $pageFields[$key];
     }
 
     return $fields;
