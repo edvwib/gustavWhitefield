@@ -1,17 +1,23 @@
-import React from 'react';
-import { Container, Image } from './style';
+import React, { Component } from 'react';
+import { Container, Image, Body} from './style';
 
-const Purpose = (props) => {
+import SvgAnime from './svgAnime';
+class Purpose extends Component {
 
-  return (
-    <Container>
-      <Image src={props.content.image ? props.content.image.sizes.large : '/resources/icons/placeholder.jpg'}>
-      <h1>{props.eng ? 'Purpose' : 'Syfte'}</h1>
-    </Image>
-    <div dangerouslySetInnerHTML={{__html: props.eng ? props.content.contentENG : props.content.contentSV}}/>
-  </Container>
-);
+  render() {
+    return (
+      <Container>
+        <Image src={this.props.content.image ? this.props.content.image.sizes.large : '/resources/icons/placeholder.jpg'}>
+        <h1>{this.props.eng ? 'Purpose' : 'Syfte'}</h1>
+      </Image>
+      <Body>
+        <SvgAnime/>
+        <div dangerouslySetInnerHTML={{__html: this.props.eng ? this.props.content.contentENG : this.props.content.contentSV}}/>
+      </Body>
 
+    </Container>
+  );
+}
 }
 
 export default Purpose;

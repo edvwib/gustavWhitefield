@@ -33,7 +33,7 @@ class WeSupport extends Component {
     timeline
     .add({
       targets: item.childNodes,
-      translateY: [100,0],
+      // translateY: [100,0],
       translateZ: 0,
       opacity: [0,1],
       easing: "easeOutExpo",
@@ -41,7 +41,8 @@ class WeSupport extends Component {
       delay: function(el, i) {
         return 300 + 30 * i;
       }
-    }).add({
+    })
+    .add({
       targets: item.childNodes,
       translateY: [0,-100],
       opacity: [1,0],
