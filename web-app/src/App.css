@@ -24,3 +24,8 @@
   font-family: 'niramit italic';
   src: url('/resources/fonts/niramit/Niramit-Italic.ttf');
 }
+
+/*Hide popup button when user has answered cookie form*/
+.cc-revoke{
+  display: none!important;
+}

@@ -17,6 +17,7 @@ class LangSettings extends Component {
       '/apply',
       '/article/',
       '/news',
+      '/cookies',
     ];
     this.sv = [
       '/om-gustav',
@@ -29,6 +30,7 @@ class LangSettings extends Component {
       '/sok-bidrag',
       '/artikel/',
       '/nyheter',
+      '/cookies',
     ];
   }
 
