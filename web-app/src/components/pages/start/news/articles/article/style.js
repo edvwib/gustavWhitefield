@@ -4,6 +4,7 @@ export const Container = styled.div`
 display: flex;
 justify-content: center;
 margin: 7% 0 0 0;
+
 @media (max-width: 750px) {
   margin: 50px 0 0 0;
 }
@@ -13,9 +14,10 @@ export const Wrapper = styled.div`
 display: flex;
 justify-content: center;
 flex-direction: row;
-width: 80%;
+width: 100%;
+max-width: 800px;
 height: 200px;
-${props => props.first &&`flex-flow: row-reverse;width: 90%;`}
+${props => props.first &&`flex-flow: row-reverse; width: 90%; max-width: 900px;`}
 
 a{
   height: 100%;
@@ -77,7 +79,7 @@ height: 100%;
 box-sizing: border-box;
 font-family: 'niramit regular';
 position: relative;
-
+overflow: hidden;
 h3{
   display: flex;
   align-items: center;
@@ -88,8 +90,7 @@ h3{
 p{
   position: relative;
   margin: 0;
-  max-height: 60%;
-  overflow: hidden;
+
 }
 
 small{
@@ -124,9 +125,9 @@ small{
   content: '';
   position: absolute;
   bottom: 0;
-  left: 2.5%;
+  left: 0;
   height: 10%;
-  width: 95%;
+  width: 100%;
   background-color: white;
   box-shadow: 0px -10px 30px 20px white;
   opacity: .99;

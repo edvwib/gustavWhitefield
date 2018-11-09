@@ -6,6 +6,7 @@ flex-direction: column;
 align-items: center;
 color: var(--dark-green);
 text-align: center;
+margin-bottom: 50px;
 `;
 
 export const Text = styled.div`

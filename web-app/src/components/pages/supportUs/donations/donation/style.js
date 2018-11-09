@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-min-height: 450px;
-width: 200px;
-margin: 10px 10px 10px 10px;
+width: 100%;
+box-sizing: border-box;
 border: 1px solid grey;
 border-radius: 5px;
 padding: 10px;
 img{
   height: 100px;
-  width: 200px;
+  max-width: 180px;
   object-fit: contain;
 }
 h3{
@@ -22,9 +21,5 @@ p{
     text-align: left;
     font-size: 16px;
   }
-}
-
-small{
-  font-style: italic;
 }
 `;

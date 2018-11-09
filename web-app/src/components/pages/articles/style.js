@@ -14,7 +14,6 @@ h1{
   width: 100%;
   text-align: center;
   color: var(--dark-green);
-  font-family: 'niramit bold';
 }
 @media (min-width: 1300px) {
   grid-template-columns: auto auto auto auto, minmax(200px, 1fr);

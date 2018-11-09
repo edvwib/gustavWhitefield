@@ -64,11 +64,6 @@ $fields = [
                         'tabs' => 'visual',
                         'toolbar' => 'simple',
                     ]),
-                    acf_textarea([
-                        'name' => 'detailsSV',
-                        'label' => 'Detaljer',
-                        'rows' => 3,
-                    ]),
                     acf_tab([
                         'name' => 'ENG',
                         'label' => 'Engelska',
@@ -83,11 +78,6 @@ $fields = [
                         'media_upload' => false,
                         'tabs' => 'visual',
                         'toolbar' => 'simple',
-                    ]),
-                    acf_textarea([
-                        'name' => 'detailsENG',
-                        'label' => 'Detaljer',
-                        'rows' => 3,
                     ]),
                     acf_tab([
                         'name' => 'endpoint',
