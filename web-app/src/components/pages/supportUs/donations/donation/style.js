@@ -5,7 +5,7 @@ width: 100%;
 box-sizing: border-box;
 border: 1px solid grey;
 border-radius: 5px;
-padding: 10px;
+padding: 10px 10px 0 10px;
 img{
   height: 100px;
   max-width: 180px;

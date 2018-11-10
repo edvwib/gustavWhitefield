@@ -14,12 +14,15 @@ class WeSupport extends Component {
           title={this.props.eng ? 'We support' : 'Vi stödjer'}
         />
         <Body>
-          <Animation items={this.props.content.item} eng={this.props.eng}/>
           <div dangerouslySetInnerHTML={
-            {__html: this.props.eng ?
+            {
+              __html: this.props.eng ?
               this.props.content.contentENG :
-              this.props.content.contentSV}}
-            />
+              this.props.content.contentSV}
+            }
+          />
+            <h2>{this.props.eng ? this.props.content.titleENG : this.props.content.titleSV}</h2>
+            <Animation items={this.props.content.item} eng={this.props.eng}/>
           </Body>
         </Container>
       );

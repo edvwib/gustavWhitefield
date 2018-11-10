@@ -6,15 +6,18 @@ export const Container = styled.div`
   flex-direction: column;
   width: 100%;
   color: var(--dark-green);
-  margin-bottom: 50px;
 `;
 
 export const Body = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-top: -50px;
   width: 100%;
   color: var(--dark-green);
   max-width: 612px;
+
+  >h2{
+    font-size: 28px;
+    margin: 40px 0 0 0;
+  }
 `;

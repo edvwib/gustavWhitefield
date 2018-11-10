@@ -15,54 +15,47 @@ class WeSupport extends Component {
 
   initAnime = () => {
     const timeline = anime.timeline({loop: true});
-    let container = document.querySelector('.container').childNodes;
-
-    container.forEach((item) => {
-      let text = item.innerHTML;
-      let newText = '';
-
-      for (var i = 0; i < text.length; i++) {
-        newText += `<span>${text[i]}</span>`;
-      }
-      item.innerHTML = newText;
-      this.anime(item, timeline);
-    })
+    const container = document.querySelector('.container');
+    const content = this.props.items.map((item) => this.props.eng ? item.contentENG : item.contentSV);
+    const elements = content.map((item, index, array) => {
+      item = `<h3><span>${item}`;
+      item = item.replace(/ /g, '</span><span>')
+      item = `${item}</span></h3>`;
+      return item;
+    });
+    container.innerHTML = '';
+    elements.forEach(item => container.innerHTML += item);
+    container.childNodes.forEach(child => this.anime(child, timeline))
   }
 
-  anime = (item, timeline) => {
+  anime = (child, timeline) => {
     timeline
     .add({
-      targets: item.childNodes,
-      // translateY: [100,0],
+      targets: child.childNodes,
+      translateY: [100,0],
       translateZ: 0,
       opacity: [0,1],
       easing: "easeOutExpo",
       duration: 2400,
       delay: function(el, i) {
-        return 300 + 30 * i;
+        return 300 + 500 * i;
       }
     })
     .add({
-      targets: item.childNodes,
+      targets: child.childNodes,
       translateY: [0,-100],
       opacity: [1,0],
       easing: "easeInExpo",
       duration: 2200,
       delay: function(el, i) {
-        return 100 + 30 * i;
+        return 100 + 500 * i;
       }
     });
   }
 
   render() {
     return (
-      <Container className='container'>
-        {
-          this.props.items.map((item, index) =>
-          <h2 key={index}>{this.props.eng ? item.contentENG : item.contentSV}</h2>
-        )
-        }
-      </Container>
+      <Container className='container'/>
     );
   }
 }

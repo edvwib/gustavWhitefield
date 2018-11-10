@@ -34,6 +34,29 @@ $fields = [
                 'label' => '',
                 'endpoint' => true,
             ]),
+            acf_tab([
+                'name' => 'SV2',
+                'label' => 'Svenska',
+            ]),
+            acf_text([
+                'name' => 'titleSV',
+                'label' => 'Titel för animation',
+                'required' => true,
+            ]),
+            acf_tab([
+                'name' => 'ENG2',
+                'label' => 'Engelska',
+            ]),
+            acf_text([
+                'name' => 'titleENG',
+                'label' => 'Titel for animation',
+                'required' => true,
+            ]),
+            acf_tab([
+                'name' => 'endpoint2',
+                'label' => '',
+                'endpoint' => true,
+            ]),
             acf_repeater([
                 'name' => 'item',
                 'label' => 'Här kan ni lägga till exempel på tidigare aktiviteter som ni har bidragit till.',

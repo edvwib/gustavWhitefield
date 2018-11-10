@@ -1,18 +1,21 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 100px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-h2{
+height: 250px;
+width: 90%;
+max-width: 612px;
+position: relative;
+overflow: hidden;
+h3{
   text-align: center;
+  font-size: 18px;
   width: 100%;
   position: absolute;
-  top: 20%;
+  top: 10%;
   letter-spacing: 0.1em;
+  padding-top: 20px;
   span{
-    min-width: 8px;
+    margin: 0 4px;
     display: inline-block;
   }
 }
