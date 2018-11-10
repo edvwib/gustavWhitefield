@@ -10,6 +10,11 @@ width: 90%;
 box-shadow: inset 0 1px .5px .5px white;
 margin: 50px 0;
 
+@media (max-width: 750px) {
+  width: 100%;
+  margin: 25px 0;
+}
+
 &::after{
   content: '';
   position: absolute;

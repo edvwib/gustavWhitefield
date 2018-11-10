@@ -6,10 +6,10 @@ export const Container = styled.div`
   align-items: center;
   width: 100%;
   color: var(--dark-green);
-
 `;
 
 export const Body = styled.div`
+  width: 90%;
   max-width: 712px;
   margin-bottom: 50px;
 `;

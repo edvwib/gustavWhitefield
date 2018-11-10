@@ -7,10 +7,4 @@ export const Container = styled.div`
   width: 100%;
   color: var(--dark-green);
   margin-bottom: 50px;
-  div:first-child{
-    @media (max-width: 750px) {
-      margin: 25px 0;
-    }
-    margin: 50px 0;
-  }
 `;

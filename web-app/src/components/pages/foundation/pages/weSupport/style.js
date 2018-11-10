@@ -12,12 +12,11 @@ export const Body = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   color: var(--dark-green);
   max-width: 612px;
 
   >h2{
-    font-size: 28px;
     margin: 40px 0 0 0;
   }
 `;
