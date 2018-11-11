@@ -16,6 +16,14 @@ class Form extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if(this.props.cookieConsent()){
+      this.setState({
+        isOrganization: JSON.parse(window.localStorage.getItem('isOrg')) ? true : false,
+      });
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
@@ -28,6 +36,14 @@ class Form extends Component {
     this.setState({
       [name]: value,
     });
+
+    if(target.name === 'isOrganization' && this.props.cookieConsent()){
+      this.saveFormData('isOrg', value);
+    }
+  }
+
+  saveFormData = (key, data) => {
+    window.localStorage.setItem(key, JSON.stringify(data));
   }
 
   handleSubmit = (event) => {
@@ -163,11 +179,11 @@ class Form extends Component {
             </div>
           </div>
 
-          <ContactDetails eng={eng} isOrganization={this.state.isOrganization}
+          <ContactDetails eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
             ref={(contact) => { this.contact = contact; }} />
-          <Application eng={eng} isOrganization={this.state.isOrganization}
+          <Application eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
             ref={(application) => { this.application = application; }} />
-          <Budget eng={eng} isOrganization={this.state.isOrganization}
+          <Budget eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
             ref={(budget) => { this.budget = budget; }} />
 
           <Recaptcha

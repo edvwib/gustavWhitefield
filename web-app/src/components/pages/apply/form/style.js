@@ -21,7 +21,9 @@ label, input, textarea{
   >div{
     flex: 1;
     text-align: center;
-    padding: 20px 20px 15px 20px;
+    label{
+      padding: 20px 20px 15px 20px;
+    }
 
     display: flex;
     flex-direction: column;
@@ -96,4 +98,11 @@ fieldset{
       border: 1px solid var(--dark-green);
     }
   }
+}
+.g-recaptcha{
+  padding: 0 30px;
+  >div{
+    /* margin: 0 auto; */
+  }
+}
 `;
