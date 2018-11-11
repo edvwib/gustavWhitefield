@@ -23,6 +23,23 @@ class Budget extends Component {
       value = false;
     const name = target.name;
 
+    if (target.type.toLowerCase() === 'textarea') {
+      // Reset field height
+      target.style.height = 'inherit';
+
+      // Get the computed styles for the element
+      var computed = window.getComputedStyle(target);
+
+      // Calculate the height
+      var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+        + parseInt(computed.getPropertyValue('padding-top'), 10)
+        + target.scrollHeight
+        + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+        + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+      target.style.height = height + 'px';
+    }
+
     this.setState({
       [name]: value,
     });
@@ -33,109 +50,121 @@ class Budget extends Component {
     return (
       <Container>
         <fieldset>
-          <legend>{isOrganization ? 'Belopp och budget' : 'Belopp'}</legend>
+          <legend>{isOrganization ? eng ? 'Amount & budget' : 'Belopp och budget' : eng ? 'Amount' : 'Belopp'}</legend>
 
-          {/* Sökt belopp */}
-          <label htmlFor="subsidy">{
-            eng ? 'Sökt belopp' : 'Sökt belopp'
-          }</label>
-          <input
-            type="text" name="subsidy"
-            value={this.state.subsidy}
-            onChange={this.handleInputChange}
-          />
+          <div className='grid'>
+            <div>
+              {/* Sökt belopp */}
+              <label htmlFor="subsidy">{
+                eng ? 'Requested amount' : 'Sökt belopp'
+              }</label>
+              <input
+                type="text" name="subsidy"
+                value={this.state.subsidy}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          {/* Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering? */}
-          <label htmlFor="partialFinancing">
-            {eng ? 'Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?' : ' Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?'}
-          </label>
-          <label htmlFor="yesPartialFinancing">
-            {eng ? 'Yes' : 'Ja'}
-          </label>
-          <input
-            type="radio" name="partialFinancing" id="yesPartialFinancing"
-            checked={this.state.partialFinancing}
-            value={true}
-            onChange={this.handleInputChange}
-          />
-          <label htmlFor="noPartialFinancing">
-            {eng ? 'No' : 'Nej'}
-          </label>
-          <input
-            type="radio" name="partialFinancing" id="noPartialFinancing"
-            checked={!this.state.partialFinancing}
-            value={false}
-            onChange={this.handleInputChange}
-          />
+            <div className='partialFinancingContainer'>
+              {/* Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering? */}
+              <label htmlFor="partialFinancing">
+                {eng ? 'If we are unable to hand out the requested amount, will you then be interested in partial financing?' : 'Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?'}
+              </label>
+              <label htmlFor="yesPartialFinancing" className={this.state.partialFinancing ? 'active' : ''}>
+                {eng ? 'Yes' : 'Ja'}
+              </label>
+              <input
+                type="radio" name="partialFinancing" id="yesPartialFinancing"
+                checked={this.state.partialFinancing}
+                value={true}
+                onChange={this.handleInputChange}
+              />
+              <label htmlFor="noPartialFinancing" className={!this.state.partialFinancing ? 'active' : ''}>
+                {eng ? 'No' : 'Nej'}
+              </label>
+              <input
+                type="radio" name="partialFinancing" id="noPartialFinancing"
+                checked={!this.state.partialFinancing}
+                value={false}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          {/* Sökt delbelopp */}
-          {
-            this.state.partialFinancing &&
-              <React.Fragment>
-                <label htmlFor="partialSubsidy">{
-                  eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
-                }</label>
-                <input
-                  type="text" name="partialSubsidy"
-                  value={this.state.partialSubsidy}
-                  onChange={this.handleInputChange}
-                />
-              </React.Fragment>
-          }
+            <div>
+              {/* Sökt delbelopp */}
+              {
+                this.state.partialFinancing &&
+                  <React.Fragment>
+                    <label htmlFor="partialSubsidy">{
+                      eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
+                    }</label>
+                    <input
+                      type="text" name="partialSubsidy"
+                      value={this.state.partialSubsidy}
+                      onChange={this.handleInputChange}
+                    />
+                  </React.Fragment>
+              }
+            </div>
 
-          {/* Söker ni bidrag från fler stiftelser? */}
-          <label htmlFor="multipleInstitutions">{
-            eng ? 'Söker ni bidrag från fler stiftelser?' : 'Söker ni bidrag från fler stiftelser?'
-          }</label>
-          <label htmlFor="yesMultipleInstitutions">
-            {eng ? 'Yes' : 'Ja'}
-          </label>
-          <input
-            type="radio" name="multipleInstitutions" id="yesMultipleInstitutions"
-            checked={this.state.multipleInstitutions}
-            value={true}
-            onChange={this.handleInputChange}
-          />
-          <label htmlFor="noMultipleInstitutions">
-            {eng ? 'No' : 'Nej'}
-          </label>
-          <input
-            type="radio" name="multipleInstitutions" id="noMultipleInstitutions"
-            checked={!this.state.multipleInstitutions}
-            value={false}
-            onChange={this.handleInputChange}
-          />
+            <div className='multipleInstitutionsContainer'>
+              {/* Söker ni bidrag från fler stiftelser? */}
+              <label htmlFor="multipleInstitutions">{
+                eng ? 'Are you applying from any other funds/institutions?' : 'Söker ni bidrag från fler stiftelser?'
+              }</label>
+              <label htmlFor="yesMultipleInstitutions" className={this.state.multipleInstitutions ? 'active' : ''}>
+                {eng ? 'Yes' : 'Ja'}
+              </label>
+              <input
+                type="radio" name="multipleInstitutions" id="yesMultipleInstitutions"
+                checked={this.state.multipleInstitutions}
+                value={true}
+                onChange={this.handleInputChange}
+              />
+              <label htmlFor="noMultipleInstitutions" className={!this.state.multipleInstitutions ? 'active' : ''}>
+                {eng ? 'No' : 'Nej'}
+              </label>
+              <input
+                type="radio" name="multipleInstitutions" id="noMultipleInstitutions"
+                checked={!this.state.multipleInstitutions}
+                value={false}
+                onChange={this.handleInputChange}
+              />
+            </div>
 
-          {/* Redogör för budget: */}
-          {
-            isOrganization &&
-              <React.Fragment>
-                <label htmlFor="budget">{
-                  eng ? 'Redogör för budget' :
-                    'Redogör för budget'
-                }</label>
-                <textarea
-                  name="budget"
-                  value={this.state.budget}
-                  onChange={this.handleInputChange}
-                />
-              </React.Fragment>
-          }
+            <div>
+              {/* Redogör för budget: */}
+              {
+                isOrganization &&
+                  <React.Fragment>
+                    <label htmlFor="budget">{
+                      eng ? 'Explain the budget' : 'Redogör för budget'
+                    }</label>
+                    <textarea
+                      name="budget"
+                      value={this.state.budget}
+                      onChange={this.handleInputChange}
+                    />
+                  </React.Fragment>
+              }
+            </div>
 
-          {/* Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande? */}
-          <label htmlFor="guarantee">{
-            isOrganization ?
-              eng ? 'Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
-                'Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
-              eng ? 'Hur garanterar ni att ändamålet/aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
-                'Hur garanterar ni att ändamålet/aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?'
-          }</label>
-          <textarea
-            name="guarantee"
-            value={this.state.guarantee}
-            onChange={this.handleInputChange}
-          />
-
+            <div>
+              {/* Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande? */}
+              <label htmlFor="guarantee">{
+                isOrganization ?
+                  eng ? 'How can you guerantee that the activity will carry through? Can the institute receive reciepts etc.?' :
+                    'Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
+                  eng ? 'How can you guerantee that the activity will carry through? Can the institute receive reciepts etc.?' :
+                    'Hur garanterar ni att ändamålet/aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?'
+              }</label>
+              <textarea
+                name="guarantee"
+                value={this.state.guarantee}
+                onChange={this.handleInputChange}
+              />
+            </div>
+          </div>
         </fieldset>
       </Container>
     );

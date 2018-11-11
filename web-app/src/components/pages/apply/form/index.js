@@ -3,6 +3,7 @@ import { Container } from './style';
 import ContactDetails from './contactDetails';
 import Application from './application';
 import Budget from './budget';
+import v from 'validator';
 import Recaptcha from 'react-recaptcha';
 import { Helmet } from "react-helmet";
 
@@ -32,22 +33,27 @@ class Form extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const params = {
-      body: {
-        isOrganization: this.state.isOrganization,
-        contact: this.contact.state,
-        application: this.application.state,
-        budget: this.budget.state,
-      },
-      method: 'POST',
-    };
-    console.log(params);
+    let validate = this.validateForm();
+    console.log('valid form', validate);
 
-    fetch('http://localhost:8888/wp-json/api/v1/application/', params)
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-      })
+    if (validate || true) {
+      const params = {
+        body: {
+          isOrganization: this.state.isOrganization,
+          contact: this.contact.state,
+          application: this.application.state,
+          budget: this.budget.state,
+        },
+        method: 'POST',
+      };
+      console.log(params);
+      return;
+      fetch('http://localhost:8888/wp-json/api/v1/application/', params)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+        })
+    }
   }
 
   recaptchaVerify = (response) => {
@@ -57,35 +63,105 @@ class Form extends Component {
     });
   }
 
+  validateForm = () => {
+    const isOrg = this.state.isOrganization;
+    let errors = {};
+    const langString = this.props.eng ? ' is required' : ' måste fyllas i';
+
+    //Contact
+    const contact = this.contact.state;
+    if (v.isEmpty(contact.name)) {
+      errors['name'] = langString;
+    }
+    if (v.isEmpty(contact.organizationNumber) && isOrg) {
+      errors['organizationNumber'] = langString;
+    }
+    if (v.isEmpty(contact.street)) {
+      errors['street'] = langString;
+    }
+    if (v.isEmpty(contact.zip)) {
+      errors['zip'] = langString;
+    } else if (!v.isPostalCode(contact.zip, 'any')) {
+      errors['zip'] = this.props.eng ? ' is not a valid' : ' är inte korrekt formatterat';
+    }
+    if (v.isEmpty(contact.city)) {
+      errors['city'] = langString;
+    }
+    if (!v.isURL(contact.website) && contact.website.length !== 0) {
+      errors['website'] = this.props.eng ? 'URL is not formatted correctly' : 'ns URL är inte korrekt formaterad';
+    }
+    if (v.isEmpty(contact.contactPerson)) {
+      errors['contactPerson'] = langString;
+    }
+    if (v.isEmpty(contact.phone) && v.isEmpty(contact.mobile)) {
+      errors['phone'] = langString;
+    }
+    if (v.isEmpty(contact.email)) {
+      errors['email'] = langString;
+    } else if (!v.isEmail(contact.email)) {
+      errors['email'] = this.props.eng ? ' is not formatted correctly' : 'en är inte korrekt formatterad'
+    }
+    if (!v.isEmpty(contact.phone) && !v.isEmpty(contact.mobile)) {
+      errors['mobile'] = langString;
+    }
+
+    //Application
+
+
+    //Budget
+
+
+    //Clear errors
+    let labels = document.querySelectorAll('label');
+    labels.forEach(label => {
+      label.removeAttribute('data-error');
+    });
+
+    //Display errors
+    let error;
+    for (error in errors) {
+      let label = document.querySelector(`[for=${error}]`);
+      label.setAttribute('data-error', `${errors[error]}`);
+    }
+
+    return Object.keys(errors).length ? false : true;
+  }
+
   render() {
     const { eng } = this.props;
     return (
-      <Container>
+      <Container className={this.props.visible ? '' : 'hidden'}>
         <Helmet>
-          <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+          <script src="//www.google.com/recaptcha/api.js" async defer></script>
         </Helmet>
 
-        <form onSubmit={this.handleSubmit}>
-          <legend>{eng ? 'Apply' : 'Sök bidrag'}</legend>
+        <form onSubmit={this.handleSubmit} autoComplete='on'>
+          {/* <legend>{eng ? 'Apply' : 'Sök bidrag'}</legend> */}
 
-          <input
-            type="radio" name="isOrganization" id="organization"
-            checked={this.state.isOrganization}
-            value={true}
-            onChange={this.handleInputChange}
-          />
-          <label htmlFor="organization">
-            {eng ? 'Organization' : 'Organisation'}
-          </label>
-          <input
-            type="radio" name="isOrganization" id="notOrganization"
-            checked={!this.state.isOrganization}
-            value={false}
-            onChange={this.handleInputChange}
-          />
-          <label htmlFor="notOrganization">
-            {eng ? 'Individual' : 'Privatperson'}
-          </label>
+          <div className='isOrg'>
+            <div className={this.state.isOrganization ? 'active' : ''}>
+              <label htmlFor="organization">
+                {eng ? 'Organization' : 'Organisation'}
+              </label>
+              <input
+                type="radio" name="isOrganization" id="organization"
+                checked={this.state.isOrganization}
+                value={true}
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <div className={!this.state.isOrganization ? 'active' : ''}>
+              <label htmlFor="notOrganization">
+                {eng ? 'Individual' : 'Privatperson'}
+              </label>
+              <input
+                type="radio" name="isOrganization" id="notOrganization"
+                checked={!this.state.isOrganization}
+                value={false}
+                onChange={this.handleInputChange}
+              />
+            </div>
+          </div>
 
           <ContactDetails eng={eng} isOrganization={this.state.isOrganization}
             ref={(contact) => { this.contact = contact; }} />
