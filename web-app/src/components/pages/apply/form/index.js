@@ -156,26 +156,26 @@ class Form extends Component {
 
           <div className='isOrg'>
             <div className={this.state.isOrganization ? 'active' : ''}>
-              <label htmlFor="organization">
-                {eng ? 'Organization' : 'Organisation'}
-              </label>
               <input
                 type="radio" name="isOrganization" id="organization"
                 checked={this.state.isOrganization}
                 value={true}
                 onChange={this.handleInputChange}
               />
+              <label htmlFor="organization">
+                {eng ? 'Organization' : 'Organisation'}
+              </label>
             </div>
             <div className={!this.state.isOrganization ? 'active' : ''}>
-              <label htmlFor="notOrganization">
-                {eng ? 'Individual' : 'Privatperson'}
-              </label>
               <input
                 type="radio" name="isOrganization" id="notOrganization"
                 checked={!this.state.isOrganization}
                 value={false}
                 onChange={this.handleInputChange}
               />
+              <label htmlFor="notOrganization">
+                {eng ? 'Individual' : 'Privatperson'}
+              </label>
             </div>
           </div>
 
@@ -186,19 +186,22 @@ class Form extends Component {
           <Budget eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
             ref={(budget) => { this.budget = budget; }} />
 
-          <Recaptcha
-            ref={e => this.recaptchaInstance = e}
-            sitekey={
-              process.env.NODE_ENV === 'production' ?
-                '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
-                '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
-            }
-            verifyCallback={this.recaptchaVerify}
-            render='onload'
-            hl={this.props.eng ? 'en' : 'sv'}
-          />
+          <div className='submitContainer'>
+            <Recaptcha
+              ref={e => this.recaptchaInstance = e}
+              sitekey={
+                process.env.NODE_ENV === 'production' ?
+                  '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
+                  '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+              }
+              verifyCallback={this.recaptchaVerify}
+              render='onload'
+              hl={this.props.eng ? 'en' : 'sv'}
+            />
 
-          <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}/>
+            <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}/>
+          </div>
+
         </form>
       </Container>
     );

@@ -33,17 +33,18 @@ export const Container = styled.div`
         text-align: center;
         padding: 5px;
         margin-right: 20px;
+        margin-bottom: 0;
         border-radius: 5px;
         border: 1px solid var(--dark-green);
+
+        :hover, :active{
+          background-color: var(--light-green);
+        }
 
         &.active{
           background-color: var(--dark-green);
           color: #fff;
         }
-      }
-
-      input{
-        display: none;
       }
     }
   }
