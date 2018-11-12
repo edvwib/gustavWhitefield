@@ -3,21 +3,8 @@ import { Container } from './style';
 import Form from './form';
 
 class Apply extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      formVisible: true,
-    };
-  }
-
-  toggleForm = () => {
-    this.setState({
-      formVisible: !this.state.formVisible
-    });
-  }
-
   render() {
-    const eng = this.props.eng;
+    const eng = this.props.context.state.eng;
     return (
       <Container>
         <h1>{eng ? 'Apply' : 'Sök bidrag'}</h1>
@@ -28,13 +15,10 @@ class Apply extends Component {
               this.props.content.contentSV
           }}
         ></div>
-        <button
-          onClick={this.toggleForm}
-        >{eng ? 'Apply now' : 'Sök bidrag nu'}</button>
         <Form
           eng={eng}
-          visible={this.state.formVisible}
-          cookieConsent={this.props.cookieConsent}
+          cookieConsent={this.props.context.cookieConsent}
+          API_URL={this.props.context.API_URL}
         />
       </Container>
     );
