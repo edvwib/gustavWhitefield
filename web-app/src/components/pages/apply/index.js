@@ -17,10 +17,17 @@ class Apply extends Component {
   }
 
   render() {
-    const eng = this.props.content.eng;
+    const eng = this.props.eng;
     return (
       <Container>
         <h1>{eng ? 'Apply' : 'Sök bidrag'}</h1>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: eng ?
+              this.props.content.contentENG :
+              this.props.content.contentSV
+          }}
+        ></div>
         <button
           onClick={this.toggleForm}
         >{eng ? 'Apply now' : 'Sök bidrag nu'}</button>
