@@ -17,12 +17,25 @@ class Apply extends Component {
   }
 
   render() {
-    const eng = this.props.content.eng;
+    const eng = this.props.eng;
     return (
       <Container>
         <h1>{eng ? 'Apply' : 'Sök bidrag'}</h1>
-        <button onClick={this.toggleForm}>{eng ? 'Apply now' : 'Sök bidrag nu'}</button>
-        <Form eng={eng} visible={this.state.formVisible}/>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: eng ?
+              this.props.content.contentENG :
+              this.props.content.contentSV
+          }}
+        ></div>
+        <button
+          onClick={this.toggleForm}
+        >{eng ? 'Apply now' : 'Sök bidrag nu'}</button>
+        <Form
+          eng={eng}
+          visible={this.state.formVisible}
+          cookieConsent={this.props.cookieConsent}
+        />
       </Container>
     );
   }

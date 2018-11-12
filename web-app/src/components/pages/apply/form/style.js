@@ -10,6 +10,15 @@ label, input, textarea{
   font-size: 16px;
 }
 
+/*Hide radio buttons, but retain tab press focus*/
+input[type=radio]:focus + label{
+  border: 2px solid var(--light-green)!important;
+}
+input[type=radio]{
+  position: fixed;
+  opacity: 0;
+}
+
 /*Organization or individual*/
 .isOrg{
   display: flex;
@@ -21,14 +30,12 @@ label, input, textarea{
   >div{
     flex: 1;
     text-align: center;
-    padding: 20px 20px 15px 20px;
+    label{
+      padding: 20px 20px 15px 20px;
+    }
 
     display: flex;
     flex-direction: column;
-
-    input{
-      display: none;
-    }
 
     &.active{
       background-color: var(--dark-green);
@@ -96,4 +103,32 @@ fieldset{
       border: 1px solid var(--dark-green);
     }
   }
+}
+.submitContainer{
+  display: flex;
+  justify-content: space-around;
+  padding: 0 30px;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  [type=submit]{
+    border: 1px solid var(--dark-green);
+    border-radius: 5px;
+    background-color: #fff;
+    color: var(--dark-green);
+    height: 78px;
+    margin-bottom: 20px;
+
+    @media (max-width: 800px) {
+      margin: 20px 0;
+    }
+
+    &:hover, &:active{
+      background-color: var(--light-green);
+    }
+  }
+}
 `;

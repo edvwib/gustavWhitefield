@@ -14,13 +14,19 @@ class Budget extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if (this.props.cookieConsent()) {
+      this.setState({
+        ...JSON.parse(window.localStorage.getItem('budget')),
+      });
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    if (value === 'true')
-      value = true;
-    if (value === 'false')
-      value = false;
+    if (value === 'true') value = true;
+    if (value === 'false') value = false;
     const name = target.name;
 
     if (target.type.toLowerCase() === 'textarea') {
@@ -43,6 +49,9 @@ class Budget extends Component {
     this.setState({
       [name]: value,
     });
+
+    if (this.props.cookieConsent())
+      this.props.saveFormData('budget', this.state);
   }
 
   render() {
@@ -70,17 +79,14 @@ class Budget extends Component {
               <label htmlFor="partialFinancing">
                 {eng ? 'If we are unable to hand out the requested amount, will you then be interested in partial financing?' : 'Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?'}
               </label>
-              <label htmlFor="yesPartialFinancing" className={this.state.partialFinancing ? 'active' : ''}>
-                {eng ? 'Yes' : 'Ja'}
-              </label>
               <input
                 type="radio" name="partialFinancing" id="yesPartialFinancing"
                 checked={this.state.partialFinancing}
                 value={true}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="noPartialFinancing" className={!this.state.partialFinancing ? 'active' : ''}>
-                {eng ? 'No' : 'Nej'}
+              <label htmlFor="yesPartialFinancing" className={this.state.partialFinancing ? 'active' : ''}>
+                {eng ? 'Yes' : 'Ja'}
               </label>
               <input
                 type="radio" name="partialFinancing" id="noPartialFinancing"
@@ -88,6 +94,9 @@ class Budget extends Component {
                 value={false}
                 onChange={this.handleInputChange}
               />
+              <label htmlFor="noPartialFinancing" className={!this.state.partialFinancing ? 'active' : ''}>
+                {eng ? 'No' : 'Nej'}
+              </label>
             </div>
 
             <div>
@@ -112,17 +121,14 @@ class Budget extends Component {
               <label htmlFor="multipleInstitutions">{
                 eng ? 'Are you applying from any other funds/institutions?' : 'Söker ni bidrag från fler stiftelser?'
               }</label>
-              <label htmlFor="yesMultipleInstitutions" className={this.state.multipleInstitutions ? 'active' : ''}>
-                {eng ? 'Yes' : 'Ja'}
-              </label>
               <input
                 type="radio" name="multipleInstitutions" id="yesMultipleInstitutions"
                 checked={this.state.multipleInstitutions}
                 value={true}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="noMultipleInstitutions" className={!this.state.multipleInstitutions ? 'active' : ''}>
-                {eng ? 'No' : 'Nej'}
+              <label htmlFor="yesMultipleInstitutions" className={this.state.multipleInstitutions ? 'active' : ''}>
+                {eng ? 'Yes' : 'Ja'}
               </label>
               <input
                 type="radio" name="multipleInstitutions" id="noMultipleInstitutions"
@@ -130,6 +136,9 @@ class Budget extends Component {
                 value={false}
                 onChange={this.handleInputChange}
               />
+              <label htmlFor="noMultipleInstitutions" className={!this.state.multipleInstitutions ? 'active' : ''}>
+                {eng ? 'No' : 'Nej'}
+              </label>
             </div>
 
             <div>

@@ -7,13 +7,14 @@ class ContextProvider extends Component{
   API_URL = `http://localhost:8888/wp-json/api/v1/`;
 
   state = {
-    cookieConsent: document.cookie.split(';').filter((item) => item.includes('cookieconsent_status=allow')).length ? true : false,
+    cookieConsent: false,
     eng: window.localStorage.getItem('eng') || false,
     news: [],
     pages: false,
   }
 
   componentDidMount = () => {
+    this.setState({cookieConsent: this.cookieConsent()})
     this.getData('news');
     this.getData('pages');
   }
@@ -42,12 +43,17 @@ class ContextProvider extends Component{
     return this.state.news.filter((item) => item.post.ID === Number(id))[0];
   }
 
+  cookieConsent = () => {
+    return document.cookie.split(';').filter((item) => item.includes('cookieconsent_status=allow')).length ? true : false;
+  }
+
   render() {
     return (
       <Glob.Provider value={{
         state: this.state,
         update: this.updateLang,
-        getNewsById: this.getNewsById
+        getNewsById: this.getNewsById,
+        cookieConsent: this.cookieConsent,
       }}>
         {this.props.children}
       </Glob.Provider>

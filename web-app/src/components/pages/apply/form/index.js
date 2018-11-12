@@ -4,8 +4,7 @@ import ContactDetails from './contactDetails';
 import Application from './application';
 import Budget from './budget';
 import v from 'validator';
-import Recaptcha from 'react-recaptcha';
-import { Helmet } from "react-helmet";
+import Reaptcha from 'reaptcha';
 
 class Form extends Component {
   constructor(props) {
@@ -16,18 +15,32 @@ class Form extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if(this.props.cookieConsent()){
+      this.setState({
+        isOrganization: JSON.parse(window.localStorage.getItem('isOrg')) ? true : false,
+      });
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    if (value === 'true')
-      value = true;
-    if (value === 'false')
-      value = false;
+    if (value === 'true') value = true;
+    if (value === 'false') value = false;
     const name = target.name;
 
     this.setState({
       [name]: value,
     });
+
+    if(target.name === 'isOrganization' && this.props.cookieConsent()){
+      this.saveFormData('isOrg', value);
+    }
+  }
+
+  saveFormData = (key, data) => {
+    window.localStorage.setItem(key, JSON.stringify(data));
   }
 
   handleSubmit = (event) => {
@@ -52,14 +65,25 @@ class Form extends Component {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-        })
+        });
     }
   }
 
   recaptchaVerify = (response) => {
-    console.log(response);
-    this.setState({
-      verified: true,
+    fetch('http://localhost:8888/wp-json/api/v1/verifyRecaptcha', {
+      body: JSON.stringify({token: response}),
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(result => {
+      if(result === true){
+        this.setState({
+          verified: true,
+        });
+      }
     });
   }
 
@@ -131,58 +155,71 @@ class Form extends Component {
     const { eng } = this.props;
     return (
       <Container className={this.props.visible ? '' : 'hidden'}>
-        <Helmet>
-          <script src="//www.google.com/recaptcha/api.js" async defer></script>
-        </Helmet>
-
         <form onSubmit={this.handleSubmit} autoComplete='on'>
-          {/* <legend>{eng ? 'Apply' : 'Sök bidrag'}</legend> */}
-
           <div className='isOrg'>
             <div className={this.state.isOrganization ? 'active' : ''}>
-              <label htmlFor="organization">
-                {eng ? 'Organization' : 'Organisation'}
-              </label>
               <input
                 type="radio" name="isOrganization" id="organization"
                 checked={this.state.isOrganization}
                 value={true}
                 onChange={this.handleInputChange}
               />
+              <label htmlFor="organization">
+                {eng ? 'Organization' : 'Organisation'}
+              </label>
             </div>
             <div className={!this.state.isOrganization ? 'active' : ''}>
-              <label htmlFor="notOrganization">
-                {eng ? 'Individual' : 'Privatperson'}
-              </label>
               <input
                 type="radio" name="isOrganization" id="notOrganization"
                 checked={!this.state.isOrganization}
                 value={false}
                 onChange={this.handleInputChange}
               />
+              <label htmlFor="notOrganization">
+                {eng ? 'Individual' : 'Privatperson'}
+              </label>
             </div>
           </div>
 
-          <ContactDetails eng={eng} isOrganization={this.state.isOrganization}
-            ref={(contact) => { this.contact = contact; }} />
-          <Application eng={eng} isOrganization={this.state.isOrganization}
-            ref={(application) => { this.application = application; }} />
-          <Budget eng={eng} isOrganization={this.state.isOrganization}
-            ref={(budget) => { this.budget = budget; }} />
-
-          <Recaptcha
-            ref={e => this.recaptchaInstance = e}
-            sitekey={
-              process.env.NODE_ENV === 'production' ?
-                '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
-                '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
-            }
-            verifyCallback={this.recaptchaVerify}
-            render='onload'
-            hl={this.props.eng ? 'en' : 'sv'}
+          <ContactDetails
+            ref={(contact) => { this.contact = contact; }}
+            eng={eng}
+            isOrganization={this.state.isOrganization}
+            saveFormData={this.saveFormData}
+            cookieConsent={this.props.cookieConsent}
+          />
+          <Application
+            ref={(application) => { this.application = application; }}
+            eng={eng}
+            isOrganization={this.state.isOrganization}
+            saveFormData={this.saveFormData}
+            cookieConsent={this.props.cookieConsent}
+          />
+          <Budget
+            ref={(budget) => { this.budget = budget; }}
+            eng={eng}
+            isOrganization={this.state.isOrganization}
+            saveFormData={this.saveFormData}
+            cookieConsent={this.props.cookieConsent}
           />
 
-          <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}/>
+          <div className='submitContainer'>
+            <Reaptcha
+              ref={e => (this.captcha = e)}
+              sitekey={
+                process.env.NODE_ENV === 'production' ?
+                '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
+                '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+              }
+              onVerify={this.recaptchaVerify}
+              hl={this.props.eng ? 'en' : 'sv'}
+            />
+            <input
+              type="submit"
+              value={eng ? 'Send application' : 'Skicka ansökan'}
+              disabled={!this.state.verified}
+            />
+          </div>
         </form>
       </Container>
     );

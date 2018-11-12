@@ -16,6 +16,14 @@ class Application extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if (this.props.cookieConsent()) {
+      this.setState({
+        ...JSON.parse(window.localStorage.getItem('application')),
+      });
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     const value = target.value;
@@ -40,6 +48,9 @@ class Application extends Component {
     this.setState({
       [name]: value,
     });
+
+    if(this.props.cookieConsent())
+      this.props.saveFormData('application', this.state);
   }
 
   render() {

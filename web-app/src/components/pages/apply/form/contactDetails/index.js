@@ -20,18 +20,27 @@ class ContactDetails extends Component {
     };
   }
 
+  componentDidMount = () => {
+    if (this.props.cookieConsent()) {
+      this.setState({
+        ...JSON.parse(window.localStorage.getItem('contact')),
+      });
+    }
+  }
+
   handleInputChange = (event) => {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    if(value === 'true')
-      value = true;
-    if (value === 'false')
-      value = false;
+    if(value === 'true') value = true;
+    if (value === 'false') value = false;
     const name = target.name;
 
     this.setState({
         [name]: value,
     });
+
+    if (this.props.cookieConsent())
+      this.props.saveFormData('contact', this.state);
   }
 
   render() {

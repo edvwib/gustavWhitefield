@@ -8,7 +8,26 @@ $fields = [
         'name' => 'apply',
         'label' => 'Sök bidrag',
         'sub_fields' => [
-
+            acf_tab([
+                'name' => 'SV',
+                'label' => 'Svenska'
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentSV',
+                'label' => 'Innehåll',
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
+            acf_tab([
+                'name' => 'ENG',
+                'label' => 'Engelska',
+            ]),
+            acf_wysiwyg([
+                'name' => 'contentENG',
+                'label' => 'Innehåll',
+                'tabs' => 'visual',
+                'toolbar' => 'simple',
+            ]),
         ],
     ]),
 ];
