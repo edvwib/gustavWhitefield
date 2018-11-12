@@ -49,7 +49,8 @@ class Application extends Component {
       [name]: value,
     });
 
-    if(this.props.cookieConsent()) this.props.saveFormData('application', this.state);
+    if(this.props.cookieConsent())
+      this.props.saveFormData('application', this.state);
   }
 
   render() {

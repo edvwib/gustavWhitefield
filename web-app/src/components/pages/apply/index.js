@@ -21,8 +21,14 @@ class Apply extends Component {
     return (
       <Container>
         <h1>{eng ? 'Apply' : 'Sök bidrag'}</h1>
-        <button onClick={this.toggleForm}>{eng ? 'Apply now' : 'Sök bidrag nu'}</button>
-        <Form eng={eng} visible={this.state.formVisible} cookieConsent={this.props.cookieConsent}/>
+        <button
+          onClick={this.toggleForm}
+        >{eng ? 'Apply now' : 'Sök bidrag nu'}</button>
+        <Form
+          eng={eng}
+          visible={this.state.formVisible}
+          cookieConsent={this.props.cookieConsent}
+        />
       </Container>
     );
   }

@@ -29,13 +29,13 @@ export const Container = styled.div`
       }
 
       label:not(:first-child){
-        width: 40px;
+        width: 41px;
         text-align: center;
         padding: 5px;
         margin-right: 20px;
-        margin-bottom: 0;
+        margin-top: 2px;
         border-radius: 5px;
-        border: 1px solid var(--dark-green);
+        border: 2px solid var(--dark-green);
 
         :hover, :active{
           background-color: var(--light-green);

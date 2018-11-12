@@ -12,7 +12,7 @@ label, input, textarea{
 
 /*Hide radio buttons, but retain tab press focus*/
 input[type=radio]:focus + label{
-  background-color: var(--light-green)!important;
+  border: 2px solid var(--light-green)!important;
 }
 input[type=radio]{
   position: fixed;

@@ -26,10 +26,8 @@ class Form extends Component {
   handleInputChange = (event) => {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    if (value === 'true')
-      value = true;
-    if (value === 'false')
-      value = false;
+    if (value === 'true') value = true;
+    if (value === 'false') value = false;
     const name = target.name;
 
     this.setState({
@@ -158,8 +156,6 @@ class Form extends Component {
     return (
       <Container className={this.props.visible ? '' : 'hidden'}>
         <form onSubmit={this.handleSubmit} autoComplete='on'>
-          {/* <legend>{eng ? 'Apply' : 'Sök bidrag'}</legend> */}
-
           <div className='isOrg'>
             <div className={this.state.isOrganization ? 'active' : ''}>
               <input
@@ -185,12 +181,27 @@ class Form extends Component {
             </div>
           </div>
 
-          <ContactDetails eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
-            ref={(contact) => { this.contact = contact; }} />
-          <Application eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
-            ref={(application) => { this.application = application; }} />
-          <Budget eng={eng} isOrganization={this.state.isOrganization} saveFormData={this.saveFormData} cookieConsent={this.props.cookieConsent}
-            ref={(budget) => { this.budget = budget; }} />
+          <ContactDetails
+            ref={(contact) => { this.contact = contact; }}
+            eng={eng}
+            isOrganization={this.state.isOrganization}
+            saveFormData={this.saveFormData}
+            cookieConsent={this.props.cookieConsent}
+          />
+          <Application
+            ref={(application) => { this.application = application; }}
+            eng={eng}
+            isOrganization={this.state.isOrganization}
+            saveFormData={this.saveFormData}
+            cookieConsent={this.props.cookieConsent}
+          />
+          <Budget
+            ref={(budget) => { this.budget = budget; }}
+            eng={eng}
+            isOrganization={this.state.isOrganization}
+            saveFormData={this.saveFormData}
+            cookieConsent={this.props.cookieConsent}
+          />
 
           <div className='submitContainer'>
             <Reaptcha
@@ -203,12 +214,12 @@ class Form extends Component {
               onVerify={this.recaptchaVerify}
               hl={this.props.eng ? 'en' : 'sv'}
             />
-
-            <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}
+            <input
+              type="submit"
+              value={eng ? 'Send application' : 'Skicka ansökan'}
               disabled={!this.state.verified}
             />
           </div>
-
         </form>
       </Container>
     );

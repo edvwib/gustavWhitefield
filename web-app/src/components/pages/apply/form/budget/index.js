@@ -25,10 +25,8 @@ class Budget extends Component {
   handleInputChange = (event) => {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : target.value;
-    if (value === 'true')
-      value = true;
-    if (value === 'false')
-      value = false;
+    if (value === 'true') value = true;
+    if (value === 'false') value = false;
     const name = target.name;
 
     if (target.type.toLowerCase() === 'textarea') {
@@ -52,7 +50,8 @@ class Budget extends Component {
       [name]: value,
     });
 
-    if (this.props.cookieConsent()) this.props.saveFormData('budget', this.state);
+    if (this.props.cookieConsent())
+      this.props.saveFormData('budget', this.state);
   }
 
   render() {
