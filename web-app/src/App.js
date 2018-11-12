@@ -59,7 +59,10 @@ class App extends Component {
                   path='/cookies'
                   render={() => <Cookies eng={context.state.eng} />}
                 />
-                <Route path="*" component={NotFound}/>
+                <Route
+                  path="*" 
+                  render={() => <NotFound eng={context.state.eng} />}
+                />
               </Switch>
               <Footer content={context.state}/>
             </React.Fragment>

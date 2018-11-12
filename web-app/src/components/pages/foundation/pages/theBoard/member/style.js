@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 80%;
   margin: 20px 10%;
   img{
+    border-radius: 2.5px;
     @media (max-width: 650px) {
       align-self: center;
       height: auto;

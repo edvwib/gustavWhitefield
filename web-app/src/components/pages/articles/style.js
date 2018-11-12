@@ -1,26 +1,26 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+margin-bottom: 50px;
+h1{
+  color: var(--dark-green);
+  margin-bottom: 50px;
+}
+
+`;
+
+export const Wrapper = styled.div`
 position: relative;
 display: grid;
 grid-column-gap: 20px;
-grid-row-gap: 20px;
-padding: 100px 10% 5% 10%;
-grid-template-columns: repeat( auto-fill, minmax(200px, 1fr));
+grid-row-gap: 75px;
+width: 90%;
+max-width: 1000px;
+grid-template-columns: repeat( auto-fill, minmax(250px, 1fr));
+align-items: center;
 
-h1{
-  position: absolute;
-  top: 0;
-  width: 100%;
-  text-align: center;
-  color: var(--dark-green);
-}
-@media (min-width: 1300px) {
-  grid-template-columns: auto auto auto auto, minmax(200px, 1fr);
-  padding: 100px 15% 5% 15%;
-}
-
-@media (max-width: 750px) {
-  padding: 100px 5% 5% 5%;
-}
 `;

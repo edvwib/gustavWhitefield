@@ -68,6 +68,7 @@ a{
 export const Image = styled.div`
 height: 100%;
 width: 100%;
+border-radius: 2.5px;
 background-image: url(${props => props.src});
 background-size: cover;
 background-repeat: no-repeat;
@@ -106,7 +107,7 @@ small{
     content: '';
     position: absolute;
     top: calc(50% - 5px);
-    right: -20px;
+    right: -15px;
     width: 0;
     height: 0;
     border-top: 6px solid transparent;

@@ -19,8 +19,8 @@ a{
 a:after{
   content: '';
   position: absolute;
-  top: calc(50% - 6.5px);
-  right: -20px;
+  top: calc(50% - 5px);
+  right: -25px;
   width: 0;
   height: 0;
   border-top: 8px solid transparent;

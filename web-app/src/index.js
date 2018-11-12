@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom'
 import ContextProvider from './components/globals/context';
 import './index.css';
 import './App.css';
-import 'sanitize.css';
 
 import App from './App';
 

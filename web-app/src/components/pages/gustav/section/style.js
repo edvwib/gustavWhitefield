@@ -15,6 +15,7 @@ span{
 `;
 
 export const Image = styled.img`
+border-radius: 2.5px;
 background-position: center;
 background-size: contain;
 height: 200px;

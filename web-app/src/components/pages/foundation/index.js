@@ -33,7 +33,7 @@ class Foundation extends Component {
             path='(/the-foundation/the-board|/om-stiftelsen/styrelsen)'
             render={() => <TheBoard content={this.props.content.pages.board} eng={this.props.content.eng}/>}
           />
-          <Route path='/the-foundation/economy|/om-stiftelsen/ekonomi)'
+          <Route path='(/the-foundation/economy|/om-stiftelsen/ekonomi)'
           render={() => <Economy content={this.props.content.pages.economy} eng={this.props.content.eng}/>}
         />
         <Route path="*" component={NotFound}/>

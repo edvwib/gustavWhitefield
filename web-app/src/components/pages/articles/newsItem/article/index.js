@@ -22,9 +22,9 @@ class Article extends Component {
     return (
       <Container>
         <img src={this.state.image} alt="icon"/>
-        <h2>{this.props.title}</h2>
+        <h3>{this.props.title}</h3>
         <p>{this.props.intro}</p>
-        <span>{this.props.eng ? 'Read more' : 'Läs mer'}</span>
+        <small>{this.props.eng ? 'Read more' : 'Läs mer'}</small>
       </Container>
 
     );
