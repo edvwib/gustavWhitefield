@@ -47,30 +47,32 @@ class Form extends Component {
     event.preventDefault();
 
     let validate = this.validateForm();
-    console.log('valid form', validate);
+    console.log('valid form: ', validate);
 
-    if (validate || true) {
+    if (validate) {
       const params = {
-        body: {
+        body: JSON.stringify({
           isOrganization: this.state.isOrganization,
           contact: this.contact.state,
           application: this.application.state,
           budget: this.budget.state,
-        },
+        }),
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       };
-      console.log(params);
-      return;
-      fetch('http://localhost:8888/wp-json/api/v1/application/', params)
+      console.log('params', params);
+      fetch(`${this.props.API_URL}application/`, params)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          console.log('response', data);
         });
     }
   }
 
   recaptchaVerify = (response) => {
-    fetch('http://localhost:8888/wp-json/api/v1/verifyRecaptcha', {
+    fetch(`${this.props.API_URL}verifyRecaptcha`, {
       body: JSON.stringify({token: response}),
       method: 'POST',
       headers:{
@@ -114,7 +116,7 @@ class Form extends Component {
     if (!v.isURL(contact.website) && contact.website.length !== 0) {
       errors['website'] = this.props.eng ? 'URL is not formatted correctly' : 'ns URL är inte korrekt formaterad';
     }
-    if (v.isEmpty(contact.contactPerson)) {
+    if (v.isEmpty(contact.contactPerson) && isOrg) {
       errors['contactPerson'] = langString;
     }
     if (v.isEmpty(contact.phone) && v.isEmpty(contact.mobile)) {
@@ -145,8 +147,12 @@ class Form extends Component {
     let error;
     for (error in errors) {
       let label = document.querySelector(`[for=${error}]`);
-      label.setAttribute('data-error', `${errors[error]}`);
+      if(label)
+        label.setAttribute('data-error', `${errors[error]}`);
     }
+
+    console.log('errors', errors);
+
 
     return Object.keys(errors).length ? false : true;
   }
@@ -154,8 +160,8 @@ class Form extends Component {
   render() {
     const { eng } = this.props;
     return (
-      <Container className={this.props.visible ? '' : 'hidden'}>
-        <form onSubmit={this.handleSubmit} autoComplete='on'>
+      <Container>
+        <form id='form' onSubmit={this.handleSubmit} autoComplete='on'>
           <div className='isOrg'>
             <div className={this.state.isOrganization ? 'active' : ''}>
               <input

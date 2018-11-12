@@ -1,11 +1,6 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
-&.hidden{
-  display: none;
-}
-
 label, input, textarea{
   font-size: 16px;
 }
@@ -59,17 +54,20 @@ fieldset{
     margin-bottom: 10px;
 
     &[data-error]{
-      color: tomato;
+      /* color: tomato; */
 
       &::after{
-        color: var(--dark-green);
+        color: tomato;
+        font-style: italic;
+        font-size: 10px;
+        margin-left: 10px;
         content: attr(data-error);
       }
     }
   }
 
   label[data-error] + input{
-    border-color: tomato;
+    /* border-color: tomato; */
   }
 
   input{
@@ -94,6 +92,7 @@ fieldset{
 
   textarea{
     border: 1px solid #ccc;
+    border-radius: 5px;
     transition: 1s border;
     will-change: border;
     padding: 10px;
