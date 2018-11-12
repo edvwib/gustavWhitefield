@@ -18,22 +18,22 @@ class Foundation extends Component {
         <Switch>
 
           <Route
-            exact path={this.props.content.eng ? '/the-foundation' : '/om-stiftelsen'}
+            exact path='(/the-foundation|/om-stiftelsen)'
             render={() => <Purpose content={this.props.content.pages.purpose} eng={this.props.content.eng}/> }
           />
           <Route
-            path={this.props.content.eng ? '/the-foundation/we-support' : '/om-stiftelsen/vi-stodjer'}
+            path='(/the-foundation/we-support|/om-stiftelsen/vi-stodjer)'
             render={() => <WeSupport content={this.props.content.pages.weSupport} eng={this.props.content.eng}/>}
           />
           <Route
-            path={this.props.content.eng ? '/the-foundation/statutes' : '/om-stiftelsen/stadgar'}
+            path='(/the-foundation/statutes|/om-stiftelsen/stadgar)'
             render={() => <Statutes content={this.props.content.pages.bylaws} eng={this.props.content.eng}/>}
           />
           <Route
-            path={this.props.content.eng ? '/the-foundation/the-board' : '/om-stiftelsen/styrelsen'}
+            path='(/the-foundation/the-board|/om-stiftelsen/styrelsen)'
             render={() => <TheBoard content={this.props.content.pages.board} eng={this.props.content.eng}/>}
           />
-          <Route path={this.props.content.eng ? '/the-foundation/economy' : '/om-stiftelsen/ekonomi'}
+          <Route path='/the-foundation/economy|/om-stiftelsen/ekonomi)'
           render={() => <Economy content={this.props.content.pages.economy} eng={this.props.content.eng}/>}
         />
         <Route path="*" component={NotFound}/>

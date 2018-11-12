@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container } from './style';
 
+import NotFound from '../notFound';
 import Slider from './slider';
 
 class Article extends Component {
@@ -11,9 +12,10 @@ class Article extends Component {
 
   render() {
     return (
+      this.state.article ?
       <Container>
         {
-          this.props.content.eng ?
+          this.props.eng ?
           <React.Fragment>
             <Slider images={this.state.article.fields.news.images}/>
             <h1 dangerouslySetInnerHTML={{__html: this.state.article.fields.news.titleENG}}/>
@@ -27,6 +29,8 @@ class Article extends Component {
           </React.Fragment>
         }
       </Container>
+      :
+      <NotFound/>
     );
   }
 }

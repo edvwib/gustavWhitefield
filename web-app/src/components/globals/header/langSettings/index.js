@@ -15,7 +15,6 @@ class LangSettings extends Component {
       '/the-foundation/economy',
       '/support-us',
       '/apply',
-      '/article/',
       '/news',
       '/cookies',
     ];
@@ -28,18 +27,25 @@ class LangSettings extends Component {
       '/om-stiftelsen/ekonomi',
       '/stod-oss',
       '/sok-bidrag',
-      '/artikel/',
       '/nyheter',
       '/cookies',
     ];
   }
 
   translateURL = (eng) => {
-    let index = eng ?
-      this.eng.findIndex((x) => x === window.location.pathname) :
-      this.sv.findIndex((x) => x === window.location.pathname);
+    let path = window.location.pathname;
 
-    return index === -1 ? '/' : eng ? this.sv[index] : this.eng[index];
+    let index = eng ?
+    this.eng.findIndex((x) => x === path) :
+    this.sv.findIndex((x) => x === path);
+
+    if (path.match(/\/(article|artikel)\/[0-9]+/)) {
+      path = path.match(/\/(article|artikel)\/[0-9]+/);
+      path = path[1] === 'article' ? path[0].replace('article', 'artikel') :
+      path[0].replace('artikel', 'article');
+    }
+
+    return index === -1 ? path ? path : '/' : eng ? this.sv[index] : this.eng[index];
   }
 
   render() {

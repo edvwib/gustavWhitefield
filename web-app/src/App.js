@@ -32,27 +32,27 @@ class App extends Component {
               <Switch>
                 <Route exact path='/' render={() => <Start content={context.state}/>}/>
                 <Route
-                  path={context.state.eng ? '/about-gustav' : '/om-gustav'}
+                  path='(/about-gustav|/om-gustav)'
                   render={() => <Gustav content={context.state.pages.aboutGustav} eng={context.state.eng}/>}
                 />
                 <Route
-                  path={context.state.eng ? '/the-foundation' : '/om-stiftelsen'}
+                  path='(/the-foundation|/om-stiftelsen)'
                   render={() => <Foundation content={context.state}/>}
                 />
                 <Route
-                  path={context.state.eng ? '/support-us' : '/stod-oss'}
+                  path='(/support-us|/stod-oss)'
                   render={() => <SupportUs content={context.state.pages.supportUs} eng={context.state.eng}/>}
                 />
                 <Route
-                  path={context.state.eng ? '/apply' : '/sok-bidrag'}
+                  path='(/apply|/sok-bidrag)'
                   render={() => <Apply content={context.state}/>}
                 />
                 <Route
-                  path={context.state.eng ? '/article/:id' : '/artikel/:id'}
-                  render={(props) => <Article {...props} content={context}/>}
+                  path='/(article|artikel)\/:id([0-9]+)'
+                  render={(props) => <Article {...props} content={context} eng={context.state.eng}/>}
                 />
                 <Route
-                  path={context.state.eng ? '/news' : '/nyheter'}
+                  path='(/news|/nyheter)'
                   render={() => <Articles content={context.state}/>}
                 />
                 <Route
