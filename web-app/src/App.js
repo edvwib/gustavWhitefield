@@ -45,7 +45,7 @@ class App extends Component {
                 />
                 <Route
                   path={context.state.eng ? '/apply' : '/sok-bidrag'}
-                  render={() => <Apply content={context.state} cookieConsent={context.cookieConsent}/>}
+                  render={() => <Apply content={context.state.pages.apply} eng={context.state.eng} cookieConsent={context.cookieConsent}/>}
                 />
                 <Route
                   path={context.state.eng ? '/article/:id' : '/artikel/:id'}
