@@ -8,11 +8,31 @@ use JeffOchoa\ValidatorFactory;
 use Symfony\Component\HttpFoundation\File\Exception\PartialFileException;
 
 add_action('rest_api_init', function () {
+    register_rest_route('api/v1', '/verifyRecaptcha/', [
+        'methods' => 'POST',
+        'callback' => 'verifyRecaptcha'
+    ]);
     register_rest_route('api/v1', '/application/', [
         'methods' => 'POST',
         'callback' => 'processApplication'
     ]);
 });
+
+function verifyRecaptcha($request){
+    $params = json_decode($request->get_body());
+    $token = $params->token;
+    $secret = getenv('WP_ENV') === 'local' ? getenv('RECAPTHA_TEST_KEY') : getenv('RECAPTHA_SECRET_KEY');
+
+    $recaptcha = new \ReCaptcha\ReCaptcha($secret);
+
+    $response = $recaptcha->verify($token);
+    if ($response->isSuccess()) {
+        return true;
+    } else {
+        $errors = $response->getErrorCodes();
+        return $errors;
+    }
+}
 
 function processApplication($request){
     $formData = json_decode($request->get_body());

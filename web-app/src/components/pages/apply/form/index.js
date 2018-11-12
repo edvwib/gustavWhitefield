@@ -4,8 +4,7 @@ import ContactDetails from './contactDetails';
 import Application from './application';
 import Budget from './budget';
 import v from 'validator';
-import Recaptcha from 'react-recaptcha';
-import { Helmet } from "react-helmet";
+import Reaptcha from 'reaptcha';
 
 class Form extends Component {
   constructor(props) {
@@ -68,14 +67,25 @@ class Form extends Component {
         .then(response => response.json())
         .then(data => {
           console.log(data);
-        })
+        });
     }
   }
 
   recaptchaVerify = (response) => {
-    console.log(response);
-    this.setState({
-      verified: true,
+    fetch('http://localhost:8888/wp-json/api/v1/verifyRecaptcha', {
+      body: JSON.stringify({token: response}),
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(result => {
+      if(result === true){
+        this.setState({
+          verified: true,
+        });
+      }
     });
   }
 
@@ -147,10 +157,6 @@ class Form extends Component {
     const { eng } = this.props;
     return (
       <Container className={this.props.visible ? '' : 'hidden'}>
-        <Helmet>
-          <script src="//www.google.com/recaptcha/api.js" async defer></script>
-        </Helmet>
-
         <form onSubmit={this.handleSubmit} autoComplete='on'>
           {/* <legend>{eng ? 'Apply' : 'Sök bidrag'}</legend> */}
 
@@ -187,19 +193,20 @@ class Form extends Component {
             ref={(budget) => { this.budget = budget; }} />
 
           <div className='submitContainer'>
-            <Recaptcha
-              ref={e => this.recaptchaInstance = e}
+            <Reaptcha
+              ref={e => (this.captcha = e)}
               sitekey={
                 process.env.NODE_ENV === 'production' ?
-                  '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
-                  '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+                '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
+                '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
               }
-              verifyCallback={this.recaptchaVerify}
-              render='onload'
+              onVerify={this.recaptchaVerify}
               hl={this.props.eng ? 'en' : 'sv'}
             />
 
-            <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}/>
+            <input type="submit" value={eng ? 'Send application' : 'Skicka ansökan'}
+              disabled={!this.state.verified}
+            />
           </div>
 
         </form>
