@@ -55,13 +55,13 @@ class ContactDetails extends Component {
           <div className='grid'>
             {/* NAME */}
             <div>
-              <label htmlFor="name">{
+              <label htmlFor='name'>{
                 isOrganization ?
                   eng ? 'Name organization' : 'Namn organisation' :
                   eng ? 'Name applicant' : 'Namn sökande'
               }</label>
               <input
-                type="text" name="name"
+                type='text' name='name'
                 value={this.state.name}
                 onChange={this.handleInputChange}
               />
@@ -71,11 +71,11 @@ class ContactDetails extends Component {
             {
               isOrganization &&
                 <div>
-                  <label htmlFor="organizationNumber">{
+                  <label htmlFor='organizationNumber'>{
                     eng ? 'Organization number' : 'Organisationsnummer'
                   }</label>
                   <input
-                    type="text" name="organizationNumber"
+                    type='text' name='organizationNumber'
                     value={this.state.organizationNumber}
                     onChange={this.handleInputChange}
                   />
@@ -84,11 +84,11 @@ class ContactDetails extends Component {
 
             {/* STREET ADDRESS */}
             <div>
-              <label htmlFor="street">{
+              <label htmlFor='street'>{
                 eng ? 'Street' : 'Gatuaddress'
               }</label>
               <input
-                type="text" name="street"
+                type='text' name='street'
                 value={this.state.street}
                 onChange={this.handleInputChange}
               />
@@ -96,11 +96,11 @@ class ContactDetails extends Component {
 
             {/* ZIP */}
             <div>
-              <label htmlFor="zip">{
+              <label htmlFor='zip'>{
                 eng ? 'Zip code' : 'Postnummer'
               }</label>
               <input
-                type="text" name="zip"
+                type='text' name='zip'
                 value={this.state.zip}
                 onChange={this.handleInputChange}
               />
@@ -108,11 +108,11 @@ class ContactDetails extends Component {
 
             {/* CITY */}
             <div>
-              <label htmlFor="city">{
+              <label htmlFor='city'>{
                 eng ? 'City' : 'Ort'
               }</label>
               <input
-                type="text" name="city"
+                type='text' name='city'
                 value={this.state.city}
                 onChange={this.handleInputChange}
               />
@@ -122,11 +122,11 @@ class ContactDetails extends Component {
             {
               isOrganization &&
               <div>
-                <label htmlFor="website">{
+                <label htmlFor='website'>{
                   eng ? 'Website' : 'Hemsida'
                 }</label>
                 <input
-                  type="text" name="website"
+                  type='text' name='website'
                   value={this.state.website}
                   onChange={this.handleInputChange}
                 />
@@ -137,11 +137,11 @@ class ContactDetails extends Component {
             {
               isOrganization &&
               <div>
-                <label htmlFor="contactPerson">{
+                <label htmlFor='contactPerson'>{
                   eng ? 'Contact person' : 'Kontaktperson'
                 }</label>
                 <input
-                  type="text" name="contactPerson"
+                  type='text' name='contactPerson'
                   value={this.state.contactPerson}
                   onChange={this.handleInputChange}
                 />
@@ -150,11 +150,11 @@ class ContactDetails extends Component {
 
             {/* PHONE */}
             <div>
-              <label htmlFor="phone">{
+              <label htmlFor='phone'>{
                 eng ? 'Phone' : 'Telefon'
               }</label>
               <input
-                type="text" name="phone"
+                type='text' name='phone'
                 value={this.state.phone}
                 onChange={this.handleInputChange}
               />
@@ -162,11 +162,11 @@ class ContactDetails extends Component {
 
             {/* EMAIL */}
             <div>
-              <label htmlFor="email">{
+              <label htmlFor='email'>{
                 eng ? 'Email' : 'E-post'
               }</label>
               <input
-                type="mail" name="email"
+                type='mail' name='email'
                 value={this.state.email}
                 onChange={this.handleInputChange}
               />
@@ -176,11 +176,11 @@ class ContactDetails extends Component {
             {
               isOrganization &&
               <div>
-                <label htmlFor="mobile">{
+                <label htmlFor='mobile'>{
                   eng ? 'Mobile phone' : 'Mobilnummer'
                 }</label>
                 <input
-                  type="text" name="mobile"
+                  type='text' name='mobile'
                   value={this.state.mobile}
                   onChange={this.handleInputChange}
                 />
@@ -191,11 +191,11 @@ class ContactDetails extends Component {
             {
               !isOrganization &&
               <div>
-                <label htmlFor="applicantName">{
+                <label htmlFor='applicantName'>{
                   eng ? 'Name of receiver of funds' : 'Namn mottagare av sökta medel'
                 }</label>
                 <input
-                  type="text" name="applicantName"
+                  type='text' name='applicantName'
                   value={this.state.applicantName}
                   onChange={this.handleInputChange}
                 />
@@ -206,11 +206,11 @@ class ContactDetails extends Component {
             {
               !isOrganization &&
               <div>
-                <label htmlFor="applicantBirthdate">{
+                <label htmlFor='applicantBirthdate'>{
                   eng ? 'Birthdate of receiver of funds' : 'Födelsedata mottagare av sökta medel'
                 }</label>
                 <input
-                  type="text" name="applicantBirthdate"
+                  type='text' name='applicantBirthdate'
                   value={this.state.applicantBirthdate}
                   onChange={this.handleInputChange}
                 />

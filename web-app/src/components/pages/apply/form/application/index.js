@@ -63,7 +63,7 @@ class Application extends Component {
           <div className='grid'>
             <div>
               {/* Beskrivning av ändamål/projekt/aktivitet: */}
-              <label htmlFor="descriptionProject">{
+              <label htmlFor='descriptionProject'>{
                 isOrganization ?
                   eng ? 'Description of purpose/project/activity' :
                     'Beskrivning av ändamål/projekt/aktivitet' :
@@ -71,7 +71,7 @@ class Application extends Component {
                     'Beskrivning av ändamål/aktivitet'
               }</label>
               <textarea
-                name="descriptionProject"
+                name='descriptionProject'
                 value={this.state.descriptionProject}
                 onChange={this.handleInputChange}
               />
@@ -79,7 +79,7 @@ class Application extends Component {
 
             <div>
               {/* Beskriv individens/individernas funktionshinder: */}
-              <label htmlFor="disability">{
+              <label htmlFor='disability'>{
                 isOrganization ?
                   eng ? 'Describe the indivuals disabilities' :
                     'Beskriv individens/individernas funktionshinder' :
@@ -87,7 +87,7 @@ class Application extends Component {
                     'Beskriv individens funktionshinder'
               }</label>
               <textarea
-                name="disability"
+                name='disability'
                 value={this.state.disability}
                 onChange={this.handleInputChange}
               />
@@ -98,12 +98,12 @@ class Application extends Component {
               {
                 isOrganization &&
                 <React.Fragment>
-                  <label htmlFor="beneficiaryCount">{
+                  <label htmlFor='beneficiaryCount'>{
                     eng ? 'How many individuals/personell will take part in the activity?' :
                       'Hur många individer kommer att få ta del av aktiviteten samt eventuell personal som kommer delta?'
                   }</label>
                   <textarea
-                    name="beneficiaryCount"
+                    name='beneficiaryCount'
                     value={this.state.beneficiaryCount}
                     onChange={this.handleInputChange}
                   />
@@ -113,7 +113,7 @@ class Application extends Component {
 
             <div>
               {/* Hur ökar aktiviteten individens självkänsla och glädje? */}
-              <label htmlFor="selfesteemHappiness">{
+              <label htmlFor='selfesteemHappiness'>{
                 isOrganization ?
                   eng ? 'How will the activity increase the individuals selfesteem and happiness?' :
                     'Hur ökar aktiviteten individens självkänsla och glädje?' :
@@ -121,7 +121,7 @@ class Application extends Component {
                     'Hur stärks personens självkänsla och glädje genom det eventuella bidraget?'
               }</label>
               <textarea
-                name="selfesteemHappiness"
+                name='selfesteemHappiness'
                 value={this.state.selfesteemHappiness}
                 onChange={this.handleInputChange}
               />
@@ -129,14 +129,14 @@ class Application extends Component {
 
             <div>
               {/* Hur ökar aktiviteten individens kropp- och rumsuppfattning? */}
-              <label htmlFor="bodySpatialAwareness">{
+              <label htmlFor='bodySpatialAwareness'>{
                 isOrganization ?
                   eng ? 'How will the activity increase bodily and spatial awareness?' :
                     'Hur ökar aktiviteten individens kropp- och rumsuppfattning?' :
                   eng ? 'How will the individuals bodily and spatial awareness strenghten via the eventual subsidy?' :
                     'Hur stärks personens kropp- och rumsuppfattning genom det eventuella bidraget?'}</label>
               <textarea
-                name="bodySpatialAwareness"
+                name='bodySpatialAwareness'
                 value={this.state.bodySpatialAwareness}
                 onChange={this.handleInputChange}
               />
@@ -147,12 +147,12 @@ class Application extends Component {
               {
                 isOrganization &&
                 <React.Fragment>
-                  <label htmlFor="educationalValue">{
+                  <label htmlFor='educationalValue'>{
                     eng ? 'What educational value does the activity bring?' :
                       'Vilket pedagogiskt värde har aktiviteten?'
                   }</label>
                   <textarea
-                    name="educationalValue"
+                    name='educationalValue'
                     value={this.state.educationalValue}
                     onChange={this.handleInputChange}
                   />
@@ -162,12 +162,12 @@ class Application extends Component {
 
             <div>
               {/* Övrigt */}
-              <label htmlFor="other">{
+              <label htmlFor='other'>{
                 eng ? 'Other' :
                   'Övrigt'
               }</label>
               <textarea
-                name="other"
+                name='other'
                 value={this.state.other}
                 onChange={this.handleInputChange}
               />
@@ -175,12 +175,12 @@ class Application extends Component {
 
             <div>
               {/* När kommer aktiviteten genomföras? */}
-              <label htmlFor="when">{
+              <label htmlFor='when'>{
                 eng ? 'When is the activity planned? ' :
                   'När kommer aktiviteten genomföras?'
               }</label>
               <textarea
-                name="when"
+                name='when'
                 value={this.state.when}
                 onChange={this.handleInputChange}
               />

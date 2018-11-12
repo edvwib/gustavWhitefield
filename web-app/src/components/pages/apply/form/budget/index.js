@@ -64,11 +64,11 @@ class Budget extends Component {
           <div className='grid'>
             <div>
               {/* Sökt belopp */}
-              <label htmlFor="subsidy">{
+              <label htmlFor='subsidy'>{
                 eng ? 'Requested amount' : 'Sökt belopp'
               }</label>
               <input
-                type="text" name="subsidy"
+                type='text' name='subsidy'
                 value={this.state.subsidy}
                 onChange={this.handleInputChange}
               />
@@ -76,25 +76,25 @@ class Budget extends Component {
 
             <div className='partialFinancingContainer'>
               {/* Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering? */}
-              <label htmlFor="partialFinancing">
+              <label htmlFor='partialFinancing'>
                 {eng ? 'If we are unable to hand out the requested amount, will you then be interested in partial financing?' : 'Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?'}
               </label>
               <input
-                type="radio" name="partialFinancing" id="yesPartialFinancing"
+                type='radio' name='partialFinancing' id='yesPartialFinancing'
                 checked={this.state.partialFinancing}
                 value={true}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="yesPartialFinancing" className={this.state.partialFinancing ? 'active' : ''}>
+              <label htmlFor='yesPartialFinancing' className={this.state.partialFinancing ? 'active' : ''}>
                 {eng ? 'Yes' : 'Ja'}
               </label>
               <input
-                type="radio" name="partialFinancing" id="noPartialFinancing"
+                type='radio' name='partialFinancing' id='noPartialFinancing'
                 checked={!this.state.partialFinancing}
                 value={false}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="noPartialFinancing" className={!this.state.partialFinancing ? 'active' : ''}>
+              <label htmlFor='noPartialFinancing' className={!this.state.partialFinancing ? 'active' : ''}>
                 {eng ? 'No' : 'Nej'}
               </label>
             </div>
@@ -104,11 +104,11 @@ class Budget extends Component {
               {
                 this.state.partialFinancing &&
                   <React.Fragment>
-                    <label htmlFor="partialSubsidy">{
+                    <label htmlFor='partialSubsidy'>{
                       eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
                     }</label>
                     <input
-                      type="text" name="partialSubsidy"
+                      type='text' name='partialSubsidy'
                       value={this.state.partialSubsidy}
                       onChange={this.handleInputChange}
                     />
@@ -118,25 +118,25 @@ class Budget extends Component {
 
             <div className='multipleInstitutionsContainer'>
               {/* Söker ni bidrag från fler stiftelser? */}
-              <label htmlFor="multipleInstitutions">{
+              <label htmlFor='multipleInstitutions'>{
                 eng ? 'Are you applying from any other funds/institutions?' : 'Söker ni bidrag från fler stiftelser?'
               }</label>
               <input
-                type="radio" name="multipleInstitutions" id="yesMultipleInstitutions"
+                type='radio' name='multipleInstitutions' id='yesMultipleInstitutions'
                 checked={this.state.multipleInstitutions}
                 value={true}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="yesMultipleInstitutions" className={this.state.multipleInstitutions ? 'active' : ''}>
+              <label htmlFor='yesMultipleInstitutions' className={this.state.multipleInstitutions ? 'active' : ''}>
                 {eng ? 'Yes' : 'Ja'}
               </label>
               <input
-                type="radio" name="multipleInstitutions" id="noMultipleInstitutions"
+                type='radio' name='multipleInstitutions' id='noMultipleInstitutions'
                 checked={!this.state.multipleInstitutions}
                 value={false}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="noMultipleInstitutions" className={!this.state.multipleInstitutions ? 'active' : ''}>
+              <label htmlFor='noMultipleInstitutions' className={!this.state.multipleInstitutions ? 'active' : ''}>
                 {eng ? 'No' : 'Nej'}
               </label>
             </div>
@@ -146,11 +146,11 @@ class Budget extends Component {
               {
                 isOrganization &&
                   <React.Fragment>
-                    <label htmlFor="budget">{
+                    <label htmlFor='budget'>{
                       eng ? 'Explain the budget' : 'Redogör för budget'
                     }</label>
                     <textarea
-                      name="budget"
+                      name='budget'
                       value={this.state.budget}
                       onChange={this.handleInputChange}
                     />
@@ -160,7 +160,7 @@ class Budget extends Component {
 
             <div>
               {/* Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande? */}
-              <label htmlFor="guarantee">{
+              <label htmlFor='guarantee'>{
                 isOrganization ?
                   eng ? 'How can you guerantee that the activity will carry through? Can the institute receive reciepts etc.?' :
                     'Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
@@ -168,7 +168,7 @@ class Budget extends Component {
                     'Hur garanterar ni att ändamålet/aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?'
               }</label>
               <textarea
-                name="guarantee"
+                name='guarantee'
                 value={this.state.guarantee}
                 onChange={this.handleInputChange}
               />

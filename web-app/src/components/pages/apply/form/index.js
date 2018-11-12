@@ -165,7 +165,7 @@ class Form extends Component {
           <div className='isOrg'>
             <div className={this.state.isOrganization ? 'active' : ''}>
               <input
-                type="radio" name="isOrganization" id="organization"
+                type='radio' name='isOrganization' id='organization'
                 checked={this.state.isOrganization}
                 value={true}
                 onChange={this.handleInputChange}
@@ -176,7 +176,7 @@ class Form extends Component {
             </div>
             <div className={!this.state.isOrganization ? 'active' : ''}>
               <input
-                type="radio" name="isOrganization" id="notOrganization"
+                type='radio' name='isOrganization' id='notOrganization'
                 checked={!this.state.isOrganization}
                 value={false}
                 onChange={this.handleInputChange}
@@ -221,7 +221,7 @@ class Form extends Component {
               hl={this.props.eng ? 'en' : 'sv'}
             />
             <input
-              type="submit"
+              type='submit'
               value={eng ? 'Send application' : 'Skicka ansökan'}
               disabled={!this.state.verified}
             />
