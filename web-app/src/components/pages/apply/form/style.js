@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+margin-top: 50px;
+
 label, input, textarea{
   font-size: 16px;
 }
@@ -17,26 +19,33 @@ input[type=radio]{
 /*Organization or individual*/
 .isOrg{
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
-  border-bottom: 5px solid var(--dark-green);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 
-  >div{
-    flex: 1;
+  >label{
+    flex: 1 1 100%;
+    margin-bottom: 20px;
     text-align: center;
-    label{
-      padding: 20px 20px 15px 20px;
-    }
+  }
+  >div>label{
+    width: 41px;
+    padding: 5px;
+    margin-right: 20px;
+    margin-top: 2px;
+    border-radius: 5px;
+    border: 2px solid var(--dark-green);
 
-    display: flex;
-    flex-direction: column;
+    :hover, :active{
+      background-color: var(--light-green);
+    }
 
     &.active{
       background-color: var(--dark-green);
       color: #fff;
     }
   }
+
 }
 
 fieldset{

@@ -92,7 +92,7 @@ class Form extends Component {
   validateForm = () => {
     const isOrg = this.state.isOrganization;
     let errors = {};
-    const langString = this.props.eng ? ' is required' : ' måste fyllas i';
+    const langString = this.props.eng ? 'Required' : 'Måste fyllas i';
 
     //Contact
     const contact = this.contact.state;
@@ -108,13 +108,13 @@ class Form extends Component {
     if (v.isEmpty(contact.zip)) {
       errors['zip'] = langString;
     } else if (!v.isPostalCode(contact.zip, 'any')) {
-      errors['zip'] = this.props.eng ? ' is not a valid' : ' är inte korrekt formatterat';
+      errors['zip'] = this.props.eng ? 'Not a valid postal code' : ' Inte korrekt formaterad';
     }
     if (v.isEmpty(contact.city)) {
       errors['city'] = langString;
     }
     if (!v.isURL(contact.website) && contact.website.length !== 0) {
-      errors['website'] = this.props.eng ? 'URL is not formatted correctly' : 'ns URL är inte korrekt formaterad';
+      errors['website'] = this.props.eng ? 'The URL is not formatted correctly' : 'URL:en är inte korrekt formaterad';
     }
     if (v.isEmpty(contact.contactPerson) && isOrg) {
       errors['contactPerson'] = langString;
@@ -125,7 +125,7 @@ class Form extends Component {
     if (v.isEmpty(contact.email)) {
       errors['email'] = langString;
     } else if (!v.isEmail(contact.email)) {
-      errors['email'] = this.props.eng ? ' is not formatted correctly' : 'en är inte korrekt formatterad'
+      errors['email'] = this.props.eng ? 'Not a valid email' : 'Inte en giltig e-post'
     }
     if (!v.isEmpty(contact.phone) && !v.isEmpty(contact.mobile)) {
       errors['mobile'] = langString;
@@ -145,10 +145,12 @@ class Form extends Component {
 
     //Display errors
     let error;
+    let index = 0;
     for (error in errors) {
       let label = document.querySelector(`[for=${error}]`);
-      if(label)
-        label.setAttribute('data-error', `${errors[error]}`);
+      index === 0 && window.scrollTo(0, label.offsetTop-15);
+      if(label) label.setAttribute('data-error', `${errors[error]}`);
+      index++;
     }
 
     console.log('errors', errors);
@@ -163,6 +165,9 @@ class Form extends Component {
       <Container>
         <form id='form' onSubmit={this.handleSubmit} autoComplete='on'>
           <div className='isOrg'>
+            <label htmlFor='isOrganization'>{
+              eng ? 'Are you applying for an organization or an individual?' : 'Söker ni bidrag för en organisation eller för en privatperson?'
+            }</label>
             <div className={this.state.isOrganization ? 'active' : ''}>
               <input
                 type='radio' name='isOrganization' id='organization'
@@ -170,7 +175,7 @@ class Form extends Component {
                 value={true}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="organization">
+              <label htmlFor='organization' className={this.state.isOrganization ? 'active' : ''}>
                 {eng ? 'Organization' : 'Organisation'}
               </label>
             </div>
@@ -181,7 +186,7 @@ class Form extends Component {
                 value={false}
                 onChange={this.handleInputChange}
               />
-              <label htmlFor="notOrganization">
+              <label htmlFor='notOrganization' className={!this.state.isOrganization ? 'active' : ''}>
                 {eng ? 'Individual' : 'Privatperson'}
               </label>
             </div>

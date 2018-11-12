@@ -21,8 +21,7 @@ export const Container = styled.div`
     }
 
     .partialFinancingContainer, .multipleInstitutionsContainer{
-      flex-direction: row;
-      flex-wrap: wrap;
+      flex-flow: row wrap;
 
       label:first-child{
         flex: 1 1 100%;
