@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from './style';
-import Form from './form';
+import FormContainer from './formContainer';
 
 class Apply extends Component {
   render() {
@@ -15,7 +15,7 @@ class Apply extends Component {
               this.props.content.contentSV
           }}
         ></div>
-        <Form
+        <FormContainer
           eng={eng}
           cookieConsent={this.props.context.cookieConsent}
           API_URL={this.props.context.API_URL}

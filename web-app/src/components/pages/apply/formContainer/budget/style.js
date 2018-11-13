@@ -1,17 +1,9 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Fieldset = styled.fieldset`
   .grid{
     display: grid;
     grid-template-columns: 1fr;
-
-    >div{
-      display: flex;
-      flex-direction: column;
-
-      padding: 10px;
-    }
-
 
     input[name=subsidy], input[name=partialSubsidy]{
       width: 50%;
@@ -47,4 +39,10 @@ export const Container = styled.div`
       }
     }
   }
+`;
+
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 `;
