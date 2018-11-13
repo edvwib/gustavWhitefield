@@ -92,7 +92,8 @@ class Form extends Component {
   validateForm = () => {
     const isOrg = this.state.isOrganization;
     let errors = {};
-    const langString = this.props.eng ? 'Required' : 'Måste fyllas i';
+    const eng = this.props.eng;
+    const langString = eng ? 'Required' : 'Måste fyllas i';
 
     //Contact
     const contact = this.contact.state;
@@ -108,13 +109,13 @@ class Form extends Component {
     if (v.isEmpty(contact.zip)) {
       errors['zip'] = langString;
     } else if (!v.isPostalCode(contact.zip, 'any')) {
-      errors['zip'] = this.props.eng ? 'Not a valid postal code' : ' Inte korrekt formaterad';
+      errors['zip'] = eng ? 'Not a valid postal code' : ' Inte korrekt formaterad';
     }
     if (v.isEmpty(contact.city)) {
       errors['city'] = langString;
     }
     if (!v.isURL(contact.website) && contact.website.length !== 0) {
-      errors['website'] = this.props.eng ? 'The URL is not formatted correctly' : 'URL:en är inte korrekt formaterad';
+      errors['website'] = eng ? 'The URL is not formatted correctly' : 'URL:en är inte korrekt formaterad';
     }
     if (v.isEmpty(contact.contactPerson) && isOrg) {
       errors['contactPerson'] = langString;
@@ -125,7 +126,7 @@ class Form extends Component {
     if (v.isEmpty(contact.email)) {
       errors['email'] = langString;
     } else if (!v.isEmail(contact.email)) {
-      errors['email'] = this.props.eng ? 'Not a valid email' : 'Inte en giltig e-post'
+      errors['email'] = eng ? 'Not a valid email' : 'Inte en giltig e-post'
     }
     if (!v.isEmpty(contact.phone) && !v.isEmpty(contact.mobile)) {
       errors['mobile'] = langString;
@@ -163,7 +164,7 @@ class Form extends Component {
     const { eng } = this.props;
     return (
       <Container>
-        <form id='form' onSubmit={this.handleSubmit} autoComplete='on'>
+        <form id='form' onSubmit={this.handleSubmit} autoComplete='on' noValidate>
           <div className='isOrg'>
             <label htmlFor='isOrganization'>{
               eng ? 'Are you applying for an organization or an individual?' : 'Söker ni bidrag för en organisation eller för en privatperson?'
@@ -191,6 +192,8 @@ class Form extends Component {
               </label>
             </div>
           </div>
+
+          <div className='instructions'>{eng ? 'Fields marked with a "*" are required.' : 'Fält markerade med "*" måste fyllas i.'}</div>
 
           <ContactDetails
             ref={(contact) => { this.contact = contact; }}
@@ -223,12 +226,11 @@ class Form extends Component {
                 '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
               }
               onVerify={this.recaptchaVerify}
-              hl={this.props.eng ? 'en' : 'sv'}
+              hl={eng ? 'en' : 'sv'}
             />
             <input
               type='submit'
               value={eng ? 'Send application' : 'Skicka ansökan'}
-              disabled={!this.state.verified}
             />
           </div>
         </form>

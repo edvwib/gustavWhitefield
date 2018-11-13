@@ -7,6 +7,11 @@ label, input, textarea{
   font-size: 16px;
 }
 
+.instructions{
+  margin-bottom: 20px;
+  text-align: center;
+}
+
 /*Hide radio buttons, but retain tab press focus*/
 input[type=radio]:focus + label{
   border: 2px solid var(--light-green)!important;
@@ -28,10 +33,12 @@ input[type=radio]{
     margin-bottom: 20px;
     text-align: center;
   }
+  label[for=organization]{
+    margin-right: 20px;
+  }
   >div>label{
     width: 41px;
     padding: 5px;
-    margin-right: 20px;
     margin-top: 2px;
     border-radius: 5px;
     border: 2px solid var(--dark-green);
@@ -81,7 +88,7 @@ fieldset{
 
   input{
 
-    &[type=text], &[type=mail]{
+    &[type=text], &[type=mail], &[type=tel]{
       border: 0;
       border-bottom: 1.5px solid #ccc;
       background-color: #fff;

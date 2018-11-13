@@ -59,7 +59,7 @@ class ContactDetails extends Component {
                 isOrganization ?
                   eng ? 'Name organization' : 'Namn organisation' :
                   eng ? 'Name applicant' : 'Namn sökande'
-              }</label>
+              }*</label>
               <input
                 type='text' name='name'
                 value={this.state.name}
@@ -73,7 +73,7 @@ class ContactDetails extends Component {
                 <div>
                   <label htmlFor='organizationNumber'>{
                     eng ? 'Organization number' : 'Organisationsnummer'
-                  }</label>
+                  }*</label>
                   <input
                     type='text' name='organizationNumber'
                     value={this.state.organizationNumber}
@@ -86,7 +86,7 @@ class ContactDetails extends Component {
             <div>
               <label htmlFor='street'>{
                 eng ? 'Street' : 'Gatuaddress'
-              }</label>
+              }*</label>
               <input
                 type='text' name='street'
                 value={this.state.street}
@@ -98,7 +98,7 @@ class ContactDetails extends Component {
             <div>
               <label htmlFor='zip'>{
                 eng ? 'Zip code' : 'Postnummer'
-              }</label>
+              }*</label>
               <input
                 type='text' name='zip'
                 value={this.state.zip}
@@ -110,7 +110,7 @@ class ContactDetails extends Component {
             <div>
               <label htmlFor='city'>{
                 eng ? 'City' : 'Ort'
-              }</label>
+              }*</label>
               <input
                 type='text' name='city'
                 value={this.state.city}
@@ -139,7 +139,7 @@ class ContactDetails extends Component {
               <div>
                 <label htmlFor='contactPerson'>{
                   eng ? 'Contact person' : 'Kontaktperson'
-                }</label>
+                }*</label>
                 <input
                   type='text' name='contactPerson'
                   value={this.state.contactPerson}
@@ -152,9 +152,9 @@ class ContactDetails extends Component {
             <div>
               <label htmlFor='phone'>{
                 eng ? 'Phone' : 'Telefon'
-              }</label>
+              }*</label>
               <input
-                type='text' name='phone'
+                type='tel' name='phone'
                 value={this.state.phone}
                 onChange={this.handleInputChange}
               />
@@ -164,7 +164,7 @@ class ContactDetails extends Component {
             <div>
               <label htmlFor='email'>{
                 eng ? 'Email' : 'E-post'
-              }</label>
+              }*</label>
               <input
                 type='mail' name='email'
                 value={this.state.email}
@@ -180,7 +180,7 @@ class ContactDetails extends Component {
                   eng ? 'Mobile phone' : 'Mobilnummer'
                 }</label>
                 <input
-                  type='text' name='mobile'
+                  type='tel' name='mobile'
                   value={this.state.mobile}
                   onChange={this.handleInputChange}
                 />
@@ -193,7 +193,7 @@ class ContactDetails extends Component {
               <div>
                 <label htmlFor='applicantName'>{
                   eng ? 'Name of receiver of funds' : 'Namn mottagare av sökta medel'
-                }</label>
+                }*</label>
                 <input
                   type='text' name='applicantName'
                   value={this.state.applicantName}
@@ -208,7 +208,7 @@ class ContactDetails extends Component {
               <div>
                 <label htmlFor='applicantBirthdate'>{
                   eng ? 'Birthdate of receiver of funds' : 'Födelsedata mottagare av sökta medel'
-                }</label>
+                }*</label>
                 <input
                   type='text' name='applicantBirthdate'
                   value={this.state.applicantBirthdate}

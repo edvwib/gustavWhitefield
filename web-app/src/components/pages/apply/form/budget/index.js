@@ -66,7 +66,7 @@ class Budget extends Component {
               {/* Sökt belopp */}
               <label htmlFor='subsidy'>{
                 eng ? 'Requested amount' : 'Sökt belopp'
-              }</label>
+              }*</label>
               <input
                 type='text' name='subsidy'
                 value={this.state.subsidy}
@@ -77,7 +77,7 @@ class Budget extends Component {
             <div className='partialFinancingContainer'>
               {/* Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering? */}
               <label htmlFor='partialFinancing'>
-                {eng ? 'If we are unable to hand out the requested amount, will you then be interested in partial financing?' : 'Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?'}
+                {eng ? 'If we are unable to hand out the requested amount, will you then be interested in partial financing?' : 'Om vi inte kan dela ut det sökta beloppet, är ni då intresserad av delfinansiering?'}*
               </label>
               <input
                 type='radio' name='partialFinancing' id='yesPartialFinancing'
@@ -106,7 +106,7 @@ class Budget extends Component {
                   <React.Fragment>
                     <label htmlFor='partialSubsidy'>{
                       eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
-                    }</label>
+                    }*</label>
                     <input
                       type='text' name='partialSubsidy'
                       value={this.state.partialSubsidy}
@@ -120,7 +120,7 @@ class Budget extends Component {
               {/* Söker ni bidrag från fler stiftelser? */}
               <label htmlFor='multipleInstitutions'>{
                 eng ? 'Are you applying from any other funds/institutions?' : 'Söker ni bidrag från fler stiftelser?'
-              }</label>
+              }*</label>
               <input
                 type='radio' name='multipleInstitutions' id='yesMultipleInstitutions'
                 checked={this.state.multipleInstitutions}
@@ -148,7 +148,7 @@ class Budget extends Component {
                   <React.Fragment>
                     <label htmlFor='budget'>{
                       eng ? 'Explain the budget' : 'Redogör för budget'
-                    }</label>
+                    }*</label>
                     <textarea
                       name='budget'
                       value={this.state.budget}
@@ -166,7 +166,7 @@ class Budget extends Component {
                     'Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
                   eng ? 'How can you guerantee that the activity will carry through? Can the institute receive reciepts etc.?' :
                     'Hur garanterar ni att ändamålet/aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?'
-              }</label>
+              }*</label>
               <textarea
                 name='guarantee'
                 value={this.state.guarantee}
