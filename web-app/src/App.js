@@ -60,7 +60,7 @@ class App extends Component {
                   render={() => <Cookies eng={context.state.eng} />}
                 />
                 <Route
-                  path="*" 
+                  path='*'
                   render={() => <NotFound eng={context.state.eng} />}
                 />
               </Switch>
