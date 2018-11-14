@@ -74,10 +74,8 @@ class Application extends Component {
             />
           </Styled.InputContainer>
 
-          <Styled.InputContainer>
-            {
-              isOrganization &&
-              <React.Fragment>
+          {isOrganization &&
+            <Styled.InputContainer>
                 <label htmlFor='beneficiaryCount'>{
                   eng ? 'How many individuals/personell will take part in the activity?' :
                     'Hur många individer kommer att få ta del av aktiviteten samt eventuell personal som kommer delta?'
@@ -87,9 +85,8 @@ class Application extends Component {
                   value={this.state.beneficiaryCount}
                   onChange={this.handleInputChange}
                 />
-              </React.Fragment>
-            }
-          </Styled.InputContainer>
+           </Styled.InputContainer>
+          }
 
           <Styled.InputContainer>
             <label htmlFor='selfesteemHappiness'>{
@@ -120,22 +117,19 @@ class Application extends Component {
             />
           </Styled.InputContainer>
 
-          <Styled.InputContainer>
-            {
-              isOrganization &&
-              <React.Fragment>
-                <label htmlFor='educationalValue'>{
-                  eng ? 'What educational value does the activity bring?' :
-                    'Vilket pedagogiskt värde har aktiviteten?'
-                }</label>
-                <textarea
-                  name='educationalValue'
-                  value={this.state.educationalValue}
-                  onChange={this.handleInputChange}
-                />
-              </React.Fragment>
-            }
-          </Styled.InputContainer>
+          {isOrganization &&
+            <Styled.InputContainer>
+              <label htmlFor='educationalValue'>{
+                eng ? 'What educational value does the activity bring?' :
+                  'Vilket pedagogiskt värde har aktiviteten?'
+              }</label>
+              <textarea
+                name='educationalValue'
+                value={this.state.educationalValue}
+                onChange={this.handleInputChange}
+              />
+            </Styled.InputContainer>
+          }
 
           <Styled.InputContainer>
             <label htmlFor='other'>{
