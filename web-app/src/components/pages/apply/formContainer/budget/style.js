@@ -41,8 +41,4 @@ export const Fieldset = styled.fieldset`
   }
 `;
 
-export const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-`;
+export { InputContainer } from './../style';
