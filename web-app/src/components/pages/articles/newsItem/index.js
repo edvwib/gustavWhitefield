@@ -9,8 +9,7 @@ class NewsItem extends Component {
   render() {
     return (
       <Container>
-        <NavLink to={
-          this.props.eng ?
+        <NavLink to={this.props.eng ?
           `/article/${this.props.news.post.ID}` :
           `/artikel/${this.props.news.post.ID}`
         }>

@@ -10,7 +10,6 @@ h1{
   color: var(--dark-green);
   margin-bottom: 50px;
 }
-
 `;
 
 export const Wrapper = styled.div`
@@ -21,6 +20,4 @@ grid-row-gap: 75px;
 width: 90%;
 max-width: 1000px;
 grid-template-columns: repeat( auto-fill, minmax(250px, 1fr));
-align-items: center;
-
 `;
