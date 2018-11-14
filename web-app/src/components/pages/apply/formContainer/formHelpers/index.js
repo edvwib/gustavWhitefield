@@ -1,4 +1,5 @@
 import v from 'validator';
+import anime from 'animejs';
 
 export const getInputDetails = (event) => {
   const target = event.target;
@@ -111,8 +112,14 @@ export const validateForm = (that) => {
   let index = 0;
   for (error in errors) {
     let label = document.querySelector(`[for=${error}]`);
-    index === 0 && window.scrollTo(0, label.offsetTop - 15);
-    if (label) label.setAttribute('data-error', `${errors[error]}`);
+
+    // Scroll to first error
+    index === 0 && anime({
+      targets: [document.documentElement, document.body],
+      scrollTop: label.offsetTop - 15,
+      duration: 800,
+      easing: 'easeInOutQuad'
+    });
     index++;
   }
 
