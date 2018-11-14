@@ -38,79 +38,80 @@ export const saveFormData = (key, data) => {
 
 export const validateForm = (that) => {
   const isOrg = that.state.isOrganization;
-  let errors = {};
+  let errors = [];
   const eng = that.props.eng;
-  const langString = eng ? 'Required' : 'Måste fyllas i';
-  const unknownErrorString = eng ? 'Something went wrong with this value, please reselect it and try to submit the form again' : 'Något gick fel med det här värdet, vänligen markera det igen och försök att skicka formuläret igen';
+  const langString = eng ?
+    'Required' :
+    'Måste fyllas i';
+  const unknownErrorString = eng ?
+    'Something went wrong with this value, please reselect it and try to submit the form again' :
+    'Något gick fel med det här värdet, vänligen markera det igen och försök att skicka formuläret igen';
 
   const contact = that.contact.state;
-  if (v.isEmpty(contact.name)) {
+  if (v.isEmpty(contact.name))
     errors['name'] = langString;
-  }
-  if (v.isEmpty(contact.organizationNumber) && isOrg) {
+
+  if (v.isEmpty(contact.organizationNumber) && isOrg)
     errors['organizationNumber'] = langString;
-  }
-  if (v.isEmpty(contact.street)) {
+
+  if (v.isEmpty(contact.street))
     errors['street'] = langString;
-  }
-  if (v.isEmpty(contact.zip)) {
+
+  if (v.isEmpty(contact.zip))
     errors['zip'] = langString;
-  } else if (!v.isPostalCode(contact.zip, 'any')) {
-    errors['zip'] = eng ? 'Not a valid postal code' : ' Inte korrekt formaterad';
-  }
-  if (v.isEmpty(contact.city)) {
+  else if (!v.isPostalCode(contact.zip, 'any'))
+    errors['zip'] = eng ?
+      'Not a valid postal code' :
+      'Inte korrekt formaterad';
+
+  if (v.isEmpty(contact.city))
     errors['city'] = langString;
-  }
-  if (!v.isURL(contact.website) && contact.website.length !== 0) {
-    errors['website'] = eng ? 'The URL is not formatted correctly' : 'URL:en är inte korrekt formaterad';
-  }
-  if (v.isEmpty(contact.contactPerson) && isOrg) {
+
+  if (!v.isURL(contact.website) && contact.website.length !== 0)
+    errors['website'] = eng ?
+      'The URL is not formatted correctly' :
+      'URL:en är inte korrekt formaterad';
+
+  if (v.isEmpty(contact.contactPerson) && isOrg)
     errors['contactPerson'] = langString;
-  }
-  if (v.isEmpty(contact.phone) && v.isEmpty(contact.mobile)) {
+
+  if (v.isEmpty(contact.phone) && v.isEmpty(contact.mobile))
     errors['phone'] = langString;
-  }
-  if (v.isEmpty(contact.email)) {
+
+  if (v.isEmpty(contact.email))
     errors['email'] = langString;
-  } else if (!v.isEmail(contact.email)) {
-    errors['email'] = eng ? 'Not a valid email' : 'Inte en giltig e-post'
-  }
-  if (!v.isEmpty(contact.phone) && !v.isEmpty(contact.mobile)) {
-    errors['mobile'] = langString;
-  }
-  if (!isOrg && v.isEmpty(contact.applicantName)){
+  else if (!v.isEmail(contact.email))
+    errors['email'] = eng ?
+      'Not a valid email' :
+      'Inte en giltig e-post'
+
+  if (!isOrg && v.isEmpty(contact.applicantName))
     errors['applicantName'] = langString;
-  }
-  if (!isOrg && v.isEmpty(contact.applicantBirthdate)) {
+
+  if (!isOrg && v.isEmpty(contact.applicantBirthdate))
     errors['applicantBirthdate'] = langString;
-  }
 
   const application = that.budget.application;
 
 
   const budget = that.budget.state;
-  if (v.isEmpty(budget.subsidy)) {
+  if (v.isEmpty(budget.subsidy))
     errors['subsidy'] = langString;
-  }
-  if (budget.partialFinancing) {
-    if (v.isEmpty(budget.partialSubsidy)) {
+  if (budget.partialFinancing)
+    if (v.isEmpty(budget.partialSubsidy))
       errors['partialSubsidy'] = langString;
-    }
-  }
-  if (v.isEmpty(budget.guarantee)) {
+
+  if (v.isEmpty(budget.guarantee))
     errors['guarantee'] = langString;
-  }
 
   //Clear errors
-  let labels = document.querySelectorAll('label');
-  labels.forEach(label => {
+  document.querySelectorAll('[data-error]').forEach(label => {
     label.removeAttribute('data-error');
   });
 
   //Display errors
-  let error;
   let index = 0;
-  for (error in errors) {
+  for (let error in errors) {
     let label = document.querySelector(`[for=${error}]`);
 
     // Scroll to first error
@@ -120,6 +121,9 @@ export const validateForm = (that) => {
       duration: 800,
       easing: 'easeInOutQuad'
     });
+
+    // Set attribute which will the be displayed via css
+    label && label.setAttribute('data-error', `${errors[error]}`);
     index++;
   }
 
