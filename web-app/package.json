@@ -20,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && mv build ../wp-api/public/themes/gustavWhitefield/web-app"
+    "build": "react-scripts build && rm -rf ../wp-api/public/themes/gustavWhitefield/web-app && mv build ../wp-api/public/themes/gustavWhitefield/web-app"
   },
   "eslintConfig": {
     "extends": "react-app"
