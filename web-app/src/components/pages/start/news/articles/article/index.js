@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { Container, Wrapper, Image, Text } from './style';
+import placeholder from '../../../../../../resources/icons/placeholder.jpg';
 
 class Article extends Component {
 
@@ -8,12 +9,12 @@ class Article extends Component {
     const images = this.props.content.images;
     let img;
 
-    if(!images) return '/resources/icons/placeholder.jpg';
+    if(!images) return placeholder;
 
     for (var i = 0; i < images.length; i++) {
       if (!Object.values(images[i])[0]) {
         if (i === images.length - 1) {
-          img = '/resources/icons/placeholder.jpg';
+          img = placeholder;
         }
       }
       else{

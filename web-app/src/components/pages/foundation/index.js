@@ -16,7 +16,6 @@ class Foundation extends Component {
       <React.Fragment>
         <SubNav eng={this.props.content.eng}/>
         <Switch>
-
           <Route
             exact path='(/the-foundation|/om-stiftelsen)'
             render={() => <Purpose content={this.props.content.pages.purpose} eng={this.props.content.eng}/> }

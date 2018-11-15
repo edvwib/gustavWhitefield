@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import anime from 'animejs';
 import { Container } from './style';
+import iconLion from '../../../resources/icons/lion.svg';
 
 class Loading extends Component {
 
@@ -49,7 +50,7 @@ class Loading extends Component {
   render() {
     return (
       <Container>
-        <img src='/resources/icons/lion.svg' alt=''/>
+        <img src={iconLion} alt='Gustav Whitefield'/>
         <h2 className='loading'>
           {navigator.language.toLowerCase() === 'sv-se' ? 'Laddar' : 'Loading'}
         </h2>

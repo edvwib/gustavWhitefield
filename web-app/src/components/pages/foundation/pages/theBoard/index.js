@@ -3,6 +3,7 @@ import { Container } from './style';
 
 import Header from '../../globals/header';
 import Member from './member';
+import placeholder from '../../../../../resources/icons/placeholder.jpg';
 
 class TheBoard extends Component {
 
@@ -10,7 +11,7 @@ class TheBoard extends Component {
     return (
       <Container>
         <Header
-          src={this.props.content.image ? this.props.content.image.sizes.large : '/resources/icons/placeholder.jpg'}
+          src={this.props.content.image ? this.props.content.image.sizes.large : placeholder}
           title={this.props.eng ? 'The Board' : 'Styrelsen'}
         />
         {

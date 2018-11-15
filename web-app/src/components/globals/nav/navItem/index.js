@@ -5,6 +5,8 @@ import { Container, LinkWrap } from './style';
 
 import MenuBtn from './MenuBtn';
 import LangSettings from '../../header/langSettings';
+import iconEng from '../../../../resources/icons/bigIconEng.png'
+import iconSwe from '../../../../resources/icons/bigIcon.png'
 
 class NavItem extends Component{
 
@@ -38,9 +40,9 @@ class NavItem extends Component{
               item.name === '' &&
               <NavLink to={item.path}>
                 { this.props.eng ?
-                  <img src='/resources/icons/bigIconEng.png' alt='Icon English'/>
+                  <img src={iconEng} alt='Icon English'/>
                   :
-                  <img src='/resources/icons/bigIcon.png' alt='Icon Swedish'/>
+                  <img src={iconSwe} alt='Icon Swedish'/>
                 }
               </NavLink>
             }

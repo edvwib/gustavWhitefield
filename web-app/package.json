@@ -2,6 +2,7 @@
   "name": "web-app",
   "version": "0.0.1",
   "private": true,
+  "homepage": "/themes/gustavWhitefield/web-app",
   "dependencies": {
     "animejs": "^2.2.0",
     "body-scroll-lock": "^2.5.10",
@@ -19,7 +20,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build && mv build ../wp-api/public/themes/gustavWhitefield/web-app"
   },
   "eslintConfig": {
     "extends": "react-app"

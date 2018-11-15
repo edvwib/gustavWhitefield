@@ -3,6 +3,7 @@ import { Container, Body } from './style';
 
 import Header from '../../globals/header';
 import Animation from './animation';
+import placeholder from '../../../../../resources/icons/placeholder.jpg';
 
 class WeSupport extends Component {
 
@@ -10,7 +11,7 @@ class WeSupport extends Component {
     return (
       <Container>
         <Header
-          src={this.props.content.image ? this.props.content.image.sizes.large : '/resources/icons/placeholder.jpg'}
+          src={this.props.content.image ? this.props.content.image.sizes.large : placeholder}
           title={this.props.eng ? 'We support' : 'Vi stödjer'}
         />
         <Body>

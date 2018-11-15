@@ -7,25 +7,25 @@
 
 @font-face {
   font-family: 'niramit regular';
-  src: url('/resources/fonts/niramit/Niramit-Regular.ttf');
+  src: url('./resources/fonts/niramit/Niramit-Regular.ttf');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'niramit bold';
-  src: url('/resources/fonts/niramit/Niramit-Bold.ttf');
+  src: url('./resources/fonts/niramit/Niramit-Bold.ttf');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'niramit medium';
-  src: url('/resources/fonts/niramit/Niramit-Medium.ttf');
+  src: url('./resources/fonts/niramit/Niramit-Medium.ttf');
   font-display: swap;
 }
 
 @font-face {
   font-family: 'niramit italic';
-  src: url('/resources/fonts/niramit/Niramit-Italic.ttf');
+  src: url('./resources/fonts/niramit/Niramit-Italic.ttf');
   font-display: swap;
 }
 

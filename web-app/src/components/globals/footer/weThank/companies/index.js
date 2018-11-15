@@ -12,6 +12,8 @@ const Companies = (props) => {
             href={i.url || null}
             key={i.image.ID}
             img={i.image.url}
+            target="_blank"
+            rel="noopener noreferrer"
           />
         )}
       </Container>
