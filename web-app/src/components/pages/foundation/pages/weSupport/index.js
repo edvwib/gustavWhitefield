@@ -3,7 +3,7 @@ import { Container, Body } from './style';
 
 import Header from '../../globals/header';
 import Animation from './animation';
-import placeholder from '../../../../../resources/icons/placeholder.jpg';
+import placeholder from 'resources/icons/placeholder.jpg';
 
 class WeSupport extends Component {
 

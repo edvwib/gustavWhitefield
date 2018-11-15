@@ -3,7 +3,7 @@ import { Container, Body} from './style';
 
 import Header from '../../globals/header';
 import SvgAnime from './svgAnime';
-import placeholder from '../../../../../resources/icons/placeholder.jpg';
+import placeholder from 'resources/icons/placeholder.jpg';
 
 class Purpose extends Component {
 

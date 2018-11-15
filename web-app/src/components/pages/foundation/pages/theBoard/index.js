@@ -3,7 +3,7 @@ import { Container } from './style';
 
 import Header from '../../globals/header';
 import Member from './member';
-import placeholder from '../../../../../resources/icons/placeholder.jpg';
+import placeholder from 'resources/icons/placeholder.jpg';
 
 class TheBoard extends Component {
 

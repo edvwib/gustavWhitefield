@@ -33,7 +33,6 @@ width: 60%;
 max-width: 400px;
 min-width: 200px;
 min-height: 200px;
-
 @media (max-width: 750px) {
 width: 90%;
 }

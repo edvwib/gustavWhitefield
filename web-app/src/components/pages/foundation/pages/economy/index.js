@@ -3,7 +3,7 @@ import { Container, Body } from './style';
 
 import Header from '../../globals/header';
 import Files from './files';
-import placeholder from '../../../../../resources/icons/placeholder.jpg';
+import placeholder from 'resources/icons/placeholder.jpg';
 
 class Economy extends Component {
 

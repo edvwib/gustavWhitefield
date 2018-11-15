@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import anime from 'animejs';
 import { Container } from './style';
-import iconLion from '../../../resources/icons/lion.svg';
+import iconLion from 'resources/icons/lion.svg';
 
 class Loading extends Component {
 

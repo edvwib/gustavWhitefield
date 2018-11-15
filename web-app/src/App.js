@@ -2,20 +2,20 @@ import React, { Component } from 'react';
 import {Switch, Route } from 'react-router-dom'
 import { Glob } from './components/globals/context';
 
-import Header from './components/globals/header';
-import Nav from './components/globals/nav';
-import Footer from './components/globals/footer'
-import Start from './components/pages/start';
-import Gustav from './components/pages/gustav';
-import Foundation from './components/pages/foundation';
-import SupportUs from './components/pages/supportUs';
-import Apply from './components/pages/apply';
-import Article from './components/pages/article';
-import Articles from './components/pages/articles';
-import Loading from './components/pages/loading';
-import Cookies from './components/pages/cookies';
-import NotFound from './components/pages/notFound';
-import CookiePopup from './components/globals/cookiePopup';
+import Header from 'components/globals/header';
+import Nav from 'components/globals/nav';
+import Footer from 'components/globals/footer'
+import Start from 'components/pages/start';
+import Gustav from 'components/pages/gustav';
+import Foundation from 'components/pages/foundation';
+import SupportUs from 'components/pages/supportUs';
+import Apply from 'components/pages/apply';
+import Article from 'components/pages/article';
+import Articles from 'components/pages/articles';
+import Loading from 'components/pages/loading';
+import Cookies from 'components/pages/cookies';
+import NotFound from 'components/pages/notFound';
+import CookiePopup from 'components/globals/cookiePopup';
 
 class App extends Component {
 

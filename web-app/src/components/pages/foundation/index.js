@@ -7,7 +7,7 @@ import Statutes from './pages/statutes';
 import WeSupport from './pages/weSupport';
 import TheBoard from './pages/theBoard';
 import Economy from './pages/economy';
-import NotFound from '../../../components/pages/notFound';
+import NotFound from 'components/pages/notFound';
 
 class Foundation extends Component {
 
