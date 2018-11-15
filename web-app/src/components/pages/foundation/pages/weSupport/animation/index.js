@@ -16,15 +16,15 @@ class WeSupport extends Component {
   initAnime = () => {
     const timeline = anime.timeline({loop: true});
     const container = document.querySelector('.container');
-    const content = this.props.items.map((item) => this.props.eng ? item.contentENG : item.contentSV);
-    const elements = content.map((item, index, array) => {
+    const content = this.props.items && this.props.items.map((item) => this.props.eng ? item.contentENG : item.contentSV);
+    const elements = content && content.map((item, index, array) => {
       item = `<h3><span>${item}`;
       item = item.replace(/ /g, '</span><span>')
       item = `${item}</span></h3>`;
       return item;
     });
     container.innerHTML = '';
-    elements.forEach(item => container.innerHTML += item);
+    elements && elements.forEach(item => container.innerHTML += item);
     container.childNodes.forEach(child => this.anime(child, timeline))
   }
 

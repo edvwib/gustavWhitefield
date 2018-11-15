@@ -15,7 +15,7 @@ class TheBoard extends Component {
           title={this.props.eng ? 'The Board' : 'Styrelsen'}
         />
         {
-          this.props.content.members.map((member, index) =>
+          this.props.content.members && this.props.content.members.map((member, index) =>
           <Member
             key={index}
             name={member.name}
