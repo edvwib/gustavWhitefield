@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   font-family: 'niramit regular';
   color: var(--dark-green);
-  height: 100%;
+  height: auto;
   padding-top: 20px;
   p{
     width: 60%;
