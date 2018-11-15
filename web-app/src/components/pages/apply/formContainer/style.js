@@ -119,6 +119,12 @@ export const Instructions = styled.div`
   text-align: center;
 `;
 
+export const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+`;
+
 export const SubmitContainer = styled.div`
   display: flex;
   justify-content: space-around;
