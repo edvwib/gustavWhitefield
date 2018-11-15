@@ -1,12 +1,13 @@
 import React from 'react';
 import { Container } from './style';
-
+import Head from 'components/globals/head';
 import Section from './section';
 
 const Gustav = (props) => {
 
   return (
     <Container>
+      <Head title={props.eng ? 'About Gustav' : 'Om Gustav'}/>
       {
         props.eng ?
         <React.Fragment>

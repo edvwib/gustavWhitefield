@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Container } from './style';
 import FormContainer from './formContainer';
-
+import Head from 'components/globals/head';
 class Apply extends Component {
   render() {
     const eng = this.props.context.state.eng;
     return (
       <Container>
+        <Head title={eng ? 'Apply' : 'Sök bidrag'}/>
         <h1>{eng ? 'Apply' : 'Sök bidrag'}</h1>
         <div
           dangerouslySetInnerHTML={{

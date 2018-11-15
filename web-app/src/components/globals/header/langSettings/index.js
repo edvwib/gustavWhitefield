@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Glob } from '../../../globals/context';
+import { Glob } from 'components/globals/context';
 import { Container } from './style';
 
 class LangSettings extends Component {

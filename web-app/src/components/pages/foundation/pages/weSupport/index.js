@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Body } from './style';
-
+import Head from 'components/globals/head';
 import Header from '../../globals/header';
 import Animation from './animation';
 import placeholder from 'resources/icons/placeholder.jpg';
@@ -10,6 +10,7 @@ class WeSupport extends Component {
   render() {
     return (
       <Container>
+        <Head title={this.props.eng ? 'We support' : 'Vi stödjer'}/>
         <Header
           src={this.props.content.image ? this.props.content.image.sizes.large : placeholder}
           title={this.props.eng ? 'We support' : 'Vi stödjer'}

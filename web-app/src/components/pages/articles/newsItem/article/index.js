@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container } from './style';
-
 import placeholder from 'resources/icons/placeholder.jpg';
 
 class Article extends Component {

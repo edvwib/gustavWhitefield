@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container } from './style';
-
+import Head from 'components/globals/head';
 import Header from '../../globals/header';
 import Member from './member';
 import placeholder from 'resources/icons/placeholder.jpg';
@@ -10,6 +10,7 @@ class TheBoard extends Component {
   render() {
     return (
       <Container>
+        <Head title={this.props.eng ? 'The board' : 'Styrelsen'}/>
         <Header
           src={this.props.content.image ? this.props.content.image.sizes.large : placeholder}
           title={this.props.eng ? 'The Board' : 'Styrelsen'}

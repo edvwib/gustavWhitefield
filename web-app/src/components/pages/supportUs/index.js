@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Text} from './style';
-
+import Head from 'components/globals/head';
 import Donations from './donations';
 
 class SupportUs extends Component {
@@ -8,6 +8,7 @@ class SupportUs extends Component {
   render() {
     return (
       <Container>
+        <Head title={this.props.eng ? 'Help our cause' : 'Stöd oss'}/>
         <h1>{this.props.eng ? 'Help our cause' : 'Stöd oss'}</h1>
         <Text
           dangerouslySetInnerHTML={{

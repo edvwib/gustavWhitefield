@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Btn, Wrapper } from './style';
-
+import Head from 'components/globals/head';
 import NotFound from '../notFound';
 import Slider from './slider';
 
@@ -18,6 +18,7 @@ class Article extends Component {
     return (
       this.state.article ?
       <Container>
+        <Head title={this.props.eng ? 'Article' : 'Artikel'}/>
         <Wrapper>
           <Slider images={this.state.article.fields.news.images}/>
           <h1 dangerouslySetInnerHTML={{
