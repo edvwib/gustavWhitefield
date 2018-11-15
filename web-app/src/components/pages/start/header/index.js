@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Container } from './style';
 
+import placeholder from '../../../../resources/icons/placeholder.jpg';
+
 
 class Header extends Component {
 
@@ -10,7 +12,7 @@ class Header extends Component {
         img={
           this.props.page.image ?
           this.props.page.image.sizes.large :
-          '/resources/icons/placeholder.jpg'
+          placeholder
         }>
         <h1>{this.props.eng ? this.props.page.textENG : this.props.page.textSV}</h1>
       </Container>
