@@ -9,7 +9,7 @@ class Donations extends Component {
     return (
       <Container>
         {
-          this.props.content.map((method, index) =>
+          this.props.content && this.props.content.map((method, index) =>
           <Donation
             key={index}
             eng={this.props.eng}

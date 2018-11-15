@@ -7,7 +7,7 @@ const Files = (props) => {
     <Container>
       <h3>{props.eng ? 'Annual Reports' : 'Årsredovisningar'}</h3>
       {
-        props.files.map((file, index) =>
+        props.files && props.files.map((file, index) =>
         <div key={index}>
           <a
             target='_blank'

@@ -64,3 +64,5 @@ function hide_permalink() {
     return '';
 }
 add_filter( 'get_sample_permalink_html', 'hide_permalink' );
+
+remove_action('template_redirect', 'redirect_canonical');
