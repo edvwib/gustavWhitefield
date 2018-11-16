@@ -15,21 +15,22 @@ class Article extends Component {
   }
 
   render() {
+    const news = this.state.article.fields.news;
     return (
       this.state.article ?
       <Container>
         <Head title={this.props.eng ? 'Article' : 'Artikel'}/>
         <Wrapper>
-          <Slider images={this.state.article.fields.news.images}/>
+          <Slider images={news.images}/>
           <h1 dangerouslySetInnerHTML={{
             __html: this.props.eng ?
-            this.state.article.fields.news.titleENG :
-            this.state.article.fields.news.titleSV
+              news.titleENG ? news.titleENG : news.titleSV :
+              news.titleSV
           }}/>
           <p dangerouslySetInnerHTML={{
             __html: this.props.eng ?
-            this.state.article.fields.news.contentENG :
-            this.state.article.fields.news.contentSV
+              news.contentENG ? news.contentENG : news.contentSV :
+              news.contentSV
           }}/>
           <Btn
             onClick={this.goBack}>
