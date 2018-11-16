@@ -9,8 +9,9 @@
         "jeffochoa/validator-factory": "^1.0",
         "johnbillion/extended-cpts": "^4.2",
         "swiftmailer/swiftmailer": "^6.1",
+        "symfony/polyfill-mbstring": "^1.10",
         "wordplate/acf": "^6.0",
-        "wordplate/framework": "^6.3",
+        "wordplate/framework": "^7.0@dev",
         "wordplate/plate": "^4.0"
     },
     "repositories": [

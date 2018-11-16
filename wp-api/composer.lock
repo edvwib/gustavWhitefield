@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c99ea97a938f19d446056f35e0bf2909",
+    "content-hash": "b39f98fef94750525eb566a5bf8889f9",
     "packages": [
         {
             "name": "composer/installers",
@@ -1235,16 +1235,16 @@
         },
         {
             "name": "symfony/polyfill-mbstring",
-            "version": "v1.9.0",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-mbstring.git",
-                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8"
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/d0cd638f4634c16d8df4508e847f14e9e43168b8",
-                "reference": "d0cd638f4634c16d8df4508e847f14e9e43168b8",
+                "url": "https://api.github.com/repos/symfony/polyfill-mbstring/zipball/c79c051f5b3a46be09205c73b80b346e4153e494",
+                "reference": "c79c051f5b3a46be09205c73b80b346e4153e494",
                 "shasum": ""
             },
             "require": {
@@ -1290,7 +1290,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-09-21T13:07:52+00:00"
         },
         {
             "name": "symfony/polyfill-php72",
@@ -1681,16 +1681,16 @@
         },
         {
             "name": "wordplate/framework",
-            "version": "6.3.1",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/wordplate/framework.git",
-                "reference": "2d326233ee6ee5374aa90cdf3ae075a6fd038688"
+                "reference": "83fc4640ae6041d90f6cf3a50a7929f8ab05646d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/wordplate/framework/zipball/2d326233ee6ee5374aa90cdf3ae075a6fd038688",
-                "reference": "2d326233ee6ee5374aa90cdf3ae075a6fd038688",
+                "url": "https://api.github.com/repos/wordplate/framework/zipball/83fc4640ae6041d90f6cf3a50a7929f8ab05646d",
+                "reference": "83fc4640ae6041d90f6cf3a50a7929f8ab05646d",
                 "shasum": ""
             },
             "require": {
@@ -1706,12 +1706,12 @@
                 "vlucas/phpdotenv": "^2.5"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.3"
+                "phpunit/phpunit": "^7.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "6.4-dev"
+                    "dev-develop": "7.0-dev"
                 }
             },
             "autoload": {
@@ -1745,7 +1745,7 @@
                 "wordplate",
                 "wordpress"
             ],
-            "time": "2018-09-14T15:01:06+00:00"
+            "time": "2018-10-24T17:56:14+00:00"
         },
         {
             "name": "wordplate/plate",
@@ -1799,7 +1799,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "wordplate/framework": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
