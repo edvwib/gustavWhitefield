@@ -8,3 +8,8 @@
     RewriteRule . /index.php [L]
 </IfModule>
 # END WordPress
+
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
