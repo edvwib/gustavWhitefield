@@ -1,10 +1,9 @@
 import React from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 const Head = (props) => {
   return(
-    <Helmet>
-      <meta charset="utf-8"/>
+    <Helmet >
       <title>{`Gustav Whitefield - ${props.title}`}</title>
     </Helmet>
   )
