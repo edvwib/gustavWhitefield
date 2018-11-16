@@ -28,7 +28,7 @@ class Articles extends Component {
     return (
       <Container>
         {
-          this.props.eng ?
+          (this.props.eng && this.state.eng.title) ?
           <Article
             first={this.props.first}
             content={this.state.eng}

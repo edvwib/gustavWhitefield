@@ -7,29 +7,31 @@ import Article from './article';
 class NewsItem extends Component {
 
   render() {
+    const post = this.props.news.post;
+    const news = this.props.news.fields.news;
     return (
       <Container>
         <NavLink to={this.props.eng ?
-          `/article/${this.props.news.post.ID}` :
-          `/artikel/${this.props.news.post.ID}`
+          `/article/${post.ID}` :
+          `/artikel/${post.ID}`
         }>
         {
-          this.props.eng ?
-          <Article
-            eng={this.props.eng}
-            images={this.props.news.fields.news.images}
-            title={this.props.news.fields.news.titleENG}
-            intro={this.props.news.fields.news.introENG}
-            content={this.props.news.fields.news.contentENG}
-          />
+          (this.props.eng && news.titleENG) ?
+            <Article
+              eng={this.props.eng}
+              images={news.images}
+              title={news.titleENG}
+              intro={news.introENG}
+              content={news.contentENG}
+            />
           :
-          <Article
-            eng={this.props.eng}
-            images={this.props.news.fields.news.images}
-            title={this.props.news.fields.news.titleSV}
-            intro={this.props.news.fields.news.introSV}
-            content={this.props.news.fields.news.contentSV}
-          />
+            <Article
+              eng={this.props.eng}
+              images={news.images}
+              title={news.titleSV}
+              intro={news.introSV}
+              content={news.contentSV}
+            />
         }
       </NavLink>
     </Container>

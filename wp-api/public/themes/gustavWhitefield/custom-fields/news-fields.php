@@ -21,6 +21,7 @@ $fields = [
                 'label' => 'Inledning',
                 'instructions' => 'Eventuella radbrytningar kommer att tas bort.',
                 'rows' => 3,
+                'required' => true,
             ]),
             acf_wysiwyg([
                 'name' => 'contentSV',
@@ -37,7 +38,6 @@ $fields = [
             acf_text([
                 'name' => 'titleENG',
                 'label' => 'Titel',
-                'required' => true,
             ]),
             acf_textarea([
                 'name' => 'introENG',
@@ -48,7 +48,6 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
-                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -61,16 +60,16 @@ $fields = [
             acf_repeater([
                 'name' => 'images',
                 'label' => 'Bilder',
-                'instructions' => 'Den första bilden i listan kommer att fungera som utvald bild.',
+                'instructions' => 'Den första bilden i listan kommer att fungera som utvald bild. (Visas i listan med alla nyheter och på startsidan.)',
                 'required' => false,
                 'layout' => 'block',
                 'sub_fields' => [
                     acf_image([
                         'name' => 'image',
                         'label' => 'Bild',
-                        'instructions' => 'Lägg till en bild i något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
+                        'instructions' => 'Lägg till en bild i något av formaten <strong>jpg</strong>, <strong>jpeg</strong>, <strong>png</strong> eller <strong>gif</strong>.',
                         'library' => 'all',
-                        'mime_types' => 'jpeg, jpg, png',
+                        'mime_types' => 'jpeg, jpg, png, gif',
                         'preview_size' => 'medium',
                         'return_format' => 'array',
                     ]),
