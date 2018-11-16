@@ -30,21 +30,13 @@ export const Form = styled.form`
     label{
       margin-bottom: 10px;
 
-      &[data-error]{
-        /* color: tomato; */
-
-        &::after{
-          color: tomato;
-          font-style: italic;
-          font-size: 10px;
-          margin-left: 10px;
-          content: attr(data-error);
-        }
+      &[data-error]::after{
+        color: tomato;
+        font-style: italic;
+        font-size: 10px;
+        margin-left: 10px;
+        content: attr(data-error);
       }
-    }
-
-    label[data-error] + input{
-      /* border-color: tomato; */
     }
 
     input{
