@@ -7,7 +7,7 @@ const Companies = (props) => {
     <Container>
       {
         props.companies &&
-        props.companies.images.map( i =>
+        props.companies.images && props.companies.images.map( i =>
           <Company
             href={i.url || null}
             key={i.image.ID}
