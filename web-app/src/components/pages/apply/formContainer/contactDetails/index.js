@@ -75,7 +75,7 @@ class ContactDetails extends Component {
 
           <Styled.InputContainer>
             <label htmlFor='street'>{
-              eng ? 'Street' : 'Gatuaddress'
+              eng ? 'Street' : 'Gatuadress'
             }*</label>
             <input
               type='text' name='street'

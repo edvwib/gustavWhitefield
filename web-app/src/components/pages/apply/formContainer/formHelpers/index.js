@@ -51,7 +51,7 @@ export const validateForm = (that) => {
   if (v.isEmpty(contact.name))
     errors['name'] = langString;
 
-  if (v.isEmpty(contact.organizationNumber) && isOrg)
+  if (isOrg && v.isEmpty(contact.organizationNumber))
     errors['organizationNumber'] = langString;
 
   if (v.isEmpty(contact.street))
@@ -67,12 +67,12 @@ export const validateForm = (that) => {
   if (v.isEmpty(contact.city))
     errors['city'] = langString;
 
-  if (!v.isURL(contact.website) && contact.website.length !== 0)
+  if (!v.isURL(contact.website) && !v.isEmpty(contact.website))
     errors['website'] = eng ?
       'The URL is not formatted correctly' :
       'URL:en är inte korrekt formaterad';
 
-  if (v.isEmpty(contact.contactPerson) && isOrg)
+  if (isOrg && v.isEmpty(contact.contactPerson))
     errors['contactPerson'] = langString;
 
   if (v.isEmpty(contact.phone) && v.isEmpty(contact.mobile))
@@ -97,9 +97,15 @@ export const validateForm = (that) => {
   const budget = that.budget.state;
   if (v.isEmpty(budget.subsidy))
     errors['subsidy'] = langString;
-  if (budget.partialFinancing)
+
+  if (!v.isBoolean(budget.partialFinancing + ''))
+    errors['partialFinancing'] = unknownErrorString;
+  else if (budget.partialFinancing)
     if (v.isEmpty(budget.partialSubsidy))
       errors['partialSubsidy'] = langString;
+
+  if (!v.isBoolean(budget.multipleInstitutions + ''))
+    errors['multipleInstitutions'] = unknownErrorString;
 
   if (v.isEmpty(budget.guarantee))
     errors['guarantee'] = langString;

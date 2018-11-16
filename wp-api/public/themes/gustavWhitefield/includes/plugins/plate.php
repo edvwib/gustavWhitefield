@@ -20,7 +20,7 @@ add_theme_support('plate-disable-menu', [
     'edit.php', // default post type
     'edit-comments.php', // comments
     'index.php', // dashboard
-    'upload.php', // media
+    // 'upload.php', // media
 ]);
 
 // Disable meta boxes in editor.
