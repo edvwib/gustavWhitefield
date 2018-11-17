@@ -23,6 +23,7 @@ class NewsItem extends Component {
               title={news.titleENG}
               intro={news.introENG}
               content={news.contentENG}
+              date={post.post_date}
             />
           :
             <Article
@@ -31,6 +32,7 @@ class NewsItem extends Component {
               title={news.titleSV}
               intro={news.introSV}
               content={news.contentSV}
+              date={post.post_date}
             />
         }
       </NavLink>

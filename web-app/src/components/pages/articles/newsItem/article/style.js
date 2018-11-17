@@ -28,11 +28,12 @@ p{
   z-index: 0;
 }
 
-small{
+button{
   position: absolute;
   font-family: 'niramit bold';
-  border-radius: 3px;
-  padding: 0 3px 2px 3px;
+  font-size: 14px;
+  border: none;
+  padding: 0 5px;
   z-index: 2;
   bottom: 0;
   left: 0;
@@ -47,6 +48,17 @@ small{
     border-left: 12px solid var(--dark-green);
     border-bottom: 6px solid transparent;
   }
+}
+
+small{
+  position: absolute;
+  font-style: italic;
+  font-size: 12px;
+  padding: 0 5px;
+  border: none;
+  z-index: 2;
+  bottom: 0;
+  right: 0;
 }
 
 `;
