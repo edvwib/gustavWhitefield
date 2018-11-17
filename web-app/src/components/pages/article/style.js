@@ -7,10 +7,6 @@ flex-direction: column;
 color: var(--dark-green);
 width: 100%;
 margin: 50px 0;
-h1{
-  margin: 0;
-  text-align: center;
-}
 `;
 
 export const Wrapper = styled.div`
@@ -19,6 +15,17 @@ flex-direction: column;
 align-items: center;
 width: 90%;
 max-width: 712px;
+>h1{
+  margin-top: 0;
+  text-align: center;
+}
+>small{
+  width: 100%;
+  font-style: italic;
+}
+>p{
+  margin-top: 0;
+}
 `;
 
 export const Btn = styled.button`

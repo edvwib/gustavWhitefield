@@ -6,8 +6,19 @@ import Slider from './slider';
 
 class Article extends Component {
 
-  state={
-    article: this.props.content.getNewsById(this.props.match.params.id)
+  constructor(props) {
+    super(props);
+    const article = this.props.content.getNewsById(this.props.match.params.id);
+
+    this.state = {
+      article: article.fields.news,
+      date: this.formatDate(article)
+    }
+  }
+
+  formatDate = (article) => {
+    let date = new Date(article.post.post_date);
+    return `${date.getFullYear()}-${('0' + date.getMonth()).slice(-2)}-${('0' + date.getDay()).slice(-2)}`;
   }
 
   goBack = () => {
@@ -15,22 +26,26 @@ class Article extends Component {
   }
 
   render() {
-    const news = this.state.article.fields.news;
     return (
       this.state.article ?
       <Container>
         <Head title={this.props.eng ? 'Article' : 'Artikel'}/>
         <Wrapper>
-          <Slider images={news.images}/>
+          <Slider images={this.state.article.images}/>
           <h1 dangerouslySetInnerHTML={{
             __html: this.props.eng ?
-              news.titleENG ? news.titleENG : news.titleSV :
-              news.titleSV
+            this.state.article.titleENG ?
+            this.state.article.titleENG :
+            this.state.article.titleSV :
+            this.state.article.titleSV
           }}/>
+          <small>({this.state.date})</small>
           <p dangerouslySetInnerHTML={{
             __html: this.props.eng ?
-              news.contentENG ? news.contentENG : news.contentSV :
-              news.contentSV
+            this.state.article.contentENG ?
+            this.state.article.contentENG :
+            this.state.article.contentSV :
+            this.state.article.contentSV
           }}/>
           <Btn
             onClick={this.goBack}>
