@@ -28,6 +28,7 @@ function getNewsById($data){
 function getAllNews(){
     $posts = get_posts([
         'post_type' => 'news',
+        'numberposts'=> -1
     ]);
     $postsWithFields = [];
 

@@ -6,7 +6,7 @@ import NewsItem from './newsItem';
 
 class Articles extends Component {
 
-  render() {
+  render() {  
     return (
       <Container>
         <Head title={this.props.content.eng ? 'News' : 'Nyheter'}/>
