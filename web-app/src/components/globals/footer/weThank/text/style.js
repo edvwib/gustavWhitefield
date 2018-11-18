@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
-h3{
+h1{
   text-align: center;
   font-family: 'niramit bold';
   font-weight: normal;

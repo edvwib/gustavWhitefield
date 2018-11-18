@@ -30,6 +30,7 @@ class NavItem extends Component{
   }
 
   render() {
+    const eng = this.props.eng;
     return (
       <Container open={this.state.open}>
         <MenuBtn open={this.state.open} updateOpen={this.updateOpen}/>
@@ -38,15 +39,17 @@ class NavItem extends Component{
           <LinkWrap onClick={this.closeMenu} open={this.state.open} key={index}>
             {
               item.name === '' &&
-              <NavLink to={item.path}>
-                { this.props.eng ?
-                  <img src={iconEng} alt='Icon English'/>
+              <NavLink to={item.path} aria-label={eng ? 'Homepage' : 'Startsida'}>
+                {eng ?
+                  <img src={iconEng} alt='logo'/>
                   :
-                  <img src={iconSwe} alt='Icon Swedish'/>
+                  <img src={iconSwe} alt='logga'/>
                 }
               </NavLink>
             }
-            <NavLink to={item.path} >{item.name}</NavLink>
+            {
+              item.name && <NavLink to={item.path}>{item.name}</NavLink>
+            }
             </LinkWrap>
           )}
           <LangSettings open={this.state.open} showInMob={true}/>

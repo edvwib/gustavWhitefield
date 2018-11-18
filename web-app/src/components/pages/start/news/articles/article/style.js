@@ -81,7 +81,7 @@ box-sizing: border-box;
 font-family: 'niramit regular';
 position: relative;
 overflow: hidden;
-h3{
+h2{
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -117,7 +117,7 @@ small{
 }
 
 @media (max-width: 750px) {
-  h3{
+  h2{
     height: auto;
     margin: 20px 0;
   }

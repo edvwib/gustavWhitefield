@@ -8,15 +8,18 @@ import iconEng from 'resources/icons/bigIconEng.png';
 class Header extends Component{
 
   render() {
+    const eng = this.props.content.state.eng;
     return (
-      <Container active={this.props.content.state.eng}>
+      <Container active={eng}>
         <LangSettings showInMob={false}/>
         <Image
-          src={this.props.content.state.eng ?
+          src={eng ?
             iconEng
             :
             iconSwe
-          }/>
+          }
+          alt={eng ? 'logo' : 'logga'}
+        />
         </Container>
       );
     }

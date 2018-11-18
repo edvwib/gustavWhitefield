@@ -2,7 +2,6 @@ import React from 'react';
 import { Container, Company } from './style';
 
 const Companies = (props) => {
-
   return(
     <Container>
       {
@@ -14,6 +13,7 @@ const Companies = (props) => {
             img={i.image.url}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={i.image.title}
           />
         )}
       </Container>

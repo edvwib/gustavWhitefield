@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Text} from './style';
+import { Container, Text } from './style';
 import Head from 'components/globals/head';
 import Donations from './donations';
 

@@ -29,20 +29,32 @@ class Article extends Component {
     return (
       <Container>
         <Wrapper first={this.props.first}>
-          <NavLink to={this.props.eng ? `/article/${this.props.content.id}` : `/artikel/${this.props.content.id}`}>
-          <Image src={this.getImage()}/>
-        </NavLink>
-        <NavLink to={this.props.eng ? `/article/${this.props.content.id}` : `/artikel/${this.props.content.id}`}>
-        <Text first={this.props.first}>
-          <h3>{this.props.content.title}</h3>
-          <p>{this.props.content.intro}</p>
-          <small>{this.props.eng ? 'Read more' : 'Läs mer'}</small>
-        </Text>
-      </NavLink>
-    </Wrapper>
-  </Container>
-);
-}
+          <NavLink
+            to={this.props.eng ?
+              `/article/${this.props.content.id}` :
+              `/artikel/${this.props.content.id}`
+            }
+            aria-label={this.props.content.title}
+          >
+            <Image src={this.getImage()}/>
+          </NavLink>
+          <NavLink
+            to={this.props.eng ?
+              `/article/${this.props.content.id}` :
+              `/artikel/${this.props.content.id}`
+            }
+            aria-label={this.props.content.title}
+          >
+            <Text first={this.props.first}>
+              <h2>{this.props.content.title}</h2>
+              <p>{this.props.content.intro}</p>
+              <small>{this.props.eng ? 'Read more' : 'Läs mer'}</small>
+            </Text>
+          </NavLink>
+          </Wrapper>
+      </Container>
+    );
+  }
 }
 
 export default Article;
