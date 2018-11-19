@@ -21,7 +21,7 @@ p::after{
 img{
   height: 200px;
   border-radius: 2.5px;
-  object-fit: contain;
+  object-fit: cover;
   width: 100%;
 }
 p{
