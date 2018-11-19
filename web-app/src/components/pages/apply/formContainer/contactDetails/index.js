@@ -47,13 +47,14 @@ class ContactDetails extends Component {
 
         <div className='grid'>
           <Styled.InputContainer>
-            <label htmlFor='name'>{
+            <label htmlFor='name' id='nameLabel'>{
               isOrganization ?
                 eng ? 'Name organization' : 'Namn organisation' :
                 eng ? 'Name applicant' : 'Namn sökande'
             }*</label>
             <input
               type='text' name='name'
+              aria-labelledby='nameLabel'
               value={this.state.name}
               onChange={this.handleInputChange}
             />
@@ -62,11 +63,12 @@ class ContactDetails extends Component {
           {
             isOrganization &&
               <Styled.InputContainer>
-                <label htmlFor='organizationNumber'>{
+                <label htmlFor='organizationNumber' id='orgNrLabel'>{
                   eng ? 'Organization number' : 'Organisationsnummer'
                 }*</label>
                 <input
                   type='text' name='organizationNumber'
+                  aria-labelledby='orgNrLabel'
                   value={this.state.organizationNumber}
                   onChange={this.handleInputChange}
                 />
@@ -74,33 +76,36 @@ class ContactDetails extends Component {
           }
 
           <Styled.InputContainer>
-            <label htmlFor='street'>{
+            <label htmlFor='street' id='streetLabel'>{
               eng ? 'Street' : 'Gatuadress'
             }*</label>
             <input
               type='text' name='street'
+              aria-labelledby='streetLabel'
               value={this.state.street}
               onChange={this.handleInputChange}
             />
           </Styled.InputContainer>
 
           <Styled.InputContainer>
-            <label htmlFor='zip'>{
+            <label htmlFor='zip' id='zipLabel'>{
               eng ? 'Zip code' : 'Postnummer'
             }*</label>
             <input
               type='text' name='zip'
+              aria-labelledby='zipLabel'
               value={this.state.zip}
               onChange={this.handleInputChange}
             />
           </Styled.InputContainer>
 
           <Styled.InputContainer>
-            <label htmlFor='city'>{
+            <label htmlFor='city' id='cityLabel'>{
               eng ? 'City' : 'Ort'
             }*</label>
             <input
               type='text' name='city'
+              aria-labelledby='cityLabel'
               value={this.state.city}
               onChange={this.handleInputChange}
             />
@@ -109,11 +114,12 @@ class ContactDetails extends Component {
           {
             isOrganization &&
             <Styled.InputContainer>
-              <label htmlFor='website'>{
+              <label htmlFor='website' id='websiteLabel'>{
                 eng ? 'Website' : 'Hemsida'
               }</label>
               <input
                 type='text' name='website'
+                aria-labelledby='websiteLabel'
                 value={this.state.website}
                 onChange={this.handleInputChange}
               />
@@ -123,11 +129,12 @@ class ContactDetails extends Component {
           {
             isOrganization &&
             <Styled.InputContainer>
-              <label htmlFor='contactPerson'>{
+              <label htmlFor='contactPerson' id='contactPersonLabel'>{
                 eng ? 'Contact person' : 'Kontaktperson'
               }*</label>
               <input
                 type='text' name='contactPerson'
+                aria-labelledby='contactPersonLabel'
                 value={this.state.contactPerson}
                 onChange={this.handleInputChange}
               />
@@ -135,22 +142,24 @@ class ContactDetails extends Component {
           }
 
           <Styled.InputContainer>
-            <label htmlFor='phone'>{
+            <label htmlFor='phone' id='phoneLabel'>{
               eng ? 'Phone' : 'Telefon'
             }*</label>
             <input
               type='tel' name='phone'
+              aria-labelledby='phoneLabel'
               value={this.state.phone}
               onChange={this.handleInputChange}
             />
           </Styled.InputContainer>
 
           <Styled.InputContainer>
-            <label htmlFor='email'>{
+            <label htmlFor='email' id='emailLabel'>{
               eng ? 'Email' : 'E-post'
             }*</label>
             <input
               type='mail' name='email'
+              aria-labelledby='emailLabel'
               value={this.state.email}
               onChange={this.handleInputChange}
             />
@@ -159,11 +168,12 @@ class ContactDetails extends Component {
           {
             isOrganization &&
             <Styled.InputContainer>
-              <label htmlFor='mobile'>{
+              <label htmlFor='mobile' id='mobileLabel'>{
                 eng ? 'Mobile phone' : 'Mobilnummer'
               }</label>
               <input
                 type='tel' name='mobile'
+                aria-labelledby='mobileLabel'
                 value={this.state.mobile}
                 onChange={this.handleInputChange}
               />
@@ -173,11 +183,12 @@ class ContactDetails extends Component {
           {
             !isOrganization &&
             <Styled.InputContainer>
-              <label htmlFor='applicantName'>{
+              <label htmlFor='applicantName' id='applicantNameLabel'>{
                 eng ? 'Name of receiver of funds' : 'Namn mottagare av sökta medel'
               }*</label>
               <input
                 type='text' name='applicantName'
+                aria-labelledby='applicantNameLabel'
                 value={this.state.applicantName}
                 onChange={this.handleInputChange}
               />
@@ -187,11 +198,12 @@ class ContactDetails extends Component {
           {
             !isOrganization &&
             <Styled.InputContainer>
-              <label htmlFor='applicantBirthdate'>{
+              <label htmlFor='applicantBirthdate' id='applicantBirthdateLabel'>{
                 eng ? 'Birthdate of receiver of funds' : 'Födelsedata mottagare av sökta medel'
               }*</label>
               <input
                 type='text' name='applicantBirthdate'
+                aria-labelledby='applicantBirthdateLabel'
                 value={this.state.applicantBirthdate}
                 onChange={this.handleInputChange}
               />

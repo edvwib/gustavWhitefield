@@ -8,7 +8,8 @@ class CookiePopup extends Component {
   }
 
   createPopup = (eng) => {
-    window.cookieconsent.initialise({
+    window.cookiePopup = new window.cookieconsent.Popup();
+    window.cookiePopup.initialise({
       palette: {
         popup: {
           background: '#314d30',
@@ -28,7 +29,13 @@ class CookiePopup extends Component {
       },
       type: 'opt-in',
       onStatusChange: function (status) {
-        (status === 'allow' && eng) && localStorage.setItem('eng', true);
+        console.log(status);
+        if (status === 'allow') {
+          eng && localStorage.setItem('eng', true);
+        }
+        else if (status === 'deny'){
+          localStorage.clear();
+        }
       },
     });
   }

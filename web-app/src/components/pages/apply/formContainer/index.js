@@ -89,6 +89,7 @@ class FormContainer extends Component {
           <div className={this.state.isOrganization ? 'active' : ''}>
             <input
               type='radio' name='isOrganization' id='organization'
+              aria-labelledby='organisation notOrganization'
               checked={this.state.isOrganization}
               value={true}
               onChange={this.handleInputChange}
@@ -100,6 +101,7 @@ class FormContainer extends Component {
           <div className={!this.state.isOrganization ? 'active' : ''}>
             <input
               type='radio' name='isOrganization' id='notOrganization'
+              aria-labelledby='organisation notOrganization'
               checked={!this.state.isOrganization}
               value={false}
               onChange={this.handleInputChange}

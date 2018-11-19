@@ -43,11 +43,12 @@ class Budget extends Component {
 
         <div className='grid'>
           <Styled.InputContainer>
-            <label htmlFor='subsidy'>{
+            <label htmlFor='subsidy' id='subsidyLabel'>{
               eng ? 'Requested amount' : 'Sökt belopp'
             }*</label>
             <input
               type='text' name='subsidy'
+              aria-labelledby='subsidyLabel'
               value={this.state.subsidy}
               onChange={this.handleInputChange}
             />
@@ -59,6 +60,7 @@ class Budget extends Component {
             </label>
             <input
               type='radio' name='partialFinancing' id='yesPartialFinancing'
+              aria-labelledby='yesPartialFinancing noPartialFinancing'
               checked={this.state.partialFinancing}
               value={true}
               onChange={this.handleInputChange}
@@ -68,6 +70,7 @@ class Budget extends Component {
             </label>
             <input
               type='radio' name='partialFinancing' id='noPartialFinancing'
+              aria-labelledby='yesPartialFinancing noPartialFinancing'
               checked={!this.state.partialFinancing}
               value={false}
               onChange={this.handleInputChange}
@@ -81,11 +84,12 @@ class Budget extends Component {
             {
               this.state.partialFinancing &&
                 <React.Fragment>
-                  <label htmlFor='partialSubsidy'>{
+                  <label htmlFor='partialSubsidy' id='partialSubsidyLabel'>{
                     eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
                   }*</label>
                   <input
                     type='text' name='partialSubsidy'
+                    aria-labelledby='partialSubsidyLabel'
                     value={this.state.partialSubsidy}
                     onChange={this.handleInputChange}
                   />
@@ -99,6 +103,7 @@ class Budget extends Component {
             }*</label>
             <input
               type='radio' name='multipleInstitutions' id='yesMultipleInstitutions'
+              aria-labelledby='yesMultipleInstitutions noMultipleInstitutions'
               checked={this.state.multipleInstitutions}
               value={true}
               onChange={this.handleInputChange}
@@ -108,6 +113,7 @@ class Budget extends Component {
             </label>
             <input
               type='radio' name='multipleInstitutions' id='noMultipleInstitutions'
+              aria-labelledby='yesMultipleInstitutions noMultipleInstitutions'
               checked={!this.state.multipleInstitutions}
               value={false}
               onChange={this.handleInputChange}
@@ -121,11 +127,12 @@ class Budget extends Component {
             {
               isOrganization &&
                 <React.Fragment>
-                  <label htmlFor='budget'>{
+                  <label htmlFor='budget' id='budgetLabel'>{
                     eng ? 'Explain the budget' : 'Redogör för budget'
                   }*</label>
                   <textarea
                     name='budget'
+                    aria-labelledby='budgetLabel'
                     value={this.state.budget}
                     onChange={this.handleInputChange}
                   />
@@ -134,7 +141,7 @@ class Budget extends Component {
           </Styled.InputContainer>
 
           <Styled.InputContainer>
-            <label htmlFor='guarantee'>{
+            <label htmlFor='guarantee' id='guaranteeLabel'>{
               isOrganization ?
                 eng ? 'How can you guerantee that the activity will carry through? Can the institute receive reciepts etc.?' :
                   'Hur garanterar ni att aktiviteten genomförs? Kan Stiftelsen erhålla kvitto eller motsvarande?' :
@@ -143,6 +150,7 @@ class Budget extends Component {
             }*</label>
             <textarea
               name='guarantee'
+              aria-labelledby='guaranteeLabel'
               value={this.state.guarantee}
               onChange={this.handleInputChange}
             />
