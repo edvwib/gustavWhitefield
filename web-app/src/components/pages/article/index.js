@@ -11,8 +11,8 @@ class Article extends Component {
     const article = this.props.content.getNewsById(this.props.match.params.id);
 
     this.state = {
-      article: article.fields.news,
-      date: this.formatDate(article)
+      article: article && article.fields.news,
+      date: article && this.formatDate(article)
     }
   }
 

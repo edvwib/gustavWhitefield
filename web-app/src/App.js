@@ -49,11 +49,13 @@ class App extends Component {
                 />
                 <Route
                   path='/(article|artikel)\/:id([0-9]+)'
-                  render={(props) => <Article {...props} content={context} eng={context.state.eng}/>}
+                  render={(props) => context.state.news.length > 0 ?
+                    <Article {...props} content={context} eng={context.state.eng}/> : <Loading/>}
                 />
                 <Route
                   path='(/news|/nyheter)'
-                  render={() => <Articles content={context.state}/>}
+                  render={() => context.state.news.length > 0 ?
+                    <Articles content={context.state}/> : <Loading/>}
                 />
                 <Route
                   path='/cookies'

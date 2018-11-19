@@ -19,7 +19,7 @@ p::after{
   box-shadow: 0px -10px 30px 20px white;
 }
 img{
-  max-height: 300px;
+  height: 200px;
   border-radius: 2.5px;
   object-fit: contain;
   width: 100%;
