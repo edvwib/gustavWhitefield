@@ -13,4 +13,7 @@ export const Text = styled.div`
 text-align: left;
 width: 90%;
 max-width: 712px;
+a{
+  color: var(--another-green);
+}
 `;
