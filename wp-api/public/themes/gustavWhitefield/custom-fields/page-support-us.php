@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 $fields = [
     acf_group([
@@ -14,6 +14,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'introSV',
                 'label' => 'Introduktion',
+                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -25,6 +26,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'introENG',
                 'label' => 'Introduktion',
+                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -56,10 +58,12 @@ $fields = [
                     acf_text([
                         'name' => 'titleSV',
                         'label' => 'Titel',
+                        'required' => true,
                     ]),
                     acf_wysiwyg([
                         'name' => 'contentSV',
                         'label' => 'Innehåll',
+                        'required' => true,
                         'media_upload' => false,
                         'tabs' => 'visual',
                         'toolbar' => 'simple',
@@ -71,10 +75,12 @@ $fields = [
                     acf_text([
                         'name' => 'titleENG',
                         'label' => 'Titel',
+                        'required' => true,
                     ]),
                     acf_wysiwyg([
                         'name' => 'contentENG',
                         'label' => 'Innehåll',
+                        'required' => true,
                         'media_upload' => false,
                         'tabs' => 'visual',
                         'toolbar' => 'simple',

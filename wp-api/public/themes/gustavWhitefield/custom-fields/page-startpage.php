@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types=1);
+declare (strict_types = 1);
 
 
 $fields = [
@@ -11,7 +11,7 @@ $fields = [
             acf_image([
                 'name' => 'image',
                 'label' => 'Bild',
-                'instructions' => 'Lägg till en bild som visas på startsidan.',
+                'instructions' => 'Lägg till en bild som visas högst upp på startsidan.',
                 'required' => true,
                 'mime_types' => 'jpeg, jpg, png',
             ]),
@@ -22,8 +22,8 @@ $fields = [
             acf_text([
                 'name' => 'textSV',
                 'label' => 'Bildtext',
+                'required' => true,
                 'instructions' => 'Text som visas över bilden.',
-                'required' => false,
             ]),
             acf_tab([
                 'name' => 'ENG',
@@ -33,7 +33,7 @@ $fields = [
                 'name' => 'textENG',
                 'label' => 'Bildtext',
                 'instructions' => 'Text som visas över bilden.',
-                'required' => false,
+                'required' => true,
             ]),
             acf_tab([
                 'name' => 'endpoint',
@@ -42,14 +42,15 @@ $fields = [
             ]),
             acf_repeater([
                 'name' => 'slide',
-                'label' => 'Bildspel med korta texter',
-                'instructions' => 'Här kan ni lägga korta texter om stiftelsen, exempelvis om 90-kontot.',
+                'label' => 'Bildspel med korta fakta',
+                'instructions' => 'Här kan ni lägga korta texter om stiftelsen, exempelvis om 90-kontot, som kommer att visas i ett bildspel.',
                 'layout' => 'block',
                 'sub_fields' => [
                     acf_image([
                         'name' => 'image',
                         'label' => 'Bild',
                         'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
+                        'required' => true,
                         'library' => 'all',
                         'mime_types' => 'jpeg, jpg, png',
                         'preview_size' => 'medium',
@@ -61,7 +62,8 @@ $fields = [
                     ]),
                     acf_textarea([
                         'name' => 'contentSV',
-                        'label' => 'Kort textinnehåll',
+                        'label' => 'Text',
+                        'instructions' => 'Denna text kommer att visas under bilden',
                         'required' => true,
                         'rows' => 2,
                     ]),
@@ -71,7 +73,8 @@ $fields = [
                     ]),
                     acf_textarea([
                         'name' => 'contentENG',
-                        'label' => 'Kort textinnehåll',
+                        'label' => 'Text',
+                        'instructions' => 'Denna text kommer att visas under bilden',
                         'required' => true,
                         'rows' => 2,
                     ]),

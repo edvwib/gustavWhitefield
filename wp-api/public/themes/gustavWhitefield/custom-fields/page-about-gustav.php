@@ -1,11 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 $fields = [
     acf_group([
         'name' => 'aboutGustav',
-        'label' => '',
+        'label' => 'Om Gustav',
+        'instructions' => 'Sidan är uppbyggd i tre delar, för att tillåta att bilder läggs till bredvid texten. Bilderna alternerar mellan vilken sida som dem visas på.',
         'sub_fields' => [
             acf_group([
                 'name' => 'part1',
@@ -43,6 +44,8 @@ $fields = [
                     acf_image([
                         'name' => 'image',
                         'label' => 'Bild',
+                        'instructions' => 'Den här bilden visas uppe till höger om stycket.',
+                        'required' => true,
                         'library' => 'all',
                         'mime_types' => 'jpeg, jpg, png',
                         'preview_size' => 'medium',
@@ -86,6 +89,8 @@ $fields = [
                     acf_image([
                         'name' => 'image',
                         'label' => 'Bild',
+                        'instructions' => 'Den här bilden visas uppe till vänster om stycket.',
+                        'required' => true,
                         'library' => 'all',
                         'mime_types' => 'jpeg, jpg, png',
                         'preview_size' => 'medium',
@@ -129,6 +134,8 @@ $fields = [
                     acf_image([
                         'name' => 'image',
                         'label' => 'Bild',
+                        'instructions' => 'Den här bilden visas uppe till höger om stycket.',
+                        'required' => true,
                         'library' => 'all',
                         'mime_types' => 'jpeg, jpg, png',
                         'preview_size' => 'medium',

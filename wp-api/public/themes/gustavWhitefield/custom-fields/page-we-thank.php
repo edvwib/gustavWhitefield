@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types=1);
+declare (strict_types = 1);
 
 
 $fields = [
@@ -16,7 +16,7 @@ $fields = [
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
                 'instructions' => 'Text som visas över företagens logotyper.',
-                'required' => false,
+                'required' => true,
             ]),
             acf_tab([
                 'name' => 'ENG',
@@ -26,7 +26,7 @@ $fields = [
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
                 'instructions' => 'Text som visas över företagens logotyper.',
-                'required' => false,
+                'required' => true,
             ]),
             acf_tab([
                 'name' => 'endpoint',
@@ -43,6 +43,7 @@ $fields = [
                         'name' => 'image',
                         'label' => 'Bild',
                         'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
+                        'required' => true,
                         'library' => 'all',
                         'mime_types' => 'jpeg, jpg, png',
                         'preview_size' => 'thumbnail',
@@ -51,7 +52,6 @@ $fields = [
                     acf_url([
                         'name' => 'url',
                         'label' => 'Företagets hemsida',
-                        'required' => false,
                     ]),
                 ],
             ]),

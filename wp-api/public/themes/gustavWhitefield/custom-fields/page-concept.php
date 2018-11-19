@@ -6,11 +6,12 @@ declare (strict_types = 1);
 $fields = [
     acf_group([
         'name' => 'purpose',
-        'label' => 'Grundtankar & syfte',
+        'label' => 'Syfte',
         'sub_fields' => [
             acf_image([
                 'name' => 'image',
                 'label' => 'Bild',
+                'instructions' => 'Väljer ni ingen bild här kommer en placeholder att användas istället.',
                 'library' => 'all',
                 'mime_types' => 'jpeg, jpg, png',
                 'preview_size' => 'medium',

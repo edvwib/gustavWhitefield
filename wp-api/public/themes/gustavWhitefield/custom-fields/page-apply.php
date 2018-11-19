@@ -15,6 +15,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
+                'required' => true,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
@@ -25,6 +26,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
+                'required' => true,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),

@@ -8,6 +8,15 @@ $fields = [
         'name' => 'economy',
         'label' => 'Ekonomi',
         'sub_fields' => [
+            acf_image([
+                'name' => 'image',
+                'label' => 'Bild',
+                'instructions' => 'Väljer ni ingen bild här kommer en placeholder att användas istället.',
+                'library' => 'all',
+                'mime_types' => 'jpeg, jpg, png',
+                'preview_size' => 'medium',
+                'return_format' => 'array',
+            ]),
             acf_tab([
                 'name' => 'SV',
                 'label' => 'Svenska',
@@ -15,6 +24,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentSV',
                 'label' => 'Innehåll',
+                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -26,6 +36,7 @@ $fields = [
             acf_wysiwyg([
                 'name' => 'contentENG',
                 'label' => 'Innehåll',
+                'required' => true,
                 'media_upload' => false,
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
@@ -37,13 +48,14 @@ $fields = [
             ]),
             acf_repeater([
                 'name' => 'files',
-                'label' => 'Filer',
+                'label' => 'Årsredovisningar',
+                'instructions' => 'Här kan ni ladda upp årsredovisningar.',
                 'layout' => 'block',
                 'sub_fields' => [
                     acf_file([
                         'name' => 'report',
-                        'label' => 'Fil',
-                        'instructions' => 'Lägg till filer som <strong>pdf</strong>.',
+                        'label' => 'Årsredovisning',
+                        'instructions' => 'Lägg till fil som <strong>pdf</strong>.',
                         'required' => true,
                         'library' => 'all',
                         'mime_types' => 'pdf',

@@ -11,6 +11,7 @@ $fields = [
             acf_image([
                 'name' => 'image',
                 'label' => 'Bild',
+                'instructions' => 'Väljer ni ingen bild här kommer en placeholder att användas istället.',
                 'library' => 'all',
                 'mime_types' => 'jpeg, jpg, png',
                 'preview_size' => 'medium',
