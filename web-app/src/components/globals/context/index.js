@@ -23,7 +23,7 @@ class ContextProvider extends Component {
   }
 
   getData = (endpoint, cookieConsent) => {
-    if (cookieConsent) {
+    if (cookieConsent && process.env.NODE_ENV === 'production') {
       let lastFetch = parseInt(localStorage.getItem(`${endpoint}Fetched`));
       let data = localStorage.getItem(endpoint);
 
