@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import { Container, Wrapper, Image, Text } from './style';
-import placeholder from '../../../../../../resources/icons/placeholder.jpg';
+import placeholder from 'resources/icons/placeholder.jpg';
 
 class Article extends Component {
 
   getImage = () => {
-    const images = this.props.content.images;
+    const { images } = this.props.content;
+    if (!images) return placeholder;
+
     let img;
-
-    if(!images) return placeholder;
-
     for (var i = 0; i < images.length; i++) {
       if (!Object.values(images[i])[0]) {
         if (i === images.length - 1) {
           img = placeholder;
         }
       }
-      else{
+      else {
         img = Object.values(images[i])[0];
         break;
       }
@@ -26,32 +25,33 @@ class Article extends Component {
   }
 
   render() {
+    const { eng, content, first } = this.props;
     return (
       <Container>
-        <Wrapper first={this.props.first}>
+        <Wrapper first={first}>
           <NavLink
-            to={this.props.eng ?
-              `/article/${this.props.content.id}` :
-              `/artikel/${this.props.content.id}`
+            to={eng ?
+              `/article/${content.id}` :
+              `/artikel/${content.id}`
             }
-            aria-label={this.props.content.title}
+            aria-label={content.title}
           >
-            <Image src={this.getImage()}/>
+            <Image src={this.getImage()} />
           </NavLink>
           <NavLink
-            to={this.props.eng ?
-              `/article/${this.props.content.id}` :
-              `/artikel/${this.props.content.id}`
+            to={eng ?
+              `/article/${content.id}` :
+              `/artikel/${content.id}`
             }
-            aria-label={this.props.content.title}
+            aria-label={content.title}
           >
-            <Text first={this.props.first}>
-              <h2>{this.props.content.title}</h2>
-              <p>{this.props.content.intro}</p>
-              <small>{this.props.eng ? 'Read more' : 'Läs mer'}</small>
+            <Text first={first}>
+              <h2>{content.title}</h2>
+              <p>{content.intro}</p>
+              <small>{eng ? 'Read more' : 'Läs mer'}</small>
             </Text>
           </NavLink>
-          </Wrapper>
+        </Wrapper>
       </Container>
     );
   }
