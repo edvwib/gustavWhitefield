@@ -37,6 +37,7 @@ button{
   z-index: 2;
   bottom: 0;
   left: 0;
+  background-color: white;
   &:after{
     content: '';
     position: absolute;
