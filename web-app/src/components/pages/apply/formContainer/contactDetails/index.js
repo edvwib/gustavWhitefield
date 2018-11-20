@@ -3,7 +3,7 @@ import * as Styled from './style';
 import { getInputDetails, saveFormData } from './../formHelpers';
 
 class ContactDetails extends Component {
-  state = {
+  initialState = {
     name: '',
     organizationNumber: '',
     street: '',
@@ -17,6 +17,7 @@ class ContactDetails extends Component {
     applicantName: '',
     applicantBirthdate: '',
   };
+  state = this.initialState;
 
   componentDidMount = () => {
     if (this.props.cookieConsent()) {
@@ -30,7 +31,7 @@ class ContactDetails extends Component {
     const e = getInputDetails(event);
 
     this.setState({
-        [e.name]: e.value,
+      [e.name]: e.value,
     });
 
     if (this.props.cookieConsent())
@@ -38,7 +39,7 @@ class ContactDetails extends Component {
   }
 
   render() {
-    const {eng, isOrganization} = this.props;
+    const { eng, isOrganization } = this.props;
     return (
       <Styled.Fieldset>
         <legend>
@@ -62,17 +63,17 @@ class ContactDetails extends Component {
 
           {
             isOrganization &&
-              <Styled.InputContainer>
-                <label htmlFor='organizationNumber' id='orgNrLabel'>{
-                  eng ? 'Organization number' : 'Organisationsnummer'
-                }*</label>
-                <input
-                  type='text' name='organizationNumber'
-                  aria-labelledby='orgNrLabel'
-                  value={this.state.organizationNumber}
-                  onChange={this.handleInputChange}
-                />
-              </Styled.InputContainer>
+            <Styled.InputContainer>
+              <label htmlFor='organizationNumber' id='orgNrLabel'>{
+                eng ? 'Organization number' : 'Organisationsnummer'
+              }*</label>
+              <input
+                type='text' name='organizationNumber'
+                aria-labelledby='orgNrLabel'
+                value={this.state.organizationNumber}
+                onChange={this.handleInputChange}
+              />
+            </Styled.InputContainer>
           }
 
           <Styled.InputContainer>

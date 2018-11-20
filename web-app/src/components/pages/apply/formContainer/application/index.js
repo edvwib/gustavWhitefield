@@ -3,7 +3,7 @@ import * as Styled from './style';
 import { getInputDetails, setTextareaHeight, saveFormData } from './../formHelpers';
 
 class Application extends Component {
-  state = {
+  initialState = {
     descriptionProject: '',
     disability: '',
     beneficiaryCount: '',
@@ -13,6 +13,7 @@ class Application extends Component {
     other: '',
     when: '',
   };
+  state = this.initialState;
 
   componentDidMount = () => {
     if (this.props.cookieConsent()) {

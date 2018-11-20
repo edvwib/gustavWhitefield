@@ -3,7 +3,7 @@ import * as Styled from './style';
 import { getInputDetails, setTextareaHeight, saveFormData } from './../formHelpers';
 
 class Budget extends Component {
-  state = {
+  initialState = {
     subsidy: '',
     partialFinancing: false,
     partialSubsidy: '',
@@ -11,6 +11,7 @@ class Budget extends Component {
     budget: '',
     guarantee: '',
   };
+  state = this.initialState;
 
   componentDidMount = () => {
     if (this.props.cookieConsent()) {
@@ -36,7 +37,7 @@ class Budget extends Component {
   }
 
   render() {
-    const {eng, isOrganization} = this.props;
+    const { eng, isOrganization } = this.props;
     return (
       <Styled.Fieldset>
         <legend>{isOrganization ? eng ? 'Amount & budget' : 'Belopp och budget' : eng ? 'Amount' : 'Belopp'}</legend>
@@ -83,17 +84,17 @@ class Budget extends Component {
           <Styled.InputContainer>
             {
               this.state.partialFinancing &&
-                <React.Fragment>
-                  <label htmlFor='partialSubsidy' id='partialSubsidyLabel'>{
-                    eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
-                  }*</label>
-                  <input
-                    type='text' name='partialSubsidy'
-                    aria-labelledby='partialSubsidyLabel'
-                    value={this.state.partialSubsidy}
-                    onChange={this.handleInputChange}
-                  />
-                </React.Fragment>
+              <React.Fragment>
+                <label htmlFor='partialSubsidy' id='partialSubsidyLabel'>{
+                  eng ? 'Sökt delbelopp' : 'Sökt delbelopp'
+                }*</label>
+                <input
+                  type='text' name='partialSubsidy'
+                  aria-labelledby='partialSubsidyLabel'
+                  value={this.state.partialSubsidy}
+                  onChange={this.handleInputChange}
+                />
+              </React.Fragment>
             }
           </Styled.InputContainer>
 
@@ -126,17 +127,17 @@ class Budget extends Component {
           <Styled.InputContainer>
             {
               isOrganization &&
-                <React.Fragment>
-                  <label htmlFor='budget' id='budgetLabel'>{
-                    eng ? 'Explain the budget' : 'Redogör för budget'
-                  }*</label>
-                  <textarea
-                    name='budget'
-                    aria-labelledby='budgetLabel'
-                    value={this.state.budget}
-                    onChange={this.handleInputChange}
-                  />
-                </React.Fragment>
+              <React.Fragment>
+                <label htmlFor='budget' id='budgetLabel'>{
+                  eng ? 'Explain the budget' : 'Redogör för budget'
+                }*</label>
+                <textarea
+                  name='budget'
+                  aria-labelledby='budgetLabel'
+                  value={this.state.budget}
+                  onChange={this.handleInputChange}
+                />
+              </React.Fragment>
             }
           </Styled.InputContainer>
 

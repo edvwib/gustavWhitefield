@@ -135,3 +135,47 @@ export const validateForm = (that) => {
 
   return Object.keys(errors).length ? false : true;
 }
+
+export const notVerified = (eng) => {
+  let submitButton = document.querySelector('[type=submit]');
+  submitButton && submitButton.classList.add('error');
+  submitButton.value = eng ? 'Please verify that you are not a bot' : 'Vänligen verifiera att du inte är en robot';
+}
+
+export const verified = (eng) => {
+  let submitButton = document.querySelector('[type=submit]');
+  submitButton && submitButton.classList.remove('error');
+  submitButton.value = eng ? 'Send application' : 'Skicka ansökan';
+}
+
+export const formSent = (that) => {
+  that.captcha.reset();
+  resetForm(that);
+  that.setState({
+    formReceived: true,
+  }, () => {
+      const el = document.querySelector('.formRecevied');
+    anime({
+      targets: [document.documentElement, document.body],
+      scrollTop: el.offsetTop - 15,
+      duration: 800,
+      easing: 'easeInOutQuad'
+    });
+    el.classList.add('active');
+  });
+}
+
+export const resetForm = (that) => {
+  that.setState({
+    ...that.initialState,
+  });
+  that.contact.setState({
+    ...that.contact.initialState,
+  });
+  that.application.setState({
+    ...that.application.initialState,
+  });
+  that.budget.setState({
+    ...that.budget.initialState,
+  });
+}

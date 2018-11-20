@@ -143,4 +143,31 @@ export const SubmitButton = styled.input`
   &:hover, &:active{
     background-color: var(--light-green);
   }
+
+  &.error{
+    color: tomato;
+  }
+`;
+
+export const ErrorContainer = styled.div`
+
+`;
+
+export const ReceivedContainer = styled.div`
+  margin-bottom: 25px;
+  padding: 28px;
+  border-radius: 5px;
+
+  &.active{
+    animation-duration: 5s;
+    animation-name: colorFlash;
+  }
+
+  @keyframes colorFlash {
+    0% { background-color: #fff }
+    25% { background-color: var(--light-green) }
+    50% { background-color: #fff }
+    75% { background-color: var(--light-green) }
+    100% { background-color: #fff }
+  }
 `;
