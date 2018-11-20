@@ -91,9 +91,6 @@ export const validateForm = (that) => {
   if (!isOrg && v.isEmpty(contact.applicantBirthdate))
     errors['applicantBirthdate'] = langString;
 
-  const application = that.budget.application;
-
-
   const budget = that.budget.state;
   if (v.isEmpty(budget.subsidy))
     errors['subsidy'] = langString;
@@ -109,6 +106,12 @@ export const validateForm = (that) => {
 
   if (v.isEmpty(budget.guarantee))
     errors['guarantee'] = langString;
+
+  //Concent
+  if (!that.state.concent1)
+    errors['concent1'] = langString;
+  if (!that.state.concent2)
+    errors['concent2'] = langString;
 
   //Clear errors
   document.querySelectorAll('[data-error]').forEach(label => {

@@ -5,10 +5,13 @@ import Application from './application';
 import Budget from './budget';
 import Reaptcha from 'reaptcha';
 import { getInputDetails, saveFormData, validateForm, notVerified, verified, formSent } from './formHelpers';
+import checkmark from 'resources/icons/checkmark.svg';
 
 class FormContainer extends Component {
   initialState = {
     isOrganization: true,
+    concent1: false,
+    concent2: false,
     verified: false,
     formServerError: false,
     formReceived: false,
@@ -30,7 +33,7 @@ class FormContainer extends Component {
       [e.name]: e.value,
     });
 
-    if (this.props.cookieConsent()) {
+    if (e.name === 'isOrganization' && this.props.cookieConsent()) {
       saveFormData('isOrg', e.value);
     }
   }
@@ -63,7 +66,7 @@ class FormContainer extends Component {
       fetch(`${this.props.API_URL}application/`, params)
         .then(response => response.json())
         .then(data => {
-          if(data === 1){
+          if (data === 1) {
             formSent(this);
           } else {
             this.setState({
@@ -110,7 +113,7 @@ class FormContainer extends Component {
                   checked={this.state.isOrganization}
                   value={true}
                   onChange={this.handleInputChange}
-                  />
+                />
                 <label htmlFor='organization' className={this.state.isOrganization ? 'active' : ''}>
                   {eng ? 'Organization' : 'Organisation'}
                 </label>
@@ -122,7 +125,7 @@ class FormContainer extends Component {
                   checked={!this.state.isOrganization}
                   value={false}
                   onChange={this.handleInputChange}
-                  />
+                />
                 <label htmlFor='notOrganization' className={!this.state.isOrganization ? 'active' : ''}>
                   {eng ? 'Individual' : 'Privatperson'}
                 </label>
@@ -136,19 +139,53 @@ class FormContainer extends Component {
               eng={eng}
               isOrganization={this.state.isOrganization}
               cookieConsent={this.props.cookieConsent}
-              />
+            />
             <Application
               ref={(application) => { this.application = application; }}
               eng={eng}
               isOrganization={this.state.isOrganization}
               cookieConsent={this.props.cookieConsent}
-              />
+            />
             <Budget
               ref={(budget) => { this.budget = budget; }}
               eng={eng}
               isOrganization={this.state.isOrganization}
               cookieConsent={this.props.cookieConsent}
-              />
+            />
+
+            <Styled.ConcentContainer checkmark={checkmark}>
+              <a
+                href={this.props.concentDocument.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >{
+                this.props.concentDocument.title
+              } - ({eng ? 'Opens in new tab' : 'Öppnas i ny flik'})</a>
+              <span>Markera med ett kryss i rutan om du samtycker till att dina personuppgifter behandlas i enlighet med vad som angetts i dokumentet ovan.*</span>
+              <div>
+                <input type="checkbox" id="concent1" name="concent1"
+                  checked={this.state.concent1}
+                  onChange={this.handleInputChange}
+                />
+                <label htmlFor="concent1">{
+                  eng ?
+                    'För att pröva din rätt till bidrag och för att i övrigt administrera utbetalningar av bidrag från Stiftelsen' :
+                    'För att pröva din rätt till bidrag och för att i övrigt administrera utbetalningar av bidrag från Stiftelsen'
+                }</label>
+              </div>
+              <div>
+                <input type="checkbox" id="concent2" name="concent2"
+                  checked={this.state.concent2}
+                  onChange={this.handleInputChange}
+                />
+                <label htmlFor="concent2">{
+                  eng ?
+                    'För att publicera beviljade anslag och sökande på Stiftelsens webbsidor' :
+                    'För att publicera beviljade anslag och sökande på Stiftelsens webbsidor'
+                }</label>
+              </div>
+              <span>Genom att markera rutorna ovan och skicka in denna ansökan till Stiftelsen samtycker jag till att Stiftelsen behandlar mina personuppgifter, såsom behandlingen beskrivs i dokumentet ovan, för de ändamål som markerats ovan.</span>
+            </Styled.ConcentContainer>
 
             <Styled.SubmitContainer>
               <Reaptcha
@@ -161,7 +198,7 @@ class FormContainer extends Component {
                 }
                 onVerify={this.recaptchaVerify}
                 hl={eng ? 'en' : 'sv'}
-                />
+              />
               <Styled.SubmitButton
                 type='submit'
                 value={eng ? 'Send application' : 'Skicka ansökan'}
@@ -170,8 +207,8 @@ class FormContainer extends Component {
             {this.state.formServerError &&
               <Styled.ErrorContainer>{
                 eng ?
-                'Something went wrong on our end, please go over the form manually and try to submit the form again. If you\'re still unable to send the form, please report this error to us.' :
-                'Något gick när formuläret skulle skickas, gå igenom formuläret manuellt och försök att skicka det igen. Om ni fortfarande inte kan skicka formuläret, rapportera gärna felet till oss.'
+                  'Something went wrong on our end, please go over the form manually and try to submit the form again. If you\'re still unable to send the form, please report this error to us.' :
+                  'Något gick när formuläret skulle skickas, gå igenom formuläret manuellt och försök att skicka det igen. Om ni fortfarande inte kan skicka formuläret, rapportera gärna felet till oss.'
               }</Styled.ErrorContainer>
             }
           </Styled.Form>

@@ -16,6 +16,14 @@ export const Form = styled.form`
     opacity: 0;
   }
 
+  [data-error]::after{
+    color: tomato;
+    font-style: italic;
+    font-size: 10px;
+    margin-left: 10px;
+    content: attr(data-error);
+  }
+
   fieldset{
     border: none;
     margin: 0;
@@ -29,14 +37,6 @@ export const Form = styled.form`
 
     label{
       margin-bottom: 10px;
-
-      &[data-error]::after{
-        color: tomato;
-        font-style: italic;
-        font-size: 10px;
-        margin-left: 10px;
-        content: attr(data-error);
-      }
     }
 
     input{
@@ -169,5 +169,47 @@ export const ReceivedContainer = styled.div`
     50% { background-color: #fff }
     75% { background-color: var(--light-green) }
     100% { background-color: #fff }
+  }
+`;
+
+export const ConcentContainer = styled.div`
+  padding: 28px;
+  >a{
+    display: block;
+    margin-bottom: 15px;
+  }
+  >span{
+    display: block;
+
+    &:last-of-type{
+      margin-top: 15px;
+    }
+  }
+
+  >div{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+  }
+  [type=checkbox]{
+    appearance: none;
+    min-height: 25px;
+    min-width: 25px;
+    margin-right: 15px;
+    border: 1px solid var(--dark-green);
+    border-radius: 3px;
+
+    &:focus{
+      outline: none;
+      border-color: var(--another-green);
+    }
+
+    &:checked{
+      background-image: url(${props => props.checkmark});
+      background-position: center;
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-color: var(--light-green);
+    }
   }
 `;

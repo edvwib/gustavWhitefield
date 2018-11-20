@@ -35,6 +35,7 @@ class Apply extends Component {
         ></div>
         <FormContainer
           eng={eng}
+          concentDocument={this.props.content.concent}
           cookieConsent={this.props.context.cookieConsent}
           API_URL={this.props.context.API_URL}
         />

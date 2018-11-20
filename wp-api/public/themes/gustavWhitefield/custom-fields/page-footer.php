@@ -122,6 +122,21 @@ $fields = [
                     ]),
                 ],
             ]),
+            acf_group([
+                'name' => 'policy',
+                'label' => '',
+                'sub_fields' => [
+                    acf_file([
+                        'name' => 'policy',
+                        'label' => 'Integritetspolicy',
+                        'instructions' => 'Lägg till fil som <strong>pdf</strong>.',
+                        'required' => true,
+                        'library' => 'all',
+                        'mime_types' => 'pdf',
+                        'return_format' => 'array',
+                    ]),
+                ],
+            ]),
         ]
     ]),
 ];

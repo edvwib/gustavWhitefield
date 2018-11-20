@@ -12,9 +12,8 @@ class Footer extends Component {
       <Container>
         <FollowUs eng={this.props.content.eng} page={footer.social.socialMedia} />
         <WeThank eng={this.props.content.eng} page={footer.weThank} />
-        <Contact eng={this.props.content.eng} page={footer.contactUs} />
+        <Contact eng={this.props.content.eng} page={footer} />
       </Container>
-
     );
   }
 }

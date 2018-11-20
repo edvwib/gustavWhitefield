@@ -327,7 +327,10 @@ function privateMessage($data){
 function createEmail($isOrganization, $data){
     return (new Swift_Message('Ansökan ' . ''))
         ->setFrom([getenv('MAIL_USERNAME') => 'formulär@gustavwhitefield.com'])
-        ->setTo([getenv('MAIL_USERNAME') => 'info@gustavwhitefield.com'])
+        ->setTo([getenv('WP_ENV') === 'local' ?
+            'formular@gustavwhitefield.com' :
+            'info@gustavwhitefield.com'
+            => 'info@gustavwhitefield.com'])
         ->setBody(
             $isOrganization ? organizationMessage($data) : privateMessage($data),
             'text/html'

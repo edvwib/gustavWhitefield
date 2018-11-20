@@ -30,6 +30,20 @@ $fields = [
                 'tabs' => 'visual',
                 'toolbar' => 'simple',
             ]),
+            acf_tab([
+                'name' => 'endpoint',
+                'label' => '',
+                'endpoint' => true,
+            ]),
+            acf_file([
+                'name' => 'concent',
+                'label' => 'Samtycke',
+                'instructions' => 'Lägg till fil som <strong>pdf</strong>.',
+                'required' => true,
+                'library' => 'all',
+                'mime_types' => 'pdf',
+                'return_format' => 'array',
+            ]),
         ],
     ]),
 ];
