@@ -5,8 +5,8 @@ const TextItem = (props) => {
 
   return(
     <Container>
-      <small>{props.text1}</small>
-      <small>{props.text2}</small>
+      <small>{props.name}</small>
+      <small>{props.phone}</small>
     </Container>
   )
 }

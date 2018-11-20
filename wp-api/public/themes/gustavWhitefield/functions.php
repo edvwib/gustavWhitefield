@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 // Register plugin helpers.
 require template_path('includes/plugins/plate.php');
@@ -37,6 +37,14 @@ add_filter('jpeg_quality', function () {
     return 100;
 }, 10, 2);
 
+// Enable SVG upload support
+function add_svg_to_upload_mimes($upload_mimes)
+{
+    $upload_mimes['svg'] = 'image/svg+xml';
+    $upload_mimes['svgz'] = 'image/svg+xml';
+    return $upload_mimes;
+}
+add_filter('upload_mimes', 'add_svg_to_upload_mimes', 10, 1);
 
 // Load custom post types, fields and blocks
 add_action('init', function () {
@@ -53,16 +61,17 @@ require_once template_path('custom-endpoints/index.php');
 add_action('admin_init', 'hide_titles_for_editors');
 function hide_titles_for_editors()
 {
-    if (current_user_can('editor')){
+    if (current_user_can('editor')) {
         remove_post_type_support('page', 'title');
         remove_post_type_support('news', 'title');
     }
 
 }
 
-function hide_permalink() {
+function hide_permalink()
+{
     return '';
 }
-add_filter( 'get_sample_permalink_html', 'hide_permalink' );
+add_filter('get_sample_permalink_html', 'hide_permalink');
 
 remove_action('template_redirect', 'redirect_canonical');

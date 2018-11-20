@@ -18,6 +18,7 @@ div:last-child{
   a{
     color: var(--dark-green);
     font-size: 10px;
+    margin-left: 10px;
   }
 }
 `;
