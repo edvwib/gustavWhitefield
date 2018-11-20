@@ -4,44 +4,25 @@ import Head from 'components/globals/head';
 import Section from './section';
 
 const Gustav = (props) => {
+  const { eng, content: { part1, part2, part3 } } = props;
+  const title = eng ? 'About Gustav' : 'Om Gustav';
 
   return (
     <Container>
-      <Head title={props.eng ? 'About Gustav' : 'Om Gustav'}/>
-      {
-        props.eng ?
-        <React.Fragment>
-          <h1>About Gustav</h1>
-          <Section
-            content={props.content.part1.contentENG}
-            img={props.content.part1.image}
-          />
-          <Section
-            content={props.content.part2.contentENG}
-            img={props.content.part2.image}
-          />
-          <Section
-            content={props.content.part3.contentENG}
-            img={props.content.part3.image}
-          />
-        </React.Fragment>
-        :
-        <React.Fragment>
-          <h1>Om Gustav</h1>
-          <Section
-            content={props.content.part1.contentSV}
-            img={props.content.part1.image}
-          />
-          <Section
-            content={props.content.part2.contentSV}
-            img={props.content.part2.image}
-          />
-          <Section
-            content={props.content.part3.contentSV}
-            img={props.content.part3.image}
-          />
-        </React.Fragment>
-      }
+      <Head title={title} />
+      <h1>{title}</h1>
+      <Section
+        content={eng ? part1.contentENG : part1.contentSV}
+        img={part1.image}
+      />
+      <Section
+        content={eng ? part2.contentENG : part2.contentSV}
+        img={part2.image}
+      />
+      <Section
+        content={eng ? part3.contentENG : part3.contentSV}
+        img={part3.image}
+      />
     </Container>
   );
 
