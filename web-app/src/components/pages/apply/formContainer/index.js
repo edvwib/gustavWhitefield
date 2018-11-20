@@ -37,9 +37,7 @@ class FormContainer extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-
     const validate = validateForm(this);
-    console.log('valid form: ', validate);
 
     if (validate) {
       if (!this.state.verified) {
@@ -62,11 +60,9 @@ class FormContainer extends Component {
           'Content-Type': 'application/json'
         }
       };
-      console.log('params', params);
       fetch(`${this.props.API_URL}application/`, params)
         .then(response => response.json())
         .then(data => {
-          console.log('response', data);
           if(data === 1){
             formSent(this);
           } else {
@@ -88,7 +84,6 @@ class FormContainer extends Component {
     })
       .then(response => response.json())
       .then(result => {
-        console.log(result);
         if (result === true) {
           this.setState({
             verified: true,
