@@ -161,7 +161,11 @@ class FormContainer extends Component {
               >{
                 this.props.concentDocument.title
               } - ({eng ? 'Opens in new tab' : 'Öppnas i ny flik'})</a>
-              <span>Markera med ett kryss i rutan om du samtycker till att dina personuppgifter behandlas i enlighet med vad som angetts i dokumentet ovan.*</span>
+              <span>{
+                eng ?
+                  'Mark with a checkbox if you agree to have your personal details processed according to the document above.' :
+                  'Markera med ett kryss i rutan om du samtycker till att dina personuppgifter behandlas i enlighet med vad som angetts i dokumentet ovan.'
+              }</span>
               <div>
                 <input type="checkbox" id="concent1" name="concent1"
                   checked={this.state.concent1}
@@ -169,9 +173,9 @@ class FormContainer extends Component {
                 />
                 <label htmlFor="concent1">{
                   eng ?
-                    'För att pröva din rätt till bidrag och för att i övrigt administrera utbetalningar av bidrag från Stiftelsen' :
+                    'To try your claim for a grant and to administrate payments of the grant from the Foundation' :
                     'För att pröva din rätt till bidrag och för att i övrigt administrera utbetalningar av bidrag från Stiftelsen'
-                }</label>
+                }*</label>
               </div>
               <div>
                 <input type="checkbox" id="concent2" name="concent2"
@@ -180,11 +184,15 @@ class FormContainer extends Component {
                 />
                 <label htmlFor="concent2">{
                   eng ?
-                    'För att publicera beviljade anslag och sökande på Stiftelsens webbsidor' :
-                    'För att publicera beviljade anslag och sökande på Stiftelsens webbsidor'
-                }</label>
+                    'To publish approved grants and applicants on the Foundation\'s website' :
+                    'För att publicera beviljade anslag och sökande på Stiftelsens webbsida'
+                }*</label>
               </div>
-              <span>Genom att markera rutorna ovan och skicka in denna ansökan till Stiftelsen samtycker jag till att Stiftelsen behandlar mina personuppgifter, såsom behandlingen beskrivs i dokumentet ovan, för de ändamål som markerats ovan.</span>
+              <span>{
+                eng ?
+                  'By checking the boxes above and submitting this application to the Foundation I agree to have my personal details processed, according to the document above, for the purposes listed.' :
+                  'Genom att markera rutorna ovan och skicka in denna ansökan till Stiftelsen samtycker jag till att Stiftelsen behandlar mina personuppgifter, såsom behandlingen beskrivs i dokumentet ovan, för de ändamål som markerats ovan.'
+                }</span>
             </Styled.ConcentContainer>
 
             <Styled.SubmitContainer>
