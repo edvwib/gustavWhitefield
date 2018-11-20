@@ -9,9 +9,11 @@ const Contact = (props) => {
 
   return (
     <Container>
-      {props.page.contactUs.contact.map((contact) =>
-        <TextItem key={contact.name} name={contact.name} phone={contact.phone} />
-      )}
+      {
+        props.page.contactUs.contact &&
+        props.page.contactUs.contact.map((contact) =>
+          <TextItem key={contact.name} name={contact.name} phone={contact.phone} />
+        )}
       <small>{props.page.contactUs.email}</small>
       <div>
         <small>Copyright © www.gustavwhitefield.com</small>
