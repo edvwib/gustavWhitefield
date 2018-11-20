@@ -37,6 +37,7 @@
         "wordpress-install-dir": "public/wordpress"
     },
     "config": {
+        "vendor-dir": "./public/vendor",
         "preferred-install": "dist",
         "optimize-autoloader": true,
         "sort-packages": true
