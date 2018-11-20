@@ -6,7 +6,10 @@ class FollowUs extends Component {
   render() {
     return (
       <Container>
-        {this.props.page.map((media) =>
+
+        {
+          this.props.page.socialMedia &&
+          this.props.page.socialMedia.map((media) =>
           <a
             key={media.icon.ID}
             href={media.url}
@@ -14,10 +17,11 @@ class FollowUs extends Component {
             rel="noopener noreferrer">
             <img src={media.icon.url} alt={media.icon.alt ? media.icon.alt : media.icon.title} />
           </a>
-        )}
-      </Container>
-    );
-  }
+        )
+      }
+    </Container>
+  );
+}
 }
 
 export default FollowUs;

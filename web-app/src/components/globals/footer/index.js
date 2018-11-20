@@ -10,7 +10,7 @@ class Footer extends Component {
     const footer = this.props.content.pages.footer;
     return (
       <Container>
-        <FollowUs eng={this.props.content.eng} page={footer.social.socialMedia} />
+        <FollowUs eng={this.props.content.eng} page={footer.social} />
         <WeThank eng={this.props.content.eng} page={footer.weThank} />
         <Contact eng={this.props.content.eng} page={footer} />
       </Container>

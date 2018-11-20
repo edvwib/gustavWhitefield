@@ -1,22 +1,28 @@
-import React from 'react';
-
+import React, { Component } from 'react';
+import lion from 'resources/icons/lion.svg';
 import { Container, Text } from './style';
 
-const Content = (props) => {
+class Content extends Component {
 
-  return (
+
+
+  render(){
+    return (
     <Container>
       <img
-        src={props.image ? props.image.sizes.medium : '/resources/icons/placeholder.jpg'}
-        alt={props.image.alt || 'Board member' }
+        src={this.props.image ? this.props.image.sizes.medium : lion}
+        alt={this.props.image.alt || 'Board member' }
       />
       <Text>
-        <h2>{props.name}</h2>
-        <small>{props.title}</small>
-        <p>{props.about}</p>
+        <h2>{this.props.name}</h2>
+        <small>{this.props.title}</small>
+        <p>{this.props.about}</p>
       </Text>
     </Container>
   );
 }
+}
 
-export default Content;
+
+
+  export default Content;
