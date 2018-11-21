@@ -29,7 +29,6 @@ class CookiePopup extends Component {
       },
       type: 'opt-in',
       onStatusChange: function (status) {
-        console.log(status);
         if (status === 'allow') {
           eng && localStorage.setItem('eng', true);
         }

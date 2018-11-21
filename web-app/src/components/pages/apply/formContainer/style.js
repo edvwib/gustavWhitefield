@@ -157,6 +157,7 @@ export const ReceivedContainer = styled.div`
   margin-bottom: 25px;
   padding: 28px;
   border-radius: 5px;
+  background-color: var(--light-green);
 
   &.active{
     animation-duration: 5s;
@@ -165,10 +166,11 @@ export const ReceivedContainer = styled.div`
 
   @keyframes colorFlash {
     0% { background-color: #fff }
-    25% { background-color: var(--light-green) }
-    50% { background-color: #fff }
-    75% { background-color: var(--light-green) }
-    100% { background-color: #fff }
+    20% { background-color: var(--light-green) }
+    40% { background-color: #fff }
+    60% { background-color: var(--light-green) }
+    80% { background-color: #fff }
+    100% { background-color: var(--light-green) }
   }
 `;
 
