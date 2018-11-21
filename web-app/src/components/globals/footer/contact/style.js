@@ -22,3 +22,12 @@ div:last-child{
   }
 }
 `;
+
+export const ContactWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  small{
+    text-align: center;
+    width: 100%;
+  }
+`;

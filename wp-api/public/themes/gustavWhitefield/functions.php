@@ -65,7 +65,6 @@ function hide_titles_for_editors()
         remove_post_type_support('page', 'title');
         remove_post_type_support('news', 'title');
     }
-
 }
 
 function hide_permalink()
@@ -75,3 +74,13 @@ function hide_permalink()
 add_filter('get_sample_permalink_html', 'hide_permalink');
 
 remove_action('template_redirect', 'redirect_canonical');
+
+add_action('admin_head', 'hide_visit_page');
+
+function hide_visit_page() {
+  echo '<style>
+    .updated a {
+      display: none !important;
+    }
+  </style>';
+}
