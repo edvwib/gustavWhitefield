@@ -12,7 +12,8 @@ function add_news_columns($columns)
 
     return array_merge($columns, [
         'titleSV' => __('Titel (svenska)'),
-        'titleENG' => __('Titel (engelska)'),
+        'coverImg' => __('Utvald bild'),
+
     ]);
 }
 add_filter('manage_news_posts_columns', 'add_news_columns');
@@ -27,8 +28,11 @@ function news_custom_column($column, $post_id)
         case 'titleSV':
             echo '<b>' . field('news_titleSV', $post_id) . '</b>';
             break;
-        case 'titleENG':
-            echo field('news_titleENG', $post_id);
+        case 'coverImg':
+            echo '<img
+                src=' . field('news_images', $post_id)[0]['image']['sizes']['medium'] . '
+                style="max-width: 100%; max-height: 150px;"
+            />';
             break;
     }
 }
