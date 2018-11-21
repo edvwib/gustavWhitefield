@@ -82,5 +82,11 @@ function hide_visit_page() {
     .updated a {
       display: none !important;
     }
+    .row-actions .view a {
+      display: none !important;
+    }
+    .row-actions a.editinline {
+      display: none !important;
+    }
   </style>';
 }
