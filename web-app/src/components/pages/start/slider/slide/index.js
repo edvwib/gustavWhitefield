@@ -5,14 +5,11 @@ import { Container, Image } from './style';
 class Slide extends Component {
 
   render() {
+    const { eng, slide } = this.props;
     return (
-      <Container img={this.props.slide.image ? true : false}>
-        <Image img={this.props.slide.image ? this.props.slide.image.sizes.large : false}/>
-        {
-          this.props.eng ?
-          <p>{this.props.slide.contentENG}</p> :
-          <p>{this.props.slide.contentSV}</p>
-        }
+      <Container img={slide.image ? true : false}>
+        <Image img={slide.image ? slide.image.sizes.large : false}/>
+        <p>{eng ? slide.contentENG : slide.contentSV}</p>
       </Container>
     );
   }

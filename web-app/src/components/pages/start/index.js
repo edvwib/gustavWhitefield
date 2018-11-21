@@ -8,20 +8,21 @@ import News from './news';
 class Start extends Component {
 
   render() {
+    const { eng, pages, news } = this.props.content;
     return (
       <Container>
-        <Head title={this.props.content.eng ? 'Home' : 'Hem'}/>
+        <Head title={eng ? 'Home' : 'Hem'} />
         <Header
-          eng={this.props.content.eng}
-          page={this.props.content.pages.startpage}
+          eng={eng}
+          page={pages.startpage}
         />
         <Slider
-          eng={this.props.content.eng}
-          page={this.props.content.pages.startpage}
+          eng={eng}
+          page={pages.startpage}
         />
         <News
-          eng={this.props.content.eng}
-          news={this.props.content.news}
+          eng={eng}
+          news={news}
         />
       </Container>
     );

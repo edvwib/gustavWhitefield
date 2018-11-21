@@ -199,10 +199,9 @@ class FormContainer extends Component {
               <Reaptcha
                 ref={e => (this.captcha = e)}
                 sitekey={
-                  '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_'
-                  // process.env.NODE_ENV === 'production' ?
-                  //   '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
-                  //   '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
+                  process.env.NODE_ENV === 'production' && window.location.hostname === 'www.gustavwhitefield.com'?
+                     '6LfNzngUAAAAAJrkkFyez-74o1hncwIfO_kJ2OG_' :
+                     '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI' // testing key: 6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe
                 }
                 onVerify={this.recaptchaVerify}
                 hl={eng ? 'en' : 'sv'}

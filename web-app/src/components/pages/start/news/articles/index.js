@@ -5,7 +5,7 @@ import Article from './article';
 
 class Articles extends Component {
 
-  state={
+  state = {
     eng: {
       id: this.props.news.post.ID,
       date: this.props.news.post.post_date,
@@ -14,7 +14,7 @@ class Articles extends Component {
       title: this.props.news.fields.news.titleENG,
       content: this.props.news.fields.news.contentENG
     },
-    sv:{
+    sv: {
       id: this.props.news.post.ID,
       date: this.props.news.post.post_date,
       images: this.props.news.fields.news.images,
@@ -25,22 +25,14 @@ class Articles extends Component {
   }
 
   render() {
+    const { eng, first } = this.props;
     return (
       <Container>
-        {
-          (this.props.eng && this.state.eng.title) ?
-          <Article
-            first={this.props.first}
-            content={this.state.eng}
-            eng={this.props.eng}
-          />
-          :
-          <Article
-            first={this.props.first}
-            content={this.state.sv}
-            eng={this.props.eng}
-          />
-        }
+        <Article
+          first={first}
+          content={eng ? this.state.eng : this.state.sv}
+          eng={eng}
+        />
       </Container>
     );
   }

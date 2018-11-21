@@ -1,32 +1,33 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
-import { Container, ArtBtn } from './style';
+import { Container, ArticleButton } from './style';
 
 import Articles from './articles';
 
 class News extends Component {
 
   render() {
+    const { eng, news } = this.props;
     return (
       <Container>
         {
-          this.props.news.map((item, index) =>
-          index < 3 &&
-          <Articles
-            eng={this.props.eng}
-            first={index === 0}
-            key={index}
-            news={item}
-          />)
+          news.map((item, index) =>
+            index < 3 &&
+            <Articles
+              eng={eng}
+              first={index === 0}
+              key={index}
+              news={item}
+            />)
         }
-        <ArtBtn>
-          <NavLink to={this.props.eng ? '/news' : '/nyheter' }>
-          {this.props.eng ? 'All News' : 'Alla Nyheter'}
-        </NavLink>
-      </ArtBtn>
-    </Container>
-  );
-}
+        <ArticleButton>
+          <NavLink to={eng ? '/news' : '/nyheter'}>
+            {eng ? 'All News' : 'Alla Nyheter'}
+          </NavLink>
+        </ArticleButton>
+      </Container>
+    );
+  }
 }
 
 export default News;
