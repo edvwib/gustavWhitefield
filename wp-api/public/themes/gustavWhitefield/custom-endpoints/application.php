@@ -325,7 +325,7 @@ function privateMessage($data){
 }
 
 function createEmail($isOrganization, $data){
-    return (new Swift_Message('Ansökan ' . ''))
+    return (new Swift_Message("Ansökan - {$data->contact->name}"))
         ->setFrom([getenv('MAIL_USERNAME') => 'formulär@gustavwhitefield.com'])
         ->setTo([getenv('WP_ENV') === 'local' ?
             'formular@gustavwhitefield.com' :
