@@ -1,8 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types = 1);
 
 add_action('rest_api_init', function () {
+    register_rest_route('api/v1', '/newsLastUpdated', [
+        'methods' => 'GET',
+        'callback' => 'getNewsLastUpdated'
+    ]);
     register_rest_route('api/v1', '/news/', [
         'methods' => 'GET',
         'callback' => 'getAllNews'
@@ -13,7 +17,20 @@ add_action('rest_api_init', function () {
     ]);
 });
 
-function getNewsById($data){
+function getNewsLastUpdated()
+{
+    global $wpdb;
+    return strtotime($wpdb->get_results(
+        "SELECT post_modified_gmt
+        FROM wpl_posts
+        WHERE post_type='news'
+        ORDER BY post_modified_gmt
+        DESC LIMIT 1"
+    )[0]->post_modified_gmt);
+}
+
+function getNewsById($data)
+{
     $news = get_posts(['post_type' => 'news', 'attachment_id' => $data['id']]);
     $newsWithFields = [];
     foreach ($news as $item) {
@@ -25,10 +42,11 @@ function getNewsById($data){
     return $newsWithFields;
 }
 
-function getAllNews(){
+function getAllNews()
+{
     $posts = get_posts([
         'post_type' => 'news',
-        'numberposts'=> -1
+        'numberposts' => -1
     ]);
     $postsWithFields = [];
 

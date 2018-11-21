@@ -23,26 +23,39 @@ class ContextProvider extends Component {
   }
 
   getData = (endpoint, cookieConsent) => {
-    if (cookieConsent && process.env.NODE_ENV === 'production') {
-      let lastFetch = parseInt(localStorage.getItem(`${endpoint}Fetched`));
-      let data = localStorage.getItem(endpoint);
+    let lastFetch = parseInt(localStorage.getItem(`${endpoint}Fetched`));
+    let data = localStorage.getItem(endpoint);
 
-      // if data is saved and 12 hours have not passed
-      if (data && lastFetch > Date.now() - 43200000) {
-        this.setState({ [endpoint]: JSON.parse(data) });
-        return;
-      }
+    if (!lastFetch && !data) {
+      console.log(`found no data for ${endpoint}`);
+      this.fetchData(endpoint, cookieConsent);
+    } else if (data) {
+      console.log(`found data for ${endpoint}`);
+      this.setState({ [endpoint]: JSON.parse(data) });
+      fetch(this.API_URL + endpoint + 'LastUpdated')
+        .then((blob) => blob.json())
+        .then((lastModified) => {
+          if (lastModified > lastFetch) {
+            console.log(`${endpoint} data is outdated, was last updated ${lastModified}, client has ${lastFetch}`);
+            this.fetchData(endpoint, cookieConsent);
+          } else {
+            console.log(`${endpoint} is up to date`);
+          }
+        });
     }
+  }
 
+  fetchData = (endpoint, cookieConsent) => {
     fetch(this.API_URL + endpoint)
       .then((blob) => blob.json())
       .then((data) => {
         this.setState({ [endpoint]: data });
         if (cookieConsent) {
           this.saveToLocalStorage(endpoint, JSON.stringify(data));
-          this.saveToLocalStorage(`${endpoint}Fetched`, Date.now());
+          this.saveToLocalStorage(`${endpoint}Fetched`, (Date.now() / 1000).toFixed(0));
         }
-      })
+        console.log(`fetched new data for ${endpoint}`);
+      });
   }
 
   updateLang = () => {
