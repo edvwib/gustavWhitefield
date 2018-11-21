@@ -17,7 +17,7 @@ class Economy extends Component {
         />
         <Body>
           <div dangerouslySetInnerHTML={{ __html: this.props.eng ? this.props.content.contentENG : this.props.content.contentSV}} />
-          <Files eng={true} files={this.props.content.files}/>
+          <Files eng={this.props.eng} files={this.props.content.files}/>
         </Body>
 
       </Container>
