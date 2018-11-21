@@ -32,7 +32,10 @@ class Slider extends Component {
           >
             {
               this.state.images.map((item, index) =>
-              <img key={index} src={item.image.sizes.large} alt=""/>
+                <img
+                  key={index} src={item.image.sizes && item.image.sizes.large}
+                  alt={item.image.alt ? item.image.alt : item.image.title}
+                />
             )
           }
         </Carousel>
