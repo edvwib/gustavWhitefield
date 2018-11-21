@@ -26,6 +26,7 @@ img{
 }
 p{
   z-index: 0;
+  min-height: 10px; 
 }
 
 button{
