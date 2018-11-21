@@ -11,7 +11,7 @@ export const Company = styled.a`
 width: 100px;
 height: 100px;
 background-image: url(${props => props.img});
-background-size: 100% auto;
+background-size: contain;
 background-repeat: no-repeat;
 background-position: center;
 margin: 2%;
