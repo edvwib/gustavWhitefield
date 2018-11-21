@@ -6,26 +6,28 @@ import Donations from './donations';
 class SupportUs extends Component {
 
   render() {
+    const { eng, content } = this.props;
+    const title = eng ? 'Help our cause' : 'Stöd oss'
     return (
       <Container>
-        <Head title={this.props.eng ? 'Help our cause' : 'Stöd oss'}/>
-        <h1>{this.props.eng ? 'Help our cause' : 'Stöd oss'}</h1>
+        <Head title={title} />
+        <h1>{title}</h1>
         <Text
           dangerouslySetInnerHTML={{
-            __html: this.props.eng ?
-            this.props.content.introENG :
-            this.props.content.introSV
+            __html: eng ?
+              content.introENG :
+              content.introSV
           }}
         />
         <Donations
-          content={this.props.content.paymentMethods}
-          eng={this.props.eng}
+          content={content.paymentMethods}
+          eng={eng}
         />
         <Text
           dangerouslySetInnerHTML={{
-            __html: this.props.eng ?
-            this.props.content.otherENG :
-            this.props.content.otherSV
+            __html: eng ?
+              content.otherENG :
+              content.otherSV
           }}
         />
       </Container>

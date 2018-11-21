@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Container } from './style';
-
 import Donation from './donation';
 
 class Donations extends Component {
 
   render() {
+    const { eng, content } = this.props;
     return (
       <Container>
         {
-          this.props.content && this.props.content.map((method, index) =>
-          <Donation
-            key={index}
-            eng={this.props.eng}
-            content={method}
-          />
-        )
-      }
+          content && content.map((method, index) =>
+            <Donation
+              key={index}
+              eng={eng}
+              content={method}
+            />
+          )
+        }
       </Container>
     );
   }
