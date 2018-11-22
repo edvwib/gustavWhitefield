@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container } from './style';
+import { Container, ImgWrapper } from './style';
 import placeholder from 'resources/icons/placeholder.jpg';
 
 class Article extends Component {
@@ -26,7 +26,9 @@ class Article extends Component {
   render() {
     return (
       <Container>
-        <img src={this.state.image} alt="icon"/>
+        <ImgWrapper>
+          <img src={this.state.image} alt="icon"/>
+        </ImgWrapper>
         <h3>{this.props.title}</h3>
         <p>{this.props.intro}</p>
         <button>{this.props.eng ? 'Read more' : 'Läs mer'}</button>

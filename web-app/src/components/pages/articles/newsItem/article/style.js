@@ -18,15 +18,10 @@ p::after{
   background-color: white;
   box-shadow: 0px -10px 30px 20px white;
 }
-img{
-  height: 200px;
-  border-radius: 2.5px;
-  object-fit: cover;
-  width: 100%;
-}
+
 p{
   z-index: 0;
-  min-height: 10px; 
+  min-height: 10px;
 }
 
 button{
@@ -62,5 +57,18 @@ small{
   bottom: 0;
   right: 0;
 }
+`;
 
+export const ImgWrapper = styled.div`
+display: flex;
+align-items: center;
+justify-content: center;
+height: 200px;
+width: 100%;
+img{
+  max-height: 200px;
+  border-radius: 2.5px;
+  object-fit: cover;
+  width: 100%;
+}
 `;
