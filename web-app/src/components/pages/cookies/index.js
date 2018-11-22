@@ -12,12 +12,6 @@ class Cookies extends Component {
     const eng = this.props.eng;
     return (
       <Container>
-        <input
-          type="button"
-          value={eng ? 'Change your choice' : 'Ändra ditt val'}
-          onClick={this.showCookiePopup}
-        />
-
         <h2>{eng ? 'Cookies' : 'Kakor ("cookies")'}</h2>
         <p className='intro'>{
           eng ?
@@ -35,8 +29,8 @@ class Cookies extends Component {
         <h3>{eng ? 'How do we use cookies?' : 'Hur använder vi kakor?'}</h3>
         <p className='explanation'>{
           eng ?
-            '' :
-            ''
+            'We use cookies to remember details you may have entered in our online form, if you have agreed (or not) to our use of cookies on this site, as well as anonymously gather statistics on how you got here and what pages you visited on our site.' :
+            'Vi använder kakor för att spara data ni har skrivit in i formuläret på webbplatsen, om ni har tillåtit (eller nekat) till vår användning av kakor på denna webbplatsen, för att anonymt samla in statistik över hur ni kom till webbplatsen samt vilka sidor ni har besökt på vår webbplats.'
         }</p>
 
         <h3>{eng ? 'How to control cookies' : 'Hur du kan kontrollera kakorna'}</h3>
@@ -45,6 +39,12 @@ class Cookies extends Component {
             'You can control and/or delete cookies as you wish – for details, see aboutcookies.org. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed. If you do this, however, you may have to manually adjust some preferences every time you visit a site and some services and functionalities may not work.' :
             'Du kan kontrollera och radera kakor precis som du vill. Läs mer på aboutcookies.org.  Du kan ta bort alla kakor som finns på din dator och du kan ställa in webbläsaren så att den inte tar emot några kakor. I så fall måste du eventuellt göra om vissa inställningar varje gång du går in på en webbplats och vissa tjänster och funktioner kanske inte fungerar.'
         }</p>
+
+        <input
+          type="button"
+          value={eng ? 'Change your choice' : 'Ändra ditt val'}
+          onClick={this.showCookiePopup}
+        />
       </Container>
     );
   }

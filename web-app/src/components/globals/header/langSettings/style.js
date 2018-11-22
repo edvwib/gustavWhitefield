@@ -7,13 +7,13 @@ span{
   padding: 1px;
   left: 50%;
   bottom: 0;
-  background-color: var(--dark-green);
+  background-color: var(--darkGreen);
 }
 
 a{
   padding: 5px;
   text-decoration: none;
-  color: var(--dark-green);
+  color: var(--darkGreen);
   &:first-child{
     ${
       props => !props.active &&

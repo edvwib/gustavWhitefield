@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--dark-green);
+  color: var(--darkGreen);
   text-align: center;
   margin-bottom: 50px;
 `;
@@ -14,6 +14,6 @@ export const Text = styled.div`
   width: 90%;
   max-width: 712px;
   a{
-    color: var(--another-green);
+    color: var(--anotherGreen);
   }
 `;

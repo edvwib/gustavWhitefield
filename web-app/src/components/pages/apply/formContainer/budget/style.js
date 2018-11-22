@@ -26,14 +26,14 @@ export const Fieldset = styled.fieldset`
         margin-right: 20px;
         margin-top: 2px;
         border-radius: 5px;
-        border: 2px solid var(--dark-green);
+        border: 2px solid var(--darkGreen);
 
         :hover, :active{
-          background-color: var(--light-green);
+          background-color: var(--lightGreen);
         }
 
         &.active{
-          background-color: var(--dark-green);
+          background-color: var(--darkGreen);
           color: #fff;
         }
       }

@@ -25,7 +25,7 @@ class WeSupport extends Component {
     });
     container.innerHTML = '';
     elements && elements.forEach(item => container.innerHTML += item);
-    container.childNodes.forEach(child => this.anime(child, timeline))
+    Array.from(container.childNodes).forEach(child => this.anime(child, timeline));
   }
 
   anime = (child, timeline) => {

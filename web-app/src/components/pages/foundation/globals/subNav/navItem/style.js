@@ -14,12 +14,13 @@ flex-wrap: wrap;
 export const LinkWrap = styled.div`
 text-align: center;
 margin: 10px;
+position: relative;
 
 a{
   position: relative;
   padding-bottom: 3px;
   text-decoration: none;
-  color: var(--dark-green);
+  color: var(--darkGreen);
   font-family: 'niramit medium';
 
   &::after{
@@ -28,7 +29,7 @@ a{
     bottom: 0;
     content: '';
     position: absolute;
-    border-bottom: 1px solid var(--dark-green);
+    border-bottom: 1px solid var(--darkGreen);
   }
 }
 

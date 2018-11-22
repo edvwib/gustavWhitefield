@@ -7,6 +7,8 @@
     "animejs": "^2.2.0",
     "body-scroll-lock": "^2.5.10",
     "cookieconsent": "^3.1.0",
+    "core-js": "^2.5.7",
+    "css-vars-ponyfill": "^1.15.1",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "merge": "^1.2.1",
     "react": "^16.6.0",
@@ -17,7 +19,8 @@
     "react-scripts": "2.0.5",
     "reaptcha": "^1.4.0",
     "styled-components": "^4.0.2",
-    "validator": "^10.8.0"
+    "validator": "^10.8.0",
+    "whatwg-fetch": "^3.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

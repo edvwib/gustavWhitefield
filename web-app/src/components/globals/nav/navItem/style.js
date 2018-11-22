@@ -31,12 +31,13 @@ justify-content: center;
 export const LinkWrap = styled.div`
 text-align: center;
 margin: 10px;
+position: relative;
 
 a{
   position: relative;
   padding-bottom: 3px;
   text-decoration: none;
-  color: var(--dark-green);
+  color: var(--darkGreen);
   font-family: 'niramit medium';
   font-size: 18px;
   img{
@@ -59,7 +60,7 @@ a.active{
     content: '';
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid var(--dark-green);
+    border-bottom: 1px solid var(--darkGreen);
     transition: 1s ease;
   }
 }

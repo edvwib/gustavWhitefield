@@ -7,7 +7,7 @@ align-items: center;
 width: 100%;
 margin-bottom: 50px;
 h1{
-  color: var(--dark-green);
+  color: var(--darkGreen);
   margin-bottom: 50px;
 }
 `;
