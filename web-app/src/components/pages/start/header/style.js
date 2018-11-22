@@ -29,7 +29,7 @@ export const Container = styled.div`
   h1{
     margin: 0;
     text-align: center;
-    color: var(--darkGreen);
+    color: var(--dark-green);
     @media (min-width: 750px) {
       width: 50%;
     }

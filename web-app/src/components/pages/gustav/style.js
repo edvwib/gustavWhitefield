@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--darkGreen);
+  color: var(--dark-green);
 
   h1{
     text-align: center;

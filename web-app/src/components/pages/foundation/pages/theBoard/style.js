@@ -5,6 +5,6 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  color: var(--darkGreen);
+  color: var(--dark-green);
   margin-bottom: 50px;
 `;

@@ -20,7 +20,7 @@ a{
   position: relative;
   padding-bottom: 3px;
   text-decoration: none;
-  color: var(--darkGreen);
+  color: var(--dark-green);
   font-family: 'niramit medium';
 
   &::after{
@@ -29,7 +29,7 @@ a{
     bottom: 0;
     content: '';
     position: absolute;
-    border-bottom: 1px solid var(--darkGreen);
+    border-bottom: 1px solid var(--dark-green);
   }
 }
 

@@ -5,7 +5,7 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  color: var(--darkGreen);
+  color: var(--dark-green);
 `;
 
 export const Body = styled.div`
@@ -13,7 +13,7 @@ export const Body = styled.div`
   align-items: center;
   flex-direction: column;
   width: 90%;
-  color: var(--darkGreen);
+  color: var(--dark-green);
   max-width: 612px;
 
   >h2{

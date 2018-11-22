@@ -16,7 +16,7 @@ div:last-child{
   padding: 10px 0 10px 0;
 
   a{
-    color: var(--darkGreen);
+    color: var(--dark-green);
     font-size: 10px;
     margin-left: 10px;
   }

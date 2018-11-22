@@ -11,19 +11,10 @@ import 'core-js/fn/array/from';
 import 'core-js/fn/object/values';
 import 'core-js/fn/dom-collections';
 import 'whatwg-fetch';
-import cssVars from 'css-vars-ponyfill';
 import './index.css';
 import './App.css';
 
 import App from './App';
-
-cssVars({
-  variables: {
-    darkGreen: '#314D30',
-    lightGreen: '#ADD7CD',
-    anotherGreen: '#4d9e8b',
-  }
-});
 
 ReactDOM.render(
   <BrowserRouter>

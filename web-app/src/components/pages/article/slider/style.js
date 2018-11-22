@@ -34,7 +34,7 @@ export const Container = styled.div`
   }
 
   .carousel .control-dots .dot{
-    background: var(--darkGreen);
+    background: var(--dark-green);
     height: 10px;
     width: 10px;
     box-shadow: 2px 2px 4px rgba(49, 77, 48, .9);

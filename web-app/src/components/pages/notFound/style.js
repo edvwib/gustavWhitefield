@@ -8,7 +8,7 @@ align-items: center;
 justify-content: center;
 flex-direction: column;
 text-align: center;
-color: var(--darkGreen);
+color: var(--dark-green);
 
 p{
   margin: 0;

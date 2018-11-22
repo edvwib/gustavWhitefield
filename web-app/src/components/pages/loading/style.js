@@ -18,7 +18,7 @@ img{
   height: auto;
 }
 h2{
-  color: var(--darkGreen);
+  color: var(--dark-green);
   font-family: 'niramit bold';
   letter-spacing: 0.5em;
   width: 100%;

@@ -5,7 +5,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
-color: var(--darkGreen);
+color: var(--dark-green);
 `;
 
 export const Body = styled.div`

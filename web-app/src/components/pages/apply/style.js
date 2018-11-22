@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  color: var(--darkGreen);
+  color: var(--dark-green);
   width: 90%;
   max-width: 712px;
   margin: 0 auto;
   a{
-    color: var(--anotherGreen);
+    color: var(--another-green);
   }
   >h1{
     width: 100%;

@@ -4,7 +4,7 @@ export const Container = styled.div`
 position: relative;
 max-height: 600px;
 box-sizing: border-box;
-color: var(--darkGreen);
+color: var(--dark-green);
 overflow-y: hidden;
 
 p::after{
@@ -47,7 +47,7 @@ button{
     width: 0;
     height: 0;
     border-top: 6px solid transparent;
-    border-left: 12px solid var(--darkGreen);
+    border-left: 12px solid var(--dark-green);
     border-bottom: 6px solid transparent;
   }
 }
