@@ -8,4 +8,11 @@ export const Container = styled.div`
   width: 90%;
   max-width: 1000px;
   margin: 50px;
+
+  >div{
+    justify-self: center;
+    display: inline-block;
+    margin: 20px;
+    max-width: 250px;
+  }
 `;

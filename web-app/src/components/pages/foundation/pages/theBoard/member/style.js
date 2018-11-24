@@ -7,12 +7,10 @@ export const Container = styled.div`
   img{
     border-radius: 2.5px;
     @media (max-width: 650px) {
-      align-self: center;
       height: auto;
       width: 70%;
     }
     @media (max-width: 450px) {
-      align-self: center;
       height: auto;
       width: 100%;
     }

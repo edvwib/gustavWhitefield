@@ -37,7 +37,7 @@ a{
   position: relative;
   padding-bottom: 3px;
   text-decoration: none;
-  color: var(--dark-green);
+  color: #314D30;
   font-family: 'niramit medium';
   font-size: 18px;
   img{
@@ -60,7 +60,7 @@ a.active{
     content: '';
     position: absolute;
     bottom: 0;
-    border-bottom: 1px solid var(--dark-green);
+    border-bottom: 1px solid #314D30;
     transition: 1s ease;
   }
 }

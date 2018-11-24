@@ -23,7 +23,7 @@ export const Wrapper = styled.div`
     width: 100%;
     border-radius: 10px;
     transition: .5s ease;
-    background-color: var(--dark-green);
+    background-color: #314D30;
   }
   span:nth-child(1){
     top: 0;

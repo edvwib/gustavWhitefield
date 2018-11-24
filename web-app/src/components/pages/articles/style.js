@@ -7,7 +7,7 @@ align-items: center;
 width: 100%;
 margin-bottom: 50px;
 h1{
-  color: var(--dark-green);
+  color: #314D30;
   margin-bottom: 50px;
 }
 `;
@@ -20,4 +20,9 @@ grid-row-gap: 75px;
 width: 90%;
 max-width: 1000px;
 grid-template-columns: repeat( auto-fill, minmax(250px, 1fr));
+
+>div{
+  display: inline-block;
+
+}
 `;

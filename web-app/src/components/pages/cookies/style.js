@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  color: var(--dark-green);
+  color: #314D30;
   width: 90%;
   max-width: 712px;
   margin: 0 auto;

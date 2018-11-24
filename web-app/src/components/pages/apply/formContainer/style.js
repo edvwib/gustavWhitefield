@@ -9,7 +9,7 @@ export const Form = styled.form`
 
   /*Hide radio buttons, but retain tab press focus*/
   input[type=radio]:focus + label{
-    border: 2px solid var(--light-green)!important;
+    border: 2px solid #ADD7CD!important;
   }
   input[type=radio]{
     position: fixed;
@@ -45,7 +45,7 @@ export const Form = styled.form`
         border: 0;
         border-bottom: 1.5px solid #ccc;
         background-color: #fff;
-        color: var(--dark-green);
+        color: #314D30;
         padding: 0 0 5px 10px;
 
         transition: 1s border;
@@ -54,7 +54,7 @@ export const Form = styled.form`
         &:focus{
           outline: none;
           border-bottom: 0;
-          border-bottom: 1.5px solid var(--dark-green);
+          border-bottom: 1.5px solid #314D30;
         }
       }
     }
@@ -68,7 +68,7 @@ export const Form = styled.form`
 
       &:focus{
         outline: none;
-        border: 1px solid var(--dark-green);
+        border: 1px solid #314D30;
       }
     }
   }
@@ -93,14 +93,14 @@ export const IsOrganization = styled.div`
     padding: 5px;
     margin-top: 2px;
     border-radius: 5px;
-    border: 2px solid var(--dark-green);
+    border: 2px solid #314D30;
 
     :hover, :active{
-      background-color: var(--light-green);
+      background-color: #ADD7CD;
     }
 
     &.active{
-      background-color: var(--dark-green);
+      background-color: #314D30;
       color: #fff;
     }
   }
@@ -129,10 +129,10 @@ export const SubmitContainer = styled.div`
 `;
 
 export const SubmitButton = styled.input`
-  border: 1px solid var(--dark-green);
+  border: 1px solid #314D30;
   border-radius: 5px;
   background-color: #fff;
-  color: var(--dark-green);
+  color: #314D30;
   height: 78px;
   margin-bottom: 20px;
 
@@ -141,7 +141,7 @@ export const SubmitButton = styled.input`
   }
 
   &:hover, &:active{
-    background-color: var(--light-green);
+    background-color: #ADD7CD;
   }
 
   &.error{
@@ -157,7 +157,7 @@ export const ReceivedContainer = styled.div`
   margin-bottom: 25px;
   padding: 28px;
   border-radius: 5px;
-  background-color: var(--light-green);
+  background-color: #ADD7CD;
 
   &.active{
     animation-duration: 5s;
@@ -166,11 +166,11 @@ export const ReceivedContainer = styled.div`
 
   @keyframes colorFlash {
     0% { background-color: #fff }
-    20% { background-color: var(--light-green) }
+    20% { background-color: #ADD7CD }
     40% { background-color: #fff }
-    60% { background-color: var(--light-green) }
+    60% { background-color: #ADD7CD }
     80% { background-color: #fff }
-    100% { background-color: var(--light-green) }
+    100% { background-color: #ADD7CD }
   }
 `;
 
@@ -198,12 +198,12 @@ export const ConcentContainer = styled.div`
     min-height: 25px;
     min-width: 25px;
     margin-right: 15px;
-    border: 1px solid var(--dark-green);
+    border: 1px solid #314D30;
     border-radius: 3px;
 
     &:focus{
       outline: none;
-      border-color: var(--another-green);
+      border-color: #4d9e8b;
     }
 
     &:checked{
@@ -211,7 +211,7 @@ export const ConcentContainer = styled.div`
       background-position: center;
       background-size: 80%;
       background-repeat: no-repeat;
-      background-color: var(--light-green);
+      background-color: #ADD7CD;
     }
   }
 `;
