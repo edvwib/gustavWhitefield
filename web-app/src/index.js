@@ -9,6 +9,7 @@ import 'core-js/fn/array/find-index';
 import 'core-js/fn/array/values';
 import 'core-js/fn/array/from';
 import 'core-js/fn/object/values';
+import 'core-js/fn/object/assign';
 import 'core-js/fn/dom-collections';
 import 'whatwg-fetch';
 import './index.css';

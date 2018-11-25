@@ -11,16 +11,16 @@ div{
   margin-top: 10px;
   a{
     font-family: 'niramit medium';
-    color: var(--dark-green);
+    color: #314D30;
     text-decoration: none;
     padding: 0 0 4px 0;
     span{
-      border: 1px solid var(--dark-green);
+      border: 1px solid #314D30;
       border-radius: 5px;
       padding: 0 7px 4px 7px;
       margin-left: 10px;
       &:hover, &:active{
-        background-color: var(--light-green);
+        background-color: #ADD7CD;
       }
     }
   }

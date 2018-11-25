@@ -21,7 +21,7 @@ export const Wrapper = styled.div`
 
   a{
     height: 100%;
-    color: var(--dark-green);
+    color: #314D30;
     text-decoration: none;
     &:first-child{
       width: 40%;
@@ -110,7 +110,7 @@ export const Text = styled.div`
       width: 0;
       height: 0;
       border-top: 6px solid transparent;
-      border-left: 12px solid var(--dark-green);
+      border-left: 12px solid #314D30;
       border-bottom: 6px solid transparent;
     }
   }

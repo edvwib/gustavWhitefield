@@ -41,7 +41,7 @@ class CookiePopup extends Component {
 
   componentWillReceiveProps = (nextProps) => {
     if (this.props.eng !== nextProps.eng) {
-      document.querySelector('.cc-window').remove();
+      document.querySelector('.cc-window').outerHTML = ''; //outerHTML instead of remove() to support IE 11
       this.createPopup(nextProps.eng);
     }
   }

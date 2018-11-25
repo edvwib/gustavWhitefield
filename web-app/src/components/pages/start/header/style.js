@@ -23,13 +23,13 @@ export const Container = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    filter: opacity(25%);
+    opacity: .25;
   }
 
   h1{
     margin: 0;
     text-align: center;
-    color: var(--dark-green);
+    color: #314D30;
     @media (min-width: 750px) {
       width: 50%;
     }

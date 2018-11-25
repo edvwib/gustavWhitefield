@@ -12,7 +12,7 @@ export const ArticleButton = styled.div`
   height: 30px;
   a{
     position: relative;
-    color: var(--dark-green);
+    color: #314D30;
     text-decoration: none;
     font-family: 'niramit bold';
   }
@@ -24,7 +24,7 @@ export const ArticleButton = styled.div`
     width: 0;
     height: 0;
     border-top: 8px solid transparent;
-    border-left: 16px solid var(--dark-green);
+    border-left: 16px solid #314D30;
     border-bottom: 8px solid transparent;
   }
 
