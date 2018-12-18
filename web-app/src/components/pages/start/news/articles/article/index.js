@@ -25,7 +25,8 @@ class Article extends Component {
   }
 
   formatDate = (dateString) => {
-    let date = new Date(dateString);
+    let string = dateString.split(' ');
+    let date = new Date(string[0]);
     return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
   }
 

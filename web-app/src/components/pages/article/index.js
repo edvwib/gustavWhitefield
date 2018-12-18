@@ -12,14 +12,13 @@ class Article extends Component {
 
     this.state = {
       article: article && article.fields.news,
-      date: article && this.formatDate(article)
+      date: article && this.formatDate(article.post.post_date)
     }
   }
 
-  formatDate = (article) => {
-    let date = new Date(article.post.post_date);
-
-    // Formats the date to YYYY-MM-DD, dates and months are zero padded if needed.
+  formatDate = (dateString) => {
+    let string = dateString.split(' ');
+    let date = new Date(string[0]);
     return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
   }
 
