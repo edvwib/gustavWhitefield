@@ -30,11 +30,9 @@ class Article extends Component {
           <img src={this.state.image} alt="icon"/>
         </ImgWrapper>
         <h3>{this.props.title}</h3>
-        <p>{this.props.intro}</p>
+        <p>{this.formatDate(this.props.date)} {this.props.intro}</p>
         <button>{this.props.eng ? 'Read more' : 'Läs mer'}</button>
-        <small>({this.formatDate(this.props.date)})</small>
       </Container>
-
     );
   }
 }

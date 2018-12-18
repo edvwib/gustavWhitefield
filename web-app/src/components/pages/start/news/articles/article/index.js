@@ -24,6 +24,11 @@ class Article extends Component {
     return typeof img === 'string' ? img : img.sizes.medium
   }
 
+  formatDate = (dateString) => {
+    let date = new Date(dateString);
+    return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
+  }
+
   render() {
     const { eng, content, first } = this.props;
     return (
@@ -47,7 +52,7 @@ class Article extends Component {
           >
             <Text first={first}>
               <h2>{content.title}</h2>
-              <p>{content.intro}</p>
+              <p>{this.formatDate(content.date)} {content.intro}</p>
               <small>{eng ? 'Read more' : 'Läs mer'}</small>
             </Text>
           </NavLink>

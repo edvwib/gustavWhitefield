@@ -46,17 +46,6 @@ button{
     border-bottom: 6px solid transparent;
   }
 }
-
-small{
-  position: absolute;
-  font-style: italic;
-  font-size: 12px;
-  padding: 0 5px;
-  border: none;
-  z-index: 2;
-  bottom: 0;
-  right: 0;
-}
 `;
 
 export const ImgWrapper = styled.div`
