@@ -18,7 +18,9 @@ class Article extends Component {
 
   formatDate = (article) => {
     let date = new Date(article.post.post_date);
-    return `${date.getFullYear()}-${('0' + date.getMonth()).slice(-2)}-${('0' + date.getDay()).slice(-2)}`;
+
+    // Formats the date to YYYY-MM-DD, dates and months are zero padded if needed.
+    return `${date.getFullYear()}-${('0' + (date.getMonth() + 1)).slice(-2)}-${('0' + date.getDate()).slice(-2)}`;
   }
 
   goBack = () => {
