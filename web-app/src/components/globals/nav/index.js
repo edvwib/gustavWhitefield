@@ -10,16 +10,16 @@ class Nav extends Component {
       en: [
         {name: '', path: '/'},
         {name: 'About Gustav', path: '/about-gustav'},
-        {name: 'The Foundation', path: '/the-foundation'},
+        {name: 'The foundation', path: '/the-foundation'},
         {name: 'Apply', path: '/apply'},
-        {name: 'Support Us', path: '/support-us'}
+        {name: 'Support us', path: '/support-us'}
       ],
       sv: [
         {name: '', path: '/'},
         {name: 'Om Gustav', path: '/om-gustav'},
-        {name: 'Om Stiftelsen', path: '/om-stiftelsen'},
-        {name: 'Sök Bidrag', path: '/sok-bidrag'},
-        {name: 'Stöd Oss', path: '/stod-oss'}
+        {name: 'Om stiftelsen', path: '/om-stiftelsen'},
+        {name: 'Sök bidrag', path: '/sok-bidrag'},
+        {name: 'Stöd oss', path: '/stod-oss'}
       ]
     }
   }
