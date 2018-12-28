@@ -34,6 +34,8 @@ button{
   bottom: 0;
   left: 0;
   background-color: white;
+  color: #314D30;
+
   &:after{
     content: '';
     position: absolute;
