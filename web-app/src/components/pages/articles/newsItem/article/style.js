@@ -5,7 +5,7 @@ position: relative;
 max-height: 600px;
 box-sizing: border-box;
 color: #314D30;
-overflow-y: hidden;
+overflow: hidden;
 
 p::after{
   position: absolute;
@@ -58,6 +58,6 @@ img{
   max-height: 200px;
   border-radius: 2.5px;
   object-fit: cover;
-  width: 100%;
+  width: ${props => props.supportsObjectFit ? '100%' : 'auto'};
 }
 `;

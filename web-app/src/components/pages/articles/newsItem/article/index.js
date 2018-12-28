@@ -8,6 +8,10 @@ class Article extends Component {
     image: placeholder
   }
 
+  supportsCssProperty = (property) => {
+    return property in document.body.style;
+  }
+
   componentDidMount(){
     let img;
     if (this.props.images) {
@@ -27,7 +31,7 @@ class Article extends Component {
   render() {
     return (
       <Container>
-        <ImgWrapper>
+        <ImgWrapper supportsObjectFit={this.supportsCssProperty('object-fit')}>
           <img src={this.state.image} alt="icon"/>
         </ImgWrapper>
         <h3>{this.props.title}</h3>

@@ -6,11 +6,15 @@ import Article from './article';
 
 class NewsItem extends Component {
 
+  supportsCssProperty = (property) => {
+    return property in document.body.style;
+  }
+
   render() {
     const post = this.props.news.post;
     const news = this.props.news.fields.news;
     return (
-      <Container>
+      <Container supportsGrid={this.supportsCssProperty('grid')}>
         <NavLink to={this.props.eng ?
           `/article/${post.ID}` :
           `/artikel/${post.ID}`
