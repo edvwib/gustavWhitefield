@@ -4,9 +4,7 @@ export const Glob = React.createContext();
 
 class ContextProvider extends Component {
 
-  API_URL = process.env.NODE_ENV === 'production' ?
-    'https://gustavwhitefield.com/wp-json/api/v1/' :
-    'http://localhost:8888/wp-json/api/v1/';
+  API_URL = process.env.REACT_APP_API_URL + 'wp-json/api/v1/';
 
   state = {
     cookieConsent: false,

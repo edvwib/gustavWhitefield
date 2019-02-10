@@ -11,13 +11,39 @@
         "swiftmailer/swiftmailer": "^6.1",
         "symfony/polyfill-mbstring": "^1.10",
         "wordplate/acf": "^6.0",
-        "wordplate/framework": "^7.0@dev",
-        "wordplate/plate": "^4.0"
+        "wordplate/framework": "^7.0",
+        "wordplate/plate": "^4.0",
+        "wordpress/classic-editor": "^1.4",
+        "wpackagist-plugin/advanced-custom-fields-pro": "^5.7"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://wpackagist.org"
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "wordpress/classic-editor",
+            "type": "wordpress-muplugin",
+            "version": "1.4",
+            "dist": {
+              "url": "https://downloads.wordpress.org/plugin/classic-editor.1.4.zip",
+              "type": "zip"
+            }
+          }
+        },
+        {
+          "type": "package",
+          "package": {
+            "name": "wpackagist-plugin/advanced-custom-fields-pro",
+            "type": "wordpress-muplugin",
+            "version": "5.7.10",
+            "dist": {
+              "url": "https://connect.advancedcustomfields.com/index.php?v=5.7.10&p=pro&a=download&k=YOUR-KEY",
+              "type": "zip"
+            }
+          }
         }
     ],
     "scripts": {
