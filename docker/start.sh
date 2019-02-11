@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -f ".env" ]; then
-  cp env-example .env
+  cp .env.example .env
   sed -i "s/WORKSPACE_PUID=1000/WORKSPACE_PUID=$(id -u)/g" .env
   sed -i "s/WORKSPACE_PGID=1000/WORKSPACE_PGID=$(id -g)/g" .env
 fi
