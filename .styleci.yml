@@ -1,9 +1,8 @@
-php:
-  preset: psr2
-  risky: false
-  finder:
-    path:
-      - "wp-api"
-    name: "*.php"
-    exclude:
-      - "vendor"
+preset: psr2
+risky: false
+finder:
+  path:
+    - "wp-api"
+  name: "*.php"
+  exclude:
+    - "vendor"
