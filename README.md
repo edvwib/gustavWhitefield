@@ -1,8 +1,5 @@
 # Installation
 ## WordPress API (wp-api)
-Check the [README.md](./docker/README.md) inside the docker folder to quickly 
-start developing.
-
 Note: The [WordPress API](./wp-api/) requires the paid version 
 of the plugin [ACF (Advanced Custom Fields)](https://www.advancedcustomfields.com/).
 Open the [composer.json](./wp-api/composer.json) file in the [wp-api](./wp-api/) 
@@ -24,6 +21,8 @@ folder, and locate this snippet inside 'repositories':
 Replace 'YOUR-KEY' with the [ACF](https://www.advancedcustomfields.com/) PRO 
 key from your [ACF account page](https://www.advancedcustomfields.com/my-account/).
 
+Check the [README.md](./docker/README.md) inside the docker folder to quickly 
+start developing.
 <hr>
 
 ## Frontend (web-app)

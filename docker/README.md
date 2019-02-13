@@ -14,7 +14,6 @@ gpasswd -a $USER docker
 
 # Usage
 Now you are ready to start everything.
-
 ```sh
 . start.sh
 ```
@@ -25,10 +24,10 @@ If you want to execute commands inside the container (eg. composer, npm, yarn ..
 ```sh
 docker-compose exec --user=gw-docker workspace bash
 ```
+*Tip: Create a [bash_alias](https://www.digitalocean.com/community/tutorials/an-introduction-to-useful-bash-aliases-and-functions#how-to-declare-a-bash-alias) for easier access*
 
 ## Rebuilding
-
-If you've changed anything related to the containers.
+If you've changed anything related to the containers, run:
 ```sh
 docker-compose up -d --build nginx
 ```
