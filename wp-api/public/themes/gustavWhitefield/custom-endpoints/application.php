@@ -18,7 +18,8 @@ add_action('rest_api_init', function () {
     ]);
 });
 
-function verifyRecaptcha($request){
+function verifyRecaptcha($request)
+{
     $params = json_decode($request->get_body());
     $token = $params->token;
     $secret = getenv('WP_ENV') === 'local' ? getenv('RECAPTHA_TEST_KEY') : getenv('RECAPTHA_SECRET_KEY');
@@ -34,7 +35,8 @@ function verifyRecaptcha($request){
     }
 }
 
-function processApplication($request){
+function processApplication($request)
+{
     $formData = json_decode($request->get_body());
     $isOrganization = $formData->isOrganization;
     // return $formData->contact->name;
@@ -42,23 +44,27 @@ function processApplication($request){
     // if(!$validatedData)
     //     return $validatedData;
 
-    if($isOrganization)
+    if ($isOrganization) {
         return sendEmail(createEmail($isOrganization, $formData));
-    else
+    } else {
         return sendEmail(createEmail($isOrganization, $formData));
+    }
 }
 
-function setupTransport(){
+function setupTransport()
+{
     return (new Swift_SmtpTransport(getenv('MAIL_HOST'), getenv('MAIL_PORT'), 'ssl'))
         ->setUsername(getenv('MAIL_USERNAME'))
         ->setPassword(getenv('MAIL_PASSWORD'));
 }
 
-function setupMailer($transport){
+function setupMailer($transport)
+{
     return new Swift_Mailer($transport);
 }
 
-function organizationMessage($data){
+function organizationMessage($data)
+{
     $date = date('Y-n-j');
     $contact = get_object_vars($data->contact);
     $application = get_object_vars($data->application);
@@ -204,7 +210,8 @@ function organizationMessage($data){
     ";
 }
 
-function privateMessage($data){
+function privateMessage($data)
+{
     $date = date('Y-n-j');
     $contact = get_object_vars($data->contact);
     $application = get_object_vars($data->application);
@@ -324,7 +331,8 @@ function privateMessage($data){
     ";
 }
 
-function createEmail($isOrganization, $data){
+function createEmail($isOrganization, $data)
+{
     return (new Swift_Message("Ansökan - {$data->contact->name}"))
         ->setFrom([getenv('MAIL_USERNAME') => 'formulär@gustavwhitefield.com'])
         ->setTo([getenv('WP_ENV') === 'local' ?
@@ -337,7 +345,8 @@ function createEmail($isOrganization, $data){
         );
 }
 
-function sendEmail($message){
+function sendEmail($message)
+{
     $mailer = setupMailer(setupTransport());
     return $mailer->send($message);
 }

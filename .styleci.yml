@@ -1,4 +1,7 @@
 preset: psr2
+enabled:
+  - unary_operator_spaces
+  - binary_operator_spaces
 risky: false
 finder:
   path:

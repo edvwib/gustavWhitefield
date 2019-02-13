@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 add_action('rest_api_init', function () {
     register_rest_route('api/v1', '/pagesLastUpdated', [
@@ -35,7 +35,9 @@ function getAllPages()
 
     foreach ($pages as $page) {
         $pageFields = get_fields($page->ID);
-        if (!$pageFields) continue;
+        if (!$pageFields) {
+            continue;
+        }
         $key = key($pageFields);
         // simplify return data structure
         $fields[$key] = $pageFields[$key];

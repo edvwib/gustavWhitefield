@@ -1,6 +1,6 @@
 <?php
 
-declare (strict_types = 1);
+declare(strict_types=1);
 
 register_extended_post_type('news', [
     'admin_cols' => [
