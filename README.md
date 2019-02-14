@@ -1,3 +1,5 @@
+[![StyleCI](https://styleci.io/repos/7548986/shield)](https://github.styleci.io/repos/153169588)
+
 # Installation
 ## WordPress API (wp-api)
 Note: The [WordPress API](./wp-api/) requires the paid version 
