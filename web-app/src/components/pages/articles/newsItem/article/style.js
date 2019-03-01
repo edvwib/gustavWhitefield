@@ -59,7 +59,7 @@ width: 100%;
 img{
   max-height: 200px;
   border-radius: 2.5px;
-  object-fit: cover;
+  object-fit: contain;
   width: ${props => props.supportsObjectFit ? '100%' : 'auto'};
 }
 `;

@@ -70,7 +70,8 @@ export const Image = styled.div`
   width: 100%;
   border-radius: 2.5px;
   background-image: url(${props => props.src});
-  background-size: cover;
+  background-position: center;
+  background-size: contain;
   background-repeat: no-repeat;
 `;
 

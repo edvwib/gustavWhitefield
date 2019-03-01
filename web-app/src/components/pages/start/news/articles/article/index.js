@@ -21,7 +21,7 @@ class Article extends Component {
         break;
       }
     }
-    return typeof img === 'string' ? img : img.sizes.medium
+    return typeof img === 'string' ? img : img.sizes.large
   }
 
   formatDate = (dateString) => {
