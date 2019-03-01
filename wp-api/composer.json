@@ -38,9 +38,9 @@
           "package": {
             "name": "wpackagist-plugin/advanced-custom-fields-pro",
             "type": "wordpress-muplugin",
-            "version": "5.7.10",
+            "version": "5.7.12",
             "dist": {
-              "url": "https://connect.advancedcustomfields.com/index.php?v=5.7.10&p=pro&a=download&k=YOUR-KEY",
+              "url": "https://connect.advancedcustomfields.com/index.php?v=5.7.12&p=pro&a=download&k=YOUR-KEY",
               "type": "zip"
             }
           }
