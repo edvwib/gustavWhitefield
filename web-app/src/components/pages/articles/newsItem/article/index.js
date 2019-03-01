@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import LazyLoad from 'react-lazy-load';
 import { Container, ImgWrapper } from './style';
 import placeholder from 'resources/icons/placeholder.jpg';
 
@@ -32,7 +33,9 @@ class Article extends Component {
     return (
       <Container>
         <ImgWrapper supportsObjectFit={this.supportsCssProperty('object-fit')}>
-          <img src={this.state.image} alt="icon"/>
+          <LazyLoad offset={500}>
+            <img src={this.state.image} alt="icon"/>
+          </LazyLoad>
         </ImgWrapper>
         <h3>{this.props.title}</h3>
         <p>{this.formatDate(this.props.date)} {this.props.intro}</p>
