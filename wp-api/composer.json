@@ -8,6 +8,7 @@
         "google/recaptcha": "^1.2",
         "jeffochoa/validator-factory": "^1.0",
         "johnbillion/extended-cpts": "^4.2",
+        "sentry/sdk": "2.0.3",
         "swiftmailer/swiftmailer": "^6.1",
         "symfony/polyfill-mbstring": "^1.10",
         "wordplate/acf": "^6.0",

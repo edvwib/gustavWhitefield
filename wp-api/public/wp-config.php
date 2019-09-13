@@ -23,7 +23,25 @@ declare(strict_types=1);
 |
 */
 
-require __DIR__.'/vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
+
+/*
+|--------------------------------------------------------------------------
+| Sentry Error Tracking
+|--------------------------------------------------------------------------
+|
+| Initialize Sentry error tracking
+|
+*/
+
+Sentry\init([
+    'dsn' => 'https://541c075c8c98489095c4b33b6e9d39d6@sentry.io/1726812',
+    'environment' => env('WP_ENV', 'unknown'),
+]);
+
+Sentry\configureScope(function (Sentry\State\Scope $scope): void {
+    $scope->setLevel(Sentry\Severity::warning());
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -91,4 +109,4 @@ $application->run();
 |
 */
 
-require_once ABSPATH.'wp-settings.php';
+require_once ABSPATH . 'wp-settings.php';
