@@ -65,9 +65,6 @@ add_theme_support('plate-disable-toolbar', [
     'search',
 ]);
 
-// Disable dashboard tabs.
-add_theme_support('plate-disable-tabs', ['help', 'screen-options']);
-
 // Set custom permalink structure.
 add_theme_support('plate-permalink', '/%postname%/');
 
