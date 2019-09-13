@@ -120,6 +120,7 @@ export const validateForm = (that) => {
 
   //Display errors
   let index = 0;
+  // eslint-disable-next-line no-unused-vars
   for (let error in errors) {
     let label = document.querySelector(`[for=${error}]`);
 
