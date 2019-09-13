@@ -2,6 +2,18 @@
 
 declare(strict_types=1);
 
+add_action('admin_init', function () {
+    $user = wp_get_current_user();
+
+    Sentry\configureScope(function (Sentry\State\Scope $scope) use ($user): void {
+        $scope->setUser([
+            'id' => $user->data->ID,
+            'email' => $user->data->user_email,
+            'username' => $user->data->user_login,
+        ]);
+    });
+});
+
 // Register plugin helpers.
 require template_path('includes/plugins/plate.php');
 
@@ -18,18 +30,18 @@ add_action('after_setup_theme', function () {
 
     // Add HTML5 theme support.
     add_theme_support('html5', [
-    'caption',
-    'comment-form',
-    'comment-list',
-    'gallery',
-    'search-form',
-    'widgets',
-  ]);
+        'caption',
+        'comment-form',
+        'comment-list',
+        'gallery',
+        'search-form',
+        'widgets',
+    ]);
 
     // Register navigation menus.
     register_nav_menus([
-    'navigation' => __('Navigation', 'wordplate'),
-  ]);
+        'navigation' => __('Navigation', 'wordplate'),
+    ]);
 });
 
 // Remove JPEG compression.
@@ -83,12 +95,15 @@ function hide_visit_page()
         .updated a {
             display: none !important;
         }
+
         .row-actions .view a {
             display: none !important;
         }
+
         .row-actions a.editinline {
             display: none !important;
         }
+
         td.titleSV.column-titleSV {
             display: inline-grid !important;
         }

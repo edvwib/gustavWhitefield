@@ -1,5 +1,7 @@
 <?php get_header();
 
-require('web-app/index.html');
+if (env('WP_ENV') === 'production') {
+    require('web-app/index.html');
+}
 
 get_footer();
