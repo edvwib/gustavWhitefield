@@ -20,15 +20,17 @@ import setupLogRocketReact from 'logrocket-react';
 
 import App from './App';
 
-Sentry.init({ dsn: "https://0a69789a45e948e88fa480fdc162388a@sentry.io/1726807" });
+if (process.env.NODE_ENV === 'production') {
+  Sentry.init({ dsn: "https://0a69789a45e948e88fa480fdc162388a@sentry.io/1726807" });
 
-LogRocket.init('g3kcgp/gustav-whitefield-fe');
-setupLogRocketReact(LogRocket);
-LogRocket.getSessionURL(sessionURL => {
-  Sentry.configureScope(scope => {
-    scope.setExtra("sessionURL", sessionURL);
+  LogRocket.init('g3kcgp/gustav-whitefield-fe');
+  setupLogRocketReact(LogRocket);
+  LogRocket.getSessionURL(sessionURL => {
+    Sentry.configureScope(scope => {
+      scope.setExtra("sessionURL", sessionURL);
+    });
   });
-});
+}
 
 ReactDOM.render(
   <BrowserRouter>
