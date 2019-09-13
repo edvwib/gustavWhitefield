@@ -92,20 +92,20 @@ add_action('admin_head', 'hide_visit_page');
 function hide_visit_page()
 {
     echo '<style>
-    .updated a {
-        display: none !important;
-    }
+        .updated a {
+            display: none !important;
+        }
 
-    .row-actions .view a {
-        display: none !important;
-    }
+        .row-actions .view a {
+            display: none !important;
+        }
 
-    .row-actions a.editinline {
-        display: none !important;
-    }
+        .row-actions a.editinline {
+            display: none !important;
+        }
 
-    td.titleSV.column-titleSV {
-        display: inline-grid !important;
-    }
-</style>';
+        td.titleSV.column-titleSV {
+            display: inline-grid !important;
+        }
+    </style>';
 }
