@@ -39,10 +39,17 @@ class CookiePopup extends Component {
     });
   }
 
-  componentWillReceiveProps = (nextProps) => {
+  UNSAFE_componentWillReceiveProps = (nextProps) => {
     if (this.props.eng !== nextProps.eng) {
       document.querySelector('.cc-window').outerHTML = ''; //outerHTML instead of remove() to support IE 11
       this.createPopup(nextProps.eng);
+    }
+  }
+
+  componentDidUpdate = (prevProps, prevState) => {
+    if (this.props.eng !== prevProps.eng) {
+      document.querySelector('.cc-window').outerHTML = ''; //outerHTML instead of remove() to support IE 11
+      this.createPopup(this.props.eng);
     }
   }
 
