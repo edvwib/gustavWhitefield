@@ -16,7 +16,7 @@ class NavItem extends Component{
 
   updateOpen = () => {
     this.setState({open: !this.state.open});
-    this.state.open ? enableBodyScroll(null) : disableBodyScroll(null);
+    this.state.open ? enableBodyScroll(document.body) : disableBodyScroll(document.body);
     !this.state.open && window.scrollTo(0, 0);
   }
 
@@ -26,7 +26,7 @@ class NavItem extends Component{
 
   closeMenu = () => {
     this.state.open && this.setState({open: false});
-    enableBodyScroll(null);
+    enableBodyScroll(document.body);
   }
 
   render() {
