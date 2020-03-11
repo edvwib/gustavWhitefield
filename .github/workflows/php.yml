@@ -26,5 +26,5 @@ jobs:
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
     - name: Run test suite
-      run: vendor/bin/php-cs-fixer fix --dry-run
+      run: public/vendor/bin/php-cs-fixer fix --dry-run
       working-directory: ./wp-api
