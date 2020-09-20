@@ -7,19 +7,18 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^7.2",
+    "php": "^7.4",
+    "ext-json": "*",
     "friendsofphp/php-cs-fixer": "^2.16",
     "google/recaptcha": "^1.2",
-    "jeffochoa/validator-factory": "^1.0",
     "johnbillion/extended-cpts": "^4.2",
     "sentry/sdk": "^2.0.3",
     "swiftmailer/swiftmailer": "^6.1",
     "symfony/polyfill-mbstring": "^1.10",
-    "wordplate/acf": "^6.0",
-    "wordplate/framework": "^7.1",
-    "wordplate/plate": "^6.0",
-    "wordpress/classic-editor": "^1.5",
-    "wpackagist-plugin/advanced-custom-fields-pro": "^5.7"
+    "wordplate/acf": "^8.5.0",
+    "wordplate/framework": "^9.0",
+    "wordpress/classic-editor": "^1.6",
+    "wpackagist-plugin/advanced-custom-fields-pro": "^5.9.1"
   },
   "repositories": [
     {
@@ -31,9 +30,9 @@
       "package": {
         "name": "wordpress/classic-editor",
         "type": "wordpress-muplugin",
-        "version": "1.5",
+        "version": "1.6",
         "dist": {
-          "url": "https://downloads.wordpress.org/plugin/classic-editor.1.5.zip",
+          "url": "https://downloads.wordpress.org/plugin/classic-editor.1.6.zip",
           "type": "zip"
         }
       }
@@ -43,9 +42,9 @@
       "package": {
         "name": "wpackagist-plugin/advanced-custom-fields-pro",
         "type": "wordpress-muplugin",
-        "version": "5.7.12",
+        "version": "5.9.1",
         "dist": {
-          "url": "https://connect.advancedcustomfields.com/index.php?v=5.7.12&p=pro&a=download&k=YOUR-KEY",
+          "url": "https://connect.advancedcustomfields.com/index.php?v=5.9.1&p=pro&a=download&k=YOUR-KEY",
           "type": "zip"
         }
       }

@@ -14,9 +14,6 @@ add_action('admin_init', function () {
     });
 });
 
-// Register plugin helpers.
-require template_path('includes/plugins/plate.php');
-
 // Set theme defaults.
 add_action('after_setup_theme', function () {
     // Disable the admin toolbar.
@@ -60,14 +57,14 @@ add_filter('upload_mimes', 'add_svg_to_upload_mimes', 10, 1);
 
 // Load custom post types, fields and blocks
 add_action('init', function () {
-    require_once template_path('custom-post-types/index.php');
-    require_once template_path('custom-fields/index.php');
-    require_once template_path('custom-admin-cols/index.php');
-    require_once template_path('custom-taxonomies/index.php');
+    require_once get_theme_file_path('custom-post-types/index.php');
+    require_once get_theme_file_path('custom-fields/index.php');
+    require_once get_theme_file_path('custom-admin-cols/index.php');
+    require_once get_theme_file_path('custom-taxonomies/index.php');
 });
 
 // Load custom API endpoints
-require_once template_path('custom-endpoints/index.php');
+require_once get_theme_file_path('custom-endpoints/index.php');
 
 
 add_action('admin_init', 'hide_titles_for_editors');

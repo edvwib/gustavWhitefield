@@ -39,10 +39,6 @@ function processApplication($request)
 {
     $formData = json_decode($request->get_body());
     $isOrganization = $formData->isOrganization;
-    // return $formData->contact->name;
-    // $validatedData = validateData($formData);
-    // if(!$validatedData)
-    //     return $validatedData;
 
     if ($isOrganization) {
         return sendEmail(createEmail($isOrganization, $formData));
@@ -349,37 +345,4 @@ function sendEmail($message)
 {
     $mailer = setupMailer(setupTransport());
     return $mailer->send($message);
-}
-
-
-
-
-
-
-
-function validateData($form)
-{
-    // $form->date = date('Y-n-j');
-
-    $factory = new ValidatorFactory();
-
-    $validator = $factory->make(
-        $data = $form,
-        $rules = [
-            'isOrganization' => 'required|boolean',
-            'contactDetails.name' => 'required|String',
-            'contactDetails.organizationNumber' => 'required_if:isOrganization,true|String',
-            'contactDetails.street' => 'required|String',
-            'contactDetails.zip' => 'required|String',
-            'contactDetails.city' => 'required|String',
-            'contactDetails.webpage' => 'url',
-            'contactDetails.phone' => 'required_without:contactDetails.mobile|String',
-            'contactDetails.mobile' => 'required_without:contactDetails.phone|String',
-            'contactDetails.email' => 'required|email',
-        ]
-    );
-    if ($validator->fails()) {
-        return $validator->messages()->all();
-    }
-    return $form;
 }

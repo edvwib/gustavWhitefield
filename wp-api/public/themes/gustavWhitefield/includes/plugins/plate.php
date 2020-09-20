@@ -69,7 +69,7 @@ add_theme_support('plate-disable-toolbar', [
 add_theme_support('plate-permalink', '/%postname%/');
 
 // Set custom login logo.
-add_theme_support('plate-login-logo', asset('assets/images/logo.png'));
+add_theme_support('plate-login-logo', get_theme_file_uri('assets/images/logo.png'));
 
 // Set custom footer text.
 add_theme_support('plate-footer-text', 'Ett unikt Gustav Whitefield tema!');

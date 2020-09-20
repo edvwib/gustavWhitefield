@@ -34,14 +34,18 @@ require __DIR__ . '/vendor/autoload.php';
 |
 */
 
-Sentry\init([
-    'dsn' => 'https://541c075c8c98489095c4b33b6e9d39d6@sentry.io/1726812',
-    'environment' => env('WP_ENV', 'unknown'),
-]);
+$wp_env = env('WP_ENV', 'unknown');
 
-Sentry\configureScope(function (Sentry\State\Scope $scope): void {
-    $scope->setLevel(Sentry\Severity::warning());
-});
+if ($wp_env === 'production') {
+    Sentry\init([
+        'dsn' => 'https://541c075c8c98489095c4b33b6e9d39d6@sentry.io/1726812',
+        'environment' => 'production',
+    ]);
+
+    Sentry\configureScope(function (Sentry\State\Scope $scope): void {
+        $scope->setLevel(Sentry\Severity::warning());
+    });
+}
 
 /*
 |--------------------------------------------------------------------------

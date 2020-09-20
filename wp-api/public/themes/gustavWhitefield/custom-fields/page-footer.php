@@ -2,156 +2,93 @@
 
 declare(strict_types=1);
 
+use WordPlate\Acf\Fields\Email;
+use WordPlate\Acf\Fields\File;
+use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Image;
+use WordPlate\Acf\Fields\Repeater;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Text;
+use WordPlate\Acf\Fields\Url;
+use WordPlate\Acf\Location;
 
-$fields = [
-    acf_group([
-        'name' => 'footer',
-        'label' => 'Footer',
-        'sub_fields' => [
-            acf_group([
-                'name' => 'social',
-                'label' => '',
-                'sub_fields' => [
-                    acf_repeater([
-                        'name' => 'socialMedia',
-                        'label' => 'Sociala medier',
-                        'layout' => 'table',
-                        'sub_fields' => [
-                            acf_text([
-                                'name' => 'name',
-                                'label' => 'Namn',
-                                'required' => true,
-                            ]),
-                            acf_url([
-                                'name' => 'url',
-                                'label' => 'URL',
-                                'required' => true,
-                            ]),
-                            acf_image([
-                                'name' => 'icon',
-                                'label' => 'Ikon',
-                                'instructions' => 'Lägg till en ikon med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
-                                'required' => true,
-                                'library' => 'all',
-                                'mime_types' => 'jpeg, jpg, png, svg',
-                                'preview_size' => 'thumbnail',
-                                'return_format' => 'array',
-                            ]),
-                        ],
-                    ]),
-                ],
-            ]),
-            acf_group([
-                'name' => 'weThank',
-                'label' => 'Vi tackar',
-                'sub_fields' => [
-                    acf_tab([
-                        'name' => 'SV',
-                        'label' => 'Svenska',
-                    ]),
-                    acf_text([
-                        'name' => 'contentSV',
-                        'label' => 'Innehåll',
-                        'instructions' => 'Text som visas över företagens logotyper.',
-                        'required' => true,
-                    ]),
-                    acf_tab([
-                        'name' => 'ENG',
-                        'label' => 'Engelska',
-                    ]),
-                    acf_text([
-                        'name' => 'contentENG',
-                        'label' => 'Innehåll',
-                        'instructions' => 'Text som visas över företagens logotyper.',
-                        'required' => true,
-                    ]),
-                    acf_tab([
-                        'name' => 'endpoint',
-                        'label' => '',
-                        'endpoint' => true,
-                    ]),
-                    acf_repeater([
-                        'name' => 'images',
-                        'label' => 'Logotyper',
-                        'instructions' => 'Företagens logotyper.',
-                        'layout' => 'block',
-                        'sub_fields' => [
-                            acf_image([
-                                'name' => 'image',
-                                'label' => 'Bild',
-                                'instructions' => 'Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.',
-                                'required' => true,
-                                'library' => 'all',
-                                'mime_types' => 'jpeg, jpg, png',
-                                'preview_size' => 'thumbnail',
-                                'return_format' => 'array',
-                            ]),
-                            acf_url([
-                                'name' => 'url',
-                                'label' => 'Företagets hemsida',
-                            ]),
-                        ],
-                    ]),
-                ],
-            ]),
-            acf_group([
-                'name' => 'contactUs',
-                'label' => 'Kontakta oss',
-                'sub_fields' => [
-                    acf_repeater([
-                        'name' => 'contact',
-                        'label' => 'Kontaktpersoner',
-                        'layout' => 'table',
-                        'sub_fields' => [
-                            acf_text([
-                                'name' => 'name',
-                                'label' => 'Namn',
-                                'required' => true,
-                            ]),
-                            acf_text([
-                                'name' => 'phone',
-                                'label' => 'Telefon',
-                                'required' => true,
-                            ]),
-                        ],
-                    ]),
-                    acf_email([
-                        'name' => 'email',
-                        'label' => 'E-post',
-                        'required' => true,
-                    ]),
-                ],
-            ]),
-            acf_group([
-                'name' => 'policy',
-                'label' => '',
-                'sub_fields' => [
-                    acf_file([
-                        'name' => 'policy',
-                        'label' => 'Integritetspolicy',
-                        'instructions' => 'Lägg till fil som <strong>pdf</strong>.',
-                        'required' => true,
-                        'library' => 'all',
-                        'mime_types' => 'pdf',
-                        'return_format' => 'array',
-                    ]),
-                ],
-            ]),
-        ]
-    ]),
-];
-
-$location = [
-    [
-        acf_location('post_taxonomy', 'page-category:footer')
-    ]
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'footer',
-    'fields' => $fields,
+    'fields' => [
+        Group::make('Footer', 'footer')
+            ->fields([
+                Group::make('', 'social')
+                    ->fields([
+                        Repeater::make('Sociala medier', 'socialMedia')
+                            ->layout('table')
+                            ->fields([
+                                Text::make('Namn', 'name')
+                                    ->required(),
+                                Url::make('URL', 'url')
+                                    ->required(),
+                                Image::make('Ikon', 'icon')
+                                    ->instructions('Lägg till en ikon med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.')
+                                    ->library('all')
+                                    ->mimeTypes(['jpeg', 'jpg', 'png', 'svg'])
+                                    ->previewSize('thumbnail')
+                                    ->returnFormat('array')
+                                    ->required(),
+                            ])
+                    ]),
+                Group::make('Vi tackar', 'weThank')
+                    ->fields([
+                        Tab::make('Svenska', 'SV'),
+                        Text::make('Innehåll', 'contentSV')
+                            ->instructions('Text som visas över företagens logotyper.')
+                            ->required(),
+                        Tab::make('Engelska', 'ENG'),
+                        Text::make('Innehåll', 'contentENG')
+                            ->instructions('Text som visas över företagens logotyper.')
+                            ->required(),
+                        Tab::make('', 'endpoint')->endpoint(),
+                        Repeater::make('Logotyper', 'images')
+                            ->instructions('Företagens logotyper.')
+                            ->layout('block')
+                            ->fields([
+                                Image::make('Bild', 'image')
+                                    ->instructions('Lägg till en bild med något av formaten <strong>jpg</strong>, <strong>jpeg</strong> eller <strong>png</strong>.')
+                                    ->library('all')
+                                    ->mimeTypes(['jpeg', 'jpg', 'png',])
+                                    ->previewSize('thumbnail')
+                                    ->returnFormat('array')
+                                    ->required(),
+                                Url::make('Företagets hemsida', 'url')
+                                    ->required(),
+                            ]),
+                    ]),
+                Group::make('Kontakta oss', 'contactUs')
+                    ->fields([
+                        Repeater::make('Kontaktpersoner', 'contact')
+                            ->layout('table')
+                            ->fields([
+                                Text::make('Namn', 'name')
+                                    ->required(),
+                                Text::make('Telefon', 'phone')
+                                    ->required(),
+                            ]),
+                        Email::make('E-post', 'email')
+                            ->required(),
+                    ]),
+                Group::make('', 'policy')
+                    ->fields([
+                        File::make('Integritetspolicy', 'policy')
+                            ->instructions('Lägg till fil som <strong>pdf</strong>.')
+                            ->library('all')
+                            ->mimeTypes(['pdf'])
+                            ->returnFormat('array')
+                            ->required(),
+                    ]),
+            ]),
+    ],
     'style' => 'seamless',
-    'location' => $location,
+    'location' => [
+        Location::if('post_taxonomy', 'page-category:footer'),
+    ],
     'hide_on_screen' => [
         'the_content',
         'featured_image',

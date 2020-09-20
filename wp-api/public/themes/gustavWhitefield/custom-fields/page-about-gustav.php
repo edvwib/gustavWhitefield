@@ -2,162 +2,93 @@
 
 declare(strict_types=1);
 
-$fields = [
-    acf_group([
-        'name' => 'aboutGustav',
-        'label' => 'Om Gustav',
-        'instructions' => 'Sidan är uppbyggd i tre delar, för att tillåta att bilder läggs till bredvid texten. Bilderna alternerar mellan vilken sida som dem visas på.',
-        'sub_fields' => [
-            acf_group([
-                'name' => 'part1',
-                'label' => 'Första stycket',
-                'sub_fields' => [
-                    acf_tab([
-                        'name' => 'SV',
-                        'label' => 'Svenska',
-                    ]),
-                    acf_wysiwyg([
-                        'name' => 'contentSV',
-                        'label' => 'Text',
-                        'required' => true,
-                        'media_upload' => false,
-                        'tabs' => 'visual',
-                        'toolbar' => 'simple',
-                    ]),
-                    acf_tab([
-                        'name' => 'ENG',
-                        'label' => 'Engelska',
-                    ]),
-                    acf_wysiwyg([
-                        'name' => 'contentENG',
-                        'label' => 'Text',
-                        'required' => true,
-                        'media_upload' => false,
-                        'tabs' => 'visual',
-                        'toolbar' => 'simple',
-                    ]),
-                    acf_tab([
-                        'name' => 'endpoint',
-                        'label' => '',
-                        'endpoint' => true,
-                    ]),
-                    acf_image([
-                        'name' => 'image',
-                        'label' => 'Bild',
-                        'instructions' => 'Den här bilden visas uppe till höger om stycket.',
-                        'required' => true,
-                        'library' => 'all',
-                        'mime_types' => 'jpeg, jpg, png',
-                        'preview_size' => 'medium',
-                        'return_format' => 'array',
-                    ]),
-                ],
-            ]),
-            acf_group([
-                'name' => 'part2',
-                'label' => 'Andra stycket',
-                'sub_fields' => [
-                    acf_tab([
-                        'name' => 'SV',
-                        'label' => 'Svenska',
-                    ]),
-                    acf_wysiwyg([
-                        'name' => 'contentSV',
-                        'label' => 'Text',
-                        'required' => true,
-                        'media_upload' => false,
-                        'tabs' => 'visual',
-                        'toolbar' => 'simple',
-                    ]),
-                    acf_tab([
-                        'name' => 'ENG',
-                        'label' => 'Engelska',
-                    ]),
-                    acf_wysiwyg([
-                        'name' => 'contentENG',
-                        'label' => 'Text',
-                        'required' => true,
-                        'media_upload' => false,
-                        'tabs' => 'visual',
-                        'toolbar' => 'simple',
-                    ]),
-                    acf_tab([
-                        'name' => 'endpoint',
-                        'label' => '',
-                        'endpoint' => true,
-                    ]),
-                    acf_image([
-                        'name' => 'image',
-                        'label' => 'Bild',
-                        'instructions' => 'Den här bilden visas uppe till vänster om stycket.',
-                        'required' => true,
-                        'library' => 'all',
-                        'mime_types' => 'jpeg, jpg, png',
-                        'preview_size' => 'medium',
-                        'return_format' => 'array',
-                    ]),
-                ],
-            ]),
-            acf_group([
-                'name' => 'part3',
-                'label' => 'Tredje stycket',
-                'sub_fields' => [
-                    acf_tab([
-                        'name' => 'SV',
-                        'label' => 'Svenska',
-                    ]),
-                    acf_wysiwyg([
-                        'name' => 'contentSV',
-                        'label' => 'Text',
-                        'required' => true,
-                        'media_upload' => false,
-                        'tabs' => 'visual',
-                        'toolbar' => 'simple',
-                    ]),
-                    acf_tab([
-                        'name' => 'ENG',
-                        'label' => 'Engelska',
-                    ]),
-                    acf_wysiwyg([
-                        'name' => 'contentENG',
-                        'label' => 'Text',
-                        'required' => true,
-                        'media_upload' => false,
-                        'tabs' => 'visual',
-                        'toolbar' => 'simple',
-                    ]),
-                    acf_tab([
-                        'name' => 'endpoint',
-                        'label' => '',
-                        'endpoint' => true,
-                    ]),
-                    acf_image([
-                        'name' => 'image',
-                        'label' => 'Bild',
-                        'instructions' => 'Den här bilden visas uppe till höger om stycket.',
-                        'required' => true,
-                        'library' => 'all',
-                        'mime_types' => 'jpeg, jpg, png',
-                        'preview_size' => 'medium',
-                        'return_format' => 'array',
-                    ]),
-                ],
-            ]),
-        ]
-    ]),
-];
+use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Image;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Location;
 
-$location = [
-    [
-        acf_location('post_taxonomy', 'page-category:om-gustav')
-    ]
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'aboutGustav',
-    'fields' => $fields,
+    'fields' => [
+        Group::make('Om Gustav', 'aboutGustav')
+            ->instructions('Sidan är uppbyggd i tre delar, för att tillåta att bilder läggs till bredvid texten. Bilderna alternerar mellan vilken sida som dem visas på.')
+            ->fields([
+                Group::make('Första stycket', 'part1')
+                    ->fields([
+                        Tab::make('Svenska', 'SV'),
+                        Wysiwyg::make('Text', 'contentSV')
+                            ->mediaUpload(false)
+                            ->tabs('visual')
+                            ->toolbar('simple')
+                            ->required(),
+                        Tab::make('Engelska', 'ENG'),
+                        Wysiwyg::make('Text', 'contentENG')
+                            ->mediaUpload(false)
+                            ->tabs('visual')
+                            ->toolbar('simple')
+                            ->required(),
+                        Tab::make('', 'endpoint')->endpoint(),
+                        Image::make('Bild', 'image')
+                            ->instructions('Den här bilden visas uppe till höger om stycket.')
+                            ->library('all')
+                            ->mimeTypes(['jpeg', 'jpg', 'png',])
+                            ->previewSize('medium')
+                            ->returnFormat('array')
+                            ->required(),
+                    ]),
+                Group::make('Andra stycket', 'part2')
+                    ->fields([
+                        Tab::make('Svenska', 'SV'),
+                        Wysiwyg::make('Text', 'contentSV')
+                            ->mediaUpload(false)
+                            ->tabs('visual')
+                            ->toolbar('simple')
+                            ->required(),
+                        Tab::make('Engelska', 'ENG'),
+                        Wysiwyg::make('Text', 'contentENG')
+                            ->mediaUpload(false)
+                            ->tabs('visual')
+                            ->toolbar('simple')
+                            ->required(),
+                        Tab::make('', 'endpoint')->endpoint(),
+                        Image::make('Bild', 'image')
+                            ->instructions('Den här bilden visas uppe till vänster om stycket.')
+                            ->library('all')
+                            ->mimeTypes(['jpeg', 'jpg', 'png',])
+                            ->previewSize('medium')
+                            ->returnFormat('array')
+                            ->required(),
+                    ]),
+                Group::make('Tredje stycket', 'part3')
+                    ->fields([
+                        Tab::make('Svenska', 'SV'),
+                        Wysiwyg::make('Text', 'contentSV')
+                            ->mediaUpload(false)
+                            ->tabs('visual')
+                            ->toolbar('simple')
+                            ->required(),
+                        Tab::make('Engelska', 'ENG'),
+                        Wysiwyg::make('Text', 'contentENG')
+                            ->mediaUpload(false)
+                            ->tabs('visual')
+                            ->toolbar('simple')
+                            ->required(),
+                        Tab::make('', 'endpoint')->endpoint(),
+                        Image::make('Bild', 'image')
+                            ->instructions('Den här bilden visas uppe till höger om stycket.')
+                            ->library('all')
+                            ->mimeTypes(['jpeg', 'jpg', 'png',])
+                            ->previewSize('medium')
+                            ->returnFormat('array')
+                            ->required(),
+                    ]),
+            ]),
+    ],
     'style' => 'seamless',
-    'location' => $location,
+    'location' => [
+        Location::if('post_taxonomy', 'page-category:om-gustav'),
+    ],
     'hide_on_screen' => [
         'the_content',
         'featured_image',

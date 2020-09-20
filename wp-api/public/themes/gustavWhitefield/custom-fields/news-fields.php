@@ -2,94 +2,63 @@
 
 declare(strict_types=1);
 
-$fields = [
-    acf_group([
-        'name' => 'news',
-        'label' => 'Nyhet',
-        'sub_fields' => [
-            acf_tab([
-                'name' => 'SV',
-                'label' => 'Svenska',
-            ]),
-            acf_text([
-                'name' => 'titleSV',
-                'label' => 'Titel',
-                'required' => true,
-            ]),
-            acf_textarea([
-                'name' => 'introSV',
-                'label' => 'Inledning',
-                'instructions' => 'Eventuella radbrytningar kommer att tas bort.',
-                'rows' => 3,
-                'required' => true,
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentSV',
-                'label' => 'Innehåll',
-                'required' => true,
-                'media_upload' => false,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'ENG',
-                'label' => 'Engelska',
-            ]),
-            acf_text([
-                'name' => 'titleENG',
-                'label' => 'Titel',
-            ]),
-            acf_textarea([
-                'name' => 'introENG',
-                'label' => 'Inledning',
-                'instructions' => 'Eventuella radbrytningar kommer att tas bort.',
-                'rows' => 3,
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentENG',
-                'label' => 'Innehåll',
-                'media_upload' => false,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'endpoint',
-                'label' => '',
-                'endpoint' => true,
-            ]),
-            acf_repeater([
-                'name' => 'images',
-                'label' => 'Bilder',
-                'instructions' => 'Den första bilden i listan kommer att fungera som utvald bild. (Visas i listan med alla nyheter och på startsidan.)',
-                'required' => false,
-                'layout' => 'block',
-                'sub_fields' => [
-                    acf_image([
-                        'name' => 'image',
-                        'label' => 'Bild',
-                        'instructions' => 'Lägg till en bild i något av formaten <strong>jpg</strong>, <strong>jpeg</strong>, <strong>png</strong> eller <strong>gif</strong>.',
-                        'library' => 'all',
-                        'mime_types' => 'jpeg, jpg, png, gif',
-                        'preview_size' => 'medium',
-                        'return_format' => 'array',
-                    ]),
-                ],
-            ]),
-        ],
-    ]),
-];
+use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Image;
+use WordPlate\Acf\Fields\Repeater;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Text;
+use WordPlate\Acf\Fields\Textarea;
+use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Location;
 
-$location = [
-    [
-        acf_location('post_type', 'news')
-    ]
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'news',
-    'fields' => $fields,
+    'fields' => [
+        Group::make('Nyhet', 'news')
+            ->fields([
+                Tab::make('Svenska', 'SV'),
+                Text::make('Titel', 'titleSV')
+                    ->required(),
+                Textarea::make('Inledning', 'introSV')
+                    ->instructions('Eventuella radbrytningar kommer att tas bort.')
+                    ->rows(3)
+                    ->required(),
+                Wysiwyg::make('Innehåll', 'contentSV')
+                    ->mediaUpload(false)
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('Engelska', 'ENG'),
+                Text::make('Titel', 'titleENG')
+                    ->required(),
+                Textarea::make('Inledning', 'introENG')
+                    ->instructions('Eventuella radbrytningar kommer att tas bort.')
+                    ->rows(3),
+                Wysiwyg::make('Innehåll', 'contentENG')
+                    ->mediaUpload(false)
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('', 'endpoint')
+                    ->endpoint(),
+                Repeater::make('Bilder', 'images')
+                    ->instructions('Den första bilden i listan kommer att fungera som utvald bild. (Visas i listan med alla nyheter och på startsidan.)')
+                    ->required()
+                    ->layout('block')
+                    ->fields([
+                        Image::make('Bild', 'image')
+                            ->instructions('Lägg till en bild i något av formaten <strong>jpg</strong>, <strong>jpeg</strong>, <strong>png</strong> eller <strong>gif</strong>.')
+                            ->library('all')
+                            ->mimeTypes(['jpeg', 'jpg', 'png', 'gif'])
+                            ->previewSize('medium')
+                            ->returnFormat('array'),
+                 ]),
+            ]),
+    ],
     'style' => 'seamless',
-    'location' => $location,
+    'location' => [
+        Location::if('post_type', 'page'),
+    ],
     'hide_on_screen' => [
         'the_content',
         'featured_image',

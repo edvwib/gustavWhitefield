@@ -2,60 +2,42 @@
 
 declare(strict_types=1);
 
+use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Image;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Location;
 
-$fields = [
-    acf_group([
-        'name' => 'purpose',
-        'label' => 'Syfte',
-        'sub_fields' => [
-            acf_image([
-                'name' => 'image',
-                'label' => 'Bild',
-                'instructions' => 'Väljer ni ingen bild här kommer en placeholder att användas istället.',
-                'library' => 'all',
-                'mime_types' => 'jpeg, jpg, png',
-                'preview_size' => 'medium',
-                'return_format' => 'array',
-            ]),
-            acf_tab([
-                'name' => 'SV',
-                'label' => 'Svenska',
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentSV',
-                'label' => 'Innehåll',
-                'required' => true,
-                'media_upload' => false,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'ENG',
-                'label' => 'Engelska',
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentENG',
-                'label' => 'Innehåll',
-                'required' => true,
-                'media_upload' => false,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-        ],
-    ]),
-];
 
-$location = [
-    [
-        acf_location('post_taxonomy', 'page-category:syfte')
-    ]
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'purpose',
-    'fields' => $fields,
+    'fields' => [
+        Group::make('Syfte', 'purpose')
+            ->fields([
+                Image::make('Bild', 'image')
+                    ->instructions('Väljer ni ingen bild här kommer en placeholder att användas istället.')
+                    ->library('all')
+                    ->mimeTypes(['jpeg', 'jpg', 'png',])
+                    ->previewSize('medium')
+                    ->returnFormat('array'),
+                Tab::make('Svenska', 'SV'),
+                Wysiwyg::make('Innehåll', 'contentSV')
+                    ->mediaUpload(false)
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('Engelska', 'ENG'),
+                Wysiwyg::make('Innehåll', 'contentENG')
+                    ->mediaUpload(false)
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+            ]),
+    ],
     'style' => 'seamless',
-    'location' => $location,
+    'location' => [
+        Location::if('post_taxonomy', 'page-category:syfte'),
+    ],
     'hide_on_screen' => [
         'the_content',
         'featured_image',

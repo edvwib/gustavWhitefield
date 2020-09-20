@@ -2,63 +2,40 @@
 
 declare(strict_types=1);
 
+use WordPlate\Acf\Fields\File;
+use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Location;
 
-$fields = [
-    acf_group([
-        'name' => 'apply',
-        'label' => 'Sök bidrag',
-        'sub_fields' => [
-            acf_tab([
-                'name' => 'SV',
-                'label' => 'Svenska'
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentSV',
-                'label' => 'Innehåll',
-                'required' => true,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'ENG',
-                'label' => 'Engelska',
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentENG',
-                'label' => 'Innehåll',
-                'required' => true,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'endpoint',
-                'label' => '',
-                'endpoint' => true,
-            ]),
-            acf_file([
-                'name' => 'concent',
-                'label' => 'Samtycke',
-                'instructions' => 'Lägg till fil som <strong>pdf</strong>.',
-                'required' => true,
-                'library' => 'all',
-                'mime_types' => 'pdf',
-                'return_format' => 'array',
-            ]),
-        ],
-    ]),
-];
-
-$location = [
-    [
-        acf_location('post_taxonomy', 'page-category:sok-bidrag')
-    ]
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'apply',
-    'fields' => $fields,
+    'fields' => [
+        Group::make('Sök bidrag', 'apply')
+            ->fields([
+                Tab::make('Svenska', 'SV'),
+                Wysiwyg::make('Innehåll', 'contentSV')
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('Engelska', 'ENG'),
+                Wysiwyg::make('Innehåll', 'contentENG')
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('', 'endpoint')->endpoint(),
+                File::make('Samtycke', 'concent')
+                    ->instructions('Lägg till fil som <strong>pdf</strong>.')
+                    ->library('all')
+                    ->mimeTypes(['pdf'])
+                    ->returnFormat('array')
+                    ->required(),
+            ]),
+    ],
     'style' => 'seamless',
-    'location' => $location,
+    'location' => [
+        Location::if('post_taxonomy', 'page-category:sok-bidrag'),
+    ],
     'hide_on_screen' => [
         'the_content',
         'featured_image',

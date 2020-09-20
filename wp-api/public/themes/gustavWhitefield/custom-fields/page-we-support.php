@@ -2,117 +2,69 @@
 
 declare(strict_types=1);
 
-$fields = [
-    acf_group([
-        'name' => 'weSupport',
-        'label' => 'Vi stödjer',
-        'sub_fields' => [
-            acf_image([
-                'name' => 'image',
-                'label' => 'Bild',
-                'instructions' => 'Väljer ni ingen bild här kommer en placeholder att användas istället.',
-                'library' => 'all',
-                'mime_types' => 'jpeg, jpg, png',
-                'preview_size' => 'medium',
-                'return_format' => 'array',
-            ]),
-            acf_tab([
-                'name' => 'SV',
-                'label' => 'Svenska',
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentSV',
-                'label' => 'Innehåll',
-                'required' => true,
-                'media_upload' => false,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'ENG',
-                'label' => 'Engelska',
-            ]),
-            acf_wysiwyg([
-                'name' => 'contentENG',
-                'label' => 'Innehåll',
-                'required' => true,
-                'media_upload' => false,
-                'tabs' => 'visual',
-                'toolbar' => 'simple',
-            ]),
-            acf_tab([
-                'name' => 'endpoint',
-                'label' => '',
-                'endpoint' => true,
-            ]),
-            acf_tab([
-                'name' => 'SV2',
-                'label' => 'Svenska',
-            ]),
-            acf_text([
-                'name' => 'titleSV',
-                'label' => 'Titel för animation',
-                'instructions' => 'Förklara vad texterna i animationerna handlar om.',
-                'required' => true,
-            ]),
-            acf_tab([
-                'name' => 'ENG2',
-                'label' => 'Engelska',
-            ]),
-            acf_text([
-                'name' => 'titleENG',
-                'label' => 'Titel för animation',
-                'instructions' => 'Förklara vad texterna i animationerna handlar om.',
-                'required' => true,
-            ]),
-            acf_tab([
-                'name' => 'endpoint2',
-                'label' => '',
-                'endpoint' => true,
-            ]),
-            acf_repeater([
-                'name' => 'item',
-                'label' => 'Tidigare aktiviteter',
-                'instructions' => 'Här kan ni lägga till exempel på tidigare aktiviteter som ni har bidragit till.',
-                'layout' => 'block',
-                'sub_fields' => [
-                    acf_tab([
-                        'name' => 'SV',
-                        'label' => 'Svenska',
-                    ]),
-                    acf_textarea([
-                        'name' => 'contentSV',
-                        'label' => 'Kort text om aktiviteten.',
-                        'required' => true,
-                        'rows' => 3,
-                    ]),
-                    acf_tab([
-                        'name' => 'ENG',
-                        'label' => 'Engelska',
-                    ]),
-                    acf_textarea([
-                        'name' => 'contentENG',
-                        'label' => 'Kort text om aktiviteten.',
-                        'required' => true,
-                        'rows' => 3,
-                    ]),
-                ],
-            ]),
-        ],
-    ]),
-];
+use WordPlate\Acf\Fields\Group;
+use WordPlate\Acf\Fields\Image;
+use WordPlate\Acf\Fields\Repeater;
+use WordPlate\Acf\Fields\Tab;
+use WordPlate\Acf\Fields\Text;
+use WordPlate\Acf\Fields\Textarea;
+use WordPlate\Acf\Fields\Wysiwyg;
+use WordPlate\Acf\Location;
 
-$location = [
-    [
-        acf_location('post_taxonomy', 'page-category:vi-stodjer')
-    ]
-];
-
-acf_field_group([
+register_extended_field_group([
     'title' => 'weSupport',
-    'fields' => $fields,
+    'fields' => [
+        Group::make('Vi stödjer', 'weSupport')
+            ->fields([
+                Image::make('Bild', 'image')
+                    ->instructions('Väljer ni ingen bild här kommer en placeholder att användas istället.')
+                    ->library('all')
+                    ->mimeTypes(['jpeg', 'jpg', 'png',])
+                    ->previewSize('medium')
+                    ->returnFormat('array'),
+                Tab::make('Svenska', 'SV'),
+                Wysiwyg::make('Innehåll', 'contentSV')
+                    ->mediaUpload(false)
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('Engelska', 'ENG'),
+                Wysiwyg::make('Innehåll', 'contentENG')
+                    ->mediaUpload(false)
+                    ->tabs('visual')
+                    ->toolbar('simple')
+                    ->required(),
+                Tab::make('', 'endpoint')->endpoint(),
+                Tab::make('Svenska', 'SV2'),
+                Text::make('Titel för animation', 'titleSV')
+                    ->instructions('Förklara vad texterna i animationerna handlar om.')
+                    ->required(),
+                Tab::make('Engelska', 'ENG2'),
+                Text::make('Titel för animation', 'titleENG')
+                    ->instructions('Förklara vad texterna i animationerna handlar om.')
+                    ->required(),
+                Tab::make('', 'endpoint2')->endpoint(),
+                Repeater::make('Tidigare aktiviteter', 'item')
+                    ->instructions('Här kan ni lägga till exempel på tidigare aktiviteter som ni har bidragit till.')
+                    ->layout('block')
+                    ->fields([
+                        Tab::make('Svenska', 'SV'),
+
+                        Textarea::make('Kort text om aktiviteten.', 'contentSV')
+                            ->rows(3)
+                            ->required(),
+
+                        Tab::make('Engelska', 'ENG'),
+                        Textarea::make('Kort text om aktiviteten.', 'contentENG')
+                            ->rows(3)
+                            ->required(),
+                    ]),
+            ]),
+    ],
     'style' => 'seamless',
-    'location' => $location,
+    'location' => [
+        Location::if('post_taxonomy', 'page-category:vi-stodjer'),
+    ],
     'hide_on_screen' => [
         'the_content',
         'featured_image',
