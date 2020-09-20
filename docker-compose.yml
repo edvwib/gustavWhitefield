@@ -1,0 +1,30 @@
+version: "3"
+
+services:
+  wordpress-gw-db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress_gw
+      MYSQL_USER: wordpress_gw_user
+      MYSQL_PASSWORD: wordpress_gw_password
+      MYSQL_ROOT_PASSWORD: root_gw_password
+    ports:
+      - 3310:3306
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: wordpress-gw-phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=wordpress-gw-db
+      - PMA_PORT=3306
+      - PMA_USER=wordpress_gw_user
+      - PMA_PASSWORD=wordpress_gw_password
+    restart: always
+    ports:
+      - 8088:80
+
+volumes:
+  mysql-datavolume:

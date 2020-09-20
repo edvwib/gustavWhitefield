@@ -37,10 +37,3 @@ Next, run the following commands inside the [web-app](./web-app) folder:
 npm install 
 npm start
 ```
-
-**Note:** create-react-app loads environment variables from the .env files only 
-on startup (npm start), if you're using Docker run the following inside the 
-docker folder if you've changed them:*
-```sh
-docker-compose restart web-app
-```
